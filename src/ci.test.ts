@@ -23,7 +23,9 @@ describe('.github/workflows/ci.yml', () => {
     expect(exiges.filter((job) => !jobs.includes(job))).toEqual([])
   })
 
-  it('exige axe, Lighthouse et le budget JS', () => {
-    expect(exiges).toEqual(expect.arrayContaining(['budget-js', 'lighthouse', 'e2e']))
+  it('exige axe, Lighthouse, le budget JS, l’audit et gitleaks', () => {
+    expect(exiges).toEqual(
+      expect.arrayContaining(['budget-js', 'lighthouse', 'e2e', 'audit', 'secrets']),
+    )
   })
 })
