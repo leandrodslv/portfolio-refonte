@@ -149,7 +149,7 @@ Le Site rendu reprend le design, l'interface et les interactions actuels dans le
 
 **Conséquences (testables) :**
 - Des captures comparées avant/après, pour chaque Thème et aux largeurs 375, 768 et 1440 px, montrent moins de 0,1 % de pixels différents. `[ASSUMPTION]` : seuil proposé par Claude.
-- Les éléments animés ou aléatoires (bandeau défilant, carte à gratter, curseur, confettis) sont figés ou masqués pour la comparaison.
+- Les éléments animés ou aléatoires (carte à gratter, curseur, confettis) sont figés ou masqués pour la comparaison.
 - Les écarts dus aux ajustements d'accessibilité validés (FR-23) sont exclus, et chacun est consigné.
 - **Préséance :** en cas de conflit, la fidélité l'emporte sur le score de performance (SM-1). L'écart de score est alors consigné.
 
@@ -194,15 +194,13 @@ Le Site conserve : les compétences déplaçables avec le bouton « Organiser »
 - Les animations déclenchées par une action du Visiteur (survol, clic, glissement) n'ont pas besoin de contrôle d'arrêt.
 
 #### FR-13 : Contrôle des contenus en mouvement
-Le design des animations est conservé tel quel. La seule exigence porte sur les contenus qui bougent seuls pendant plus de 5 secondes, comme le bandeau défilant (il tourne en boucle sans fin, sur 20 secondes). Le Visiteur doit pouvoir les mettre en pause ou les arrêter.
+Le design des animations est conservé tel quel. La seule exigence porte sur les contenus qui bougent seuls pendant plus de 5 secondes. Le site actuel n'en contient aucun : le bandeau défilant existe dans le code (`Marquee`) mais n'est plus affiché, et il n'est pas migré. Si un tel contenu est ajouté, le Visiteur doit pouvoir le mettre en pause ou l'arrêter.
 
 **Conséquences (testables) :**
-- Le bandeau défilant peut être mis en pause au clavier comme à la souris.
+- Aucun contenu du Site ne bouge seul pendant plus de 5 secondes. Tout contenu de ce type ajouté plus tard se met en pause au clavier comme à la souris.
 - Aucun élément ne clignote plus de trois fois par seconde.
-- Si Léandro refuse le contrôle de pause (c'est un ajout visible), l'écart est noté dans la déclaration d'accessibilité au lieu d'être corrigé.
 
 **Hors périmètre :** réduire les animations selon la préférence système (`prefers-reduced-motion`). Léandro a refusé cet ajustement : ce n'est pas exigé au niveau AA visé.
-`[NOTE FOR PM]` : le contrôle de pause ajoute un élément à l'interface. Il doit être montré à Léandro avant d'être appliqué (FR-23).
 
 #### FR-14 : Alternatives aux interactions
 Chaque interaction ludique a une alternative accessible. Les compétences se réorganisent sans glisser-déposer (le bouton « Organiser » existe déjà). La carte à gratter (élément `canvas`) a un équivalent textuel du contenu révélé, disponible sans gratter.
@@ -362,9 +360,9 @@ Léandro demande « le meilleur possible ». Pour que ce soit vérifiable, chaqu
 
 ## 9. Questions ouvertes
 
-1. **Framework et hébergeur** : à trancher en architecture (Astro est la piste de départ ; Sanity est acté).
+1. **Framework et hébergeur** : tranchée dans `ARCHITECTURE-SPINE.md` (Astro, Vercel), à l'origine à trancher en architecture (Astro est la piste de départ ; Sanity est acté).
 2. **Envoi du formulaire et anti-spam** : le service d'envoi actuel (un service tiers) est-il conservé ? Quel mécanisme anti-spam, dans le respect de la vie privée ? À trancher en architecture : cela conditionne FR-15, FR-16 et FR-21.
-3. **Bouton de pause du bandeau défilant** (FR-13) : Léandro l'accepte-t-il comme ajout visible, ou préfère-t-il documenter l'écart dans la déclaration d'accessibilité ?
+3. ~~Bouton de pause du bandeau défilant (FR-13)~~ : résolue, le bandeau n'est plus affiché sur le site et n'est pas migré.
 4. **Outil de mesure d'audience** (NFR-5) : lequel ? À choisir en architecture.
 
 ## 10. Index des hypothèses
