@@ -1,0 +1,7 @@
+---
+import { directiveRobots } from '../lib/environnement'
+
+const directive = directiveRobots(process.env.VERCEL_ENV)
+---
+
+{directive && <meta name="robots" content={directive} />}
