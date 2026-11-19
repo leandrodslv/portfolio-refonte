@@ -17,7 +17,7 @@ Ce document garde les détails utiles aux étapes suivantes, qui n'ont pas leur 
 | Tokens de design extraits du code (3 thèmes) | `design-system/tokens.css` |
 | Maquette Figma (desktop 1440 px, pages projet, cadre « atomic design », moodboard) | `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio` (cadre accueil : `1:57`, cadre atomic design : `1:908`) |
 | Profil LinkedIn (source du positionnement) | `https://www.linkedin.com/in/l%C3%A9andro-da-silva/` |
-| CV | `ancien-portfolio/CV_Leandro_Da_Silva.pdf` (présent dans le projet, non servi par le site) |
+| CV | `ancien-portfolio/CV_Leandro_Da_Silva.pdf`. Le site en ligne le sert bien (`/CV_Leandro_Da_Silva.pdf`, bouton « Télécharger CV »), mais il n'est pas dans `public/` : il a été déposé à la main sur l'hébergeur et disparaîtrait à une reconstruction. |
 
 ## Audit technique de l'existant (19 novembre 2026)
 
