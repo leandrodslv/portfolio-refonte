@@ -18,3 +18,9 @@ ancien-portfolio/
 # Système
 .DS_Store
 *.log
+
+# Qualité et tests
+coverage/
+playwright-report/
+test-results/
+storybook-static/
