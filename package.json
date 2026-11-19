@@ -64,5 +64,10 @@
     "preact": "11.2.0",
     "preact-render-to-string": "6.8.3",
     "tailwindcss": "4.3.5"
+  },
+  "overrides": {
+    "@vercel/routing-utils": {
+      "path-to-regexp": "6.3.0"
+    }
   }
 }
