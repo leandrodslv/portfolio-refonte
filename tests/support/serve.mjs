@@ -1,5 +1,6 @@
 import { createServer } from 'node:http'
 import { readFileSync } from 'node:fs'
+import console from 'node:console'
 import process from 'node:process'
 import { URL } from 'node:url'
 import sirv from 'sirv'
@@ -14,4 +15,4 @@ const statique = sirv('dist', { dev: true })
 createServer((requete, reponse) => {
   for (const { key, value } of entetes) reponse.setHeader(key, value)
   statique(requete, reponse)
-}).listen(port)
+}).listen(port, () => console.log(`ready on port ${port}`))

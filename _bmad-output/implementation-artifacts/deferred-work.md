@@ -20,3 +20,12 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-1-2-deploiement-automatique-dev-et-prod.md`
   summary: la protection des déploiements Vercel (`all_except_custom_domains`) couvre aussi la production sur `*.vercel.app`
   evidence: les adresses ne sont pas publiques tant qu'un domaine personnalisé n'existe pas ; à trancher avant la mise en ligne (désactiver ou étendre la protection) et avant les tests de la CI sur des adresses Vercel.
+
+## Deferred from: story 1.3 (spec-1-3-chaine-ci-bloquante-sur-chaque-pull-request), 2026-11-20
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-1-3-chaine-ci-bloquante-sur-chaque-pull-request.md`
+  summary: plancher SEO de Lighthouse à 90 au lieu de 95
+  evidence: la page d'essai n'a pas de meta description (SEO 91) et le texte doit venir de Sanity ; remettre 0.95 dans `lighthouserc.json` avec la vraie Page d'accueil (épopée 3). Écart consigné dans `docs/ci.md`.
+- source_spec: `_bmad-output/implementation-artifacts/spec-1-3-chaine-ci-bloquante-sur-chaque-pull-request.md`
+  summary: favicon absent (erreur de console, bonnes pratiques 96)
+  evidence: Lighthouse relève `errors-in-console` ; à régler avec le favicon de la vraie Page d'accueil.
