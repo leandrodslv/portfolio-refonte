@@ -49,10 +49,25 @@
     "prettier-plugin-astro": "^1.1.2",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "sirv": "^3.0.2",
     "sirv-cli": "^3.0.1",
     "storybook": "^10.6.7",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.73.0",
     "vitest": "^5.1.1"
+  },
+  "dependencies": {
+    "@astrojs/react": "7.1.9",
+    "@astrojs/sitemap": "3.7.6",
+    "@astrojs/vercel": "11.0.22",
+    "@tailwindcss/vite": "4.3.5",
+    "preact": "11.2.0",
+    "preact-render-to-string": "6.8.3",
+    "tailwindcss": "4.3.5"
+  },
+  "overrides": {
+    "@vercel/routing-utils": {
+      "path-to-regexp": "6.3.0"
+    }
   }
 }
