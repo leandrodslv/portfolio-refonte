@@ -11,3 +11,12 @@
 - **Alias `preact/compat` non consigné dans le spine ni `CLAUDE.md`** : AD-7 ne l'autorise qu'en repli si le seuil est intenable (il était tenu à 68,0 Ko, avec 2 Ko de marge) ; la table des versions n'a ni `preact` 11.2.0, ni `preact-render-to-string` 6.8.3, ni `sirv`, et `CLAUDE.md` dit toujours « îlots React 19 ». À faire : amender AD-7 (décision de Léandro, alias adopté, qualité brotli q4, Ko = 1 024 octets), compléter la table, ajuster la ligne Stack de `CLAUDE.md`.
 - **Tests et Storybook sur React, production sur Preact** : l'alias n'existe que dans `astro.config.mjs` ; `vitest.config.ts`, `.storybook/` et `jsxImportSource` de `tsconfig.json` restent sur React. Sans effet tant que `Compteur` est le seul îlot ; à régler avant le premier vrai îlot testé ou documenté en Storybook (partager l'alias, ou tester sous Preact). Risque de compatibilité à anticiper pour les bibliothèques React-only (ALTCHA, animation).
 - **Qualité brotli q4 non confirmée** (`tests/e2e/budget-js.spec.ts`) : hypothèse de proximité avec la compression de Vercel. À vérifier sur le Site de dev (story 1.2) en comparant avec le `content-length` réel des fichiers JS.
+
+## Deferred from: story 1.2 (spec-1-2-deploiement-automatique-dev-et-prod), 2026-11-20
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-1-2-deploiement-automatique-dev-et-prod.md`
+  summary: la règle `has: host` de `vercel.json` (`.*-git-dev-.*\.vercel\.app`) n'est pas confirmée sur un vrai déploiement
+  evidence: sévérité moyenne non vérifiée ; si l'expression ne correspond pas, l'en-tête `X-Robots-Tag` manque sur le Site de dev (la balise et `robots.txt` le couvrent encore). À régler au premier déploiement de `dev` : `curl -I` sur l'alias et ajuster l'expression et `src/vercel.test.ts`.
+- source_spec: `_bmad-output/implementation-artifacts/spec-1-2-deploiement-automatique-dev-et-prod.md`
+  summary: la protection des déploiements Vercel (`all_except_custom_domains`) couvre aussi la production sur `*.vercel.app`
+  evidence: les adresses ne sont pas publiques tant qu'un domaine personnalisé n'existe pas ; à trancher avant la mise en ligne (désactiver ou étendre la protection) et avant les tests de la CI sur des adresses Vercel.
