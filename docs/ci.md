@@ -29,3 +29,9 @@ Mesure du même jour : performance 100, accessibilité 100, bonnes pratiques 96 
 npm run build && npm run test:e2e   # axe, budget JS, CSP, indexation
 VERCEL_ENV=production npm run build && npx lhci autorun   # Lighthouse (Chrome requis, ou CHROME_PATH)
 ```
+
+## Navigateurs (NFR-4)
+
+`browserslist` vise les deux dernières versions de Chrome, Safari, Firefox et Edge. La matrice Playwright (`chromium` pour tous les tests ; `webkit`, `firefox` et `edge` pour le test de fumée seul) teste les builds fournis par la version de Playwright en place, donc les versions courantes des moteurs, pas l'avant-dernière : cet écart est accepté, un service de navigateurs tiers étant payant (AD-16).
+
+En local, `npm run test:e2e` reste sur Chromium ; `npm run test:navigateurs` lance les trois autres (`npx playwright install webkit firefox`). Edge exige une installation avec droits administrateur sur macOS : sa jambe se constate en CI.
