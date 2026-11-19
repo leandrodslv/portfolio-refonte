@@ -308,6 +308,16 @@ Le Site fonctionne sur les deux dernières versions de Chrome, Safari, Firefox e
 
 ### 5.5 Données personnelles et mesure d'audience
 
+#### NFR-6 : Conservation de l'ancien portfolio et retour arrière
+Léandro exige de toujours pouvoir revenir à l'ancienne version en cas de problème.
+
+**Conséquences (testables) :**
+- L'ancien site en ligne n'est ni modifié ni supprimé chez l'hébergeur actuel tant que le nouveau Site n'a pas été validé par Léandro en prod, puis pendant une période de repli convenue (`[ASSUMPTION]` : 30 jours après la bascule).
+- Le nouveau Site est d'abord mis en ligne sur une adresse provisoire. La bascule du domaine `leandro-dasilva.com` est une étape distincte, réversible en remettant l'ancien enregistrement DNS.
+- Une archive complète de l'ancien site (code, fichiers publiés, CV en ligne) existe hors du dépôt, avec une empreinte de contrôle.
+- `ancien-portfolio/` reste dans le dossier du projet, en lecture seule, et n'est jamais supprimé ni modifié.
+- Le retour à l'ancienne version se fait en moins d'une heure, sans reconstruction.
+
 #### NFR-5 : Mesure d'audience sans cookies
 Léandro veut connaître la fréquentation. Le Site utilise un outil de mesure sans cookies, sans bandeau de consentement ni identifiant personnel. Le choix de l'outil est fait en architecture.
 
@@ -327,7 +337,7 @@ Léandro veut connaître la fréquentation. Le Site utilise un outil de mesure s
 ## 7. Périmètre v1
 
 ### 7.1 Dans la v1
-Toutes les exigences de ce document : FR-1 à FR-23 (contenu, navigation, adresses, Thèmes, Langues, Projets, interactions, contact, référencement, tokens, sécurité, RGAA) et NFR-1 à NFR-5 (performance, Environnements, contrôle automatique, compatibilité, mesure d'audience).
+Toutes les exigences de ce document : FR-1 à FR-23 (contenu, navigation, adresses, Thèmes, Langues, Projets, interactions, contact, référencement, tokens, sécurité, RGAA) et NFR-1 à NFR-6 (performance, Environnements, contrôle automatique, compatibilité, conservation de l'ancien site, mesure d'audience).
 
 ### 7.2 Hors v1
 Nouvelles langues, nouveau design, nouvelles sections, version freelance du Site, mesure d'audience avancée.
@@ -367,5 +377,6 @@ Léandro demande « le meilleur possible ». Pour que ce soit vérifiable, chaqu
 - FR-8 / SM-4 : seuil de 0,1 % de pixels différents.
 - NFR-1 : JavaScript initial sous 70 Ko compressés.
 - NFR-4 : liste des navigateurs pris en charge.
+- NFR-6 : période de repli de 30 jours après la bascule.
 - SM-6 : indexation du Site à la recherche du nom de Léandro.
 - §8 : les planchers des indicateurs (les cibles viennent de Léandro : « le meilleur possible »).

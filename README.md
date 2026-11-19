@@ -17,3 +17,9 @@ Flux de travail : branche de fonctionnalité → pull request vers `dev` → pul
 - Brief produit : `_bmad-output/planning-artifacts/briefs/`
 - Tokens de design : `design-system/tokens.css`
 - Méthode : BMAD (`_bmad/`, `.claude/skills/`)
+
+## Version ancienne du portfolio (à conserver)
+
+- `ancien-portfolio/` : copie locale en lecture seule, **hors Git** (contient e-mail, téléphone, CV). Ne jamais la supprimer ni la modifier.
+- Archive hors dépôt : `~/Developer/archives-portfolio/portfolio-ancien-2026-11-19.tar.gz` (empreinte SHA-256 à côté).
+- L'ancien site reste en ligne chez Hostinger jusqu'à validation du nouveau, puis pendant une période de repli.
