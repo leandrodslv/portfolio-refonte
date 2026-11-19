@@ -150,7 +150,7 @@ Audit sur l'échantillon, déclaration d'accessibilité, ajustements visuels con
 
 ## Epic 1 : Un Site déployable, vérifié automatiquement
 
-Léandro pousse du code, une chaîne automatique le contrôle et un Site de dev se déploie. L'outillage qualité (hooks, Vitest, Playwright, `ci-ok`) existe déjà sur `feat/qualite-ci` : cette épopée y ajoute le socle Astro et ce qui manque pour que chaque story suivante soit livrée sous contrôle.
+Léandro pousse du code, une chaîne automatique le contrôle et un Site de dev se déploie. L'outillage qualité est déjà dans `dev` (PR #3) : hooks, Vitest, Playwright, Storybook, Semgrep, gitleaks, `ci-ok`, Dependabot, protection de `main` et `dev`. Cette épopée y ajoute le socle Astro complet et ce qui manque pour que chaque story suivante soit livrée sous contrôle : budget JS, CSP, Lighthouse, axe, navigateurs, déploiement.
 
 ### Story 1.1 : Socle Astro prouvé (budget JS et CSP)
 
@@ -207,10 +207,10 @@ afin qu'une régression ne soit jamais fusionnée dans `main` (NFR-3).
 
 **Given** une PR ouverte vers `dev` ou `main`
 **When** la CI s'exécute
-**Then** elle lance build, `astro check`, lint, tests Vitest, axe sur la page d'accueil, Lighthouse et la mesure du budget JS
+**Then** elle lance, en plus du build, de `astro check`, du lint, des tests Vitest, de Semgrep, de gitleaks et de `npm audit` déjà en place, axe sur la page d'accueil, Lighthouse et la mesure du budget JS
 **And** le check agrégé `ci-ok` échoue si une étape échoue.
 
-**Given** `ci-ok` est déclaré comme status check obligatoire sur `main`
+**Given** `ci-ok`, `PR Title` et `fix-needs-test` sont déjà des checks obligatoires sur `main` et `dev`
 **When** une PR échoue
 **Then** GitHub bloque la fusion
 **And** une PR `fix:` sans test modifié échoue au workflow `fix-needs-test`.
@@ -251,7 +251,7 @@ afin de pouvoir démontrer la sécurité du Site (FR-21).
 **Given** Dependabot et `npm audit` actifs
 **When** une dépendance vulnérable est introduite
 **Then** la CI le signale
-**And** une analyse de secrets (outil open source) échoue si un secret est détecté dans le dépôt.
+**And** gitleaks (déjà en CI) échoue si un secret est détecté dans le dépôt, et l'allowlist de `.gitleaks.toml` reste limitée aux faux positifs documentés.
 
 ### Story 1.6 : Variables validées et alerte de build
 
@@ -775,6 +775,11 @@ je veux deux routes serveur qui valident un jeton ALTCHA puis envoient via Resen
 afin que seul un envoi légitime crée un message (FR-15, FR-21, AD-8).
 
 **Acceptance Criteria:**
+
+**Given** le domaine d'envoi n'est pas encore vérifié (SPF et DKIM sont posés en 9.5)
+**When** je configure Resend
+**Then** l'expéditeur de test de Resend est utilisé vers l'adresse de Léandro, après vérification de cette contrainte dans la documentation Resend
+**And** l'adresse d'expédition finale est basculée en 9.5.
 
 **Given** `api/altcha.ts`
 **When** je l'appelle
