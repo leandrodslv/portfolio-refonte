@@ -22,6 +22,6 @@ describe('.github/dependabot.yml', () => {
   const dependabot = lire('.github/dependabot.yml')
 
   it.each(['npm', 'github-actions'])('surveille l’écosystème %s', (ecosysteme) => {
-    expect(dependabot).toMatch(new RegExp(`package-ecosystem:\\s*${ecosysteme}`))
+    expect(dependabot).toContain(`package-ecosystem: ${ecosysteme}`)
   })
 })
