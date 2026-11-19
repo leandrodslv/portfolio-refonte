@@ -1,0 +1,13 @@
+
+## Deferred from: code review of story 1.1 (2026-11-19)
+
+- **Page d'essai en production sur `/`** : titre, `<h1>`, libellé `Compteur`, `lang="fr"` et `data-theme="pop"` en dur (AD-3), îlot `Compteur` et son `data-hydrate` n'existant que pour les tests (`src/pages/index.astro`, `src/islands/Compteur.tsx`). Provisoire : à remplacer par la vraie Page d'accueil (épopée 3) ; le budget JS devra alors être remesuré sans `Compteur`.
+- **Le serveur de test ne reproduit pas Vercel** (`tests/support/serve.mjs`) : le champ `source` de `vercel.json` est ignoré (toutes les règles s'appliquent à tous les chemins), `sirv` tourne en `dev: true`, redirections et `cleanUrls` ignorés. Devient réel dès que la story 1.5 ajoute des en-têtes par route. Règle à régler : appliquer `source` (path-to-regexp) ou tester sur un déploiement preview.
+- **Thème non vérifié au rendu** (`src/styles/global.test.ts`) : seules des regex sur le texte de `global.css`. Un token renommé laisserait la CI verte. Ajouter un `toHaveCSS` Playwright (fond du `body`, bordure et ombre du bouton) ou le couvrir par les tests visuels.
+- **En-têtes de production et CSP peu testés** (`tests/headers/csp.spec.ts`) : le test prouve seulement que `serve.mjs` relaie `vercel.json`, pas que Vercel sert ces en-têtes ; aucun test négatif (script inline non autorisé bloqué) ni garde-fou qui échoue si `vercel.json` gagne un `script-src`. `default-src`, `object-src`, `base-uri` absents de la balise meta : à traiter avec la story 1.5.
+
+## Deferred from: code review of story 1.1, seconde relecture (2026-11-19)
+
+- **Alias `preact/compat` non consigné dans le spine ni `CLAUDE.md`** : AD-7 ne l'autorise qu'en repli si le seuil est intenable (il était tenu à 68,0 Ko, avec 2 Ko de marge) ; la table des versions n'a ni `preact` 11.2.0, ni `preact-render-to-string` 6.8.3, ni `sirv`, et `CLAUDE.md` dit toujours « îlots React 19 ». À faire : amender AD-7 (décision de Léandro, alias adopté, qualité brotli q4, Ko = 1 024 octets), compléter la table, ajuster la ligne Stack de `CLAUDE.md`.
+- **Tests et Storybook sur React, production sur Preact** : l'alias n'existe que dans `astro.config.mjs` ; `vitest.config.ts`, `.storybook/` et `jsxImportSource` de `tsconfig.json` restent sur React. Sans effet tant que `Compteur` est le seul îlot ; à régler avant le premier vrai îlot testé ou documenté en Storybook (partager l'alias, ou tester sous Preact). Risque de compatibilité à anticiper pour les bibliothèques React-only (ALTCHA, animation).
+- **Qualité brotli q4 non confirmée** (`tests/e2e/budget-js.spec.ts`) : hypothèse de proximité avec la compression de Vercel. À vérifier sur le Site de dev (story 1.2) en comparant avec le `content-length` réel des fichiers JS.
