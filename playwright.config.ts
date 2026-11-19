@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test'
 
+const fumee = ['e2e/smoke.spec.ts']
+
 export default defineConfig({
   testDir: 'tests',
   testMatch: ['e2e/**/*.spec.ts', 'headers/**/*.spec.ts', 'a11y/**/*.spec.ts'],
@@ -14,5 +16,10 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },
-  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  projects: [
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'webkit', testMatch: fumee, use: { ...devices['Desktop Safari'] } },
+    { name: 'firefox', testMatch: fumee, use: { ...devices['Desktop Firefox'] } },
+    { name: 'edge', testMatch: fumee, use: { ...devices['Desktop Edge'], channel: 'msedge' } },
+  ],
 })

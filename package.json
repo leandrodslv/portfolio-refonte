@@ -16,7 +16,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:e2e": "playwright test",
+    "test:e2e": "playwright test --project=chromium",
+    "test:navigateurs": "playwright test --project=webkit --project=firefox --project=edge",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -71,5 +72,11 @@
     "@vercel/routing-utils": {
       "path-to-regexp": "6.3.0"
     }
-  }
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Safari versions",
+    "last 2 Firefox versions",
+    "last 2 Edge versions"
+  ]
 }
