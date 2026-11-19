@@ -1,0 +1,34 @@
+name: Fix needs test
+
+# Chaque bug corrigé produit un test (docs/TESTING-RULES.md).
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  fix-needs-test:
+    name: fix-needs-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Une PR fix doit modifier un test
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          case "$TITLE" in
+            fix:*|fix\(*) ;;
+            *) echo "Pas une PR fix, rien à vérifier."; exit 0 ;;
+          esac
+          if gh api "repos/$REPO/pulls/$PR/files" --paginate --jq '.[].filename' | grep -Eq '\.(test|spec)\.(ts|tsx|js|mjs)$'; then
+            echo "Un test accompagne le correctif."
+          else
+            echo "::error::Une PR fix: doit inclure un fichier de test (*.test.* ou *.spec.*)."
+            exit 1
+          fi

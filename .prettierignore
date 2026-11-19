@@ -1,0 +1,14 @@
+dist
+.astro
+.vercel
+coverage
+ancien-portfolio
+_bmad
+_bmad-output
+.claude
+package-lock.json
+playwright-report
+test-results
+storybook-static
+README.md
+design-system

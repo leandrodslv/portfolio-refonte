@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Empreintes de fichiers du manifeste BMAD : faux positifs"
+paths = ['''_bmad/_config/files-manifest\.csv''']
