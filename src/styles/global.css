@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+@import '../../design-system/tokens.css';
+
+@theme inline {
+  --color-surface: var(--bg);
+  --color-ink: var(--text);
+  --color-line: var(--border-color);
+  --color-card: var(--card-bg);
+  --color-action: var(--button-primary-bg);
+  --color-action-ink: var(--button-primary-text);
+  --shadow-card: var(--shadow);
+  --font-body: var(--font);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+}
