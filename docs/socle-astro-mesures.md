@@ -2,15 +2,26 @@
 
 ## Budget JavaScript (AD-7)
 
-Mesure : JavaScript transféré en brotli au chargement de `/`, sans interaction, avec un îlot React `client:visible` placé dans la fenêtre (cas le plus lourd, l'îlot hydrate). Test : `tests/e2e/budget-js.spec.ts`.
+Mesure : JavaScript transféré en brotli au chargement de `/`, sans interaction, avec un îlot React `client:visible` placé dans la fenêtre (cas le plus lourd, l'îlot hydrate). Test : `tests/e2e/budget-js.spec.ts`. La taille est recalculée en brotli qualité 4 (proche de la compression à la volée de Vercel) ; la qualité 11 donnait 58,5 Ko et sous-estimait le transfert. « Ko » vaut 1 024 octets.
 
-| Mesure                                    | Résultat        |
-| ----------------------------------------- | --------------- |
-| JS brotli, 3 fichiers (React 19 + îlot)   | 58,5 Ko         |
-| Seuil                                     | 70 Ko           |
-| Marge restante pour les stories suivantes | environ 11,5 Ko |
+| Mesure                                     | Résultat     |
+| ------------------------------------------ | ------------ |
+| JS brotli q4, 3 fichiers (React 19 + îlot) | 68,0 Ko      |
+| Seuil                                      | 70 Ko        |
+| Marge restante (React 19 seul)             | environ 2 Ko |
 
-Le seuil est tenable avec React 19 : l'alias `preact/compat` n'est pas nécessaire. La marge est faible : `prefs.ts` (nanostores) et les îlots de la Page d'accueil devront rester dans ces 11,5 Ko, ou hydrater hors du chemin initial (`client:visible`).
+Avec React 19 seul, le seuil est tenu de très peu (marge d'environ 2 Ko) : l'alias `preact/compat` est donc adopté (voir ci-dessous).
+
+## Essai de l'alias `preact/compat` (AD-7)
+
+Essai mené parce que la marge avec React 19 est d'environ 2 Ko. Configuration : alias Vite `react` et `react-dom` vers `preact/compat` dans `astro.config.mjs`, plus `preact` et `preact-render-to-string` (rendu serveur) en dépendances exactes.
+
+| Variante                     | JS brotli q4, 3 fichiers |
+| ---------------------------- | ------------------------ |
+| React 19                     | 68,0 Ko                  |
+| React aliasé `preact/compat` | 8,4 Ko                   |
+
+Avec l'alias, build, typecheck, lint, tests unitaires et les 5 tests navigateur (dont CSP sans violation et hydratation) passent. **Décision (Léandro) : l'alias est adopté.** React reste l'API d'écriture des îlots, Preact les exécute. La marge passe d'environ 2 Ko à environ 61 Ko.
 
 ## CSP (AD-11)
 

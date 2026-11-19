@@ -12,8 +12,8 @@
   --font-body: var(--font);
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font);
+@layer base {
+  body {
+    @apply bg-surface font-body text-ink;
+  }
 }

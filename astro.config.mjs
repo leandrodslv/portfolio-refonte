@@ -10,5 +10,13 @@ export default defineConfig({
   adapter: vercel(),
   integrations: [react(), sitemap()],
   security: { csp: true },
-  vite: { plugins: [tailwindcss()] },
+  vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        react: 'preact/compat',
+        'react-dom': 'preact/compat',
+      },
+    },
+  },
 })
