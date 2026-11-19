@@ -1,0 +1,189 @@
+/* ==========================================================================
+   Design tokens — portfolio Léandro Da Silva
+   Source : extraction de ancien-portfolio/src/styles/theme.js + composants.
+   Principe : la DA actuelle est conservée à l'identique (Pop, Terminal,
+   Wireframe). Les valeurs Tailwind ont été résolues en hex.
+   ========================================================================== */
+
+:root {
+  /* ---- Primitives : palette -------------------------------------------- */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-cream: #fffdf5;          /* fond Pop */
+  --color-cream-alt: #f5f5f0;
+
+  --color-coral: #ff5959;          /* accent de marque (theme-color) */
+  --color-lime: #ccff00;           /* sticker, hover, ombre accent */
+  --color-mint: #00eb90;
+  --color-mint-dark: #00c97a;
+  --color-mint-light: #b2f9dd;
+  --color-butter: #fdec90;
+  --color-yellow: #fde047;         /* yellow-300 */
+  --color-pink: #f472b6;           /* pink-400 */
+  --color-sky: #93c5fd;            /* blue-300 */
+  --color-sky-light: #bfdbfe;      /* blue-200 */
+  --color-green: #4ade80;          /* green-400 */
+  --color-lilac: #d8b4fe;          /* purple-300 */
+  --color-lilac-light: #f3e8fe;
+
+  /* Thème Terminal */
+  --color-term-bg: #000000;
+  --color-term-surface: #111827;   /* gray-900 */
+  --color-term-text: #4ade80;      /* green-400 */
+  --color-term-border: #22c55e;    /* green-500 */
+  --color-term-button: #15803d;    /* green-700 */
+  --color-term-button-hover: #16a34a; /* green-600 */
+  --color-term-sticker-bg: #14532d; /* green-900 */
+
+  /* Thème Wireframe */
+  --color-wire-bg: #f8fafc;        /* slate-50 */
+  --color-wire-nav: #f1f5f9;       /* slate-100 */
+  --color-wire-text: #1e3a8a;      /* blue-900 */
+  --color-wire-line: #1d4ed8;      /* blue-700 */
+  --color-wire-hover: #eff6ff;     /* blue-50 */
+
+  --color-primary-action: #2563eb; /* blue-600, bouton principal Pop */
+
+  /* ---- Typographie ------------------------------------------------------ */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;        /* dominante dans la DA (60 usages) */
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+
+  /* ---- Espacement (échelle Tailwind, base 4px) -------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ---- Bordures & rayons ------------------------------------------------ */
+  --border-thin: 2px;
+  --border-thick: 4px;             /* signature néo-brutaliste (52 usages) */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ---- Ombres Pop : décalées, sans flou --------------------------------- */
+  --shadow-hard-xs: 2px 2px 0 0 #000;
+  --shadow-hard-sm: 4px 4px 0 0 #000;
+  --shadow-hard-md: 6px 6px 0 0 #000;
+  --shadow-hard-lg: 8px 8px 0 0 #000;
+  --shadow-hard-xl: 12px 12px 0 0 #000;  /* hover des cartes */
+  --shadow-hard-lime: 4px 4px 0 0 #ccff00;
+  --shadow-soft-sticker: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  --shadow-glow-terminal: 0 0 15px rgba(34, 197, 94, 0.5);
+
+  /* ---- Mouvement -------------------------------------------------------- */
+  --duration-base: 300ms;
+  --duration-slow: 500ms;          /* changement de thème */
+  --ease-default: ease-in-out;
+  --rotate-sticker: -3deg;
+  --rotate-tilt-sm: -1deg;
+  --rotate-tilt-md: -2deg;
+
+  /* ---- Breakpoints (documentaire : non utilisables dans @media) --------- */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+}
+
+/* ==========================================================================
+   Tokens sémantiques par thème — équivalent de themeConfig (theme.js)
+   Usage : <html data-theme="pop|terminal|wireframe">
+   ========================================================================== */
+
+[data-theme="pop"] {
+  --bg: var(--color-cream);
+  --text: var(--color-black);
+  --border-color: var(--color-black);
+  --border-style: solid;
+  --nav-bg: var(--color-white);
+  --card-bg: var(--color-white);
+  --accent-1: var(--color-pink);
+  --accent-2: var(--color-yellow);
+  --accent-3: var(--color-sky);
+  --accent-4: var(--color-green);
+  --accent-5: var(--color-lilac);
+  --button-primary-bg: var(--color-primary-action);
+  --button-primary-text: var(--color-white);
+  --button-secondary-bg: var(--color-white);
+  --button-secondary-text: var(--color-black);
+  --shadow: var(--shadow-hard-sm);
+  --shadow-lg: var(--shadow-hard-lg);
+  --card-hover-shadow: var(--shadow-hard-xl);
+  --sticker-bg: var(--color-lime);
+  --sticker-rotate: var(--rotate-sticker);
+  --font: var(--font-sans);
+}
+
+[data-theme="terminal"] {
+  --bg: var(--color-term-bg);
+  --text: var(--color-term-text);
+  --border-color: var(--color-term-border);
+  --border-style: solid;
+  --nav-bg: var(--color-term-surface);
+  --card-bg: var(--color-term-surface);
+  --accent-1: var(--color-term-surface);
+  --accent-2: var(--color-term-surface);
+  --accent-3: var(--color-term-surface);
+  --accent-4: var(--color-term-surface);
+  --accent-5: var(--color-term-surface);
+  --button-primary-bg: var(--color-term-button);
+  --button-primary-text: var(--color-black);
+  --button-secondary-bg: var(--color-black);
+  --button-secondary-text: var(--color-term-border);
+  --shadow: none;
+  --shadow-lg: none;
+  --card-hover-shadow: var(--shadow-glow-terminal);
+  --sticker-bg: var(--color-term-sticker-bg);
+  --sticker-rotate: 0deg;
+  --font: var(--font-mono);
+}
+
+[data-theme="wireframe"] {
+  --bg: var(--color-wire-bg);
+  --text: var(--color-wire-text);
+  --border-color: var(--color-wire-line);
+  --border-style: dashed;
+  --nav-bg: var(--color-wire-nav);
+  --card-bg: var(--color-white);
+  --accent-1: transparent;
+  --accent-2: transparent;
+  --accent-3: transparent;
+  --accent-4: transparent;
+  --accent-5: transparent;
+  --button-primary-bg: var(--color-wire-line);
+  --button-primary-text: var(--color-white);
+  --button-secondary-bg: transparent;
+  --button-secondary-text: var(--color-wire-text);
+  --shadow: none;
+  --shadow-lg: none;
+  --card-hover-shadow: none;       /* hover = translate(4px, -4px) */
+  --sticker-bg: var(--color-white);
+  --sticker-rotate: 0deg;
+  --font: var(--font-sans);
+}
