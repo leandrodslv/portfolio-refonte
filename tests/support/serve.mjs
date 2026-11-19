@@ -8,7 +8,7 @@ const port = Number(process.env.PORT ?? 4321)
 const { headers: regles } = JSON.parse(
   readFileSync(new URL('../../vercel.json', import.meta.url), 'utf8'),
 )
-const entetes = regles.flatMap((regle) => regle.headers)
+const entetes = regles.filter((regle) => !regle.has).flatMap((regle) => regle.headers)
 const statique = sirv('dist', { dev: true })
 
 createServer((requete, reponse) => {
