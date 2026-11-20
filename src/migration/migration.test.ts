@@ -1,10 +1,12 @@
+import { execFileSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { validerChampLocalise, validerChampLocaliseOptionnel } from '../../studio/lib/champLocalise'
 import { FAMILLES_COMPETENCE, TEINTES } from '../../studio/lib/sections'
 import { ACCENTS, GABARITS, validerAltImage } from '../../studio/lib/validationProjet'
-import { lireLangue, type Langue } from './ancien'
+import ancienSite from './ancien.json'
+import type { Langue } from './ancien'
 import {
   construireDocuments,
   decouperDefiConcept,
@@ -90,7 +92,7 @@ function estExclu(chemin: string): boolean {
 }
 
 function cheminsDeLangue(langue: Langue): Array<[string, string]> {
-  return Object.entries(lireLangue(langue).textes).filter(
+  return Object.entries(ancienSite[langue].textes).filter(
     ([chemin, valeur]) => !estExclu(chemin) && valeur.trim() !== '',
   )
 }
@@ -258,12 +260,26 @@ describe('structure migrée', () => {
   })
 })
 
-describe('images', () => {
-  it('chaque fichier référencé existe dans ancien-portfolio/public', () => {
-    const manquants = fichiersReferences(documents).filter((chemin) => !existsSync(chemin))
-    expect(manquants).toEqual([])
-  })
-})
+const ancienPresent = existsSync(resolve(import.meta.dirname, '../../ancien-portfolio/index.html'))
+
+describe.runIf(ancienPresent)(
+  'ancien-portfolio/ présent (hors CI, où il est ignoré par git)',
+  () => {
+    it('src/migration/ancien.json est à jour', () => {
+      expect(() =>
+        execFileSync('node', ['scripts/extraire-ancien.mjs', '--verifier'], {
+          cwd: resolve(import.meta.dirname, '../..'),
+          stdio: 'pipe',
+        }),
+      ).not.toThrow()
+    })
+
+    it('chaque fichier référencé existe dans ancien-portfolio/public', () => {
+      const manquants = fichiersReferences(documents).filter((chemin) => !existsSync(chemin))
+      expect(manquants).toEqual([])
+    })
+  },
+)
 
 describe('découpe défi et concept', () => {
   it('FR : coupe avant le libellé du concept, libellés conservés', () => {

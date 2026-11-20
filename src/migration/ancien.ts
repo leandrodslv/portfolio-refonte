@@ -1,4 +1,3 @@
-import { getSafeTranslation } from '../../ancien-portfolio/src/data/content'
 import { chaine, chaineOptionnelle, chaines, nombre, objet, tableau, type Objet } from './lecture'
 
 export type Langue = 'fr' | 'en'
@@ -194,8 +193,24 @@ function projet(brut: unknown, chemin: string): ProjetAncien {
   }
 }
 
-export function lireLangue(langue: Langue): AncienneLangue {
-  const brut = objet(getSafeTranslation(langue), langue)
+export interface AncienSite {
+  fr: AncienneLangue
+  en: AncienneLangue
+  index: { nom: string; titre: string; description: string }
+}
+
+export function lireIndex(html: string): AncienSite['index'] {
+  const titre = /<title>(.*?)<\/title>/.exec(html)?.[1]
+  const description = /<meta name="description"\s+content="(.*?)"/.exec(html)?.[1]
+  const nom = /<meta name="author" content="(.*?)"/.exec(html)?.[1]
+  if (titre === undefined || description === undefined || nom === undefined) {
+    throw new Error('Migration : titre, description ou auteur introuvable dans index.html.')
+  }
+  return { nom, titre, description }
+}
+
+export function lireLangue(langue: Langue, source: unknown): AncienneLangue {
+  const brut = objet(source, langue)
   const timeline = objet(brut.timeline, `${langue}.timeline`)
   const skills = objet(brut.skills, `${langue}.skills`)
   const services = objet(brut.services, `${langue}.services`)

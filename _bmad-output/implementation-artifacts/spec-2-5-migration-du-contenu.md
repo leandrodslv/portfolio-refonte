@@ -94,6 +94,7 @@ context:
 - Sortie : 14 documents, 86 références d'images (4 couvertures, 7 Belote Kart, 38 Studapp, 6 Good Pizza, 14 Capitaine Scout, 17 Graphisme). Le script charge l'ancien site par Vite (ses imports n'ont pas d'extension).
 - Écarts assumés, tous signalés à Léandro : quatre Projets et non cinq ; galerie Graphisme de 17 images et non 19 (Studapp en compte 19) ; deux étiquettes sans pendant gardées dans les deux langues ; lien vidéo factice d'Audiovisuel (`VOTRE_LIEN_ICI_2`) retiré en plus du bouton GitHub ; titre de carte EN de Belote Kart repris du titre (`Programming`), car le FR a un titre de carte et pas l'EN ; `siteSettings` migré en FR seulement (l'ancien site n'a pas de titre ni de description EN), avec l'adresse LinkedIn générique de l'ancien site.
 - `uiStrings` : 42 clés migrées ; les clés sans équivalent restent à rédiger. `ui.about`, `ui.seeMore`, `ui.source` et `label` (jamais affichés ou remplacés) sont exclus, avec leur raison dans le test.
+- Correctif après la CI de la PR : `ancien-portfolio/` est ignoré par git, la CI ne l'a pas. Le texte de l'ancien site est extrait dans `src/migration/ancien.json` (committé) par `npm run extraire:ancien` ; le test de comparaison et le script lisent ce fichier. Contrôle local `ancien.json est à jour` et existence des images ne tournent que si `ancien-portfolio/` est présent (2 tests ignorés en CI).
 - Non vérifié : l'import réel dans `dev` (action de Léandro) et son effet dans le Studio.
 - 172 tests, lint, format et typecheck verts, `tsc` du Studio vert.
 

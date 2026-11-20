@@ -1,10 +1,10 @@
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { slugifier } from '../../studio/lib/validationProjet'
-import indexHtml from '../../ancien-portfolio/index.html?raw'
+import ancienSite from './ancien.json'
 import {
-  lireLangue,
   type AncienneLangue,
+  type AncienSite,
   type ElementGraphique,
   type EnteteAncien,
   type ImageGalerie,
@@ -341,16 +341,6 @@ function projet(
   )
 }
 
-function lireTitreEtDescription(): { nom: string; titre: string; description: string } {
-  const titre = /<title>(.*?)<\/title>/.exec(indexHtml)?.[1]
-  const description = /<meta name="description"\s+content="(.*?)"/.exec(indexHtml)?.[1]
-  const nom = /<meta name="author" content="(.*?)"/.exec(indexHtml)?.[1]
-  if (titre === undefined || description === undefined || nom === undefined) {
-    throw new Error('Migration : titre, description ou auteur introuvable dans index.html.')
-  }
-  return { nom, titre, description }
-}
-
 function uiStrings(fr: AncienneLangue, en: AncienneLangue): DocumentImport {
   const document: DocumentImport = { _id: 'uiStrings', _type: 'uiStrings' }
   for (const { cle, chemin, longue } of TABLE_UI_STRINGS) {
@@ -364,11 +354,13 @@ function uiStrings(fr: AncienneLangue, en: AncienneLangue): DocumentImport {
   return document
 }
 
-export function construireDocuments(racinePublic: string): DocumentImport[] {
+export function construireDocuments(
+  racinePublic: string,
+  ancien: AncienSite = ancienSite,
+): DocumentImport[] {
   const contexte: Contexte = { racinePublic }
-  const fr = lireLangue('fr')
-  const en = lireLangue('en')
-  const { nom, titre, description } = lireTitreEtDescription()
+  const { fr, en } = ancien
+  const { nom, titre, description } = ancien.index
   const heroFr = fr.hero
   const heroEn = en.hero
   const texte = (source: Record<string, unknown>, cle: string): string => {

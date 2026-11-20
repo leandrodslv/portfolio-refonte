@@ -1,0 +1,1829 @@
+{
+  "fr": {
+    "textes": {
+      "label": "🇫🇷 Français",
+      "showMore": "Afficher plus",
+      "nav.work": "Projets",
+      "nav.journey": "Parcours",
+      "nav.skills": "Compétences",
+      "nav.contact": "Contact",
+      "nav.cta": "Me recruter",
+      "hero.badge": "👋 Étudiant - Product designer",
+      "hero.title1": "BONJOUR, JE SUIS",
+      "hero.title2": "LÉANDRO",
+      "hero.title3": "DA SILVA",
+      "hero.subtitle": "Étudiant en Bachelor Chef de Projet Digital à Digital Campus Paris, je me spécialise en Product Design. Je recherche une alternance pour la rentrée de septembre.",
+      "hero.ctaPrimary": "Voir mes projets",
+      "hero.ctaSecondary": "Me contacter",
+      "marquee.items[0]": "HTML/CSS",
+      "marquee.items[1]": "Python",
+      "marquee.items[2]": "Figma",
+      "marquee.items[3]": "Canva",
+      "marquee.items[4]": "Premiere",
+      "marquee.items[5]": "SQL",
+      "marquee.items[6]": "Gestion Projet",
+      "work.title": "PROJETS",
+      "work.titleHighlight": "RÉALISÉS",
+      "work.subtitle": "Une sélection de mes travaux académiques et personnels.",
+      "work.viewProject": "DÉTAILS",
+      "timeline.title": "MON",
+      "timeline.titleHighlight": "PARCOURS",
+      "timeline.subtitle": "Mon cheminement académique et mes engagements associatifs.",
+      "timeline.steps[0].year": "2026 - Présent",
+      "timeline.steps[0].title": "Bachelor Digital",
+      "timeline.steps[0].place": "Digital Campus Paris",
+      "timeline.steps[0].desc": "Chef de projet digital, spécialité Product Designer.",
+      "timeline.steps[1].year": "2024 - 2026",
+      "timeline.steps[1].title": "Projets Associatifs",
+      "timeline.steps[1].place": "Humanitaire & Code",
+      "timeline.steps[1].desc": "Responsable Com' & Dév Jeu Python.",
+      "timeline.steps[2].year": "2023 - 2024",
+      "timeline.steps[2].title": "Projet Web",
+      "timeline.steps[2].place": "Scolaire",
+      "timeline.steps[2].desc": "Création site interactif & Wireframe Figma.",
+      "timeline.steps[3].year": "Avant 2023",
+      "timeline.steps[3].title": "Baccalauréat",
+      "timeline.steps[3].place": "Lycée Charles Péguy",
+      "timeline.steps[3].desc": "Spécialités SES et NSI.",
+      "skills.title": "HARD & SOFT",
+      "skills.titleHighlight": "SKILLS",
+      "skills.subtitle": "Glissez-déposez pour jouer !",
+      "skills.items[0].name": "UX/UI Design",
+      "skills.items[0].type": "hard",
+      "skills.items[0].color": "bg-pink-300",
+      "skills.items[1].name": "Python",
+      "skills.items[1].type": "hard",
+      "skills.items[1].color": "bg-yellow-300",
+      "skills.items[2].name": "Lumière",
+      "skills.items[2].type": "hard",
+      "skills.items[2].color": "bg-blue-300",
+      "skills.items[3].name": "Montage",
+      "skills.items[3].type": "hard",
+      "skills.items[3].color": "bg-purple-300",
+      "skills.items[4].name": "Leadership",
+      "skills.items[4].type": "soft",
+      "skills.items[4].color": "bg-green-300",
+      "skills.items[5].name": "Communication",
+      "skills.items[5].type": "soft",
+      "skills.items[5].color": "bg-orange-300",
+      "skills.items[6].name": "Adaptabilité",
+      "skills.items[6].type": "soft",
+      "skills.items[6].color": "bg-red-300",
+      "skills.items[7].name": "Esprit d'équipe",
+      "skills.items[7].type": "soft",
+      "skills.items[7].color": "bg-teal-300",
+      "services.title": "MES",
+      "services.titleHighlight": "COMPÉTENCES",
+      "services.items[0].title": "Graphisme",
+      "services.items[0].desc": "Charte graphique, Identité visuelle, Illustration, Mise en page, Photomontage.",
+      "services.items[1].title": "UX/UI Design",
+      "services.items[1].desc": "User Research, Wireframes, Prototypage, Design System.",
+      "services.items[2].title": "Audiovisuel",
+      "services.items[2].desc": "Montage, Motion Design, Sound Design.",
+      "services.items[3].title": "Développement",
+      "services.items[3].desc": "HTML, CSS, Javascript, Python.",
+      "about.badge": "",
+      "about.title": "QUI",
+      "about.titleHighlight": "SUIS-JE ?",
+      "about.p1": "Actuellement étudiant en Bachelor Chef de Projet Digital à Digital Campus Paris, je recherche un stage de 3 à 6 mois dès le 23 février. Mon objectif est simple : mettre ma polyvalence et ma curiosité au service de votre transformation numérique.",
+      "about.p2": "Au-delà de mes compétences techniques, mon parcours est marqué par un fort engagement. Mes années de scoutisme et mon projet humanitaire m'ont appris des valeurs essentielles en entreprise : le leadership, la gestion de projet en conditions réelles, l'adaptabilité face aux imprévus et surtout, l'esprit d'équipe.",
+      "about.p3": "Passionné par l'art et le sport, j'apporte une sensibilité créative et un dynamisme constant dans tout ce que j'entreprends. Je ne cherche pas seulement un poste, je cherche à m'investir dans une structure où je pourrai grandir et apporter une réelle valeur ajoutée.",
+      "about.downloadCV": "TÉLÉCHARGER MON CV",
+      "about.location": "Localisation",
+      "about.locationValue": "Île-de-France",
+      "contact.title": "Me Contacter",
+      "contact.subtitle": "Je suis disponible pour échanger sur vos opportunités de stage.",
+      "contact.nameLabel": "Nom",
+      "contact.namePlaceholder": "Votre Nom",
+      "contact.emailLabel": "Email",
+      "contact.emailPlaceholder": "contact@mail.com",
+      "contact.messageLabel": "Message",
+      "contact.messagePlaceholder": "Bonjour Léandro...",
+      "contact.submit": "ENVOYER",
+      "contact.success": "Envoyé !",
+      "contact.successTitle": "Message Reçu !",
+      "contact.sendAnother": "Envoyer un autre",
+      "contact.formHint": "Ou envoyez-moi un message rapide ici",
+      "contact.errorSubmit": "Oups ! Une erreur est survenue.",
+      "contact.errorConnection": "Erreur de connexion.",
+      "footer.copyright": "© 2025 Léandro Da Silva.",
+      "footer.konamiHint": "Pssst ! Essayez les flèches ↑ ↑ ↓ ↓ ← → ← → B A sur votre clavier...",
+      "footer.bio": "Étudiant Chef de Projet Digital.<br />Prêt à casser les codes et à apporter de la valeur à votre marque.",
+      "footer.headers.website": "Site Web",
+      "footer.headers.social": "Réseaux",
+      "footer.headers.contact": "Contactez-moi",
+      "footer.availability": "Stage / Alternance",
+      "footer.legal.button": "Mentions Légales & Confidentialité",
+      "footer.legal.title": "Mentions Légales",
+      "footer.legal.sections.editor.title": "1. Éditeur du site",
+      "footer.legal.sections.editor.content": "Le présent site est édité par <strong>Léandro Da Silva</strong>.<br />Statut : Étudiant / Particulier<br />Email : <a href='mailto:leandrodslv45@gmail.com' class='underline'>leandrodslv45@gmail.com</a><br />Téléphone : 06 23 36 61 21<br />Localisation : Paris, France",
+      "footer.legal.sections.hosting.title": "2. Hébergement",
+      "footer.legal.sections.hosting.content": "Ce site est hébergé par :<br /><strong>Hostinger International Ltd.</strong><br />61 Lordou Vironos Street, 6023 Larnaca, Chypre<br />Site web : <a href='https://www.hostinger.fr' target='_blank' rel='noopener noreferrer' class='underline'>https://www.hostinger.fr</a>",
+      "footer.legal.sections.ip.title": "3. Propriété Intellectuelle",
+      "footer.legal.sections.ip.content": "L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.",
+      "footer.legal.sections.privacy.title": "4. Données Personnelles (RGPD)",
+      "footer.legal.sections.privacy.content": "Conformément au Règlement Général sur la Protection des Données (RGPD), nous vous informons que :<br /><br /><strong>Collecte des données :</strong> Les informations recueillies via le formulaire de contact (Nom, Email, Message) ne sont utilisées que pour répondre à votre demande. Elles ne sont ni vendues, ni échangées, ni transférées à des tiers.<br /><br /><strong>Durée de conservation :</strong> Vos données sont conservées pour une durée maximale de 3 ans après notre dernier échange.<br /><br /><strong>Vos droits :</strong> Vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données vous concernant. Pour exercer ce droit, contactez-moi par email.",
+      "footer.legal.sections.cookies.title": "5. Politique de Cookies",
+      "footer.legal.sections.cookies.content": "Ce site n'utilise <strong>aucun cookie publicitaire</strong> ou de traçage tiers à des fins commerciales.<br />Seuls des cookies techniques strictement nécessaires au bon fonctionnement du site (mémorisation de la langue ou des préférences d'affichage) peuvent être déposés.",
+      "footer.designedBy": "Designed by Léandro",
+      "ui.galleryTitle": "Gallery (Click to view details)",
+      "ui.software": "Software",
+      "ui.brief": "Brief",
+      "ui.explanation": "Technical",
+      "ui.seeMore": "Show more",
+      "ui.all": "All",
+      "ui.organize": "Organize",
+      "ui.reset": "Reset",
+      "ui.hard": "HARD",
+      "ui.soft": "SOFT",
+      "ui.about": "About",
+      "ui.zoom": "ZOOM",
+      "ui.visit": "Visit Website",
+      "ui.play": "Play",
+      "ui.source": "Play Game",
+      "ui.preview_error": "Preview unavailable",
+      "ui.miss_img": "Missing image",
+      "ui.links": "Links & Media",
+      "ui.theBrief": "The Brief",
+      "ui.theConcept": "The Concept",
+      "ui.settings": "Paramètres",
+      "ui.openMenu": "Ouvrir le menu",
+      "ui.closeMenu": "Fermer le menu",
+      "ui.linkedin": "Visiter mon profil LinkedIn",
+      "ui.secret": "Animation surprise",
+      "projects[0].title": "UI et UX design",
+      "projects[0].category": "Web Design",
+      "projects[0].colorKey": "accent3",
+      "projects[0].description": "Maquette et wireframe",
+      "projects[0].fullDescription": "Site HTML/CSS/JS avec QCM interactif. Wireframe complet sur Figma pour SGDF Olivet.",
+      "projects[0].tags[0]": "Figma",
+      "projects[0].tags[1]": "FigJam",
+      "projects[0].tags[2]": "Canva",
+      "projects[0].image": "/creations/cover_webdesign.webp",
+      "projects[0].figmaLink": "https://www.figma.com/design/aeYPKJxgrVoGMNvELCLGeA/Untitled?node-id=0-1&t=zv0clDQ2E5l1ZEhr-1",
+      "projects[0].githubLink": "https://github.com/votre-pseudo/votre-repo",
+      "projects[0].subProjects[0].title": "Studapp",
+      "projects[0].subProjects[0].description": "Le défi : simplifier la vie universitaire complexe. L'objectif était de centraliser les outils essentiels (planning, notes, budgets) pour réduire la charge mentale des étudiants via une solution mobile unique.\n\nLe concept : J'ai conçu et développé une application tout-en-un axée sur l'efficacité. L'interface (UI) a été pensée pour être minimaliste et intuitive, permettant un accès immédiat aux informations clés.",
+      "projects[0].subProjects[0].tags[0]": "UX Design",
+      "projects[0].subProjects[0].tags[1]": "UX Research",
+      "projects[0].subProjects[0].tags[2]": "UI Design",
+      "projects[0].subProjects[0].gallery[0].url": "/studapp/1Home/maquette1.png",
+      "projects[0].subProjects[0].gallery[0].overlaySrc": "/studapp/1Home/Wireframe1.png",
+      "projects[0].subProjects[0].gallery[1].url": "/studapp/2profil/maquette2.png",
+      "projects[0].subProjects[0].gallery[1].overlaySrc": "/studapp/2profil/Wireframe2.png",
+      "projects[0].subProjects[0].gallery[2].url": "/studapp/3message/maquette3.png",
+      "projects[0].subProjects[0].gallery[2].overlaySrc": "/studapp/3message/Wireframe dc campus (13).png",
+      "projects[0].subProjects[0].gallery[3].url": "/studapp/4to_do_liste/maquette4.png",
+      "projects[0].subProjects[0].gallery[3].overlaySrc": "/studapp/4to_do_liste/Wireframe dc campus (12).png",
+      "projects[0].subProjects[0].gallery[4].url": "/studapp/5planning/maquette5.png",
+      "projects[0].subProjects[0].gallery[4].overlaySrc": "/studapp/5planning/Wireframe dc campus (11).png",
+      "projects[0].subProjects[0].gallery[5].url": "/studapp/6devoir/maquette6.png",
+      "projects[0].subProjects[0].gallery[5].overlaySrc": "/studapp/6devoir/Wireframe6.png",
+      "projects[0].subProjects[0].gallery[6].url": "/studapp/7note/maquette7.png",
+      "projects[0].subProjects[0].gallery[6].overlaySrc": "/studapp/7note/Wireframe dc campus (9).png",
+      "projects[0].subProjects[0].gallery[7].url": "/studapp/8Recherche_Stage/Capture d’écran 2026-02-10 090034.png",
+      "projects[0].subProjects[0].gallery[7].overlaySrc": "/studapp/8Recherche_Stage/Wireframe8.png",
+      "projects[0].subProjects[0].gallery[8].url": "/studapp/9Détails/maquette9.png",
+      "projects[0].subProjects[0].gallery[8].overlaySrc": "/studapp/9Détails/Wireframe9.png",
+      "projects[0].subProjects[0].gallery[9].url": "/studapp/10Inspiration/maquette10.png",
+      "projects[0].subProjects[0].gallery[9].overlaySrc": "/studapp/10Inspiration/Wireframe10.png",
+      "projects[0].subProjects[0].gallery[10].url": "/studapp/11Services_Campus/maquette11.png",
+      "projects[0].subProjects[0].gallery[10].overlaySrc": "/studapp/11Services_Campus/Wireframe11.png",
+      "projects[0].subProjects[0].gallery[11].url": "/studapp/12Services_Campus_scroll/maquette12.png",
+      "projects[0].subProjects[0].gallery[11].overlaySrc": "/studapp/12Services_Campus_scroll/Wireframe12.png",
+      "projects[0].subProjects[0].gallery[12].url": "/studapp/13Menu/maquette13.png",
+      "projects[0].subProjects[0].gallery[12].overlaySrc": "/studapp/13Menu/Wireframe13.png",
+      "projects[0].subProjects[0].gallery[13].url": "/studapp/14Sport/maquette14.png",
+      "projects[0].subProjects[0].gallery[13].overlaySrc": "/studapp/14Sport/Wireframe14.png",
+      "projects[0].subProjects[0].gallery[14].url": "/studapp/15BDE/maquette15.png",
+      "projects[0].subProjects[0].gallery[14].overlaySrc": "/studapp/15BDE/Wireframe15.png",
+      "projects[0].subProjects[0].gallery[15].url": "/studapp/16Bien-être/maquette16.png",
+      "projects[0].subProjects[0].gallery[15].overlaySrc": "/studapp/16Bien-être/Wireframe16.png",
+      "projects[0].subProjects[0].gallery[16].url": "/studapp/17logement/maquette17.png",
+      "projects[0].subProjects[0].gallery[16].overlaySrc": "/studapp/17logement/Wireframe17.png",
+      "projects[0].subProjects[0].gallery[17].url": "/studapp/18Certificats/maquette18.png",
+      "projects[0].subProjects[0].gallery[17].overlaySrc": "/studapp/18Certificats/Wireframe18.png",
+      "projects[0].subProjects[0].gallery[18].url": "/studapp/19Salles/maquette19.png",
+      "projects[0].subProjects[0].gallery[18].overlaySrc": "/studapp/19Salles/Wireframe19.png",
+      "projects[0].subProjects[0].link": "https://studapp.leandro-dasilva.com/",
+      "projects[0].subProjects[1].title": "Good Pizza",
+      "projects[0].subProjects[1].description": "Le défi : digitaliser les commandes d'une pizzeria parisienne en créant un site vitrine centré sur le \"Click & Collect\".\n\nLe concept : J'ai conçu un design minimaliste et appétissant, utilisant le rouge pour stimuler l'appétit. L'interface est entièrement tournée vers la conversion.",
+      "projects[0].subProjects[1].tags[0]": "UI Design",
+      "projects[0].subProjects[1].tags[1]": "UX Design",
+      "projects[0].subProjects[1].tags[2]": "UX Writing",
+      "projects[0].subProjects[1].gallery[0].url": "/Yummy Nouilles/1Accueil/Maquette1.webp",
+      "projects[0].subProjects[1].gallery[0].overlaySrc": "/Yummy Nouilles/1Accueil/Wireframe1.png",
+      "projects[0].subProjects[1].gallery[1].url": "/Yummy Nouilles/2Menu/Maquette2.png",
+      "projects[0].subProjects[1].gallery[1].overlaySrc": "/Yummy Nouilles/2Menu/Wireframe2.png",
+      "projects[0].subProjects[1].gallery[2].url": "/Yummy Nouilles/3Contact/Maquette3.webp",
+      "projects[0].subProjects[1].gallery[2].overlaySrc": "/Yummy Nouilles/3Contact/Wireframe3.png",
+      "projects[0].subProjects[1].link": "https://www.figma.com/design/aeYPKJxgrVoGMNvELCLGeA/Untitled?node-id=0-1&t=zv0clDQ2E5l1ZEhr-1",
+      "projects[0].subProjects[2].title": "Capitaine Scout",
+      "projects[0].subProjects[2].description": "Le défi : moderniser l'image du groupe scout et dynamiser la collecte de fonds via une plateforme centrale.\n\nLe concept : J'ai conçu un site vitrine immersif et stratégique. Le design valorise l'identité scoute par une esthétique soignée.",
+      "projects[0].subProjects[2].tags[0]": "UX Design",
+      "projects[0].subProjects[2].tags[1]": "UI Design",
+      "projects[0].subProjects[2].tags[2]": "Stratégie Digitale",
+      "projects[0].subProjects[2].gallery[0].url": "/capitainescout/accueil1/Maquette1.png",
+      "projects[0].subProjects[2].gallery[0].overlaySrc": "/capitainescout/accueil1/wireframe1.webp",
+      "projects[0].subProjects[2].gallery[1].url": "/capitainescout/Don2/Maquette2.png",
+      "projects[0].subProjects[2].gallery[1].overlaySrc": "/capitainescout/Don2/wireframe2.webp",
+      "projects[0].subProjects[2].gallery[2].url": "/capitainescout/Contact3/Maquette3.png",
+      "projects[0].subProjects[2].gallery[2].overlaySrc": "/capitainescout/Contact3/wireframe3.webp",
+      "projects[0].subProjects[2].gallery[3].url": "/capitainescout/projet4/Maquette4.png",
+      "projects[0].subProjects[2].gallery[3].overlaySrc": "/capitainescout/projet4/wireframe4.webp",
+      "projects[0].subProjects[2].gallery[4].url": "/capitainescout/extrajob5/Maquette5.png",
+      "projects[0].subProjects[2].gallery[4].overlaySrc": "/capitainescout/extrajob5/wireframe5.webp",
+      "projects[0].subProjects[2].gallery[5].url": "/capitainescout/journal6/Maquette6.png",
+      "projects[0].subProjects[2].gallery[5].overlaySrc": "/capitainescout/journal6/wireframe6.webp",
+      "projects[0].subProjects[2].gallery[6].url": "/capitainescout/article7/Maquette7.png",
+      "projects[0].subProjects[2].gallery[6].overlaySrc": "/capitainescout/article7/wireframe7.png",
+      "projects[0].subProjects[2].link": "https://www.figma.com/design/pc1HDEs79e5FETqzSRJKDO/capitaine-scout?node-id=2-2&t=CZa4O6fwrkNtCK4g-1",
+      "projects[1].title": "Belote Kart",
+      "projects[1].cardTitle": "Programmation",
+      "projects[1].category": "Jeux vidéo",
+      "projects[1].colorKey": "accent2",
+      "projects[1].description": "Modernisation de la Belote dans l'univers de Mario.",
+      "projects[1].fullDescription": "Le Défi : Moderniser la Belote en codant un jeu complet immergé dans l'univers de Mario.\n\nLe Concept : J'ai assuré le développement technique intégral (règles, algorithmes de comptage) et la refonte visuelle. L'interface (UI) fusionne le jeu de cartes traditionnel avec les codes graphiques du jeu vidéo pour rajeunir l'expérience utilisateur.",
+      "projects[1].tags[0]": "Python",
+      "projects[1].tags[1]": "Data",
+      "projects[1].tags[2]": "Algorithme",
+      "projects[1].image": "/creations/cover_belote.png",
+      "projects[1].gallery[0]": "/belote/belote1.webp",
+      "projects[1].gallery[1]": "/belote/belote2.png",
+      "projects[1].gallery[2]": "/belote/belote3.webp",
+      "projects[1].gallery[3]": "/belote/belote4.webp",
+      "projects[1].gallery[4]": "/belote/belote5.webp",
+      "projects[1].gallery[5]": "/belote/belote6.webp",
+      "projects[1].gallery[6]": "/belote/belote7.webp",
+      "projects[1].githubLink": "https://belote-kart.leandro-dasilva.com/",
+      "projects[2].title": "Audiovisuel",
+      "projects[2].category": "Création",
+      "projects[2].colorKey": "accent4",
+      "projects[2].description": "Lumière & Reportages.",
+      "projects[2].fullDescription": "Ingénieur lumière pour le Nikon Festival & Réalisation de reportage pour la 193 Gallery. Gestion technique, captation et montage.",
+      "projects[2].tags[0]": "Premiere",
+      "projects[2].tags[1]": "Photo",
+      "projects[2].tags[2]": "Lumière",
+      "projects[2].image": "/creations/cover_audiovisuel.webp",
+      "projects[2].youtubeLinks[0].label": "Voir le Reportage",
+      "projects[2].youtubeLinks[0].url": "https://youtu.be/4xNYL52I6j0",
+      "projects[2].youtubeLinks[1].label": "Voir le Court-Métrage",
+      "projects[2].youtubeLinks[1].url": "https://www.youtube.com/watch?v=VOTRE_LIEN_ICI_2",
+      "projects[3].title": "Graphisme",
+      "projects[3].category": "Réalisations",
+      "projects[3].colorKey": "accent5",
+      "projects[3].description": "Réalisations graphiques (Suite Adobe).",
+      "projects[3].fullDescription": "Portfolio de travaux graphiques : Retouche photo, logos, mise en page et identité visuelle.",
+      "projects[3].tags[0]": "Photoshop",
+      "projects[3].tags[1]": "Illustrator",
+      "projects[3].tags[2]": "InDesign",
+      "projects[3].image": "/creations/cover_graphisme.png",
+      "projects[3].gallery[0].category": "Photoshop",
+      "projects[3].gallery[0].title": "Truman Show",
+      "projects[3].gallery[0].url": "/creations/trumanshow.webp",
+      "projects[3].gallery[0].tag": "Photoshop",
+      "projects[3].gallery[0].brief": "Affiche Truman Show",
+      "projects[3].gallery[0].explanation": "Montage photo complexe et composition créative (Photoshop).",
+      "projects[3].gallery[0].format": "landscape",
+      "projects[3].gallery[1].category": "Photoshop",
+      "projects[3].gallery[1].title": "Affiche Lyres",
+      "projects[3].gallery[1].url": "/creations/AfficheLyres.jpg",
+      "projects[3].gallery[1].tag": "Photoshop",
+      "projects[3].gallery[1].brief": "Affiche Lyres",
+      "projects[3].gallery[1].explanation": "Affiche événementielle : traitement de l'image et effets (Photoshop).",
+      "projects[3].gallery[2].category": "Photoshop",
+      "projects[3].gallery[2].title": "Affiche Zoo",
+      "projects[3].gallery[2].url": "/creations/affichezoo.webp",
+      "projects[3].gallery[2].tag": "Photoshop",
+      "projects[3].gallery[2].brief": "Affiche Zoo",
+      "projects[3].gallery[2].explanation": "Composition et retouche d'image pour un parc animalier (Photoshop).",
+      "projects[3].gallery[3].category": "Photoshop",
+      "projects[3].gallery[3].title": "Aquarium",
+      "projects[3].gallery[3].url": "/creations/afficheaquarium.webp",
+      "projects[3].gallery[3].tag": "Photoshop",
+      "projects[3].gallery[3].brief": "Affiche Aquarium",
+      "projects[3].gallery[3].explanation": "Travail sur les transparences et l'ambiance aquatique (Photoshop).",
+      "projects[3].gallery[4].category": "Photoshop",
+      "projects[3].gallery[4].title": "Musée",
+      "projects[3].gallery[4].url": "/creations/affichemusée.webp",
+      "projects[3].gallery[4].tag": "Photoshop",
+      "projects[3].gallery[4].brief": "Affiche Musée",
+      "projects[3].gallery[4].explanation": "Mise en page typographique et visuelle pour une exposition (Photoshop).",
+      "projects[3].gallery[5].category": "InDesign",
+      "projects[3].gallery[5].title": "Encart Pub",
+      "projects[3].gallery[5].url": "/creations/Encart_pub.png",
+      "projects[3].gallery[5].tag": "InDesign",
+      "projects[3].gallery[5].brief": "Encart Publicitaire",
+      "projects[3].gallery[5].explanation": "Mise en page presse, gestion des colonnes et typographie (InDesign).",
+      "projects[3].gallery[5].format": "landscape",
+      "projects[3].gallery[6].category": "InDesign",
+      "projects[3].gallery[6].title": "Monnaie Paris",
+      "projects[3].gallery[6].url": "/creations/MonnaieParis.png",
+      "projects[3].gallery[6].tag": "InDesign",
+      "projects[3].gallery[6].brief": "Monnaie de Paris",
+      "projects[3].gallery[6].explanation": "Mise en page institutionnelle et charte graphique (InDesign).",
+      "projects[3].gallery[7].category": "Logo",
+      "projects[3].gallery[7].title": "Logo Officiel",
+      "projects[3].gallery[7].url": "/creations/logo_final.png",
+      "projects[3].gallery[7].tag": "Illustrator",
+      "projects[3].gallery[7].brief": "Logo Final",
+      "projects[3].gallery[7].explanation": "Création vectorielle de l'identité visuelle principale (Illustrator).",
+      "projects[3].gallery[7].format": "landscape",
+      "projects[3].gallery[7].fit": "contain",
+      "projects[3].gallery[8].category": "Branding",
+      "projects[3].gallery[8].title": "Panneau Pub",
+      "projects[3].gallery[8].url": "/creations/bob.webp",
+      "projects[3].gallery[8].tag": "Illustrator",
+      "projects[3].gallery[8].brief": "Branding Urbain",
+      "projects[3].gallery[8].explanation": "Mise en situation réaliste du logo sur panneau publicitaire (Illustrator).",
+      "projects[3].gallery[8].format": "landscape",
+      "projects[3].gallery[9].category": "Branding",
+      "projects[3].gallery[9].title": "Design Espace",
+      "projects[3].gallery[9].url": "/creations/magasin.webp",
+      "projects[3].gallery[9].tag": "Illustrator",
+      "projects[3].gallery[9].brief": "Agencement Magasin",
+      "projects[3].gallery[9].explanation": "Application de l'identité visuelle dans un espace commercial (Illustrator).",
+      "projects[3].gallery[9].format": "landscape",
+      "projects[3].gallery[10].category": "Branding",
+      "projects[3].gallery[10].title": "Design Skate",
+      "projects[3].gallery[10].url": "/creations/skate.webp",
+      "projects[3].gallery[10].tag": "Illustrator",
+      "projects[3].gallery[10].brief": "Produit Dérivé",
+      "projects[3].gallery[10].explanation": "Déclinaison de la charte graphique sur une planche de skate (Illustrator).",
+      "projects[3].gallery[10].format": "landscape",
+      "projects[3].gallery[11].category": "Branding",
+      "projects[3].gallery[11].title": "Casque Custom",
+      "projects[3].gallery[11].url": "/creations/casquelogo.webp",
+      "projects[3].gallery[11].tag": "Illustrator",
+      "projects[3].gallery[11].brief": "Mockup Casque",
+      "projects[3].gallery[11].explanation": "Application du logo sur un objet en volume (Illustrator).",
+      "projects[3].gallery[11].format": "landscape",
+      "projects[3].gallery[12].category": "Illustration",
+      "projects[3].gallery[12].title": "Hawks Manga",
+      "projects[3].gallery[12].url": "/creations/illustrationhawks.jpg",
+      "projects[3].gallery[12].tag": "Illustrator",
+      "projects[3].gallery[12].brief": "Illustration Hawks",
+      "projects[3].gallery[12].explanation": "Dessin vectoriel de personnage style manga (Illustrator).",
+      "projects[3].gallery[12].format": "landscape",
+      "projects[3].gallery[13].category": "Illustration",
+      "projects[3].gallery[13].title": "Mars Concept",
+      "projects[3].gallery[13].url": "/creations/AfficheMars.jpg",
+      "projects[3].gallery[13].tag": "Illustrator",
+      "projects[3].gallery[13].brief": "Affiche Mars",
+      "projects[3].gallery[13].explanation": "Composition graphique vectorielle sur le thème spatial (Illustrator).",
+      "projects[3].gallery[14].category": "Pixel Art",
+      "projects[3].gallery[14].title": "Pixel Créa",
+      "projects[3].gallery[14].url": "/creations/pixel-art.jpg",
+      "projects[3].gallery[14].tag": "Illustrator",
+      "projects[3].gallery[14].brief": "Pixel Art",
+      "projects[3].gallery[14].explanation": "Création artistique point par point (Illustrator).",
+      "projects[3].gallery[14].format": "landscape",
+      "projects[3].gallery[15].category": "Illustration",
+      "projects[3].gallery[15].title": "Sinners",
+      "projects[3].gallery[15].url": "/creations/Sinners.jpg",
+      "projects[3].gallery[15].tag": "Illustrator",
+      "projects[3].gallery[15].brief": "Illustration Sinners",
+      "projects[3].gallery[15].explanation": "Travail vectoriel complexe et gestion des courbes (Illustrator).",
+      "projects[3].gallery[16].category": "Illustration",
+      "projects[3].gallery[16].title": "Gumball",
+      "projects[3].gallery[16].url": "/creations/gumball.jpg",
+      "projects[3].gallery[16].tag": "Illustrator",
+      "projects[3].gallery[16].brief": "Gumball Vectoriel",
+      "projects[3].gallery[16].explanation": "Reproduction de personnage en vectoriel, ombres et lumières (Illustrator).",
+      "projects[3].gallery[16].format": "landscape"
+    },
+    "hero": {
+      "badge": "👋 Étudiant - Product designer",
+      "title1": "BONJOUR, JE SUIS",
+      "title2": "LÉANDRO",
+      "title3": "DA SILVA",
+      "subtitle": "Étudiant en Bachelor Chef de Projet Digital à Digital Campus Paris, je me spécialise en Product Design. Je recherche une alternance pour la rentrée de septembre.",
+      "ctaPrimary": "Voir mes projets",
+      "ctaSecondary": "Me contacter"
+    },
+    "projets": {
+      "titre": "PROJETS",
+      "titreMisEnAvant": "RÉALISÉS",
+      "sousTitre": "Une sélection de mes travaux académiques et personnels."
+    },
+    "parcours": {
+      "titre": "MON",
+      "titreMisEnAvant": "PARCOURS",
+      "sousTitre": "Mon cheminement académique et mes engagements associatifs.",
+      "etapes": [
+        {
+          "periode": "2026 - Présent",
+          "titre": "Bachelor Digital",
+          "lieu": "Digital Campus Paris",
+          "description": "Chef de projet digital, spécialité Product Designer."
+        },
+        {
+          "periode": "2024 - 2026",
+          "titre": "Projets Associatifs",
+          "lieu": "Humanitaire & Code",
+          "description": "Responsable Com' & Dév Jeu Python."
+        },
+        {
+          "periode": "2023 - 2024",
+          "titre": "Projet Web",
+          "lieu": "Scolaire",
+          "description": "Création site interactif & Wireframe Figma."
+        },
+        {
+          "periode": "Avant 2023",
+          "titre": "Baccalauréat",
+          "lieu": "Lycée Charles Péguy",
+          "description": "Spécialités SES et NSI."
+        }
+      ]
+    },
+    "competences": {
+      "titre": "HARD & SOFT",
+      "titreMisEnAvant": "SKILLS",
+      "sousTitre": "Glissez-déposez pour jouer !",
+      "competences": [
+        {
+          "nom": "UX/UI Design",
+          "famille": "hard",
+          "couleur": "bg-pink-300"
+        },
+        {
+          "nom": "Python",
+          "famille": "hard",
+          "couleur": "bg-yellow-300"
+        },
+        {
+          "nom": "Lumière",
+          "famille": "hard",
+          "couleur": "bg-blue-300"
+        },
+        {
+          "nom": "Montage",
+          "famille": "hard",
+          "couleur": "bg-purple-300"
+        },
+        {
+          "nom": "Leadership",
+          "famille": "soft",
+          "couleur": "bg-green-300"
+        },
+        {
+          "nom": "Communication",
+          "famille": "soft",
+          "couleur": "bg-orange-300"
+        },
+        {
+          "nom": "Adaptabilité",
+          "famille": "soft",
+          "couleur": "bg-red-300"
+        },
+        {
+          "nom": "Esprit d'équipe",
+          "famille": "soft",
+          "couleur": "bg-teal-300"
+        }
+      ]
+    },
+    "services": {
+      "titre": "MES",
+      "titreMisEnAvant": "COMPÉTENCES",
+      "sousTitre": "",
+      "services": [
+        {
+          "titre": "Graphisme",
+          "description": "Charte graphique, Identité visuelle, Illustration, Mise en page, Photomontage."
+        },
+        {
+          "titre": "UX/UI Design",
+          "description": "User Research, Wireframes, Prototypage, Design System."
+        },
+        {
+          "titre": "Audiovisuel",
+          "description": "Montage, Motion Design, Sound Design."
+        },
+        {
+          "titre": "Développement",
+          "description": "HTML, CSS, Javascript, Python."
+        }
+      ]
+    },
+    "aPropos": {
+      "titre": "QUI",
+      "titreMisEnAvant": "SUIS-JE ?",
+      "sousTitre": "",
+      "badge": "",
+      "paragraphes": [
+        "Actuellement étudiant en Bachelor Chef de Projet Digital à Digital Campus Paris, je recherche un stage de 3 à 6 mois dès le 23 février. Mon objectif est simple : mettre ma polyvalence et ma curiosité au service de votre transformation numérique.",
+        "Au-delà de mes compétences techniques, mon parcours est marqué par un fort engagement. Mes années de scoutisme et mon projet humanitaire m'ont appris des valeurs essentielles en entreprise : le leadership, la gestion de projet en conditions réelles, l'adaptabilité face aux imprévus et surtout, l'esprit d'équipe.",
+        "Passionné par l'art et le sport, j'apporte une sensibilité créative et un dynamisme constant dans tout ce que j'entreprends. Je ne cherche pas seulement un poste, je cherche à m'investir dans une structure où je pourrai grandir et apporter une réelle valeur ajoutée."
+      ],
+      "telechargerCv": "TÉLÉCHARGER MON CV",
+      "localisation": "Localisation",
+      "valeurLocalisation": "Île-de-France"
+    },
+    "contact": {
+      "titre": "Me Contacter",
+      "titreMisEnAvant": "",
+      "sousTitre": "Je suis disponible pour échanger sur vos opportunités de stage."
+    },
+    "piedDePage": {
+      "copyright": "© 2025 Léandro Da Silva.",
+      "indiceKonami": "Pssst ! Essayez les flèches ↑ ↑ ↓ ↓ ← → ← → B A sur votre clavier...",
+      "bio": "Étudiant Chef de Projet Digital.<br />Prêt à casser les codes et à apporter de la valeur à votre marque.",
+      "colonneSite": "Site Web",
+      "colonneReseaux": "Réseaux",
+      "colonneContact": "Contactez-moi",
+      "disponibilite": "Stage / Alternance",
+      "signature": "Designed by Léandro"
+    },
+    "projetsListe": [
+      {
+        "id": 1,
+        "titre": "UI et UX design",
+        "categorie": "Web Design",
+        "couleur": "accent3",
+        "description": "Maquette et wireframe",
+        "descriptionDetaillee": "Site HTML/CSS/JS avec QCM interactif. Wireframe complet sur Figma pour SGDF Olivet.",
+        "etiquettes": ["Figma", "FigJam", "Canva"],
+        "couverture": "/creations/cover_webdesign.webp",
+        "lienFigma": "https://www.figma.com/design/aeYPKJxgrVoGMNvELCLGeA/Untitled?node-id=0-1&t=zv0clDQ2E5l1ZEhr-1",
+        "lienJeu": "https://github.com/votre-pseudo/votre-repo",
+        "liensYoutube": [],
+        "galerie": [],
+        "creations": [],
+        "sousProjets": [
+          {
+            "titre": "Studapp",
+            "description": "Le défi : simplifier la vie universitaire complexe. L'objectif était de centraliser les outils essentiels (planning, notes, budgets) pour réduire la charge mentale des étudiants via une solution mobile unique.\n\nLe concept : J'ai conçu et développé une application tout-en-un axée sur l'efficacité. L'interface (UI) a été pensée pour être minimaliste et intuitive, permettant un accès immédiat aux informations clés.",
+            "etiquettes": ["UX Design", "UX Research", "UI Design"],
+            "galerie": [
+              {
+                "url": "/studapp/1Home/maquette1.png",
+                "calque": "/studapp/1Home/Wireframe1.png"
+              },
+              {
+                "url": "/studapp/2profil/maquette2.png",
+                "calque": "/studapp/2profil/Wireframe2.png"
+              },
+              {
+                "url": "/studapp/3message/maquette3.png",
+                "calque": "/studapp/3message/Wireframe dc campus (13).png"
+              },
+              {
+                "url": "/studapp/4to_do_liste/maquette4.png",
+                "calque": "/studapp/4to_do_liste/Wireframe dc campus (12).png"
+              },
+              {
+                "url": "/studapp/5planning/maquette5.png",
+                "calque": "/studapp/5planning/Wireframe dc campus (11).png"
+              },
+              {
+                "url": "/studapp/6devoir/maquette6.png",
+                "calque": "/studapp/6devoir/Wireframe6.png"
+              },
+              {
+                "url": "/studapp/7note/maquette7.png",
+                "calque": "/studapp/7note/Wireframe dc campus (9).png"
+              },
+              {
+                "url": "/studapp/8Recherche_Stage/Capture d’écran 2026-02-10 090034.png",
+                "calque": "/studapp/8Recherche_Stage/Wireframe8.png"
+              },
+              {
+                "url": "/studapp/9Détails/maquette9.png",
+                "calque": "/studapp/9Détails/Wireframe9.png"
+              },
+              {
+                "url": "/studapp/10Inspiration/maquette10.png",
+                "calque": "/studapp/10Inspiration/Wireframe10.png"
+              },
+              {
+                "url": "/studapp/11Services_Campus/maquette11.png",
+                "calque": "/studapp/11Services_Campus/Wireframe11.png"
+              },
+              {
+                "url": "/studapp/12Services_Campus_scroll/maquette12.png",
+                "calque": "/studapp/12Services_Campus_scroll/Wireframe12.png"
+              },
+              {
+                "url": "/studapp/13Menu/maquette13.png",
+                "calque": "/studapp/13Menu/Wireframe13.png"
+              },
+              {
+                "url": "/studapp/14Sport/maquette14.png",
+                "calque": "/studapp/14Sport/Wireframe14.png"
+              },
+              {
+                "url": "/studapp/15BDE/maquette15.png",
+                "calque": "/studapp/15BDE/Wireframe15.png"
+              },
+              {
+                "url": "/studapp/16Bien-être/maquette16.png",
+                "calque": "/studapp/16Bien-être/Wireframe16.png"
+              },
+              {
+                "url": "/studapp/17logement/maquette17.png",
+                "calque": "/studapp/17logement/Wireframe17.png"
+              },
+              {
+                "url": "/studapp/18Certificats/maquette18.png",
+                "calque": "/studapp/18Certificats/Wireframe18.png"
+              },
+              {
+                "url": "/studapp/19Salles/maquette19.png",
+                "calque": "/studapp/19Salles/Wireframe19.png"
+              }
+            ],
+            "lien": "https://studapp.leandro-dasilva.com/"
+          },
+          {
+            "titre": "Good Pizza",
+            "description": "Le défi : digitaliser les commandes d'une pizzeria parisienne en créant un site vitrine centré sur le \"Click & Collect\".\n\nLe concept : J'ai conçu un design minimaliste et appétissant, utilisant le rouge pour stimuler l'appétit. L'interface est entièrement tournée vers la conversion.",
+            "etiquettes": ["UI Design", "UX Design", "UX Writing"],
+            "galerie": [
+              {
+                "url": "/Yummy Nouilles/1Accueil/Maquette1.webp",
+                "calque": "/Yummy Nouilles/1Accueil/Wireframe1.png"
+              },
+              {
+                "url": "/Yummy Nouilles/2Menu/Maquette2.png",
+                "calque": "/Yummy Nouilles/2Menu/Wireframe2.png"
+              },
+              {
+                "url": "/Yummy Nouilles/3Contact/Maquette3.webp",
+                "calque": "/Yummy Nouilles/3Contact/Wireframe3.png"
+              }
+            ],
+            "lien": "https://www.figma.com/design/aeYPKJxgrVoGMNvELCLGeA/Untitled?node-id=0-1&t=zv0clDQ2E5l1ZEhr-1"
+          },
+          {
+            "titre": "Capitaine Scout",
+            "description": "Le défi : moderniser l'image du groupe scout et dynamiser la collecte de fonds via une plateforme centrale.\n\nLe concept : J'ai conçu un site vitrine immersif et stratégique. Le design valorise l'identité scoute par une esthétique soignée.",
+            "etiquettes": ["UX Design", "UI Design", "Stratégie Digitale"],
+            "galerie": [
+              {
+                "url": "/capitainescout/accueil1/Maquette1.png",
+                "calque": "/capitainescout/accueil1/wireframe1.webp"
+              },
+              {
+                "url": "/capitainescout/Don2/Maquette2.png",
+                "calque": "/capitainescout/Don2/wireframe2.webp"
+              },
+              {
+                "url": "/capitainescout/Contact3/Maquette3.png",
+                "calque": "/capitainescout/Contact3/wireframe3.webp"
+              },
+              {
+                "url": "/capitainescout/projet4/Maquette4.png",
+                "calque": "/capitainescout/projet4/wireframe4.webp"
+              },
+              {
+                "url": "/capitainescout/extrajob5/Maquette5.png",
+                "calque": "/capitainescout/extrajob5/wireframe5.webp"
+              },
+              {
+                "url": "/capitainescout/journal6/Maquette6.png",
+                "calque": "/capitainescout/journal6/wireframe6.webp"
+              },
+              {
+                "url": "/capitainescout/article7/Maquette7.png",
+                "calque": "/capitainescout/article7/wireframe7.png"
+              }
+            ],
+            "lien": "https://www.figma.com/design/pc1HDEs79e5FETqzSRJKDO/capitaine-scout?node-id=2-2&t=CZa4O6fwrkNtCK4g-1"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "titre": "Belote Kart",
+        "titreCarte": "Programmation",
+        "categorie": "Jeux vidéo",
+        "couleur": "accent2",
+        "description": "Modernisation de la Belote dans l'univers de Mario.",
+        "descriptionDetaillee": "Le Défi : Moderniser la Belote en codant un jeu complet immergé dans l'univers de Mario.\n\nLe Concept : J'ai assuré le développement technique intégral (règles, algorithmes de comptage) et la refonte visuelle. L'interface (UI) fusionne le jeu de cartes traditionnel avec les codes graphiques du jeu vidéo pour rajeunir l'expérience utilisateur.",
+        "etiquettes": ["Python", "Data", "Algorithme"],
+        "couverture": "/creations/cover_belote.png",
+        "lienJeu": "https://belote-kart.leandro-dasilva.com/",
+        "liensYoutube": [],
+        "galerie": [
+          "/belote/belote1.webp",
+          "/belote/belote2.png",
+          "/belote/belote3.webp",
+          "/belote/belote4.webp",
+          "/belote/belote5.webp",
+          "/belote/belote6.webp",
+          "/belote/belote7.webp"
+        ],
+        "creations": [],
+        "sousProjets": []
+      },
+      {
+        "id": 4,
+        "titre": "Audiovisuel",
+        "categorie": "Création",
+        "couleur": "accent4",
+        "description": "Lumière & Reportages.",
+        "descriptionDetaillee": "Ingénieur lumière pour le Nikon Festival & Réalisation de reportage pour la 193 Gallery. Gestion technique, captation et montage.",
+        "etiquettes": ["Premiere", "Photo", "Lumière"],
+        "couverture": "/creations/cover_audiovisuel.webp",
+        "liensYoutube": [
+          {
+            "libelle": "Voir le Reportage",
+            "url": "https://youtu.be/4xNYL52I6j0"
+          },
+          {
+            "libelle": "Voir le Court-Métrage",
+            "url": "https://www.youtube.com/watch?v=VOTRE_LIEN_ICI_2"
+          }
+        ],
+        "galerie": [],
+        "creations": [],
+        "sousProjets": []
+      },
+      {
+        "id": 5,
+        "titre": "Graphisme",
+        "categorie": "Réalisations",
+        "couleur": "accent5",
+        "description": "Réalisations graphiques (Suite Adobe).",
+        "descriptionDetaillee": "Portfolio de travaux graphiques : Retouche photo, logos, mise en page et identité visuelle.",
+        "etiquettes": ["Photoshop", "Illustrator", "InDesign"],
+        "couverture": "/creations/cover_graphisme.png",
+        "liensYoutube": [],
+        "galerie": [],
+        "creations": [
+          {
+            "url": "/creations/trumanshow.webp",
+            "titre": "Truman Show",
+            "categorie": "Photoshop",
+            "logiciel": "Photoshop",
+            "brief": "Affiche Truman Show",
+            "explication": "Montage photo complexe et composition créative (Photoshop).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/AfficheLyres.jpg",
+            "titre": "Affiche Lyres",
+            "categorie": "Photoshop",
+            "logiciel": "Photoshop",
+            "brief": "Affiche Lyres",
+            "explication": "Affiche événementielle : traitement de l'image et effets (Photoshop).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/affichezoo.webp",
+            "titre": "Affiche Zoo",
+            "categorie": "Photoshop",
+            "logiciel": "Photoshop",
+            "brief": "Affiche Zoo",
+            "explication": "Composition et retouche d'image pour un parc animalier (Photoshop).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/afficheaquarium.webp",
+            "titre": "Aquarium",
+            "categorie": "Photoshop",
+            "logiciel": "Photoshop",
+            "brief": "Affiche Aquarium",
+            "explication": "Travail sur les transparences et l'ambiance aquatique (Photoshop).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/affichemusée.webp",
+            "titre": "Musée",
+            "categorie": "Photoshop",
+            "logiciel": "Photoshop",
+            "brief": "Affiche Musée",
+            "explication": "Mise en page typographique et visuelle pour une exposition (Photoshop).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/Encart_pub.png",
+            "titre": "Encart Pub",
+            "categorie": "InDesign",
+            "logiciel": "InDesign",
+            "brief": "Encart Publicitaire",
+            "explication": "Mise en page presse, gestion des colonnes et typographie (InDesign).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/MonnaieParis.png",
+            "titre": "Monnaie Paris",
+            "categorie": "InDesign",
+            "logiciel": "InDesign",
+            "brief": "Monnaie de Paris",
+            "explication": "Mise en page institutionnelle et charte graphique (InDesign).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/logo_final.png",
+            "titre": "Logo Officiel",
+            "categorie": "Logo",
+            "logiciel": "Illustrator",
+            "brief": "Logo Final",
+            "explication": "Création vectorielle de l'identité visuelle principale (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/bob.webp",
+            "titre": "Panneau Pub",
+            "categorie": "Branding",
+            "logiciel": "Illustrator",
+            "brief": "Branding Urbain",
+            "explication": "Mise en situation réaliste du logo sur panneau publicitaire (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/magasin.webp",
+            "titre": "Design Espace",
+            "categorie": "Branding",
+            "logiciel": "Illustrator",
+            "brief": "Agencement Magasin",
+            "explication": "Application de l'identité visuelle dans un espace commercial (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/skate.webp",
+            "titre": "Design Skate",
+            "categorie": "Branding",
+            "logiciel": "Illustrator",
+            "brief": "Produit Dérivé",
+            "explication": "Déclinaison de la charte graphique sur une planche de skate (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/casquelogo.webp",
+            "titre": "Casque Custom",
+            "categorie": "Branding",
+            "logiciel": "Illustrator",
+            "brief": "Mockup Casque",
+            "explication": "Application du logo sur un objet en volume (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/illustrationhawks.jpg",
+            "titre": "Hawks Manga",
+            "categorie": "Illustration",
+            "logiciel": "Illustrator",
+            "brief": "Illustration Hawks",
+            "explication": "Dessin vectoriel de personnage style manga (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/AfficheMars.jpg",
+            "titre": "Mars Concept",
+            "categorie": "Illustration",
+            "logiciel": "Illustrator",
+            "brief": "Affiche Mars",
+            "explication": "Composition graphique vectorielle sur le thème spatial (Illustrator).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/pixel-art.jpg",
+            "titre": "Pixel Créa",
+            "categorie": "Pixel Art",
+            "logiciel": "Illustrator",
+            "brief": "Pixel Art",
+            "explication": "Création artistique point par point (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/Sinners.jpg",
+            "titre": "Sinners",
+            "categorie": "Illustration",
+            "logiciel": "Illustrator",
+            "brief": "Illustration Sinners",
+            "explication": "Travail vectoriel complexe et gestion des courbes (Illustrator).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/gumball.jpg",
+            "titre": "Gumball",
+            "categorie": "Illustration",
+            "logiciel": "Illustrator",
+            "brief": "Gumball Vectoriel",
+            "explication": "Reproduction de personnage en vectoriel, ombres et lumières (Illustrator).",
+            "paysage": true
+          }
+        ],
+        "sousProjets": []
+      }
+    ]
+  },
+  "en": {
+    "textes": {
+      "label": "🇬🇧 English",
+      "showMore": "Show More",
+      "nav.work": "Projects",
+      "nav.journey": "Journey",
+      "nav.skills": "Skills",
+      "nav.contact": "Contact",
+      "nav.cta": "Hire Me",
+      "hero.badge": "👋 Student - Product Designer",
+      "hero.title1": "HELLO, I AM",
+      "hero.title2": "LÉANDRO",
+      "hero.title3": "DA SILVA",
+      "hero.subtitle": "Bachelor student in Digital Project Management at Digital Campus Paris, specializing in Product Design. I am looking for a work-study program starting in September.",
+      "hero.ctaPrimary": "See Projects",
+      "hero.ctaSecondary": "Contact Me",
+      "marquee.items[0]": "HTML/CSS",
+      "marquee.items[1]": "Python",
+      "marquee.items[2]": "Figma",
+      "marquee.items[3]": "Photoshop",
+      "marquee.items[4]": "Premiere",
+      "marquee.items[5]": "SQL",
+      "marquee.items[6]": "Mgmt",
+      "work.title": "COMPLETED",
+      "work.titleHighlight": "PROJECTS",
+      "work.subtitle": "Academic and personal work.",
+      "work.viewProject": "DETAILS",
+      "timeline.title": "MY",
+      "timeline.titleHighlight": "JOURNEY",
+      "timeline.subtitle": "My academic path and commitments.",
+      "timeline.steps[0].year": "2025 - Present",
+      "timeline.steps[0].title": "Digital Bachelor",
+      "timeline.steps[0].place": "Digital Campus Paris",
+      "timeline.steps[0].desc": "Digital Project Manager, UX/UI.",
+      "timeline.steps[1].year": "2024 - 2026",
+      "timeline.steps[1].title": "Volunteer Projects",
+      "timeline.steps[1].place": "Charity & Code",
+      "timeline.steps[1].desc": "Comms Manager & Python Game Dev.",
+      "timeline.steps[2].year": "2023 - 2024",
+      "timeline.steps[2].title": "Web Project",
+      "timeline.steps[2].place": "School",
+      "timeline.steps[2].desc": "Interactive site & Figma Wireframe.",
+      "timeline.steps[3].year": "Before 2023",
+      "timeline.steps[3].title": "High School Diploma",
+      "timeline.steps[3].place": "Lycée Charles Péguy",
+      "timeline.steps[3].desc": "Specialized in IT and Economics.",
+      "skills.title": "HARD & SOFT",
+      "skills.titleHighlight": "SKILLS",
+      "skills.subtitle": "Drag and drop to play!",
+      "skills.items[0].name": "UX/UI Design",
+      "skills.items[0].type": "hard",
+      "skills.items[0].color": "bg-pink-300",
+      "skills.items[1].name": "Python",
+      "skills.items[1].type": "hard",
+      "skills.items[1].color": "bg-yellow-300",
+      "skills.items[2].name": "Lighting",
+      "skills.items[2].type": "hard",
+      "skills.items[2].color": "bg-blue-300",
+      "skills.items[3].name": "Video Editing",
+      "skills.items[3].type": "hard",
+      "skills.items[3].color": "bg-purple-300",
+      "skills.items[4].name": "Leadership",
+      "skills.items[4].type": "soft",
+      "skills.items[4].color": "bg-green-300",
+      "skills.items[5].name": "Communication",
+      "skills.items[5].type": "soft",
+      "skills.items[5].color": "bg-orange-300",
+      "skills.items[6].name": "Adaptability",
+      "skills.items[6].type": "soft",
+      "skills.items[6].color": "bg-red-300",
+      "skills.items[7].name": "Teamwork",
+      "skills.items[7].type": "soft",
+      "skills.items[7].color": "bg-teal-300",
+      "services.title": "KEY",
+      "services.titleHighlight": "SKILLS",
+      "services.items[0].title": "Design",
+      "services.items[0].desc": "Logos, Branding, Mockups.",
+      "services.items[1].title": "Photography",
+      "services.items[1].desc": "Retouching, Shooting, Art Direction.",
+      "services.items[2].title": "Audiovisual",
+      "services.items[2].desc": "Editing, Motion Design, Sound Design.",
+      "services.items[3].title": "Development",
+      "services.items[3].desc": "Websites, Apps, UX/UI Code.",
+      "about.badge": "",
+      "about.title": "WHO",
+      "about.titleHighlight": "AM I?",
+      "about.p1": "Currently a Bachelor's student in Digital Project Management at Digital Campus Paris, I am looking for a 3 to 6-month internship starting February 23rd. My goal is simple: to put my versatility and curiosity at the service of your digital transformation.",
+      "about.p2": "Beyond my technical skills, my journey is marked by strong commitment. My years of scouting and my humanitarian project have taught me essential corporate values: leadership, real-world project management, adaptability to the unexpected, and above all, team spirit.",
+      "about.p3": "Passionate about art and sports, I bring creative sensitivity and constant dynamism to everything I undertake. I am not just looking for a position; I am looking to invest myself in a structure where I can grow and bring real added value.",
+      "about.downloadCV": "Download CV",
+      "about.location": "Location",
+      "about.locationValue": "Paris Area, France",
+      "contact.title": "Get in Touch",
+      "contact.subtitle": "Open to internship opportunities.",
+      "contact.nameLabel": "Name",
+      "contact.namePlaceholder": "Name",
+      "contact.emailLabel": "Email",
+      "contact.emailPlaceholder": "Email",
+      "contact.messageLabel": "Message",
+      "contact.messagePlaceholder": "Hello...",
+      "contact.submit": "SEND",
+      "contact.success": "Sent!",
+      "contact.successTitle": "Message Received!",
+      "contact.sendAnother": "Send another",
+      "contact.formHint": "Or send me a quick message here",
+      "contact.errorSubmit": "Oops! Something went wrong.",
+      "contact.errorConnection": "Connection error.",
+      "footer.copyright": "© 2025 Léandro Da Silva.",
+      "footer.konamiHint": "Pssst! Try ↑ ↑ ↓ ↓ ← → ← → B A on your keyboard...",
+      "footer.bio": "Digital Project Management Student.<br />Ready to break codes and bring value to your brand.",
+      "footer.headers.website": "Website",
+      "footer.headers.social": "Social",
+      "footer.headers.contact": "Contact Me",
+      "footer.availability": "Internship / Work-Study",
+      "footer.legal.button": "Legal Notice & Privacy",
+      "footer.legal.title": "Legal Notice",
+      "footer.legal.sections.editor.title": "1. Site Editor",
+      "footer.legal.sections.editor.content": "This site is edited by <strong>Léandro Da Silva</strong>.<br />Status: Student / Individual<br />Email: <a href='mailto:leandrodslv45@gmail.com' class='underline'>leandrodslv45@gmail.com</a><br />Phone: +33 6 23 36 61 21<br />Location: Paris, France",
+      "footer.legal.sections.hosting.title": "2. Hosting",
+      "footer.legal.sections.hosting.content": "This site is hosted by:<br /><strong>Hostinger International Ltd.</strong><br />61 Lordou Vironos Street, 6023 Larnaca, Cyprus<br />Website: <a href='https://www.hostinger.fr' target='_blank' rel='noopener noreferrer' class='underline'>https://www.hostinger.fr</a>",
+      "footer.legal.sections.ip.title": "3. Intellectual Property",
+      "footer.legal.sections.ip.content": "The entire content of this site is subject to French and international legislation on copyright and intellectual property. All reproduction rights are reserved, including for downloadable documents and iconographic and photographic representations.",
+      "footer.legal.sections.privacy.title": "4. Personal Data (GDPR)",
+      "footer.legal.sections.privacy.content": "In accordance with the General Data Protection Regulation (GDPR), we inform you that:<br /><br /><strong>Data Collection:</strong> Information collected via the contact form (Name, Email, Message) is only used to respond to your request. It is not sold, exchanged, or transferred to third parties.<br /><br /><strong>Retention Period:</strong> Your data is kept for a maximum of 3 years after our last exchange.<br /><br /><strong>Your Rights:</strong> You have the right to access, rectify, delete, and object to data concerning you. To exercise this right, please contact me by email.",
+      "footer.legal.sections.cookies.title": "5. Cookie Policy",
+      "footer.legal.sections.cookies.content": "This site uses <strong>no advertising cookies</strong> or third-party tracking for commercial purposes.<br />Only technical cookies strictly necessary for the proper functioning of the site (remembering language or display preferences) may be deposited.",
+      "footer.designedBy": "Designed by Léandro",
+      "ui.galleryTitle": "Gallery (Click to see details)",
+      "ui.software": "Software",
+      "ui.brief": "Brief",
+      "ui.explanation": "Technical",
+      "ui.seeMore": "Show more",
+      "ui.all": "All",
+      "ui.organize": "Organize",
+      "ui.reset": "Reset",
+      "ui.hard": "HARD",
+      "ui.soft": "SOFT",
+      "ui.about": "About",
+      "ui.zoom": "ZOOM",
+      "ui.visit": "Visit Website",
+      "ui.play": "Play",
+      "ui.source": "Source Code",
+      "ui.preview_error": "Preview not available",
+      "ui.miss_img": "Missing Image",
+      "ui.links": "Links & Media",
+      "ui.theBrief": "The Brief",
+      "ui.theConcept": "The Concept",
+      "ui.settings": "Settings",
+      "ui.openMenu": "Open menu",
+      "ui.closeMenu": "Close menu",
+      "ui.linkedin": "Visit my LinkedIn profile",
+      "ui.secret": "Surprise animation",
+      "projects[0].title": "UI & UX Design",
+      "projects[0].category": "Web Design",
+      "projects[0].colorKey": "accent3",
+      "projects[0].description": "Educational website & mockups.",
+      "projects[0].fullDescription": "HTML/CSS/JS site with interactive quiz. Full Wireframe on Figma for SGDF Olivet.",
+      "projects[0].tags[0]": "Figma",
+      "projects[0].tags[1]": "FigJam",
+      "projects[0].tags[2]": "Canva",
+      "projects[0].image": "/creations/cover_webdesign.webp",
+      "projects[0].figmaLink": "https://www.figma.com/design/aeYPKJxgrVoGMNvELCLGeA/Untitled?node-id=0-1&t=zv0clDQ2E5l1ZEhr-1",
+      "projects[0].githubLink": "https://github.com/your-repo",
+      "projects[0].subProjects[0].title": "Studapp",
+      "projects[0].subProjects[0].description": "The challenge: Simplify complex university life. The goal was to centralize essential tools (schedule, grades, budgets) to reduce students' mental load via a unique mobile solution.\\n\\nThe concept: I designed and developed an all-in-one app focused on efficiency. The interface (UI) was designed to be minimalist and intuitive, allowing immediate access to key information.",
+      "projects[0].subProjects[0].tags[0]": "UX Design",
+      "projects[0].subProjects[0].tags[1]": "UX Research",
+      "projects[0].subProjects[0].tags[2]": "UI Design",
+      "projects[0].subProjects[0].gallery[0].url": "/studapp/1Home/maquette1.png",
+      "projects[0].subProjects[0].gallery[0].overlaySrc": "/studapp/1Home/Wireframe1.png",
+      "projects[0].subProjects[0].gallery[1].url": "/studapp/2profil/maquette2.png",
+      "projects[0].subProjects[0].gallery[1].overlaySrc": "/studapp/2profil/Wireframe2.png",
+      "projects[0].subProjects[0].gallery[2].url": "/studapp/3message/maquette3.png",
+      "projects[0].subProjects[0].gallery[2].overlaySrc": "/studapp/3message/Wireframe dc campus (13).png",
+      "projects[0].subProjects[0].gallery[3].url": "/studapp/4to_do_liste/maquette4.png",
+      "projects[0].subProjects[0].gallery[3].overlaySrc": "/studapp/4to_do_liste/Wireframe dc campus (12).png",
+      "projects[0].subProjects[0].gallery[4].url": "/studapp/5planning/maquette5.png",
+      "projects[0].subProjects[0].gallery[4].overlaySrc": "/studapp/5planning/Wireframe dc campus (11).png",
+      "projects[0].subProjects[0].gallery[5].url": "/studapp/6devoir/maquette6.png",
+      "projects[0].subProjects[0].gallery[5].overlaySrc": "/studapp/6devoir/Wireframe6.png",
+      "projects[0].subProjects[0].gallery[6].url": "/studapp/7note/maquette7.png",
+      "projects[0].subProjects[0].gallery[6].overlaySrc": "/studapp/7note/Wireframe dc campus (9).png",
+      "projects[0].subProjects[0].gallery[7].url": "/studapp/8Recherche_Stage/Capture d’écran 2026-02-10 090034.png",
+      "projects[0].subProjects[0].gallery[7].overlaySrc": "/studapp/8Recherche_Stage/Wireframe8.png",
+      "projects[0].subProjects[0].gallery[8].url": "/studapp/9Détails/maquette9.png",
+      "projects[0].subProjects[0].gallery[8].overlaySrc": "/studapp/9Détails/Wireframe9.png",
+      "projects[0].subProjects[0].gallery[9].url": "/studapp/10Inspiration/maquette10.png",
+      "projects[0].subProjects[0].gallery[9].overlaySrc": "/studapp/10Inspiration/Wireframe10.png",
+      "projects[0].subProjects[0].gallery[10].url": "/studapp/11Services_Campus/maquette11.png",
+      "projects[0].subProjects[0].gallery[10].overlaySrc": "/studapp/11Services_Campus/Wireframe11.png",
+      "projects[0].subProjects[0].gallery[11].url": "/studapp/12Services_Campus_scroll/maquette12.png",
+      "projects[0].subProjects[0].gallery[11].overlaySrc": "/studapp/12Services_Campus_scroll/Wireframe12.png",
+      "projects[0].subProjects[0].gallery[12].url": "/studapp/13Menu/maquette13.png",
+      "projects[0].subProjects[0].gallery[12].overlaySrc": "/studapp/13Menu/Wireframe13.png",
+      "projects[0].subProjects[0].gallery[13].url": "/studapp/14Sport/maquette14.png",
+      "projects[0].subProjects[0].gallery[13].overlaySrc": "/studapp/14Sport/Wireframe14.png",
+      "projects[0].subProjects[0].gallery[14].url": "/studapp/15BDE/maquette15.png",
+      "projects[0].subProjects[0].gallery[14].overlaySrc": "/studapp/15BDE/Wireframe15.png",
+      "projects[0].subProjects[0].gallery[15].url": "/studapp/16Bien-être/maquette16.png",
+      "projects[0].subProjects[0].gallery[15].overlaySrc": "/studapp/16Bien-être/Wireframe16.png",
+      "projects[0].subProjects[0].gallery[16].url": "/studapp/17logement/maquette17.png",
+      "projects[0].subProjects[0].gallery[16].overlaySrc": "/studapp/17logement/Wireframe17.png",
+      "projects[0].subProjects[0].gallery[17].url": "/studapp/18Certificats/maquette18.png",
+      "projects[0].subProjects[0].gallery[17].overlaySrc": "/studapp/18Certificats/Wireframe18.png",
+      "projects[0].subProjects[0].gallery[18].url": "/studapp/19Salles/maquette19.png",
+      "projects[0].subProjects[0].gallery[18].overlaySrc": "/studapp/19Salles/Wireframe19.png",
+      "projects[0].subProjects[0].link": "https://studapp.leandro-dasilva.com/",
+      "projects[0].subProjects[1].title": "Good Pizza",
+      "projects[0].subProjects[1].description": "The challenge: Digitize orders for a Parisian pizzeria by creating a showcase site centered on \"Click & Collect\".\n\nThe concept: I designed a minimalist and appetizing design, using red to stimulate appetite. The interface is entirely focused on conversion.",
+      "projects[0].subProjects[1].tags[0]": "UI Design",
+      "projects[0].subProjects[1].tags[1]": "UX Design",
+      "projects[0].subProjects[1].tags[2]": "UX Writing",
+      "projects[0].subProjects[1].gallery[0].url": "/Yummy Nouilles/1Accueil/Maquette1.webp",
+      "projects[0].subProjects[1].gallery[0].overlaySrc": "/Yummy Nouilles/1Accueil/Wireframe1.png",
+      "projects[0].subProjects[1].gallery[1].url": "/Yummy Nouilles/2Menu/Maquette2.png",
+      "projects[0].subProjects[1].gallery[1].overlaySrc": "/Yummy Nouilles/2Menu/Wireframe2.png",
+      "projects[0].subProjects[1].gallery[2].url": "/Yummy Nouilles/3Contact/Maquette3.webp",
+      "projects[0].subProjects[1].gallery[2].overlaySrc": "/Yummy Nouilles/3Contact/Wireframe3.png",
+      "projects[0].subProjects[1].link": "https://www.figma.com/design/aeYPKJxgrVoGMNvELCLGeA/Untitled?node-id=0-1&t=zv0clDQ2E5l1ZEhr-1",
+      "projects[0].subProjects[2].title": "Capitaine Scout",
+      "projects[0].subProjects[2].description": "The challenge: Modernize the scout group's image and boost fundraising via a central platform.\\n\\nThe concept: I designed an immersive and strategic showcase site. The design highlights the scout identity with a polished aesthetic.",
+      "projects[0].subProjects[2].tags[0]": "UX Design",
+      "projects[0].subProjects[2].tags[1]": "UI Design",
+      "projects[0].subProjects[2].tags[2]": "Digital Strategy",
+      "projects[0].subProjects[2].gallery[0].url": "/capitainescout/accueil1/Maquette1.png",
+      "projects[0].subProjects[2].gallery[0].overlaySrc": "/capitainescout/accueil1/wireframe1.webp",
+      "projects[0].subProjects[2].gallery[1].url": "/capitainescout/Don2/Maquette2.png",
+      "projects[0].subProjects[2].gallery[1].overlaySrc": "/capitainescout/Don2/wireframe2.webp",
+      "projects[0].subProjects[2].gallery[2].url": "/capitainescout/Contact3/Maquette3.png",
+      "projects[0].subProjects[2].gallery[2].overlaySrc": "/capitainescout/Contact3/wireframe3.webp",
+      "projects[0].subProjects[2].gallery[3].url": "/capitainescout/projet4/Maquette4.png",
+      "projects[0].subProjects[2].gallery[3].overlaySrc": "/capitainescout/projet4/wireframe4.webp",
+      "projects[0].subProjects[2].gallery[4].url": "/capitainescout/extrajob5/Maquette5.png",
+      "projects[0].subProjects[2].gallery[4].overlaySrc": "/capitainescout/extrajob5/wireframe5.webp",
+      "projects[0].subProjects[2].gallery[5].url": "/capitainescout/journal6/Maquette6.png",
+      "projects[0].subProjects[2].gallery[5].overlaySrc": "/capitainescout/journal6/wireframe6.webp",
+      "projects[0].subProjects[2].gallery[6].url": "/capitainescout/article7/Maquette7.png",
+      "projects[0].subProjects[2].gallery[6].overlaySrc": "/capitainescout/article7/wireframe7.png",
+      "projects[0].subProjects[2].link": "https://www.figma.com/design/pc1HDEs79e5FETqzSRJKDO/capitaine-scout?node-id=2-2&t=CZa4O6fwrkNtCK4g-1",
+      "projects[1].title": "Programming",
+      "projects[1].category": "Programming",
+      "projects[1].colorKey": "accent2",
+      "projects[1].description": "Card game in Python.",
+      "projects[1].fullDescription": "Complete game in Python with score management via Pandas.",
+      "projects[1].tags[0]": "Python",
+      "projects[1].tags[1]": "Data",
+      "projects[1].tags[2]": "Algorithm",
+      "projects[1].image": "/creations/cover_belote.png",
+      "projects[1].gallery[0]": "/belote/belote1.webp",
+      "projects[1].gallery[1]": "/belote/belote2.png",
+      "projects[1].gallery[2]": "/belote/belote3.webp",
+      "projects[1].gallery[3]": "/belote/belote4.webp",
+      "projects[1].gallery[4]": "/belote/belote5.webp",
+      "projects[1].gallery[5]": "/belote/belote6.webp",
+      "projects[1].gallery[6]": "/belote/belote7.webp",
+      "projects[1].githubLink": "https://belote-kart.leandro-dasilva.com/",
+      "projects[2].title": "Audiovisual",
+      "projects[2].category": "Creation",
+      "projects[2].colorKey": "accent4",
+      "projects[2].description": "Lighting & Reports.",
+      "projects[2].fullDescription": "Lighting Engineer for Nikon Festival & Reportage for 193 Gallery.",
+      "projects[2].tags[0]": "Premiere",
+      "projects[2].tags[1]": "Photo",
+      "projects[2].image": "/creations/cover_audiovisuel.webp",
+      "projects[2].youtubeLinks[0].label": "Watch Report",
+      "projects[2].youtubeLinks[0].url": "https://youtu.be/4xNYL52I6j0",
+      "projects[2].youtubeLinks[1].label": "Watch Short Film",
+      "projects[2].youtubeLinks[1].url": "https://www.youtube.com/watch?v=YOUR_VIDEO_2",
+      "projects[3].title": "Graphics & DTP",
+      "projects[3].category": "Graphics",
+      "projects[3].colorKey": "accent5",
+      "projects[3].description": "Graphic works (Adobe Suite).",
+      "projects[3].fullDescription": "Portfolio of graphic works: Photo retouching, logos, layout.",
+      "projects[3].tags[0]": "Photoshop",
+      "projects[3].tags[1]": "Illustrator",
+      "projects[3].tags[2]": "InDesign",
+      "projects[3].tags[3]": "Lightroom",
+      "projects[3].image": "/creations/cover_graphisme.png",
+      "projects[3].gallery[0].category": "Photoshop",
+      "projects[3].gallery[0].title": "Truman Show",
+      "projects[3].gallery[0].url": "/creations/trumanshow.webp",
+      "projects[3].gallery[0].tag": "Photoshop",
+      "projects[3].gallery[0].brief": "Truman Show Poster",
+      "projects[3].gallery[0].explanation": "Complex photo montage and creative composition (Photoshop).",
+      "projects[3].gallery[0].format": "landscape",
+      "projects[3].gallery[1].category": "Photoshop",
+      "projects[3].gallery[1].title": "Affiche Lyres",
+      "projects[3].gallery[1].url": "/creations/AfficheLyres.jpg",
+      "projects[3].gallery[1].tag": "Photoshop",
+      "projects[3].gallery[1].brief": "Lyres Poster",
+      "projects[3].gallery[1].explanation": "Event poster: image processing and effects (Photoshop).",
+      "projects[3].gallery[2].category": "Photoshop",
+      "projects[3].gallery[2].title": "Affiche Zoo",
+      "projects[3].gallery[2].url": "/creations/affichezoo.webp",
+      "projects[3].gallery[2].tag": "Photoshop",
+      "projects[3].gallery[2].brief": "Zoo Poster",
+      "projects[3].gallery[2].explanation": "Composition and image retouching for a wildlife park (Photoshop).",
+      "projects[3].gallery[3].category": "Photoshop",
+      "projects[3].gallery[3].title": "Aquarium",
+      "projects[3].gallery[3].url": "/creations/afficheaquarium.webp",
+      "projects[3].gallery[3].tag": "Photoshop",
+      "projects[3].gallery[3].brief": "Aquarium Poster",
+      "projects[3].gallery[3].explanation": "Work on transparency and aquatic atmosphere (Photoshop).",
+      "projects[3].gallery[4].category": "Photoshop",
+      "projects[3].gallery[4].title": "Musée",
+      "projects[3].gallery[4].url": "/creations/affichemusée.webp",
+      "projects[3].gallery[4].tag": "Photoshop",
+      "projects[3].gallery[4].brief": "Museum Poster",
+      "projects[3].gallery[4].explanation": "Typographic and visual layout for an exhibition (Photoshop).",
+      "projects[3].gallery[5].category": "InDesign",
+      "projects[3].gallery[5].title": "Encart Pub",
+      "projects[3].gallery[5].url": "/creations/Encart_pub.png",
+      "projects[3].gallery[5].tag": "InDesign",
+      "projects[3].gallery[5].brief": "Ad Insert",
+      "projects[3].gallery[5].explanation": "Press layout, column management and typography (InDesign).",
+      "projects[3].gallery[5].format": "landscape",
+      "projects[3].gallery[6].category": "InDesign",
+      "projects[3].gallery[6].title": "Monnaie Paris",
+      "projects[3].gallery[6].url": "/creations/MonnaieParis.png",
+      "projects[3].gallery[6].tag": "InDesign",
+      "projects[3].gallery[6].brief": "Paris Mint",
+      "projects[3].gallery[6].explanation": "Institutional layout and graphic charter (InDesign).",
+      "projects[3].gallery[7].category": "Logo",
+      "projects[3].gallery[7].title": "Logo Officiel",
+      "projects[3].gallery[7].url": "/creations/logo_final.png",
+      "projects[3].gallery[7].tag": "Illustrator",
+      "projects[3].gallery[7].brief": "Final Logo",
+      "projects[3].gallery[7].explanation": "Vector creation of the main visual identity (Illustrator).",
+      "projects[3].gallery[7].format": "landscape",
+      "projects[3].gallery[7].fit": "contain",
+      "projects[3].gallery[8].category": "Branding",
+      "projects[3].gallery[8].title": "Panneau Pub",
+      "projects[3].gallery[8].url": "/creations/bob.webp",
+      "projects[3].gallery[8].tag": "Illustrator",
+      "projects[3].gallery[8].brief": "Urban Branding",
+      "projects[3].gallery[8].explanation": "Realistic logo application on a street billboard (Illustrator).",
+      "projects[3].gallery[8].format": "landscape",
+      "projects[3].gallery[9].category": "Branding",
+      "projects[3].gallery[9].title": "Design Espace",
+      "projects[3].gallery[9].url": "/creations/magasin.webp",
+      "projects[3].gallery[9].tag": "Illustrator",
+      "projects[3].gallery[9].brief": "Store Layout",
+      "projects[3].gallery[9].explanation": "Visual identity application in a retail space (Illustrator).",
+      "projects[3].gallery[9].format": "landscape",
+      "projects[3].gallery[10].category": "Branding",
+      "projects[3].gallery[10].title": "Design Skate",
+      "projects[3].gallery[10].url": "/creations/skate.webp",
+      "projects[3].gallery[10].tag": "Illustrator",
+      "projects[3].gallery[10].brief": "Merch Design",
+      "projects[3].gallery[10].explanation": "Graphic charter variation on a skateboard deck (Illustrator).",
+      "projects[3].gallery[10].format": "landscape",
+      "projects[3].gallery[11].category": "Branding",
+      "projects[3].gallery[11].title": "Casque Custom",
+      "projects[3].gallery[11].url": "/creations/casquelogo.webp",
+      "projects[3].gallery[11].tag": "Illustrator",
+      "projects[3].gallery[11].brief": "Helmet Mockup",
+      "projects[3].gallery[11].explanation": "Logo application on a 3D object (Illustrator).",
+      "projects[3].gallery[11].format": "landscape",
+      "projects[3].gallery[12].category": "Illustration",
+      "projects[3].gallery[12].title": "Hawks Manga",
+      "projects[3].gallery[12].url": "/creations/illustrationhawks.jpg",
+      "projects[3].gallery[12].tag": "Illustrator",
+      "projects[3].gallery[12].brief": "Hawks Illustration",
+      "projects[3].gallery[12].explanation": "Manga-style character vector drawing (Illustrator).",
+      "projects[3].gallery[12].format": "landscape",
+      "projects[3].gallery[13].category": "Illustration",
+      "projects[3].gallery[13].title": "Mars Concept",
+      "projects[3].gallery[13].url": "/creations/AfficheMars.jpg",
+      "projects[3].gallery[13].tag": "Illustrator",
+      "projects[3].gallery[13].brief": "Mars Poster",
+      "projects[3].gallery[13].explanation": "Space-themed vector graphic composition (Illustrator).",
+      "projects[3].gallery[14].category": "Pixel Art",
+      "projects[3].gallery[14].title": "Pixel Créa",
+      "projects[3].gallery[14].url": "/creations/pixel-art.jpg",
+      "projects[3].gallery[14].tag": "Illustrator",
+      "projects[3].gallery[14].brief": "Pixel Art",
+      "projects[3].gallery[14].explanation": "Pixel-perfect artistic creation (Illustrator).",
+      "projects[3].gallery[14].format": "landscape",
+      "projects[3].gallery[15].category": "Illustration",
+      "projects[3].gallery[15].title": "Sinners",
+      "projects[3].gallery[15].url": "/creations/Sinners.jpg",
+      "projects[3].gallery[15].tag": "Illustrator",
+      "projects[3].gallery[15].brief": "Sinners Illustration",
+      "projects[3].gallery[15].explanation": "Complex vector work and curve management (Illustrator).",
+      "projects[3].gallery[16].category": "Illustration",
+      "projects[3].gallery[16].title": "Gumball",
+      "projects[3].gallery[16].url": "/creations/gumball.jpg",
+      "projects[3].gallery[16].tag": "Illustrator",
+      "projects[3].gallery[16].brief": "Gumball Vector",
+      "projects[3].gallery[16].explanation": "Character reproduction in vector, shadows and lights (Illustrator).",
+      "projects[3].gallery[16].format": "landscape"
+    },
+    "hero": {
+      "badge": "👋 Student - Product Designer",
+      "title1": "HELLO, I AM",
+      "title2": "LÉANDRO",
+      "title3": "DA SILVA",
+      "subtitle": "Bachelor student in Digital Project Management at Digital Campus Paris, specializing in Product Design. I am looking for a work-study program starting in September.",
+      "ctaPrimary": "See Projects",
+      "ctaSecondary": "Contact Me"
+    },
+    "projets": {
+      "titre": "COMPLETED",
+      "titreMisEnAvant": "PROJECTS",
+      "sousTitre": "Academic and personal work."
+    },
+    "parcours": {
+      "titre": "MY",
+      "titreMisEnAvant": "JOURNEY",
+      "sousTitre": "My academic path and commitments.",
+      "etapes": [
+        {
+          "periode": "2025 - Present",
+          "titre": "Digital Bachelor",
+          "lieu": "Digital Campus Paris",
+          "description": "Digital Project Manager, UX/UI."
+        },
+        {
+          "periode": "2024 - 2026",
+          "titre": "Volunteer Projects",
+          "lieu": "Charity & Code",
+          "description": "Comms Manager & Python Game Dev."
+        },
+        {
+          "periode": "2023 - 2024",
+          "titre": "Web Project",
+          "lieu": "School",
+          "description": "Interactive site & Figma Wireframe."
+        },
+        {
+          "periode": "Before 2023",
+          "titre": "High School Diploma",
+          "lieu": "Lycée Charles Péguy",
+          "description": "Specialized in IT and Economics."
+        }
+      ]
+    },
+    "competences": {
+      "titre": "HARD & SOFT",
+      "titreMisEnAvant": "SKILLS",
+      "sousTitre": "Drag and drop to play!",
+      "competences": [
+        {
+          "nom": "UX/UI Design",
+          "famille": "hard",
+          "couleur": "bg-pink-300"
+        },
+        {
+          "nom": "Python",
+          "famille": "hard",
+          "couleur": "bg-yellow-300"
+        },
+        {
+          "nom": "Lighting",
+          "famille": "hard",
+          "couleur": "bg-blue-300"
+        },
+        {
+          "nom": "Video Editing",
+          "famille": "hard",
+          "couleur": "bg-purple-300"
+        },
+        {
+          "nom": "Leadership",
+          "famille": "soft",
+          "couleur": "bg-green-300"
+        },
+        {
+          "nom": "Communication",
+          "famille": "soft",
+          "couleur": "bg-orange-300"
+        },
+        {
+          "nom": "Adaptability",
+          "famille": "soft",
+          "couleur": "bg-red-300"
+        },
+        {
+          "nom": "Teamwork",
+          "famille": "soft",
+          "couleur": "bg-teal-300"
+        }
+      ]
+    },
+    "services": {
+      "titre": "KEY",
+      "titreMisEnAvant": "SKILLS",
+      "sousTitre": "",
+      "services": [
+        {
+          "titre": "Design",
+          "description": "Logos, Branding, Mockups."
+        },
+        {
+          "titre": "Photography",
+          "description": "Retouching, Shooting, Art Direction."
+        },
+        {
+          "titre": "Audiovisual",
+          "description": "Editing, Motion Design, Sound Design."
+        },
+        {
+          "titre": "Development",
+          "description": "Websites, Apps, UX/UI Code."
+        }
+      ]
+    },
+    "aPropos": {
+      "titre": "WHO",
+      "titreMisEnAvant": "AM I?",
+      "sousTitre": "",
+      "badge": "",
+      "paragraphes": [
+        "Currently a Bachelor's student in Digital Project Management at Digital Campus Paris, I am looking for a 3 to 6-month internship starting February 23rd. My goal is simple: to put my versatility and curiosity at the service of your digital transformation.",
+        "Beyond my technical skills, my journey is marked by strong commitment. My years of scouting and my humanitarian project have taught me essential corporate values: leadership, real-world project management, adaptability to the unexpected, and above all, team spirit.",
+        "Passionate about art and sports, I bring creative sensitivity and constant dynamism to everything I undertake. I am not just looking for a position; I am looking to invest myself in a structure where I can grow and bring real added value."
+      ],
+      "telechargerCv": "Download CV",
+      "localisation": "Location",
+      "valeurLocalisation": "Paris Area, France"
+    },
+    "contact": {
+      "titre": "Get in Touch",
+      "titreMisEnAvant": "",
+      "sousTitre": "Open to internship opportunities."
+    },
+    "piedDePage": {
+      "copyright": "© 2025 Léandro Da Silva.",
+      "indiceKonami": "Pssst! Try ↑ ↑ ↓ ↓ ← → ← → B A on your keyboard...",
+      "bio": "Digital Project Management Student.<br />Ready to break codes and bring value to your brand.",
+      "colonneSite": "Website",
+      "colonneReseaux": "Social",
+      "colonneContact": "Contact Me",
+      "disponibilite": "Internship / Work-Study",
+      "signature": "Designed by Léandro"
+    },
+    "projetsListe": [
+      {
+        "id": 1,
+        "titre": "UI & UX Design",
+        "categorie": "Web Design",
+        "couleur": "accent3",
+        "description": "Educational website & mockups.",
+        "descriptionDetaillee": "HTML/CSS/JS site with interactive quiz. Full Wireframe on Figma for SGDF Olivet.",
+        "etiquettes": ["Figma", "FigJam", "Canva"],
+        "couverture": "/creations/cover_webdesign.webp",
+        "lienFigma": "https://www.figma.com/design/aeYPKJxgrVoGMNvELCLGeA/Untitled?node-id=0-1&t=zv0clDQ2E5l1ZEhr-1",
+        "lienJeu": "https://github.com/your-repo",
+        "liensYoutube": [],
+        "galerie": [],
+        "creations": [],
+        "sousProjets": [
+          {
+            "titre": "Studapp",
+            "description": "The challenge: Simplify complex university life. The goal was to centralize essential tools (schedule, grades, budgets) to reduce students' mental load via a unique mobile solution.\\n\\nThe concept: I designed and developed an all-in-one app focused on efficiency. The interface (UI) was designed to be minimalist and intuitive, allowing immediate access to key information.",
+            "etiquettes": ["UX Design", "UX Research", "UI Design"],
+            "galerie": [
+              {
+                "url": "/studapp/1Home/maquette1.png",
+                "calque": "/studapp/1Home/Wireframe1.png"
+              },
+              {
+                "url": "/studapp/2profil/maquette2.png",
+                "calque": "/studapp/2profil/Wireframe2.png"
+              },
+              {
+                "url": "/studapp/3message/maquette3.png",
+                "calque": "/studapp/3message/Wireframe dc campus (13).png"
+              },
+              {
+                "url": "/studapp/4to_do_liste/maquette4.png",
+                "calque": "/studapp/4to_do_liste/Wireframe dc campus (12).png"
+              },
+              {
+                "url": "/studapp/5planning/maquette5.png",
+                "calque": "/studapp/5planning/Wireframe dc campus (11).png"
+              },
+              {
+                "url": "/studapp/6devoir/maquette6.png",
+                "calque": "/studapp/6devoir/Wireframe6.png"
+              },
+              {
+                "url": "/studapp/7note/maquette7.png",
+                "calque": "/studapp/7note/Wireframe dc campus (9).png"
+              },
+              {
+                "url": "/studapp/8Recherche_Stage/Capture d’écran 2026-02-10 090034.png",
+                "calque": "/studapp/8Recherche_Stage/Wireframe8.png"
+              },
+              {
+                "url": "/studapp/9Détails/maquette9.png",
+                "calque": "/studapp/9Détails/Wireframe9.png"
+              },
+              {
+                "url": "/studapp/10Inspiration/maquette10.png",
+                "calque": "/studapp/10Inspiration/Wireframe10.png"
+              },
+              {
+                "url": "/studapp/11Services_Campus/maquette11.png",
+                "calque": "/studapp/11Services_Campus/Wireframe11.png"
+              },
+              {
+                "url": "/studapp/12Services_Campus_scroll/maquette12.png",
+                "calque": "/studapp/12Services_Campus_scroll/Wireframe12.png"
+              },
+              {
+                "url": "/studapp/13Menu/maquette13.png",
+                "calque": "/studapp/13Menu/Wireframe13.png"
+              },
+              {
+                "url": "/studapp/14Sport/maquette14.png",
+                "calque": "/studapp/14Sport/Wireframe14.png"
+              },
+              {
+                "url": "/studapp/15BDE/maquette15.png",
+                "calque": "/studapp/15BDE/Wireframe15.png"
+              },
+              {
+                "url": "/studapp/16Bien-être/maquette16.png",
+                "calque": "/studapp/16Bien-être/Wireframe16.png"
+              },
+              {
+                "url": "/studapp/17logement/maquette17.png",
+                "calque": "/studapp/17logement/Wireframe17.png"
+              },
+              {
+                "url": "/studapp/18Certificats/maquette18.png",
+                "calque": "/studapp/18Certificats/Wireframe18.png"
+              },
+              {
+                "url": "/studapp/19Salles/maquette19.png",
+                "calque": "/studapp/19Salles/Wireframe19.png"
+              }
+            ],
+            "lien": "https://studapp.leandro-dasilva.com/"
+          },
+          {
+            "titre": "Good Pizza",
+            "description": "The challenge: Digitize orders for a Parisian pizzeria by creating a showcase site centered on \"Click & Collect\".\n\nThe concept: I designed a minimalist and appetizing design, using red to stimulate appetite. The interface is entirely focused on conversion.",
+            "etiquettes": ["UI Design", "UX Design", "UX Writing"],
+            "galerie": [
+              {
+                "url": "/Yummy Nouilles/1Accueil/Maquette1.webp",
+                "calque": "/Yummy Nouilles/1Accueil/Wireframe1.png"
+              },
+              {
+                "url": "/Yummy Nouilles/2Menu/Maquette2.png",
+                "calque": "/Yummy Nouilles/2Menu/Wireframe2.png"
+              },
+              {
+                "url": "/Yummy Nouilles/3Contact/Maquette3.webp",
+                "calque": "/Yummy Nouilles/3Contact/Wireframe3.png"
+              }
+            ],
+            "lien": "https://www.figma.com/design/aeYPKJxgrVoGMNvELCLGeA/Untitled?node-id=0-1&t=zv0clDQ2E5l1ZEhr-1"
+          },
+          {
+            "titre": "Capitaine Scout",
+            "description": "The challenge: Modernize the scout group's image and boost fundraising via a central platform.\\n\\nThe concept: I designed an immersive and strategic showcase site. The design highlights the scout identity with a polished aesthetic.",
+            "etiquettes": ["UX Design", "UI Design", "Digital Strategy"],
+            "galerie": [
+              {
+                "url": "/capitainescout/accueil1/Maquette1.png",
+                "calque": "/capitainescout/accueil1/wireframe1.webp"
+              },
+              {
+                "url": "/capitainescout/Don2/Maquette2.png",
+                "calque": "/capitainescout/Don2/wireframe2.webp"
+              },
+              {
+                "url": "/capitainescout/Contact3/Maquette3.png",
+                "calque": "/capitainescout/Contact3/wireframe3.webp"
+              },
+              {
+                "url": "/capitainescout/projet4/Maquette4.png",
+                "calque": "/capitainescout/projet4/wireframe4.webp"
+              },
+              {
+                "url": "/capitainescout/extrajob5/Maquette5.png",
+                "calque": "/capitainescout/extrajob5/wireframe5.webp"
+              },
+              {
+                "url": "/capitainescout/journal6/Maquette6.png",
+                "calque": "/capitainescout/journal6/wireframe6.webp"
+              },
+              {
+                "url": "/capitainescout/article7/Maquette7.png",
+                "calque": "/capitainescout/article7/wireframe7.png"
+              }
+            ],
+            "lien": "https://www.figma.com/design/pc1HDEs79e5FETqzSRJKDO/capitaine-scout?node-id=2-2&t=CZa4O6fwrkNtCK4g-1"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "titre": "Programming",
+        "categorie": "Programming",
+        "couleur": "accent2",
+        "description": "Card game in Python.",
+        "descriptionDetaillee": "Complete game in Python with score management via Pandas.",
+        "etiquettes": ["Python", "Data", "Algorithm"],
+        "couverture": "/creations/cover_belote.png",
+        "lienJeu": "https://belote-kart.leandro-dasilva.com/",
+        "liensYoutube": [],
+        "galerie": [
+          "/belote/belote1.webp",
+          "/belote/belote2.png",
+          "/belote/belote3.webp",
+          "/belote/belote4.webp",
+          "/belote/belote5.webp",
+          "/belote/belote6.webp",
+          "/belote/belote7.webp"
+        ],
+        "creations": [],
+        "sousProjets": []
+      },
+      {
+        "id": 4,
+        "titre": "Audiovisual",
+        "categorie": "Creation",
+        "couleur": "accent4",
+        "description": "Lighting & Reports.",
+        "descriptionDetaillee": "Lighting Engineer for Nikon Festival & Reportage for 193 Gallery.",
+        "etiquettes": ["Premiere", "Photo"],
+        "couverture": "/creations/cover_audiovisuel.webp",
+        "liensYoutube": [
+          {
+            "libelle": "Watch Report",
+            "url": "https://youtu.be/4xNYL52I6j0"
+          },
+          {
+            "libelle": "Watch Short Film",
+            "url": "https://www.youtube.com/watch?v=YOUR_VIDEO_2"
+          }
+        ],
+        "galerie": [],
+        "creations": [],
+        "sousProjets": []
+      },
+      {
+        "id": 5,
+        "titre": "Graphics & DTP",
+        "categorie": "Graphics",
+        "couleur": "accent5",
+        "description": "Graphic works (Adobe Suite).",
+        "descriptionDetaillee": "Portfolio of graphic works: Photo retouching, logos, layout.",
+        "etiquettes": ["Photoshop", "Illustrator", "InDesign", "Lightroom"],
+        "couverture": "/creations/cover_graphisme.png",
+        "liensYoutube": [],
+        "galerie": [],
+        "creations": [
+          {
+            "url": "/creations/trumanshow.webp",
+            "titre": "Truman Show",
+            "categorie": "Photoshop",
+            "logiciel": "Photoshop",
+            "brief": "Truman Show Poster",
+            "explication": "Complex photo montage and creative composition (Photoshop).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/AfficheLyres.jpg",
+            "titre": "Affiche Lyres",
+            "categorie": "Photoshop",
+            "logiciel": "Photoshop",
+            "brief": "Lyres Poster",
+            "explication": "Event poster: image processing and effects (Photoshop).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/affichezoo.webp",
+            "titre": "Affiche Zoo",
+            "categorie": "Photoshop",
+            "logiciel": "Photoshop",
+            "brief": "Zoo Poster",
+            "explication": "Composition and image retouching for a wildlife park (Photoshop).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/afficheaquarium.webp",
+            "titre": "Aquarium",
+            "categorie": "Photoshop",
+            "logiciel": "Photoshop",
+            "brief": "Aquarium Poster",
+            "explication": "Work on transparency and aquatic atmosphere (Photoshop).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/affichemusée.webp",
+            "titre": "Musée",
+            "categorie": "Photoshop",
+            "logiciel": "Photoshop",
+            "brief": "Museum Poster",
+            "explication": "Typographic and visual layout for an exhibition (Photoshop).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/Encart_pub.png",
+            "titre": "Encart Pub",
+            "categorie": "InDesign",
+            "logiciel": "InDesign",
+            "brief": "Ad Insert",
+            "explication": "Press layout, column management and typography (InDesign).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/MonnaieParis.png",
+            "titre": "Monnaie Paris",
+            "categorie": "InDesign",
+            "logiciel": "InDesign",
+            "brief": "Paris Mint",
+            "explication": "Institutional layout and graphic charter (InDesign).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/logo_final.png",
+            "titre": "Logo Officiel",
+            "categorie": "Logo",
+            "logiciel": "Illustrator",
+            "brief": "Final Logo",
+            "explication": "Vector creation of the main visual identity (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/bob.webp",
+            "titre": "Panneau Pub",
+            "categorie": "Branding",
+            "logiciel": "Illustrator",
+            "brief": "Urban Branding",
+            "explication": "Realistic logo application on a street billboard (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/magasin.webp",
+            "titre": "Design Espace",
+            "categorie": "Branding",
+            "logiciel": "Illustrator",
+            "brief": "Store Layout",
+            "explication": "Visual identity application in a retail space (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/skate.webp",
+            "titre": "Design Skate",
+            "categorie": "Branding",
+            "logiciel": "Illustrator",
+            "brief": "Merch Design",
+            "explication": "Graphic charter variation on a skateboard deck (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/casquelogo.webp",
+            "titre": "Casque Custom",
+            "categorie": "Branding",
+            "logiciel": "Illustrator",
+            "brief": "Helmet Mockup",
+            "explication": "Logo application on a 3D object (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/illustrationhawks.jpg",
+            "titre": "Hawks Manga",
+            "categorie": "Illustration",
+            "logiciel": "Illustrator",
+            "brief": "Hawks Illustration",
+            "explication": "Manga-style character vector drawing (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/AfficheMars.jpg",
+            "titre": "Mars Concept",
+            "categorie": "Illustration",
+            "logiciel": "Illustrator",
+            "brief": "Mars Poster",
+            "explication": "Space-themed vector graphic composition (Illustrator).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/pixel-art.jpg",
+            "titre": "Pixel Créa",
+            "categorie": "Pixel Art",
+            "logiciel": "Illustrator",
+            "brief": "Pixel Art",
+            "explication": "Pixel-perfect artistic creation (Illustrator).",
+            "paysage": true
+          },
+          {
+            "url": "/creations/Sinners.jpg",
+            "titre": "Sinners",
+            "categorie": "Illustration",
+            "logiciel": "Illustrator",
+            "brief": "Sinners Illustration",
+            "explication": "Complex vector work and curve management (Illustrator).",
+            "paysage": false
+          },
+          {
+            "url": "/creations/gumball.jpg",
+            "titre": "Gumball",
+            "categorie": "Illustration",
+            "logiciel": "Illustrator",
+            "brief": "Gumball Vector",
+            "explication": "Character reproduction in vector, shadows and lights (Illustrator).",
+            "paysage": true
+          }
+        ],
+        "sousProjets": []
+      }
+    ]
+  },
+  "index": {
+    "nom": "Léandro Da Silva",
+    "titre": "Léandro Da Silva | Product Designer UX/UI - Portfolio Digital Campus Paris",
+    "description": "Portfolio de Léandro Da Silva, Product Designer UX/UI. Étudiant en Digital Project Management à Digital Campus Paris. Découvrez mes projets UX/UI, développement web et design graphique."
+  }
+}
