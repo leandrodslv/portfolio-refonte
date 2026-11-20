@@ -48,3 +48,15 @@
   summary: `src/content/` doit ignorer `alt` quand `decorative` est vrai
   evidence: le Studio masque `alt` pour une image décorative mais ne l'efface pas ; la couche de contenu (2.4) rend `alt=""` dans ce cas.
 
+## Deferred from: story 2.3 (spec-2-3-modele-des-autres-sections), 2026-11-20
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-3-modele-des-autres-sections.md`
+  summary: story manquante pour les mentions légales (bouton du pied de page et contenu)
+  evidence: l'ancien site a un bouton et cinq blocs de mentions ; le contenu change (hébergeur Vercel au lieu de Hostinger) et demande du texte riche. À créer dans l'épopée 2 ou 3, avant la bascule (9.6).
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-3-modele-des-autres-sections.md`
+  summary: le bio du pied de page contient un saut de ligne `<br />`
+  evidence: `localizedText` est du texte brut ; la story 2.5 doit migrer sans changer le texte rendu (le comparateur de FR-2 l'attrapera).
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-3-modele-des-autres-sections.md`
+  summary: relier les teintes de compétences (`pink`, `yellow`, `sky`, `green`, `lilac`, `orange`, `red`, `teal`) aux tokens
+  evidence: les tokens actuels ne couvrent pas `orange`, `red` ni `teal` ; à régler dans la story 6.2 en ajoutant les tokens à `design-system/tokens.css`.
+

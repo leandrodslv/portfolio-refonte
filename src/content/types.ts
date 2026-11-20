@@ -15,6 +15,146 @@
 export declare const internalGroqTypeReferenceTo: unique symbol
 
 // Source: schema.json
+export type Footer = {
+  _id: string
+  _type: 'footer'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  copyright?: LocalizedString
+  indiceKonami?: LocalizedString
+  bio?: LocalizedText
+  colonneSite?: LocalizedString
+  colonneReseaux?: LocalizedString
+  colonneContact?: LocalizedString
+  disponibilite?: LocalizedString
+  signature?: LocalizedString
+}
+
+export type LocalizedString = {
+  _type: 'localizedString'
+  fr?: string
+  en?: string
+}
+
+export type LocalizedText = {
+  _type: 'localizedText'
+  fr?: string
+  en?: string
+}
+
+export type SectionContact = {
+  _id: string
+  _type: 'sectionContact'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  entete?: EnteteSection
+}
+
+export type EnteteSection = {
+  _type: 'enteteSection'
+  titre?: LocalizedString
+  titreMisEnAvant?: LocalizedStringOptionnel
+  sousTitre?: LocalizedStringOptionnel
+}
+
+export type SectionAPropos = {
+  _id: string
+  _type: 'sectionAPropos'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  entete?: EnteteSection
+  badge?: LocalizedStringOptionnel
+  paragraphes?: Array<
+    {
+      _key: string
+    } & LocalizedText
+  >
+  libelleCv?: LocalizedString
+  libelleLocalisation?: LocalizedString
+  valeurLocalisation?: LocalizedString
+}
+
+export type LocalizedStringOptionnel = {
+  _type: 'localizedStringOptionnel'
+  fr?: string
+  en?: string
+}
+
+export type SectionServices = {
+  _id: string
+  _type: 'sectionServices'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  entete?: EnteteSection
+  services?: Array<{
+    titre?: LocalizedString
+    description?: LocalizedText
+    _type: 'service'
+    _key: string
+  }>
+}
+
+export type SectionCompetences = {
+  _id: string
+  _type: 'sectionCompetences'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  entete?: EnteteSection
+  competences?: Array<{
+    nom?: LocalizedString
+    famille?: 'hard' | 'soft'
+    teinte?: 'pink' | 'yellow' | 'sky' | 'green' | 'lilac' | 'orange' | 'red' | 'teal'
+    _type: 'competence'
+    _key: string
+  }>
+}
+
+export type SectionParcours = {
+  _id: string
+  _type: 'sectionParcours'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  entete?: EnteteSection
+  etapes?: Array<{
+    periode?: LocalizedString
+    titre?: LocalizedString
+    lieu?: LocalizedString
+    description?: LocalizedText
+    _type: 'etape'
+    _key: string
+  }>
+}
+
+export type SectionProjets = {
+  _id: string
+  _type: 'sectionProjets'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  entete?: EnteteSection
+}
+
+export type Hero = {
+  _id: string
+  _type: 'hero'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  badge?: LocalizedString
+  titreLigne1?: LocalizedString
+  titreLigne2?: LocalizedString
+  titreLigne3?: LocalizedString
+  sousTitre?: LocalizedText
+  boutonPrincipal?: LocalizedString
+  boutonSecondaire?: LocalizedString
+}
+
 export type UiStrings = {
   _id: string
   _type: 'uiStrings'
@@ -78,18 +218,6 @@ export type UiStrings = {
   page404Titre?: LocalizedString
   page404Message?: LocalizedText
   page404Retour?: LocalizedString
-}
-
-export type LocalizedString = {
-  _type: 'localizedString'
-  fr?: string
-  en?: string
-}
-
-export type LocalizedText = {
-  _type: 'localizedText'
-  fr?: string
-  en?: string
 }
 
 export type SiteSettings = {
@@ -173,12 +301,6 @@ export type ImageInformative = {
 
 export type LocalizedTextOptionnel = {
   _type: 'localizedTextOptionnel'
-  fr?: string
-  en?: string
-}
-
-export type LocalizedStringOptionnel = {
-  _type: 'localizedStringOptionnel'
   fr?: string
   en?: string
 }
@@ -327,15 +449,24 @@ export type Geopoint = {
 }
 
 export type AllSanitySchemaTypes =
-  | UiStrings
+  | Footer
   | LocalizedString
   | LocalizedText
+  | SectionContact
+  | EnteteSection
+  | SectionAPropos
+  | LocalizedStringOptionnel
+  | SectionServices
+  | SectionCompetences
+  | SectionParcours
+  | SectionProjets
+  | Hero
+  | UiStrings
   | SiteSettings
   | Project
   | SanityImageAssetReference
   | ImageInformative
   | LocalizedTextOptionnel
-  | LocalizedStringOptionnel
   | Slug
   | SousProjet
   | Lien
