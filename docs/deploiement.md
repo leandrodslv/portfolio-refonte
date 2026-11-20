@@ -16,7 +16,7 @@ Les noms ci-dessus sont ceux attendus pour un projet `portfolio-refonte` ; l'ali
 - Framework Astro, Node.js 22.x, Production Branch `main` ; commandes de build par défaut.
 - Aucune variable à ajouter pour cette story : `VERCEL_ENV` est fournie par Vercel.
 - **Protection des déploiements** : laissée à la valeur par défaut de Vercel (`all_except_custom_domains`, authentification Vercel sur les adresses `*.vercel.app`, production comprise). Les adresses ne sont donc pas publiques tant que cette protection reste active. À décider avant la mise en ligne.
-- Notifications de build en échec par e-mail : story 1.6.
+- Notifications de build en échec par e-mail, variables et secrets : voir [exploitation.md](exploitation.md).
 
 Pour relier le dépôt à la main : tableau de bord Vercel, **Add New… > Project**, importer le dépôt, nom `portfolio-refonte`, mêmes réglages.
 
