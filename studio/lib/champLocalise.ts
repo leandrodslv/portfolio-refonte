@@ -16,3 +16,13 @@ export function validerChampLocalise(valeur: unknown): true | string {
   }
   return true
 }
+
+export function validerChampLocaliseOptionnel(valeur: unknown): true | string {
+  const champ: Record<string, unknown> =
+    typeof valeur === 'object' && valeur !== null ? Object.fromEntries(Object.entries(valeur)) : {}
+  const vide = LANGUES.every((langue) => {
+    const texte = champ[langue]
+    return typeof texte !== 'string' || texte.trim() === ''
+  })
+  return vide ? true : validerChampLocalise(valeur)
+}

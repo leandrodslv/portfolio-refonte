@@ -9,8 +9,8 @@
   "scripts": {
     "dev": "sanity dev",
     "build": "sanity build",
-    "schema:extract": "SANITY_STUDIO_PROJECT_ID=${SANITY_STUDIO_PROJECT_ID:-horsligne} sanity schema extract --path schema.json",
-    "typegen": "SANITY_STUDIO_PROJECT_ID=${SANITY_STUDIO_PROJECT_ID:-horsligne} sanity schema extract --path schema.json && sanity typegen generate"
+    "schema:extract": "SANITY_STUDIO_PROJECT_ID=${SANITY_STUDIO_PROJECT_ID:-horsligne} sanity schema extract --workspace dev --path schema.json --force",
+    "typegen": "SANITY_STUDIO_PROJECT_ID=${SANITY_STUDIO_PROJECT_ID:-horsligne} sanity schema extract --workspace dev --path schema.json --force && sanity typegen generate"
   },
   "dependencies": {
     "react": "^19.3.1",

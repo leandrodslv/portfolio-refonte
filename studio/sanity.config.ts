@@ -1,6 +1,6 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
-import { schemaTypes } from './schemaTypes'
+import { creerSchemaTypes } from './schemaTypes'
 import { SINGLETONS, structure } from './structure'
 
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID
@@ -10,20 +10,25 @@ if (!projectId) {
 
 const typesSingleton = new Set<string>(SINGLETONS.map(({ type }) => type))
 
-export default defineConfig({
-  name: 'portfolio',
-  title: 'Portfolio Léandro Da Silva',
-  projectId,
-  dataset: process.env.SANITY_STUDIO_DATASET ?? 'dev',
-  plugins: [structureTool({ structure })],
-  schema: {
-    types: schemaTypes,
-    templates: (templates) => templates.filter(({ schemaType }) => !typesSingleton.has(schemaType)),
-  },
-  document: {
-    actions: (actions, { schemaType }) =>
-      typesSingleton.has(schemaType)
-        ? actions.filter(({ action }) => action !== 'duplicate' && action !== 'delete')
-        : actions,
-  },
-})
+const espace = (nom: 'dev' | 'production') =>
+  defineConfig({
+    name: nom,
+    title: `Portfolio Léandro Da Silva (${nom})`,
+    basePath: `/${nom}`,
+    projectId,
+    dataset: nom,
+    plugins: [structureTool({ structure })],
+    schema: {
+      types: creerSchemaTypes({ verrouSlug: nom === 'production' }),
+      templates: (templates) =>
+        templates.filter(({ schemaType }) => !typesSingleton.has(schemaType)),
+    },
+    document: {
+      actions: (actions, { schemaType }) =>
+        typesSingleton.has(schemaType)
+          ? actions.filter(({ action }) => action !== 'duplicate' && action !== 'delete')
+          : actions,
+    },
+  })
+
+export default [espace('dev'), espace('production')]
