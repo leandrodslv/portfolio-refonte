@@ -1207,6 +1207,15 @@ afin que le kit reprenne exactement ce qui existe, sans rien inventer (FR-8, FR-
 **When** je dresse la liste des écarts
 **Then** elle est soumise à Léandro avant tout ajout de token (AD-6).
 
+**Given** les tailles de texte, interlignes, graisses et espacements de l'ancien site
+**When** je les relève
+**Then** `design-system/components.md` en tire une échelle typographique et une échelle d'espacement nommées, avec la correspondance avec les valeurs existantes de `tokens.css`
+**And** chaque écart avec les tokens actuels est listé pour validation de Léandro avant ajout (AD-6).
+
+**Given** les media queries et classes responsives de l'ancien site
+**When** je les relève
+**Then** `design-system/components.md` fixe la liste des points de rupture (mobile, tablette, bureau), la règle de passage de l'un à l'autre et ce que chaque primitive change à chaque taille.
+
 ### Story 11.2 : Primitives d'interface `.astro`
 
 En tant que Visiteur,
@@ -1238,6 +1247,24 @@ afin de reconnaître et d'utiliser chaque élément sans surprise (FR-8, FR-22).
 **Then** elle n'utilise que des tokens sémantiques existants dans `tokens.css`, et un test échoue si elle référence un token absent ou si elle manque à `components.md`
 **And** un token manquant est ajouté à `design-system/tokens.css` avant usage, jamais écrit en dur dans le composant (AD-6).
 
+**Given** les échelles typographique et d'espacement de la story 11.1
+**When** une primitive définit sa taille de texte, son interligne ou ses marges
+**Then** elle n'utilise que des tokens de ces échelles, et stylelint échoue sur une valeur littérale
+**And** les tailles sont exprimées en `rem` pour suivre le réglage de texte du navigateur.
+
+**Given** les points de rupture fixés en story 11.1
+**When** la fenêtre passe de mobile à tablette puis à bureau
+**Then** chaque primitive se comporte comme documenté, sans défilement horizontal à 320 px, y compris avec un zoom de texte à 200 %.
+
+**Given** un texte plus long de 30 % que la version française ou anglaise de référence
+**When** il remplit une primitive (bouton, carte, badge, lien de navigation)
+**Then** le texte passe à la ligne ou la primitive s'agrandit, sans débordement, sans troncature qui masque l'information et sans chevauchement.
+
+**Given** les préférences système `prefers-contrast: more` et `forced-colors: active`
+**When** une primitive s'affiche
+**Then** ses bordures, son focus et ses états restent visibles, sans dépendre d'une couleur de fond ou d'une ombre
+**And** les valeurs propres à ces modes viennent de tokens de `design-system/tokens.css`.
+
 ### Story 11.3 : Primitives de formulaire
 
 En tant que Visiteur,
@@ -1260,6 +1287,10 @@ afin de saisir mes informations sans erreur ni confusion (FR-22).
 **Then** les contrastes et le focus visible sont conformes (WCAG 2.2 AA)
 **And** le formulaire de contact (story 7.2) n'est pas construit ici : cette story ne livre que les primitives.
 
+**Given** une étiquette, une aide ou un message d'erreur plus long de 30 % en FR ou en EN
+**When** il s'affiche sur mobile (320 px) et avec un zoom de texte à 200 %
+**Then** il passe à la ligne sans masquer le champ, sans chevauchement et sans défilement horizontal.
+
 ### Story 11.4 : États, variantes et contrôle des Thèmes du kit
 
 En tant que Léandro,
@@ -1271,7 +1302,11 @@ afin de détecter un écart avant qu'il n'atteigne une page (FR-20, FR-22).
 **Given** les primitives des stories 11.2 et 11.3
 **When** j'ouvre Storybook
 **Then** chacune dispose d'une story par variante et par état, rendue grâce à la solution retenue en story 10.3
-**And** l'addon a11y en mode `error` passe sous Pop, Terminal et Wireframe, en FR et en EN, sur mobile et bureau.
+**And** l'addon a11y en mode `error` passe sous Pop, Terminal et Wireframe, en FR et en EN, sur mobile, tablette et bureau.
+
+**Given** chaque primitive dans Storybook
+**When** j'affiche sa variante « texte long » (+30 %), la fenêtre à 320 px, le zoom de texte à 200 % et les modes `prefers-contrast: more` et `forced-colors: active`
+**Then** une story par cas existe, sans débordement ni perte d'information ni élément invisible.
 
 **Given** une primitive dont les états ne sont pas tous documentés
 **When** la CI s'exécute
@@ -1293,6 +1328,10 @@ afin que le Site ne diverge pas et que les corrections se fassent à un seul end
 **Given** la story 4.4 (parité des tokens avec Figma)
 **When** ses critères sont relus
 **Then** la parité couvre aussi les composants du kit listés dans `design-system/components.md` (variantes et états), sans changer ses autres critères.
+
+**Given** la story 4.2 (sélecteur de Thème mémorisé)
+**When** ses critères sont relus
+**Then** elle précise que, sans choix mémorisé du Visiteur, le Thème et les modes de contraste suivent les préférences système (`prefers-color-scheme`, `prefers-contrast`, `forced-colors`), sans changer ses autres critères.
 
 **Given** les stories 3.1 à 3.4, 5.1 et 7.2
 **When** leurs critères d'acceptation sont relus

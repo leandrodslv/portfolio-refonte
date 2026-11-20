@@ -30,6 +30,7 @@ Ordre de livraison : 10.1 → 10.2 → 10.3 → 11.1 → 11.2 → 11.3 → 11.4 
 | 2 | `epics.md` | Section Epic 11 avec les stories 11.1 à 11.5 et leurs critères | Approuvée |
 | 3 | `epics.md` | Epic 10 : 10.1, 10.2, 10.3 avant l'épopée 11 ; 10.4 à 10.7 après le kit | Appliquée sur recommandation |
 | 5 | `epics.md` | Liaison au design system (demande de Léandro) : `design-system/components.md` source de vérité (11.1), test token existant dans `tokens.css` (11.2), parité Figma des composants via 4.4 (11.5) | Appliquée |
+| 6 | `epics.md` | Bonnes pratiques de design intégrées au kit : échelles de typographie et d'espacement (11.1, 11.2), points de rupture (11.1, 11.2, 11.4), texte long +30 % (11.2, 11.3, 11.4), préférences système contraste et couleurs forcées (11.2, 11.4, 11.5 pour 4.2) | Appliquée |
 | 4 | `sprint-status.yaml` | `epic-11` et `11-1` à `11-5` en `backlog`, `epic-11-retrospective: optional` | Appliquée sur recommandation |
 
 ## 5. Passation
