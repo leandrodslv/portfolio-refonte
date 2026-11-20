@@ -49,8 +49,8 @@ development_status:
   2-2-modèle-des-projets: done
   2-3-modèle-des-autres-sections: done
   2-4-couche-de-contenu-en-lecture-seule: done
-  2-5-migration-du-contenu-à-l-identique: review
-  2-6-publication-dev-puis-production: backlog
+  2-5-migration-du-contenu-à-l-identique: done
+  2-6-publication-dev-puis-production: review
   epic-2-retrospective: optional
 
   epic-3: backlog

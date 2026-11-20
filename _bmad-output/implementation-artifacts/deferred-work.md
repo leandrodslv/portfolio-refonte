@@ -79,3 +79,13 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-2-5-migration-du-contenu.md`
   summary: l'import dans `dev` et la vérification par le connecteur Sanity restent à faire par Léandro.
   evidence: l'agent n'écrit jamais dans un dataset ; commande documentée dans `docs/exploitation.md`.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-6-publication-dev-puis-production.md`
+  summary: créer les deploy hooks Vercel, les deux webhooks Sanity, le jeton `site-lecture-production` et les variables Vercel de production ; lancer la sauvegarde à la main une fois ; chronométrer la publication (SM-5).
+  evidence: ces actions manipulent des secrets, réservées à Léandro ; procédure dans `docs/exploitation.md`.
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-6-publication-dev-puis-production.md`
+  summary: première promotion de `dev` vers `production` avant la première mise en ligne.
+  evidence: le dataset `production` est vide ; la promotion est une action de Léandro.
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-6-publication-dev-puis-production.md`
+  summary: amender AD-10 dans `ARCHITECTURE-SPINE.md` : l'isolation du jeton de `dev` vis-à-vis de `production` est inapplicable en gratuit.
+  evidence: un jeton Viewer lit tous les datasets d'un projet ; les rôles par dataset relèvent d'Enterprise (documentation Sanity). Écart assumé par Léandro ; seul le propriétaire du spine peut le modifier.
