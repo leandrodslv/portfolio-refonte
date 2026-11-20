@@ -156,6 +156,12 @@ graph TD
 - **Prevents:** des métadonnées différentes d'une page à l'autre ; un sitemap qui liste des ancres
 - **Rule:** un seul composant `Seo.astro` produit titre, description, lien canonique, `hreflang`, Open Graph/Twitter et JSON-LD `Person` (sans offre d'emploi), à partir des champs Sanity de la page. `@astrojs/sitemap` liste la Page d'accueil de chaque Langue et chaque Projet. Chaque Projet a une image d'aperçu générée au build depuis son image principale. À l'ouverture ou à la fermeture de la Fenêtre de projet par `pushState`, l'îlot met à jour `document.title` et la balise canonique et annonce le changement aux lecteurs d'écran ; changer de Langue conserve le Projet ouvert (même `slug`, préfixe de langue différent).
 
+### AD-19 — Rendu des composants `.astro` dans Storybook [ADOPTED]
+
+- **Binds:** AD-1, AD-16, AD-6
+- **Prevents:** des composants statiques absents du catalogue ; une dépendance fragile ou payante pour les y montrer
+- **Rule:** les composants `.astro` s'affichent dans Storybook par HTML pré-rendu avec l'API Container d'Astro. Un plugin Vite (`.storybook/astro-html.ts`) charge `X.astro?html` : il rend le composant dans un serveur Vite autonome configuré par `getViteConfig`, et la story affiche la chaîne HTML (framework `@storybook/preact-vite` conservé). Options comparées : (1) **Container Astro, retenu** : aucune dépendance ajoutée, API déjà utilisée par les tests de composants, Thèmes et test a11y des stories fonctionnent ; coût : un plugin d'environ quarante lignes à maintenir et un rendu statique, sans props tant qu'aucun composant n'en exige ; (2) paquet communautaire `storybook-astro` (MIT, v0.2.1, un seul mainteneur) : écarté car il remplace le framework Storybook et ses pairs déclarés (Astro jusqu'à 6, Vite jusqu'à 7) sont en dessous de Astro 7 et Vite 8 ; (3) captures du HTML construit : gratuit mais sans bascule de Thème ni test a11y sur le composant, écarté. Licence : aucune nouvelle, tout est déjà dans la pile (MIT). Aucun JavaScript client n'est ajouté au Site : le plugin n'existe que dans `.storybook/`. Limite connue : les composants à props exigeront d'étendre le plugin ; à traiter à la première story d'un tel composant (story 10.5).
+
 ## Consistency Conventions
 
 | Concern | Convention |

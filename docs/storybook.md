@@ -14,6 +14,10 @@ La barre d'outils propose le Thème (`data-theme`), la Langue FR/EN (`lang`) et 
 
 `npm run test:stories` exécute chaque story dans Chromium (addon-vitest) : il échoue sur une violation axe (`a11y.test: 'error'`) ou sur un défilement horizontal à 320 px. Il est séparé de `npm test` car il lance un navigateur ; son câblage dans la CI relève de la story 10.6.
 
+## Composants `.astro`
+
+Un composant `.astro` s'affiche par HTML pré-rendu (AD-19). Dans une story, importer `import html from './Composant.astro?html'` et l'afficher (par exemple dans un `<pre>` pour un composant sans rendu visuel, ou en `dangerouslySetInnerHTML`). Le plugin vit dans `.storybook/astro-html.ts`. Limites : rendu statique, pas de props ; à étendre au premier composant qui en exige.
+
 ## Compatibilité Preact des bibliothèques React-only
 
 À compléter avant le premier usage d'une bibliothèque dans un îlot.
