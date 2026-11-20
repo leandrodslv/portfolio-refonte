@@ -30,3 +30,6 @@ storybook-static/
 studio/schema.json
 studio/dist/
 studio/.sanity/
+
+# Migration du Contenu (fichier d'import généré)
+migration-sortie/

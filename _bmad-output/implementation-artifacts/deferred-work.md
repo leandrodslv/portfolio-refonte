@@ -66,3 +66,16 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-2-4-couche-de-contenu.md`
   summary: Vercel Preview et la CI exigent `SANITY_PROJECT_ID`, `SANITY_DATASET` et `SANITY_READ_TOKEN` ; les PR de Dependabot n'ont pas accès au secret GitHub.
   evidence: palier `sanity` activé ; saisie à faire par Léandro, secret Dependabot à déclarer si une PR de dépendance échoue.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-5-migration-du-contenu.md`
+  summary: rédiger les textes sans équivalent dans l'ancien site : version EN de `siteSettings` et clés `uiStrings` (ALTCHA, page 404, erreurs de formulaire, thèmes, sélecteurs) ; remplacer l'adresse LinkedIn générique.
+  evidence: l'ancien site n'a ni titre ni description EN, et le catalogue `uiStrings` compte des clés nouvelles ; le Studio refuse de publier ces documents tant qu'ils sont incomplets.
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-5-migration-du-contenu.md`
+  summary: l'indice d'ajustement d'image `fit: 'contain'` du logo de la galerie Graphisme n'est pas migré (aucun champ).
+  evidence: un seul élément (« Logo Officiel ») porte `fit`, indice purement visuel ; à traiter par la story qui affiche la galerie (épopée 3).
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-5-migration-du-contenu.md`
+  summary: les noms de langue du sélecteur (`label`) n'ont pas de clé `uiStrings`.
+  evidence: l'ancien site les stocke par langue (« 🇫🇷 Français ») ; le nouveau sélecteur FR et EN en a besoin, à décider avec le composant (épopée 3).
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-5-migration-du-contenu.md`
+  summary: l'import dans `dev` et la vérification par le connecteur Sanity restent à faire par Léandro.
+  evidence: l'agent n'écrit jamais dans un dataset ; commande documentée dans `docs/exploitation.md`.

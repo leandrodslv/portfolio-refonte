@@ -290,6 +290,12 @@ export type ImageInformative = {
   }
   decorative?: boolean
   alt?: LocalizedString
+  titre?: LocalizedStringOptionnel
+  categorie?: LocalizedStringOptionnel
+  logiciel?: LocalizedStringOptionnel
+  brief?: LocalizedTextOptionnel
+  explication?: LocalizedTextOptionnel
+  paysage?: boolean
   calque?: {
     asset?: SanityImageAssetReference
     media?: unknown
