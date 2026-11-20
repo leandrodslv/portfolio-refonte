@@ -103,6 +103,8 @@ FR-20 : Épopée 4 — tokens et composants, parité Figma
 FR-21 : Épopée 1 — en-têtes, secrets, dépendances, HTTPS (anti-spam du formulaire en épopée 7)
 FR-22 : Épopée 9 — audit RGAA et déclaration (critères d'accessibilité portés par chaque story)
 FR-23 : Épopée 9 — ajustements visuels consignés
+FR-20 (complément) : Épopée 10 — catalogue Storybook des tokens, composants et états
+FR-22 (complément) : Épopée 10 — contrôle axe de chaque état, Thème et Langue dans Storybook
 NFR-1 : Épopée 1 — budget JS ; images optimisées en épopée 2
 NFR-2 : Épopée 1 — environnements et déploiement
 NFR-3 : Épopée 1 — chaîne automatique
@@ -112,7 +114,11 @@ NFR-6 : Épopée 9 — bascule réversible, ancien site intact
 
 ## Epic List
 
-### Epic 1 : Un Site déployable, vérifié automatiquement
+#### Epic 10 : Storybook, catalogue vivant des composants et des Thèmes
+Storybook devient la référence des tokens, composants, îlots, états, Thèmes et Langues, aligné sur la production, contrôlé en CI et documenté pour les stories suivantes. Les stories 10.1 et 10.2 sont à livrer avant le premier vrai îlot (épopées 3, 6 et 7) ; le reste suit les composants de l'épopée 3.
+**FRs covered:** FR-20, FR-22 (compléments)
+
+## Epic 1 : Un Site déployable, vérifié automatiquement
 Léandro pousse du code, la CI le contrôle et un Site de dev se déploie. Contient l'initialisation d'Astro 7 et la preuve du budget JS et de la CSP.
 **FRs covered:** FR-21, NFR-1, NFR-2, NFR-3, NFR-4
 
@@ -1005,3 +1011,161 @@ afin de livrer sans risque (NFR-6).
 **When** la période de repli court
 **Then** il reste intact pendant 30 jours
 **And** HSTS n'est allongé qu'après cette période.
+
+## Epic 10 : Storybook, catalogue vivant des composants et des Thèmes
+
+Léandro et les futures sessions de développement consultent un catalogue unique et fiable : chaque token, composant et îlot y est montré dans chacun de ses états, sous chaque Thème et chaque Langue, avec l'accessibilité vérifiée. Storybook est déjà installé (`.storybook/`, addon a11y en mode `error`, sélecteur de Thème, `build-storybook` en CI, une story `StatusMessage`) ; cette épopée le rend conforme à la production et le généralise. Elle complète les critères de la story 4.4 (« états et variantes documentés ») sans les remplacer.
+
+### Story 10.1 : Storybook aligné sur la production (Preact)
+
+En tant que Léandro,
+je veux que Storybook et Vitest rendent les îlots avec la même bibliothèque que la production,
+afin qu'une story verte garantisse un îlot qui fonctionne sur le Site (dette consignée dans `deferred-work.md`, story 1.1).
+
+**Acceptance Criteria:**
+
+**Given** l'alias `preact/compat` défini dans `astro.config.mjs`
+**When** Storybook, Vitest et `tsconfig.json` (`jsxImportSource`) sont configurés
+**Then** ils partagent ce même alias depuis une source unique
+**And** `npm run build-storybook`, `npm test` et `npm run typecheck` passent.
+
+**Given** l'îlot `Compteur` et `StatusMessage`
+**When** je les ouvre dans Storybook
+**Then** ils sont rendus par Preact, vérifié par un test qui échoue si l'alias est retiré.
+
+**Given** une bibliothèque React-only prévue (ALTCHA, animation)
+**When** elle est évaluée
+**Then** sa compatibilité Preact est consignée dans `docs/storybook.md` avant son premier usage.
+
+### Story 10.2 : Thèmes, Langues et accessibilité dans la barre d'outils
+
+En tant que Léandro,
+je veux basculer le Thème, la Langue et la largeur d'écran dans Storybook,
+afin de voir chaque composant tel que le Visiteur le verra.
+
+**Acceptance Criteria:**
+
+**Given** la barre d'outils de Storybook
+**When** je choisis pop, terminal ou wireframe
+**Then** `data-theme` est appliqué et les tokens de `design-system/tokens.css` s'appliquent, sans valeur de design en dur dans `.storybook/`.
+
+**Given** les Langues FR et EN (AD-3)
+**When** je bascule la Langue
+**Then** l'attribut `lang` du document suit et les textes viennent de fixtures typées, jamais de chaînes écrites dans les stories.
+
+**Given** les fenêtres mobile et bureau déclarées comme fenêtres d'affichage
+**When** je change de largeur
+**Then** le composant se réadapte sans défilement horizontal à 320 px.
+
+**Given** l'addon a11y en mode `error`
+**When** un état viole une règle axe
+**Then** le test de la story échoue.
+
+### Story 10.3 : Rendu des composants `.astro` dans Storybook (décision)
+
+En tant que Léandro,
+je veux savoir comment documenter les composants `.astro` statiques,
+afin que le catalogue couvre aussi les composants sans JavaScript (AD-1).
+
+**Acceptance Criteria:**
+
+**Given** que `@storybook/react-vite` ne rend pas les fichiers `.astro`
+**When** les options sont comparées (intégration Astro pour Storybook, page de rendu Astro intégrée dans une story, ou captures du HTML construit)
+**Then** la décision est consignée dans le spine (nouvel AD ou amendement) avec coût, maintenance et licence
+**And** seule une solution gratuite ou open source est retenue (AD-16).
+
+**Given** la solution retenue
+**When** `RobotsMeta.astro` ou le premier composant statique réel est documenté
+**Then** sa story s'affiche dans Storybook sous les trois Thèmes
+**And** aucun JavaScript client n'est ajouté au Site (budget JS inchangé).
+
+### Story 10.4 : Page Fondations générée depuis les tokens
+
+En tant que Léandro,
+je veux une page « Fondations » qui montre tous les tokens par Thème,
+afin de repérer un écart de design sans ouvrir le CSS (FR-20).
+
+**Acceptance Criteria:**
+
+**Given** `design-system/tokens.css`
+**When** j'ouvre la page Fondations
+**Then** couleurs, ombres, bordures, durées et espacements s'affichent pour pop, terminal et wireframe
+**And** la liste est lue depuis le fichier de tokens, pas recopiée à la main.
+
+**Given** un token ajouté ou renommé dans `tokens.css`
+**When** les tests s'exécutent
+**Then** un test signale tout token absent de la page ou d'un Thème.
+
+**Given** la page Fondations
+**When** axe s'exécute
+**Then** les paires texte et fond de chaque Thème atteignent les contrastes WCAG 2.2 AA, ou l'écart est consigné.
+
+### Story 10.5 : Une story par état pour chaque composant et îlot
+
+En tant que Léandro,
+je veux que tout composant ait ses stories d'états,
+afin que le catalogue ne diverge pas du Site (TESTING-RULES, section Storybook).
+
+**Acceptance Criteria:**
+
+**Given** les composants de `src/components/` et les îlots de `src/islands/`
+**When** un test de couverture parcourt les dossiers
+**Then** il échoue pour tout composant sans fichier `*.stories.*`
+**And** la liste des exceptions est explicite et justifiée.
+
+**Given** un composant interactif (menu mobile, sélecteur de Thème, Fenêtre de projet, formulaire)
+**When** je consulte ses stories
+**Then** chaque état est présent : repos, focus, actif, désactivé, erreur, chargement, succès selon le cas
+**And** un test d'interaction au clavier vérifie Tab, Entrée, Espace et Échap.
+
+**Given** `StatusMessage`
+**When** ses stories sont revues
+**Then** les textes viennent des fixtures (10.2) et l'état `aria-live` est couvert.
+
+### Story 10.6 : Storybook dans la CI et consultable en ligne
+
+En tant que Léandro,
+je veux que Storybook soit contrôlé à chaque pull request et consultable,
+afin de relire un composant sans lancer le projet.
+
+**Acceptance Criteria:**
+
+**Given** une pull request
+**When** la CI s'exécute
+**Then** `build-storybook` et les tests a11y de chaque story, Thème et Langue sont requis par `ci-ok`.
+
+**Given** un workflow GitHub Actions dédié, déclenché à chaque fusion dans `dev`
+**When** il s'exécute
+**Then** `build-storybook` est déployé sur GitHub Pages (gratuit, AD-16) avec les permissions `pages: write` et `id-token: write` limitées à ce workflow
+**And** l'adresse est consignée dans `README.md`.
+
+**Given** le Storybook publié sur GitHub Pages
+**When** j'ouvre son adresse
+**Then** les pages portent `<meta name="robots" content="noindex">` et un `robots.txt` interdit l'exploration, GitHub Pages ne permettant pas d'en-têtes personnalisés
+**And** aucun secret ni variable d'environnement n'est présent dans le build.
+
+**Given** que le dépôt est privé ou public
+**When** GitHub Pages est activé
+**Then** la visibilité de l'adresse est vérifiée et consignée : sur un plan gratuit, un dépôt privé ne publie pas de Pages
+**And** si le dépôt doit rester privé, la story s'arrête et la décision est remontée à Léandro avant tout changement de visibilité.
+
+**Given** un composant modifié sans mise à jour de sa story
+**When** la comparaison visuelle des stories s'exécute
+**Then** l'écart est signalé sur la pull request.
+
+### Story 10.7 : Documentation et règle de livraison
+
+En tant que Léandro,
+je veux une règle claire sur la place de Storybook dans chaque story,
+afin que tout futur composant arrive documenté.
+
+**Acceptance Criteria:**
+
+**Given** le dépôt
+**When** je lis `docs/storybook.md`
+**Then** j'y trouve la commande, la structure des stories, les fixtures, l'ajout d'un état et la marche à suivre pour un composant `.astro`.
+
+**Given** `CLAUDE.md` et `docs/TESTING-RULES.md`
+**When** une story ajoute ou modifie un composant
+**Then** la définition de terminé exige ses stories d'états et leur test a11y au vert
+**And** `README.md` renvoie vers `docs/storybook.md`.
