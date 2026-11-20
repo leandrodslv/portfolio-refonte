@@ -14,8 +14,8 @@ export const REGISTRE: readonly VariableDeclaree[] = [
   { nom: 'ALTCHA_HMAC_KEY_SECRET', palier: 'contact' },
 ]
 
-// Chaque story active son palier : sanity en 2.4, contact en épopée 4.
-export const PALIERS_ACTIFS: readonly Palier[] = []
+// Chaque story active son palier : contact en épopée 4.
+export const PALIERS_ACTIFS: readonly Palier[] = ['sanity']
 
 export type Environnement = Readonly<Record<string, string | undefined>>
 

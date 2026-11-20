@@ -9,7 +9,12 @@ export default defineConfig({
   output: 'static',
   site: 'https://leandro-dasilva.com',
   adapter: vercel(),
-  integrations: [react(), sitemap(), verifierVariablesIntegration()],
+  integrations: [
+    react(),
+    sitemap({ filter: (page) => !page.includes('essai-contenu') }),
+    verifierVariablesIntegration(),
+  ],
+  image: { remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io' }] },
   security: { csp: true },
   vite: {
     plugins: [tailwindcss()],

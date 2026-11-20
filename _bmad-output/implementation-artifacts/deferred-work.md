@@ -60,3 +60,9 @@
   summary: relier les teintes de compétences (`pink`, `yellow`, `sky`, `green`, `lilac`, `orange`, `red`, `teal`) aux tokens
   evidence: les tokens actuels ne couvrent pas `orange`, `red` ni `teal` ; à régler dans la story 6.2 en ajoutant les tokens à `design-system/tokens.css`.
 
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-4-couche-de-contenu.md`
+  summary: le build réel contre le dataset `dev` (requête, téléchargement et optimisation d'images) n'est pas vérifié en 2.4.
+  evidence: aucun jeton de lecture n'existe ; la CI de la PR le vérifiera une fois le jeton saisi, et la 2.5 apportera de vraies images.
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-4-couche-de-contenu.md`
+  summary: Vercel Preview et la CI exigent `SANITY_PROJECT_ID`, `SANITY_DATASET` et `SANITY_READ_TOKEN` ; les PR de Dependabot n'ont pas accès au secret GitHub.
+  evidence: palier `sanity` activé ; saisie à faire par Léandro, secret Dependabot à déclarer si une PR de dépendance échoue.
