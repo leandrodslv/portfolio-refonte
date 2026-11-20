@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/preact-vite'
+import { texte } from '../fixtures/ui-strings'
 import { StatusMessage } from './StatusMessage'
 
 const meta = {
@@ -9,7 +10,15 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Succes: Story = { args: { kind: 'success', children: 'Message envoyé.' } }
-export const Erreur: Story = {
-  args: { kind: 'error', children: 'Le message n’a pas pu être envoyé.' },
+export const SuccesFr: Story = { args: { kind: 'success', children: texte('fr', 'formSucces') } }
+export const ErreurFr: Story = {
+  args: { kind: 'error', children: texte('fr', 'formErreurEnvoi') },
+}
+export const SuccesEn: Story = {
+  args: { kind: 'success', children: texte('en', 'formSucces') },
+  globals: { locale: 'en' },
+}
+export const ErreurEn: Story = {
+  args: { kind: 'error', children: texte('en', 'formErreurEnvoi') },
+  globals: { locale: 'en' },
 }
