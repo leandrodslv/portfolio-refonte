@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets'
+import { lireProjets } from '../content/projets'
+import type { Locale } from '../lib/localizedPath'
+import '../styles/global.css'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const projets = await lireProjets(locale)
+---
+
+<html lang={locale} data-theme="pop">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Essai contenu</title>
+  </head>
+  <body>
+    <main>
+      <h1>Essai contenu</h1>
+      <ul>
+        {projets.map((projet) => (
+          <li>
+            <h2>{projet.titre}</h2>
+            <p>{projet.description}</p>
+            {projet.couverture && (
+              <Image
+                src={projet.couverture.source}
+                width={projet.couverture.largeur}
+                height={projet.couverture.hauteur}
+                alt={projet.couverture.alt}
+                loading="lazy"
+              />
+            )}
+          </li>
+        ))}
+      </ul>
+    </main>
+  </body>
+</html>

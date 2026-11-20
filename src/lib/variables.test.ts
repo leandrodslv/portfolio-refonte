@@ -2,9 +2,9 @@ import { describe, expect, it } from 'vitest'
 import { PALIERS_ACTIFS, REGISTRE, variablesManquantes, verifierVariables } from './variables'
 
 describe('variables', () => {
-  it('aucun palier actif : rien n’est exigé', () => {
-    expect(PALIERS_ACTIFS).toEqual([])
-    expect(() => verifierVariables({})).not.toThrow()
+  it('palier sanity actif : ses variables sont exigées par défaut', () => {
+    expect(PALIERS_ACTIFS).toEqual(['sanity'])
+    expect(() => verifierVariables({})).toThrow(/SANITY_PROJECT_ID/)
   })
 
   it('palier activé, tout présent : passe', () => {
