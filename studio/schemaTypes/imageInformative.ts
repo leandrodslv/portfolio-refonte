@@ -25,6 +25,16 @@ export const imageInformative = defineType({
       type: 'localizedString',
       hidden: ({ parent }) => estDecorative(parent),
     }),
+    defineField({ name: 'titre', title: 'Titre de la création', type: 'localizedStringOptionnel' }),
+    defineField({ name: 'categorie', title: 'Catégorie', type: 'localizedStringOptionnel' }),
+    defineField({ name: 'logiciel', title: 'Logiciel', type: 'localizedStringOptionnel' }),
+    defineField({ name: 'brief', title: 'Brief', type: 'localizedTextOptionnel' }),
+    defineField({
+      name: 'explication',
+      title: 'Explication technique',
+      type: 'localizedTextOptionnel',
+    }),
+    defineField({ name: 'paysage', title: 'Format paysage', type: 'boolean', initialValue: false }),
     defineField({
       name: 'calque',
       title: 'Calque (wireframe affiché en survol)',

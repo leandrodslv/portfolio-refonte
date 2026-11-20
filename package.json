@@ -20,7 +20,9 @@
     "test:navigateurs": "playwright test --project=webkit --project=firefox --project=edge",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "migrer:contenu": "node scripts/migrer-contenu.mjs",
+    "extraire:ancien": "node scripts/extraire-ancien.mjs"
   },
   "lint-staged": {
     "*.{ts,tsx,astro,js,mjs}": [
