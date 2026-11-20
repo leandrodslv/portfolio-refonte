@@ -38,9 +38,12 @@ describe('catalogue uiStrings', () => {
 
   it('chaque clé est un champ localisé des types générés', () => {
     const bloc = /export type UiStrings = \{([\s\S]*?)\n\}/.exec(types)?.[1] ?? ''
-    const manquantes = CLES_UI_STRINGS.filter(
-      (cle) => !new RegExp(`\\b${cle}\\?: Localized(String|Text)\\b`).test(bloc),
+    const champsLocalises = new Set(
+      [...bloc.matchAll(/^\s+(\w+)\?: Localized(?:String|Text)$/gm)].map(
+        (correspondance) => correspondance[1],
+      ),
     )
+    const manquantes = CLES_UI_STRINGS.filter((cle) => !champsLocalises.has(cle))
     expect(manquantes, `clés absentes de src/content/types.ts : ${manquantes.join(', ')}`).toEqual(
       [],
     )
