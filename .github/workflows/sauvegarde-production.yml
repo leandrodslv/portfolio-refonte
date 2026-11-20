@@ -1,0 +1,57 @@
+name: Sauvegarde production
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sauvegarde-production
+  cancel-in-progress: false
+
+jobs:
+  export:
+    name: Export du dataset production
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          {
+            node-version-file: '.nvmrc',
+            cache: 'npm',
+            cache-dependency-path: studio/package-lock.json,
+          }
+      - name: Vérifier les variables
+        env:
+          SANITY_PROJECT_ID: ${{ vars.SANITY_PROJECT_ID }}
+          SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
+        run: |
+          manquantes=""
+          [ -n "$SANITY_PROJECT_ID" ] || manquantes="$manquantes SANITY_PROJECT_ID (variable)"
+          [ -n "$SANITY_READ_TOKEN" ] || manquantes="$manquantes SANITY_READ_TOKEN (secret)"
+          if [ -n "$manquantes" ]; then
+            echo "::error::Sauvegarde impossible, éléments manquants :$manquantes. Voir docs/exploitation.md."
+            exit 1
+          fi
+      - run: npm ci
+        working-directory: studio
+      - name: Exporter production
+        working-directory: studio
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
+          SANITY_PROJECT_ID: ${{ vars.SANITY_PROJECT_ID }}
+        run: npx sanity dataset export production "$RUNNER_TEMP/production.tar.gz" --project "$SANITY_PROJECT_ID"
+      - name: Nommer l'archive
+        id: archive
+        run: echo "nom=production-$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ${{ steps.archive.outputs.nom }}
+          path: ${{ runner.temp }}/production.tar.gz
+          retention-days: 90
+          if-no-files-found: error
