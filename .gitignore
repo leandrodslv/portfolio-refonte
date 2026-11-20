@@ -25,3 +25,8 @@ playwright-report/
 test-results/
 storybook-static/
 .lighthouseci/
+
+# Studio
+studio/schema.json
+studio/dist/
+studio/.sanity/

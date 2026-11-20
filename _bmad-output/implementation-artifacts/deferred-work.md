@@ -29,3 +29,13 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-1-3-chaine-ci-bloquante-sur-chaque-pull-request.md`
   summary: favicon absent (erreur de console, bonnes pratiques 96)
   evidence: Lighthouse relève `errors-in-console` ; à régler avec le favicon de la vraie Page d'accueil.
+
+## Deferred from: story 2.1 (spec-2-1-studio-et-schemas-transverses), 2026-11-20
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-1-studio-et-schemas-transverses.md`
+  summary: `npm audit` et typecheck de `studio/` absents de la CI
+  evidence: `studio/` a ses propres dépendances ; `npm audit` y signale 2 high (js-yaml et smol-toml, déni de service à l'analyse locale, transitifs de `sanity`, correctif seulement par rétrogradation de sanity). Un job `audit` y échouerait ; à trancher en 2.6 avec le workflow d'export hebdomadaire (seuil, exception documentée) et ajouter `tsc -p studio` à la CI.
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-1-studio-et-schemas-transverses.md`
+  summary: aucun test ne détecte une dérive de `src/content/types.ts` pour `siteSettings`
+  evidence: `src/studio.test.ts` compare le catalogue `uiStrings` aux types générés, mais pas les champs de `siteSettings` ni la fraîcheur du fichier ; à revoir en 2.2 quand les schémas se multiplient (régénérer en CI et comparer).
+
