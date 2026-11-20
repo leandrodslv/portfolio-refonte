@@ -104,6 +104,131 @@ export type SiteSettings = {
   urlLinkedin?: string
 }
 
+export type Project = {
+  _id: string
+  _type: 'project'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  titre?: LocalizedString
+  slug?: Slug
+  template?: 'standard' | 'graphisme' | 'personnalise'
+  titreCarte?: LocalizedStringOptionnel
+  categorie?: LocalizedString
+  description?: LocalizedText
+  descriptionDetaillee?: LocalizedTextOptionnel
+  defi?: LocalizedTextOptionnel
+  concept?: LocalizedTextOptionnel
+  etiquettes?: Array<
+    {
+      _key: string
+    } & LocalizedString
+  >
+  liens?: Array<
+    {
+      _key: string
+    } & Lien
+  >
+  couverture?: ImageInformative
+  galerie?: Array<
+    {
+      _key: string
+    } & ImageInformative
+  >
+  sousProjets?: Array<
+    {
+      _key: string
+    } & SousProjet
+  >
+  accent?: 'accent-1' | 'accent-2' | 'accent-3' | 'accent-4' | 'accent-5'
+  ordre?: number
+}
+
+export type SanityImageAssetReference = {
+  _ref: string
+  _type: 'reference'
+  _weak?: boolean
+  [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+}
+
+export type ImageInformative = {
+  _type: 'imageInformative'
+  image?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  decorative?: boolean
+  alt?: LocalizedString
+  calque?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+}
+
+export type LocalizedTextOptionnel = {
+  _type: 'localizedTextOptionnel'
+  fr?: string
+  en?: string
+}
+
+export type LocalizedStringOptionnel = {
+  _type: 'localizedStringOptionnel'
+  fr?: string
+  en?: string
+}
+
+export type Slug = {
+  _type: 'slug'
+  current?: string
+  source?: string
+}
+
+export type SousProjet = {
+  _type: 'sousProjet'
+  titre?: LocalizedString
+  defi?: LocalizedText
+  concept?: LocalizedText
+  etiquettes?: Array<
+    {
+      _key: string
+    } & LocalizedString
+  >
+  galerie?: Array<
+    {
+      _key: string
+    } & ImageInformative
+  >
+  lien?: Lien
+}
+
+export type Lien = {
+  _type: 'lien'
+  libelle?: LocalizedString
+  url?: string
+}
+
+export type SanityImageCrop = {
+  _type: 'sanity.imageCrop'
+  top?: number
+  bottom?: number
+  left?: number
+  right?: number
+}
+
+export type SanityImageHotspot = {
+  _type: 'sanity.imageHotspot'
+  x?: number
+  y?: number
+  height?: number
+  width?: number
+}
+
 export type SanityImagePaletteSwatch = {
   _type: 'sanity.imagePaletteSwatch'
   background?: string
@@ -140,22 +265,6 @@ export type SanityImageMetadata = {
   thumbHash?: string
   hasAlpha?: boolean
   isOpaque?: boolean
-}
-
-export type SanityImageHotspot = {
-  _type: 'sanity.imageHotspot'
-  x?: number
-  y?: number
-  height?: number
-  width?: number
-}
-
-export type SanityImageCrop = {
-  _type: 'sanity.imageCrop'
-  top?: number
-  bottom?: number
-  left?: number
-  right?: number
 }
 
 export type SanityFileAsset = {
@@ -217,25 +326,26 @@ export type Geopoint = {
   alt?: number
 }
 
-export type Slug = {
-  _type: 'slug'
-  current?: string
-  source?: string
-}
-
 export type AllSanitySchemaTypes =
   | UiStrings
   | LocalizedString
   | LocalizedText
   | SiteSettings
+  | Project
+  | SanityImageAssetReference
+  | ImageInformative
+  | LocalizedTextOptionnel
+  | LocalizedStringOptionnel
+  | Slug
+  | SousProjet
+  | Lien
+  | SanityImageCrop
+  | SanityImageHotspot
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
   | SanityImageMetadata
-  | SanityImageHotspot
-  | SanityImageCrop
   | SanityFileAsset
   | SanityAssetSourceData
   | SanityImageAsset
   | Geopoint
-  | Slug

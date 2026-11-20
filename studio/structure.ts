@@ -9,12 +9,22 @@ export const structure: StructureResolver = (constructeur) =>
   constructeur
     .list()
     .title('Contenu')
-    .items(
-      SINGLETONS.map(({ type, titre }) =>
+    .items([
+      ...SINGLETONS.map(({ type, titre }) =>
         constructeur
           .listItem()
           .title(titre)
           .id(type)
           .child(constructeur.document().schemaType(type).documentId(type)),
       ),
-    )
+      constructeur
+        .listItem()
+        .title('Projets')
+        .id('project')
+        .child(
+          constructeur
+            .documentTypeList('project')
+            .title('Projets')
+            .defaultOrdering([{ field: 'ordre', direction: 'asc' }]),
+        ),
+    ])

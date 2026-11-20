@@ -39,3 +39,12 @@
   summary: aucun test ne détecte une dérive de `src/content/types.ts` pour `siteSettings`
   evidence: `src/studio.test.ts` compare le catalogue `uiStrings` aux types générés, mais pas les champs de `siteSettings` ni la fraîcheur du fichier ; à revoir en 2.2 quand les schémas se multiplient (régénérer en CI et comparer).
 
+## Deferred from: story 2.2 (spec-2-2-modele-des-projets), 2026-11-20
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-2-modele-des-projets.md`
+  summary: vérifier le verrou du slug dans l'espace `production`
+  evidence: il ne s'exerce qu'après publication dans le dataset de production ; à contrôler en 2.6 lors de la première promotion (publier, puis tenter de modifier le slug).
+- source_spec: `_bmad-output/implementation-artifacts/spec-2-2-modele-des-projets.md`
+  summary: `src/content/` doit ignorer `alt` quand `decorative` est vrai
+  evidence: le Studio masque `alt` pour une image décorative mais ne l'efface pas ; la couche de contenu (2.4) rend `alt=""` dans ce cas.
+
