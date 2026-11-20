@@ -105,6 +105,9 @@ FR-22 : Épopée 9 — audit RGAA et déclaration (critères d'accessibilité po
 FR-23 : Épopée 9 — ajustements visuels consignés
 FR-20 (complément) : Épopée 10 — catalogue Storybook des tokens, composants et états
 FR-22 (complément) : Épopée 10 — contrôle axe de chaque état, Thème et Langue dans Storybook
+FR-8 (complément) : Épopée 11 — fidélité visuelle des composants de base
+FR-20 (complément) : Épopée 11 — composants du kit dérivés des tokens
+FR-22 (complément) : Épopée 11 — accessibilité de chaque primitive (clavier, focus, contrastes)
 NFR-1 : Épopée 1 — budget JS ; images optimisées en épopée 2
 NFR-2 : Épopée 1 — environnements et déploiement
 NFR-3 : Épopée 1 — chaîne automatique
@@ -115,8 +118,12 @@ NFR-6 : Épopée 9 — bascule réversible, ancien site intact
 ## Epic List
 
 #### Epic 10 : Storybook, catalogue vivant des composants et des Thèmes
-Storybook devient la référence des tokens, composants, îlots, états, Thèmes et Langues, aligné sur la production, contrôlé en CI et documenté pour les stories suivantes. Les stories 10.1 et 10.2 sont à livrer avant le premier vrai îlot (épopées 3, 6 et 7) ; le reste suit les composants de l'épopée 3.
+Storybook devient la référence des tokens, composants, îlots, états, Thèmes et Langues, aligné sur la production, contrôlé en CI et documenté pour les stories suivantes. Les stories 10.1, 10.2 et 10.3 sont à livrer avant l'épopée 11 (UI kit), donc avant le premier vrai composant ou îlot (épopées 3, 6 et 7) ; les stories 10.4 à 10.7 suivent le kit et les composants de l'épopée 3.
 **FRs covered:** FR-20, FR-22 (compléments)
+
+#### Epic 11 : UI kit fidèle à l'ancien site
+Les composants d'interface de base (bouton, lien, carte, badge, champs de formulaire) sont inventoriés depuis l'ancien site, construits une fois en `.astro`, sans texte ni valeur de design en dur, et vérifiés sous les trois Thèmes et en FR/EN. Épopée à livrer après les stories 10.1, 10.2 et 10.3 et avant la story 3.1 : les épopées 3, 5 et 7 réutilisent le kit au lieu de recréer leurs composants.
+**FRs covered:** FR-8, FR-20, FR-22 (compléments)
 
 ## Epic 1 : Un Site déployable, vérifié automatiquement
 Léandro pousse du code, la CI le contrôle et un Site de dev se déploie. Contient l'initialisation d'Astro 7 et la preuve du budget JS et de la CSP.
@@ -1014,7 +1021,7 @@ afin de livrer sans risque (NFR-6).
 
 ## Epic 10 : Storybook, catalogue vivant des composants et des Thèmes
 
-Léandro et les futures sessions de développement consultent un catalogue unique et fiable : chaque token, composant et îlot y est montré dans chacun de ses états, sous chaque Thème et chaque Langue, avec l'accessibilité vérifiée. Storybook est déjà installé (`.storybook/`, addon a11y en mode `error`, sélecteur de Thème, `build-storybook` en CI, une story `StatusMessage`) ; cette épopée le rend conforme à la production et le généralise. Elle complète les critères de la story 4.4 (« états et variantes documentés ») sans les remplacer.
+Léandro et les futures sessions de développement consultent un catalogue unique et fiable : chaque token, composant et îlot y est montré dans chacun de ses états, sous chaque Thème et chaque Langue, avec l'accessibilité vérifiée. Storybook est déjà installé (`.storybook/`, addon a11y en mode `error`, sélecteur de Thème, `build-storybook` en CI, une story `StatusMessage`) ; cette épopée le rend conforme à la production et le généralise. Elle complète les critères de la story 4.4 (« états et variantes documentés ») sans les remplacer. Les stories 10.1, 10.2 et 10.3 se livrent avant l'épopée 11 (UI kit) ; les stories 10.4 à 10.7 se livrent après le kit.
 
 ### Story 10.1 : Storybook aligné sur la production (Preact)
 
@@ -1169,3 +1176,163 @@ afin que tout futur composant arrive documenté.
 **When** une story ajoute ou modifie un composant
 **Then** la définition de terminé exige ses stories d'états et leur test a11y au vert
 **And** `README.md` renvoie vers `docs/storybook.md`.
+
+## Epic 11 : UI kit fidèle à l'ancien site
+
+Léandro et les futures sessions de développement disposent d'un jeu unique de composants d'interface de base, dérivé de l'ancien site et des tokens de `design-system/tokens.css`. Les épopées 3, 5 et 7 le réutilisent au lieu de recréer leurs composants. À livrer après les stories 10.1, 10.2 et 10.3, avant la story 3.1.
+
+### Story 11.1 : Inventaire des composants de l'ancien site
+
+En tant que Léandro,
+je veux un inventaire des motifs d'interface répétés dans l'ancien site,
+afin que le kit reprenne exactement ce qui existe, sans rien inventer (FR-8, FR-20).
+
+**Acceptance Criteria:**
+
+**Given** `ancien-portfolio/src/components` (lecture seule, NFR-6)
+**When** je lis `design-system/components.md`
+**Then** chaque primitive y figure (bouton, lien, carte, badge, étiquette, titre de Section, conteneur, sélecteur, champ) avec ses variantes, ses états (repos, survol, focus, actif, désactivé) et les tokens utilisés par Thème
+**And** chaque entrée cite le fichier source de l'ancien site, et l'ancien dossier n'est pas modifié.
+
+**Given** le design system (`design-system/`)
+**When** une primitive est inventoriée
+**Then** `design-system/components.md` en est la source de vérité : nom, variantes, états, tokens sémantiques de `tokens.css` utilisés, composant Figma correspondant s'il existe (lien), chemin du composant `.astro`
+**And** `design-system/README.md` renvoie vers ce fichier à la place de l'étape « Inventaire des composants ».
+
+**Given** un motif propre à un seul endroit (Marquee, carte à gratter, curseur, confettis)
+**When** je classe l'inventaire
+**Then** il est marqué « hors kit » et renvoyé à l'épopée concernée (6, 5), jamais intégré au kit.
+
+**Given** une valeur de design présente dans l'ancien site mais absente de `tokens.css`
+**When** je dresse la liste des écarts
+**Then** elle est soumise à Léandro avant tout ajout de token (AD-6).
+
+**Given** les tailles de texte, interlignes, graisses et espacements de l'ancien site
+**When** je les relève
+**Then** `design-system/components.md` en tire une échelle typographique et une échelle d'espacement nommées, avec la correspondance avec les valeurs existantes de `tokens.css`
+**And** chaque écart avec les tokens actuels est listé pour validation de Léandro avant ajout (AD-6).
+
+**Given** les media queries et classes responsives de l'ancien site
+**When** je les relève
+**Then** `design-system/components.md` fixe la liste des points de rupture (mobile, tablette, bureau), la règle de passage de l'un à l'autre et ce que chaque primitive change à chaque taille.
+
+### Story 11.2 : Primitives d'interface `.astro`
+
+En tant que Visiteur,
+je veux des boutons, liens, cartes et badges cohérents sur tout le Site,
+afin de reconnaître et d'utiliser chaque élément sans surprise (FR-8, FR-22).
+
+**Acceptance Criteria:**
+
+**Given** l'inventaire de la story 11.1
+**When** les primitives sont créées dans `src/components/ui/`
+**Then** chacune est un composant `.astro` sans JS client, dont le texte vient de ses propriétés ou de son slot, jamais écrit en dur (AD-3)
+**And** aucune couleur, ombre, bordure ni durée littérale n'existe hors `src/styles/` (stylelint).
+
+**Given** chacun des trois Thèmes
+**When** une primitive s'affiche dans chaque variante et chaque état
+**Then** elle prend ses valeurs des tokens du Thème et le contraste de texte atteint 4,5:1 (3:1 pour le grand texte), ou l'écart est consigné (FR-23).
+
+**Given** un bouton, un lien ou tout élément interactif
+**When** je navigue au clavier
+**Then** le focus est visible, la cible fait au moins 24 par 24 px, et l'élément se déclenche avec Entrée (et Espace pour un bouton)
+**And** un lien qui ouvre une nouvelle fenêtre ou télécharge un fichier l'annonce.
+
+**Given** chaque primitive
+**When** `npm test` s'exécute
+**Then** un test rend son HTML (Astro Container API) et vérifie sa sémantique et l'absence de violation axe.
+
+**Given** `design-system/tokens.css` et `design-system/components.md`
+**When** une primitive est ajoutée ou modifiée
+**Then** elle n'utilise que des tokens sémantiques existants dans `tokens.css`, et un test échoue si elle référence un token absent ou si elle manque à `components.md`
+**And** un token manquant est ajouté à `design-system/tokens.css` avant usage, jamais écrit en dur dans le composant (AD-6).
+
+**Given** les échelles typographique et d'espacement de la story 11.1
+**When** une primitive définit sa taille de texte, son interligne ou ses marges
+**Then** elle n'utilise que des tokens de ces échelles, et stylelint échoue sur une valeur littérale
+**And** les tailles sont exprimées en `rem` pour suivre le réglage de texte du navigateur.
+
+**Given** les points de rupture fixés en story 11.1
+**When** la fenêtre passe de mobile à tablette puis à bureau
+**Then** chaque primitive se comporte comme documenté, sans défilement horizontal à 320 px, y compris avec un zoom de texte à 200 %.
+
+**Given** un texte plus long de 30 % que la version française ou anglaise de référence
+**When** il remplit une primitive (bouton, carte, badge, lien de navigation)
+**Then** le texte passe à la ligne ou la primitive s'agrandit, sans débordement, sans troncature qui masque l'information et sans chevauchement.
+
+**Given** les préférences système `prefers-contrast: more` et `forced-colors: active`
+**When** une primitive s'affiche
+**Then** ses bordures, son focus et ses états restent visibles, sans dépendre d'une couleur de fond ou d'une ombre
+**And** les valeurs propres à ces modes viennent de tokens de `design-system/tokens.css`.
+
+### Story 11.3 : Primitives de formulaire
+
+En tant que Visiteur,
+je veux des champs de formulaire clairs et accessibles,
+afin de saisir mes informations sans erreur ni confusion (FR-22).
+
+**Acceptance Criteria:**
+
+**Given** les primitives champ, zone de texte, case à cocher et message d'erreur
+**When** elles sont créées
+**Then** chaque champ a une étiquette visible associée, une aide et un message d'erreur reliés par `aria-describedby`, et les textes viennent des propriétés (AD-3)
+**And** aucun placeholder ne remplace l'étiquette.
+
+**Given** un champ en erreur
+**When** l'erreur est annoncée
+**Then** elle l'est via une région `aria-live`, jamais `alert()`, et l'erreur ne repose pas sur la seule couleur.
+
+**Given** chaque champ
+**When** il est rendu sous les trois Thèmes, en repos, focus, erreur et désactivé
+**Then** les contrastes et le focus visible sont conformes (WCAG 2.2 AA)
+**And** le formulaire de contact (story 7.2) n'est pas construit ici : cette story ne livre que les primitives.
+
+**Given** une étiquette, une aide ou un message d'erreur plus long de 30 % en FR ou en EN
+**When** il s'affiche sur mobile (320 px) et avec un zoom de texte à 200 %
+**Then** il passe à la ligne sans masquer le champ, sans chevauchement et sans défilement horizontal.
+
+### Story 11.4 : États, variantes et contrôle des Thèmes du kit
+
+En tant que Léandro,
+je veux voir chaque primitive dans tous ses états, sous chaque Thème et chaque Langue,
+afin de détecter un écart avant qu'il n'atteigne une page (FR-20, FR-22).
+
+**Acceptance Criteria:**
+
+**Given** les primitives des stories 11.2 et 11.3
+**When** j'ouvre Storybook
+**Then** chacune dispose d'une story par variante et par état, rendue grâce à la solution retenue en story 10.3
+**And** l'addon a11y en mode `error` passe sous Pop, Terminal et Wireframe, en FR et en EN, sur mobile, tablette et bureau.
+
+**Given** chaque primitive dans Storybook
+**When** j'affiche sa variante « texte long » (+30 %), la fenêtre à 320 px, le zoom de texte à 200 % et les modes `prefers-contrast: more` et `forced-colors: active`
+**Then** une story par cas existe, sans débordement ni perte d'information ni élément invisible.
+
+**Given** une primitive dont les états ne sont pas tous documentés
+**When** la CI s'exécute
+**Then** le contrôle de la story 10.6 échoue.
+
+### Story 11.5 : Règle de réutilisation du kit
+
+En tant que Léandro,
+je veux que les stories suivantes réutilisent le kit,
+afin que le Site ne diverge pas et que les corrections se fassent à un seul endroit.
+
+**Acceptance Criteria:**
+
+**Given** `docs/storybook.md` et `CLAUDE.md`
+**When** je lis la règle de composition
+**Then** elle indique qu'une story des épopées 3, 5 et 7 réutilise une primitive du kit ou, à défaut, l'ajoute au kit avec son inventaire et ses stories, et ne crée jamais de composant d'interface en double
+**And** `design-system/README.md` renvoie vers `design-system/components.md`.
+
+**Given** la story 4.4 (parité des tokens avec Figma)
+**When** ses critères sont relus
+**Then** la parité couvre aussi les composants du kit listés dans `design-system/components.md` (variantes et états), sans changer ses autres critères.
+
+**Given** la story 4.2 (sélecteur de Thème mémorisé)
+**When** ses critères sont relus
+**Then** elle précise que, sans choix mémorisé du Visiteur, le Thème et les modes de contraste suivent les préférences système (`prefers-color-scheme`, `prefers-contrast`, `forced-colors`), sans changer ses autres critères.
+
+**Given** les stories 3.1 à 3.4, 5.1 et 7.2
+**When** leurs critères d'acceptation sont relus
+**Then** une mention « utilise les primitives du kit (épopée 11) » y est ajoutée, sans changer leurs autres critères.
