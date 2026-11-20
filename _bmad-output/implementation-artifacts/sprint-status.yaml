@@ -29,20 +29,20 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 # - Retrospective appends its action items to action_items; the status view surfaces open ones
 generated: 11-19-2026 23:32
-last_updated: 11-20-2026 12:00
+last_updated: 11-20-2026 10:20
 project: refonte portfolio
 project_key: NOKEY
 tracking_system: file-system
 story_location: _bmad-output/implementation-artifacts
 development_status:
-  epic-1: in-progress
+  epic-1: done
   1-1-socle-astro-prouvé-budget-js-et-csp: done
-  1-2-déploiement-automatique-dev-et-prod: review
-  1-3-chaîne-ci-bloquante-sur-chaque-pull-request: review
-  1-4-compatibilité-navigateurs-vérifiée: review
-  1-5-en-têtes-de-sécurité-secrets-et-dépendances-contrôlés: review
-  1-6-variables-validées-et-alerte-de-build: review
-  epic-1-retrospective: optional
+  1-2-déploiement-automatique-dev-et-prod: done
+  1-3-chaîne-ci-bloquante-sur-chaque-pull-request: done
+  1-4-compatibilité-navigateurs-vérifiée: done
+  1-5-en-têtes-de-sécurité-secrets-et-dépendances-contrôlés: done
+  1-6-variables-validées-et-alerte-de-build: done
+  epic-1-retrospective: done
 
   epic-2: backlog
   2-1-studio-et-schémas-transverses: backlog
@@ -125,3 +125,50 @@ development_status:
   11-4-états-variantes-et-contrôle-des-thèmes-du-kit: backlog
   11-5-règle-de-réutilisation-du-kit: backlog
   epic-11-retrospective: optional
+action_items:
+  - id: "epic-1-retro-item-1-amender-ad-7-alias-preact-compat-adopté"
+    epic: 1
+    action: "Amender AD-7 (alias preact/compat adopté, brotli q4, Ko = 1024 octets),
+      compléter la table des versions du spine et corriger la ligne Stack de CLAUDE.md"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-1-retro-2026-11-20.md"
+  - id: "epic-1-retro-item-2-curl-i-sur-l-alias-de-dev-confirmer-x-ro"
+    epic: 1
+    action: "curl -I sur l alias de dev : confirmer X-Robots-Tag, ajuster vercel.json
+      et src/vercel.test.ts si besoin"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-1-retro-2026-11-20.md"
+  - id: "epic-1-retro-item-3-trancher-la-protection-vercel-de-la-prod"
+    epic: 1
+    action: "Trancher la protection Vercel de la production avant la mise en ligne"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-1-retro-2026-11-20.md"
+  - id: "epic-1-retro-item-4-passer-le-statut-de-la-story-dans-sprint"
+    epic: 1
+    action: "Passer le statut de la story dans sprint-status.yaml dans la PR de la
+      story elle-même"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-1-retro-2026-11-20.md"
+  - id: "epic-1-retro-item-5-évaluer-semgrep-au-pre-push-pour-éviter"
+    epic: 1
+    action: "Évaluer Semgrep au pre-push pour éviter un aller-retour CI"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-1-retro-2026-11-20.md"
+  - id: "epic-1-retro-item-6-alias-preact-partagé-avec-vitest-et-stor"
+    epic: 1
+    action: "Alias Preact partagé avec Vitest et Storybook (story 10.1)"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-1-retro-2026-11-20.md"
+  - id: "epic-1-retro-item-7-remplacer-la-page-d-essai-remettre-le-pl"
+    epic: 1
+    action: "Remplacer la page d essai, remettre le plancher SEO Lighthouse à 0,95
+      et ajouter le favicon (épopée 3)"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-1-retro-2026-11-20.md"
