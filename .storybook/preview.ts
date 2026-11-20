@@ -1,4 +1,4 @@
-import type { Decorator, Preview } from '@storybook/react-vite'
+import type { Decorator, Preview } from '@storybook/preact-vite'
 import '../design-system/tokens.css'
 
 const THEMES = ['pop', 'terminal', 'wireframe'] as const

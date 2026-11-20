@@ -4,6 +4,10 @@
   "exclude": ["dist", "ancien-portfolio", "node_modules", "studio", "storybook-static", "coverage"],
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "preact",
+    "paths": {
+      "react": ["./node_modules/preact/compat"],
+      "react-dom": ["./node_modules/preact/compat"]
+    }
   }
 }
