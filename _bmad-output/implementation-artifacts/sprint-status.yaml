@@ -117,3 +117,11 @@ development_status:
   10-6-storybook-dans-la-ci-et-consultable-en-ligne: backlog
   10-7-documentation-et-règle-de-livraison: backlog
   epic-10-retrospective: optional
+
+  epic-11: backlog
+  11-1-inventaire-des-composants-de-l-ancien-site: backlog
+  11-2-primitives-d-interface-astro: backlog
+  11-3-primitives-de-formulaire: backlog
+  11-4-états-variantes-et-contrôle-des-thèmes-du-kit: backlog
+  11-5-règle-de-réutilisation-du-kit: backlog
+  epic-11-retrospective: optional
