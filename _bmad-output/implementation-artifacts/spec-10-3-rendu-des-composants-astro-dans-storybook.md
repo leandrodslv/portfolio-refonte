@@ -2,7 +2,7 @@
 title: 'Rendu des composants .astro dans Storybook'
 type: 'feature'
 created: '2026-11-20'
-status: 'in-review'
+status: 'done'
 baseline_commit: 'eab141cc41bb6bc0c15b4dd810e2a57009f0205c'
 route: 'dispatch'
 review_loop_iteration: 0

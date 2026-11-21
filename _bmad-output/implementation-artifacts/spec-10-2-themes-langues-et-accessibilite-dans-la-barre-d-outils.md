@@ -2,7 +2,7 @@
 title: 'Thèmes, Langues et accessibilité dans la barre d’outils'
 type: 'feature'
 created: '2026-11-20'
-status: 'in-review'
+status: 'done'
 baseline_commit: '31b7a3e0a8fdd61df8bd6096e9f01b4e879a6400'
 route: 'dispatch'
 review_loop_iteration: 0

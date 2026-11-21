@@ -2,7 +2,7 @@
 title: 'Storybook aligné sur la production (Preact)'
 type: 'chore'
 created: '2026-11-20'
-status: 'in-review'
+status: 'done'
 baseline_commit: 'dc390b914d954a3d128bdd263bc42f5a28fd7f5a'
 route: 'dispatch'
 review_loop_iteration: 0
