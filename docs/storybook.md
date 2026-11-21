@@ -16,7 +16,7 @@ La barre d'outils propose le Thème (`data-theme`), la Langue FR/EN (`lang`) et 
 
 ## Composants `.astro`
 
-Un composant `.astro` s'affiche par HTML pré-rendu (AD-19). Dans une story, importer `import html from './Composant.astro?html'` et l'afficher (par exemple dans un `<pre>` pour un composant sans rendu visuel, ou en `dangerouslySetInnerHTML`). Le plugin vit dans `.storybook/astro-html.ts`. Limites : rendu statique, pas de props ; à étendre au premier composant qui en exige.
+Un composant `.astro` s'affiche par HTML pré-rendu (AD-19). Dans une story, importer `import html from './Composant.astro?html'` et l'afficher (par exemple dans un `<pre>` pour un composant sans rendu visuel, ou en `dangerouslySetInnerHTML`). Le plugin vit dans `.storybook/astro-html.ts`. Limites : rendu statique, pas de props ; à étendre au premier composant qui en exige. Les neuf primitives de `src/components/ui/` (story 11.2) exigent des props (variante, taille) : leurs stories relèvent de la story 11.4, qui doit d'abord étendre le plugin ; d'ici là, leurs tests de rendu sont dans `src/components/ui/primitives.test.ts`.
 
 ## Compatibilité Preact des bibliothèques React-only
 

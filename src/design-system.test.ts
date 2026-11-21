@@ -58,7 +58,7 @@ describe('design-system/components.md', () => {
     const bloc = entrees.get(nom)
     expect(bloc, `entrée « ${nom} » absente`).toBeDefined()
     expect(sources(bloc ?? '').length).toBeGreaterThan(0)
-    expect(bloc).toMatch(/Chemin prévu : `src\/components\/ui\//)
+    expect(bloc).toMatch(/Chemin( prévu)? : `src\/components\/ui\//)
   })
 
   it('ne cite que des fichiers de l’ancien site qui existent', () => {

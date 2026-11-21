@@ -1,0 +1,23 @@
+# Ajustements visuels
+
+Écarts entre la fidélité à l'ancien site et les critères d'accessibilité, **acceptés en attente de validation de Léandro** (FR-23, audit de la story 9.2). Décision de Léandro (2026-11-21) : le design reste identique à l'ancien site.
+
+Chaque ligne cite `thème/paire` ; le test `src/components/ui/kit.test.ts` exige qu'un contraste inférieur à 4,5:1 figure ici.
+
+## Contrastes
+
+| Thème / paire               | Constat                                                                                                                | Décision                                                                                                                                                                       |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `terminal/bouton-principal` | texte noir sur `--color-term-button` : 4,19:1 (seuil 4,5:1, texte de 18 px gras non considéré « grand »)               | Conservé tel quel, identique à l'ancien site. Correction possible sans changer l'allure : assombrir très légèrement le vert ou passer le texte en blanc. À trancher à l'audit. |
+| `terminal/selecteur`        | texte vert `--color-term-text` sur fond blanc (le sélecteur de l'ancien site est blanc dans les trois Thèmes) : 1,74:1 | Conservé tel quel. **Écart important** : illisible pour une partie des Visiteurs. Correction proposée : fond `--card-bg` en Terminal. À trancher à l'audit.                    |
+
+## Autres écarts conservés par fidélité
+
+Ils ne sont pas mesurés par le test de contraste ; ils sont consignés pour l'audit manuel.
+
+| Élément                                   | Constat                                                                                                    | Décision                                                           |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Badge de catégorie et étiquettes de carte | texte de 10 px et 9 px                                                                                     | Conservé (tokens `--text-2xs`, `--text-3xs`).                      |
+| Sous-titres, étiquettes Terminal          | opacité 60 à 80 % (`--opacity-muted`, `--opacity-soft`, `--tag-opacity`) : contraste réduit                | Conservé ; les opacités passent à 1 avec `prefers-contrast: more`. |
+| Survol du basculeur                       | fond `--color-yellow-soft` (jaune clair) dans les trois Thèmes, texte vert en Terminal                     | Conservé.                                                          |
+| Focus                                     | contour de 3 px visible **seulement au clavier** (`:focus-visible`) : ajout non présent dans l'ancien site | Ajout nécessaire (WCAG 2.4.7), sans effet à la souris.             |

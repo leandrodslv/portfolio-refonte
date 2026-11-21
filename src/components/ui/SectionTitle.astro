@@ -1,0 +1,63 @@
+---
+interface Props {
+  id?: string
+  level?: 1 | 2 | 3
+  mobileSize?: 'large' | 'compact'
+  class?: string
+}
+
+const { id, level = 2, mobileSize = 'large', class: classe, ...attrs } = Astro.props
+const Titre = `h${level}` as 'h1' | 'h2' | 'h3'
+const classes = ['ui-section-title', `ui-section-title--${mobileSize}`, classe]
+  .filter(Boolean)
+  .join(' ')
+const aSousTitre = Astro.slots.has('subtitle')
+---
+
+<header class={classes} {...attrs}>
+  <Titre id={id} class="ui-section-title__heading">
+    <slot />
+    {Astro.slots.has('highlight') && <slot name="highlight" />}
+  </Titre>
+  {aSousTitre && (
+    <p class="ui-section-title__subtitle">
+      <slot name="subtitle" />
+    </p>
+  )}
+</header>
+
+<style>
+  .ui-section-title {
+    margin-bottom: var(--space-16);
+    text-align: center;
+    color: var(--text);
+  }
+  .ui-section-title__heading {
+    margin: 0;
+    font-size: var(--text-4xl);
+    line-height: var(--leading-4xl);
+    font-weight: var(--font-weight-black);
+    letter-spacing: var(--tracking-tight);
+    text-transform: uppercase;
+  }
+  .ui-section-title--compact .ui-section-title__heading {
+    font-size: var(--text-3xl);
+    line-height: var(--leading-3xl);
+  }
+  .ui-section-title__subtitle {
+    max-width: var(--width-subtitle);
+    margin: var(--space-4) auto 0;
+    font-size: var(--text-xl);
+    line-height: var(--leading-xl);
+    font-weight: var(--font-weight-bold);
+    opacity: var(--opacity-muted);
+  }
+
+  @media (min-width: 48rem) {
+    .ui-section-title__heading,
+    .ui-section-title--compact .ui-section-title__heading {
+      font-size: var(--text-7xl);
+      line-height: var(--leading-display);
+    }
+  }
+</style>

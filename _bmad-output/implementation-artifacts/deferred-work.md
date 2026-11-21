@@ -89,3 +89,7 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-2-6-publication-dev-puis-production.md`
   summary: amender AD-10 dans `ARCHITECTURE-SPINE.md` : l'isolation du jeton de `dev` vis-à-vis de `production` est inapplicable en gratuit.
   evidence: un jeton Viewer lit tous les datasets d'un projet ; les rôles par dataset relèvent d'Enterprise (documentation Sanity). Écart assumé par Léandro ; seul le propriétaire du spine peut le modifier.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-11-2-primitives-d-interface-astro.md`
+  summary: Button ignore `disabled` quand `href` est fourni (lien jamais désactivable).
+  evidence: la branche `<a>` ne lit pas `disabled` ; aucun consommateur aujourd'hui, à traiter si un lien désactivé apparaît (aria-disabled et tabindex -1).

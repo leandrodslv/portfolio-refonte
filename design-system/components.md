@@ -13,7 +13,7 @@ Source commune des valeurs par Thème : `ancien-portfolio/src/styles/theme.js` (
 ### Bouton
 
 Sources : `ancien-portfolio/src/components/sections/Hero.jsx` (CTA), `ancien-portfolio/src/components/UI/ProjectComponents.jsx` (bouton de carte), `ancien-portfolio/src/components/sections/Contact.jsx` (envoi), `ancien-portfolio/src/components/sections/Skills.jsx` (bouton « Organiser »), `ancien-portfolio/src/components/UI/ProjectModal.jsx` (fermeture).
-Chemin prévu : `src/components/ui/Button.astro` (story 11.2).
+Chemin : `src/components/ui/Button.astro` (livré, story 11.2).
 
 Figma : aucun composant individuel identifié (cadre « atomic design », `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio?node-id=1-908`).
 
@@ -23,7 +23,7 @@ Figma : aucun composant individuel identifié (cadre « atomic design », `https
 | Secondaire | CTA secondaire, bouton de carte | `--button-secondary-bg`, `--button-secondary-text`, `--border-color`, `--border-thick`, `--shadow` |
 | Basculeur | « Organiser », son, Thème | `--border-color`, `--border-thin`, `--shadow`, `--text` |
 
-Par Thème : Pop, bordure noire pleine, ombre dure `--shadow-hard-sm`, principal bleu `--color-primary-action` ; Terminal, bordure `--color-term-border`, sans ombre, principal `--color-term-button` (survol `--color-term-button-hover`), secondaire noir à bordure verte (survol `--color-term-surface`) ; Wireframe, bordure `--color-wire-line` pleine (pas pointillée) pour les boutons, sans ombre, principal `--color-wire-line`, secondaire transparent.
+Par Thème : Pop, bordure noire pleine, ombre dure `--shadow-hard-sm`, principal bleu `--color-primary-action` ; Terminal, bordure `--color-term-border`, sans ombre, principal `--color-term-button` (survol `--color-term-button-hover`), secondaire noir à bordure verte (survol `--color-term-surface`) ; Wireframe, bordure `--color-wire-text` pleine (pas pointillée) pour les boutons, sans ombre, principal `--color-wire-line`, secondaire transparent.
 
 La variante Fermeture (bouton de fermeture des fenêtres) est **hors kit** tant que la Fenêtre de projet n'existe pas (épopée 5) ; elle n'est donc pas listée parmi les variantes du kit.
 
@@ -32,7 +32,7 @@ Hors kit : animation `whileHover` de rotation (Framer Motion, interdit dans le J
 
 ### Lien
 
-Sources : `ancien-portfolio/src/components/sections/Navbar.jsx` (liens de menu), `ancien-portfolio/src/components/sections/Footer.jsx` (liens du pied de page), `ancien-portfolio/src/components/sections/Contact.jsx` (liens e-mail et téléphone). Chemin prévu : `src/components/ui/Link.astro`.
+Sources : `ancien-portfolio/src/components/sections/Navbar.jsx` (liens de menu), `ancien-portfolio/src/components/sections/Footer.jsx` (liens du pied de page), `ancien-portfolio/src/components/sections/Contact.jsx` (liens e-mail et téléphone). Chemin : `src/components/ui/Link.astro` (livré, story 11.2).
 
 Figma : aucun composant individuel identifié (cadre « atomic design », `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio?node-id=1-908`).
 
@@ -46,7 +46,7 @@ Figma : aucun composant individuel identifié (cadre « atomic design », `https
 
 ### Carte
 
-Sources : `ancien-portfolio/src/components/UI/ProjectComponents.jsx` (`ProjectCard`), `ancien-portfolio/src/components/sections/Services.jsx` (carte de service). Chemin prévu : `src/components/ui/Card.astro`.
+Sources : `ancien-portfolio/src/components/UI/ProjectComponents.jsx` (`ProjectCard`), `ancien-portfolio/src/components/sections/Services.jsx` (carte de service). Chemin : `src/components/ui/Card.astro` (livré, story 11.2).
 
 Figma : aucun composant individuel identifié (cadre « atomic design », `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio?node-id=1-908`).
 
@@ -57,7 +57,7 @@ Hors kit : rotation à la souris et retournement de `FlipCard.jsx` (épopée 5),
 
 ### Badge
 
-Sources : `ancien-portfolio/src/components/UI/ProjectComponents.jsx` (catégorie en haut à droite de la carte), `ancien-portfolio/src/components/sections/Hero.jsx` (pastille d'accroche, `t.hero.badge`). Chemin prévu : `src/components/ui/Badge.astro`.
+Sources : `ancien-portfolio/src/components/UI/ProjectComponents.jsx` (catégorie en haut à droite de la carte), `ancien-portfolio/src/components/sections/Hero.jsx` (pastille d'accroche, `t.hero.badge`). Chemin : `src/components/ui/Badge.astro` (livré, story 11.2).
 
 Figma : aucun composant individuel identifié (cadre « atomic design », `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio?node-id=1-908`).
 
@@ -65,7 +65,7 @@ Variantes : Catégorie (étiquette sur image) ; Accroche (fond `--accent-1`, rot
 
 ### Étiquette
 
-Sources : `ancien-portfolio/src/styles/theme.js` (`tag`), `ancien-portfolio/src/components/UI/ProjectComponents.jsx` (étiquettes de technologies). Chemin prévu : `src/components/ui/Tag.astro`.
+Sources : `ancien-portfolio/src/styles/theme.js` (`tag`), `ancien-portfolio/src/components/UI/ProjectComponents.jsx` (étiquettes de technologies). Chemin : `src/components/ui/Tag.astro` (livré, story 11.2).
 
 Figma : aucun composant individuel identifié (cadre « atomic design », `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio?node-id=1-908`).
 
@@ -73,7 +73,7 @@ Variantes par Thème : Pop (fond blanc, bordure noire 2 px, graisse forte) ; Ter
 
 ### Autocollant (sticker)
 
-Sources : `ancien-portfolio/src/styles/theme.js` (`sticker`), `ancien-portfolio/src/components/sections/Hero.jsx`, `ancien-portfolio/src/components/sections/Work.jsx`. Chemin prévu : `src/components/ui/Sticker.astro`.
+Sources : `ancien-portfolio/src/styles/theme.js` (`sticker`), `ancien-portfolio/src/components/sections/Hero.jsx`, `ancien-portfolio/src/components/sections/Work.jsx`. Chemin : `src/components/ui/Sticker.astro` (livré, story 11.2).
 
 Figma : aucun composant individuel identifié (cadre « atomic design », `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio?node-id=1-908`).
 
@@ -81,7 +81,7 @@ Mot mis en valeur dans un titre. Tokens : `--sticker-bg`, `--sticker-rotate`, `-
 
 ### Titre de Section
 
-Sources : titres `h2` de `ancien-portfolio/src/components/sections/{Work,Timeline,Skills,Services,About,Contact}.jsx`. Chemin prévu : `src/components/ui/SectionTitle.astro`.
+Sources : titres `h2` de `ancien-portfolio/src/components/sections/{Work,Timeline,Skills,Services,About,Contact}.jsx`. Chemin : `src/components/ui/SectionTitle.astro` (livré, story 11.2).
 
 Figma : aucun composant individuel identifié (cadre « atomic design », `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio?node-id=1-908`).
 
@@ -89,7 +89,7 @@ Composition : `h2` en majuscules, graisse noire, `--text-4xl` en mobile puis `--
 
 ### Conteneur
 
-Sources : balises `section` de `ancien-portfolio/src/components/sections/*.jsx` et `ancien-portfolio/src/App.jsx`. Chemin prévu : `src/components/ui/Section.astro`.
+Sources : balises `section` de `ancien-portfolio/src/components/sections/*.jsx` et `ancien-portfolio/src/App.jsx`. Chemin : `src/components/ui/Section.astro` (livré, story 11.2).
 
 Figma : aucun composant individuel identifié (cadre « atomic design », `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio?node-id=1-908`).
 
@@ -97,7 +97,7 @@ Deux niveaux : bandeau pleine largeur (`--border-thick` en haut, fond `--bg` ou 
 
 ### Sélecteur
 
-Sources : `ancien-portfolio/src/components/UI/InteractiveElements.jsx` (`CustomLangSelector`), basculeur de Thème et de son de `ancien-portfolio/src/components/sections/Navbar.jsx`. Chemin prévu : `src/components/ui/Select.astro` (la liste déroulante interactive est un îlot, épopée 3).
+Sources : `ancien-portfolio/src/components/UI/InteractiveElements.jsx` (`CustomLangSelector`), basculeur de Thème et de son de `ancien-portfolio/src/components/sections/Navbar.jsx`. Chemin : `src/components/ui/Select.astro` (livré, story 11.2 ; la liste déroulante interactive est un îlot, épopée 3).
 
 Figma : aucun composant individuel identifié (cadre « atomic design », `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio?node-id=1-908`).
 
@@ -166,7 +166,7 @@ Effet par primitive : Bouton (CTA empilés en mobile, en ligne dès `sm`), Lien 
 
 ## Écarts à valider par Léandro
 
-Rien n'est ajouté à `tokens.css` tant que Léandro n'a pas tranché.
+**Mise à jour story 11.2 (décision de Léandro : design strictement identique à l'ancien site).** Chaque écart concernant une primitive livrée a été résolu par un token à la valeur exacte de l'ancien site (section « Kit UI » de `tokens.css`) ; les écarts d'accessibilité qui en résultent sont consignés dans `docs/ajustements-visuels.md`. Le tableau ci-dessous garde le constat d'origine.
 
 | # | Valeur ou état de l'ancien site | Où | Absent de `tokens.css` | Proposition |
 | --- | --- | --- | --- | --- |

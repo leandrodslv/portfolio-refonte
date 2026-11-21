@@ -187,3 +187,195 @@
   --sticker-rotate: 0deg;
   --font: var(--font-sans);
 }
+
+/* ==========================================================================
+   Kit UI — valeurs reprises à l'identique de l'ancien site (Tailwind 3.4).
+   Aucune valeur n'est alignée sur un token existant quand l'apparence change.
+   ========================================================================== */
+
+:root {
+  /* ---- Interlignes (échelle Tailwind 3.4 associée à --text-*) ----------- */
+  --leading-xs: 1rem;
+  --leading-sm: 1.25rem;
+  --leading-base: 1.5rem;
+  --leading-lg: 1.75rem;
+  --leading-xl: 1.75rem;
+  --leading-2xl: 2rem;
+  --leading-3xl: 2.25rem;
+  --leading-4xl: 2.5rem;
+  --leading-display: 1;            /* text-5xl à text-8xl */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-relaxed: 1.625;
+
+  /* ---- Tailles hors échelle --------------------------------------------- */
+  --text-2xs: 0.625rem;            /* text-[10px] : badge de catégorie */
+  --text-3xs: 0.5625rem;           /* text-[9px] : étiquettes de carte */
+
+  /* ---- Espacement de l'ancien site -------------------------------------- */
+  --space-0-5: 0.125rem;
+  --space-1-5: 0.375rem;
+  --space-2-5: 0.625rem;
+  --space-5: 1.25rem;
+  --space-24: 6rem;
+
+  /* ---- Espacement des lettres ------------------------------------------- */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  /* ---- Bordures et rayons ----------------------------------------------- */
+  --border-hairline: 1px;
+  --border-medium: 3px;
+  --radius-base: 0.25rem;
+
+  /* ---- Mouvement -------------------------------------------------------- */
+  --duration-fast: 150ms;          /* transition-all par défaut */
+  --duration-image: 700ms;         /* zoom d'image de carte */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Couleurs complémentaires ----------------------------------------- */
+  --color-yellow-soft: #fef08a;    /* yellow-200 : survol du basculeur */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-veil: rgba(0, 0, 0, 0.05);       /* hover:bg-black/5 */
+  --color-veil-strong: rgba(0, 0, 0, 0.2); /* border-black/20 */
+
+  /* ---- Ombres complémentaires ------------------------------------------- */
+  --shadow-soft-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-soft-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-glow-sticker-terminal: 0 0 10px rgba(74, 222, 128, 0.5);
+
+  /* ---- Opacités ---------------------------------------------------------- */
+  --opacity-muted: 0.6;
+  --opacity-soft: 0.8;
+  --opacity-disabled: 0.7;
+  --opacity-hover: 0.8;
+
+  /* ---- Dimensions -------------------------------------------------------- */
+  --size-target-min: 1.5rem;       /* WCAG 2.2 : cible d'au moins 24 px */
+  --size-visually-hidden: 1px;
+  --size-card-media: 12rem;
+  --size-card-service: 12rem;
+  --size-card-service-md: 18rem;
+  --size-select-list: 12rem;
+  --width-section: 80rem;          /* max-w-7xl */
+  --width-section-6xl: 72rem;
+  --width-section-5xl: 64rem;
+  --width-subtitle: 42rem;         /* max-w-2xl */
+
+  /* ---- Focus (ajout d'accessibilité, visible seulement au clavier) ------ */
+  --focus-width: 3px;
+  --focus-offset: 2px;
+  --focus-color: var(--text);
+}
+
+/* Couleurs forcées : le focus et les bordures suivent le système. */
+@media (forced-colors: active) {
+  :root {
+    --focus-color: Highlight;
+    --border-hairline: 1px;
+  }
+}
+
+/* Contraste renforcé : opacités pleines, focus plus épais. */
+@media (prefers-contrast: more) {
+  :root {
+    --opacity-muted: 1;
+    --opacity-soft: 1;
+    --opacity-hover: 1;
+    --focus-width: 4px;
+  }
+}
+
+/* Mouvement réduit : les changements d'état deviennent instantanés. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-base: 0.01ms;
+    --duration-slow: 0.01ms;
+    --duration-fast: 0.01ms;
+    --duration-image: 0.01ms;
+  }
+}
+
+[data-theme="pop"] {
+  --button-border: var(--color-black);
+  --button-primary-hover-bg: var(--color-primary-action);
+  --button-secondary-hover-bg: var(--color-white);
+  --tag-bg: var(--color-white);
+  --tag-text: var(--color-black);
+  --tag-border-width: var(--border-thin);
+  --tag-border-color: var(--color-black);
+  --tag-border-style: solid;
+  --tag-opacity: 1;
+  --sticker-text: var(--color-black);
+  --sticker-border-width: var(--border-medium);
+  --sticker-border-width-md: var(--border-thick);
+  --sticker-border-color: var(--color-black);
+  --sticker-border-style: solid;
+  --sticker-shadow: var(--shadow-hard-sm);
+  --sticker-radius: var(--radius-xl);
+  --sticker-radius-md: var(--radius-2xl);
+  --sticker-margin-x: 0;
+  --sticker-padding-x: var(--space-3);
+  --sticker-padding-x-md: var(--space-4);
+  --sticker-hover-transform: rotate(0deg) scale(1.05);
+  --card-hover-transform: translateY(-0.25rem);
+  --select-bg: var(--color-white);
+}
+
+[data-theme="terminal"] {
+  --button-border: var(--color-term-border);
+  --button-primary-hover-bg: var(--color-term-button-hover);
+  --button-secondary-hover-bg: var(--color-term-surface);
+  --tag-bg: transparent;
+  --tag-text: var(--color-term-text);
+  --tag-border-width: var(--border-hairline);
+  --tag-border-color: currentColor;
+  --tag-border-style: solid;
+  --tag-opacity: var(--opacity-soft);
+  --sticker-text: var(--color-term-text);
+  --sticker-border-width: var(--border-thin);
+  --sticker-border-width-md: var(--border-thin);
+  --sticker-border-color: var(--color-term-border);
+  --sticker-border-style: solid;
+  --sticker-shadow: var(--shadow-glow-sticker-terminal);
+  --sticker-radius: var(--radius-md);
+  --sticker-radius-md: var(--radius-md);
+  --sticker-margin-x: var(--space-2);
+  --sticker-padding-x: var(--space-2);
+  --sticker-padding-x-md: var(--space-2);
+  --sticker-hover-transform: none;
+  --card-hover-transform: translateY(-0.25rem);
+  --select-bg: var(--color-white);
+}
+
+[data-theme="wireframe"] {
+  --button-border: var(--color-wire-text);
+  --button-primary-hover-bg: var(--color-wire-line);
+  --button-secondary-hover-bg: transparent;
+  --tag-bg: var(--color-white);
+  --tag-text: var(--color-wire-text);
+  --tag-border-width: var(--border-hairline);
+  --tag-border-color: var(--color-wire-line);
+  --tag-border-style: dashed;
+  --tag-opacity: 1;
+  --sticker-text: var(--color-wire-text);
+  --sticker-border-width: var(--border-thin);
+  --sticker-border-width-md: var(--border-thin);
+  --sticker-border-color: var(--color-wire-line);
+  --sticker-border-style: dashed;
+  --sticker-shadow: none;
+  --sticker-radius: 0;
+  --sticker-radius-md: 0;
+  --sticker-margin-x: var(--space-2);
+  --sticker-padding-x: var(--space-2);
+  --sticker-padding-x-md: var(--space-2);
+  --sticker-hover-transform: none;
+  --card-hover-transform: translate(0.25rem, -0.25rem);
+  --select-bg: var(--color-white);
+}
