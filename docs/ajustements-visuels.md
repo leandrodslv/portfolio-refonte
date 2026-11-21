@@ -21,3 +21,7 @@ Ils ne sont pas mesurés par le test de contraste ; ils sont consignés pour l'a
 | Sous-titres, étiquettes Terminal          | opacité 60 à 80 % (`--opacity-muted`, `--opacity-soft`, `--tag-opacity`) : contraste réduit                | Conservé ; les opacités passent à 1 avec `prefers-contrast: more`. |
 | Survol du basculeur                       | fond `--color-yellow-soft` (jaune clair) dans les trois Thèmes, texte vert en Terminal                     | Conservé.                                                          |
 | Focus                                     | contour de 3 px visible **seulement au clavier** (`:focus-visible`) : ajout non présent dans l'ancien site | Ajout nécessaire (WCAG 2.4.7), sans effet à la souris.             |
+
+## Formulaires (story 11.3)
+
+Aucun écart de contraste : repos, erreur et page sont à 4,5:1 ou plus sous les trois Thèmes (test `kit.test.ts`). L'état désactivé (`--opacity-disabled`) est exempté du critère de contraste (WCAG 1.4.3). Le rouge d'erreur (`--color-red-700`, `--color-red-300` sous Terminal), la case à cocher et la bordure en pointillés sont de nouveaux éléments : l'ancien site n'avait ni erreur ni case à cocher.

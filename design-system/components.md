@@ -105,11 +105,19 @@ Variantes : bouton déclencheur (bordure épaisse, icône globe, majuscules `--t
 
 ### Champ
 
-Sources : `ancien-portfolio/src/components/sections/Contact.jsx` (nom, e-mail, message). Chemin prévu : `src/components/ui/Field.astro` (story 11.3).
+Sources : `ancien-portfolio/src/components/sections/Contact.jsx` (nom, e-mail, message). Chemin : `src/components/ui/Field.astro` (livré, story 11.3), avec `src/components/ui/FieldMessage.astro` (aide et erreur) et `src/components/ui/Checkbox.astro` (case à cocher, absente de l'ancien site).
 
 Figma : aucun composant individuel identifié (cadre « atomic design », `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio?node-id=1-908`).
 
-Variantes : texte, e-mail, zone de texte (non redimensionnable). Tokens : fond `--nav-bg`, `--border-color`, `--border-thick`, `--radius-xl`, `--shadow`, `--text`. États : repos ; focus (anneau jaune de 4 px, seul style de focus de l'ancien site) ; erreur et désactivé absents (l'ancien site utilise `alert()`, interdit ici) ; réussite : bloc vert (`green-100`, `green-800`).
+Variantes : texte, e-mail, zone de texte (non redimensionnable). Tokens : fond `--nav-bg`, `--border-color`, `--border-thick`, `--radius-xl`, `--shadow`, `--text`. États : repos ; focus (anneau jaune de 4 px, seul style de focus de l'ancien site) ; erreur et désactivé absents de l'ancien site (il utilise `alert()`, interdit ici) : ajoutés en 11.3, erreur en `--error-color` (rouge par Thème) avec bordure en pointillés, préfixe texte et région `aria-live` ; désactivé à `--opacity-disabled` (exempté du contraste, WCAG 1.4.3) ; réussite : bloc vert (`green-100`, `green-800`).
+
+### Case à cocher
+
+Chemin : `src/components/ui/Checkbox.astro` (livré, story 11.3). Absente de l'ancien site, ajoutée pour le consentement du formulaire de contact. Figma : aucun composant individuel identifié. Tokens : `--text` (`accent-color`), `--size-target-min`, `--focus-*`, `--field-ring-shadow`, `--error-color`, `--opacity-disabled`. États : repos, coché, focus, erreur (contour en pointillés, préfixe texte, région `aria-live`), désactivé.
+
+### Message de champ
+
+Chemin : `src/components/ui/FieldMessage.astro` (livré, story 11.3). Aide (paragraphe, absent sans contenu) ou erreur (région `aria-live="polite"` toujours rendue, réduite visuellement quand elle est vide). Tokens : `--text`, `--opacity-soft`, `--error-color`, `--text-sm`.
 
 ## Hors kit
 

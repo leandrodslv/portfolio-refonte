@@ -59,6 +59,9 @@ const PAIRES = [
   ['etiquette', '--tag-text', '--tag-bg'],
   ['badge-accroche', '--text', '--accent-1'],
   ['selecteur', '--text', '--select-bg'],
+  ['champ', '--text', '--nav-bg'],
+  ['erreur-champ', '--error-color', '--nav-bg'],
+  ['erreur-page', '--error-color', '--bg'],
 ] as const
 
 describe('kit UI : tokens', () => {

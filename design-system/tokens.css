@@ -242,6 +242,9 @@
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
   --color-gray-200: #e5e7eb;
+  --color-yellow-ring: #facc15;    /* yellow-400 : anneau de focus des champs */
+  --color-red-700: #b91c1c;        /* erreur (nouveau, story 11.3) */
+  --color-red-300: #fca5a5;        /* erreur sous Terminal */
   --color-veil: rgba(0, 0, 0, 0.05);       /* hover:bg-black/5 */
   --color-veil-strong: rgba(0, 0, 0, 0.2); /* border-black/20 */
 
@@ -257,6 +260,7 @@
   --opacity-hover: 0.8;
 
   /* ---- Dimensions -------------------------------------------------------- */
+  --field-ring-shadow: 0 0 0 4px var(--color-yellow-ring); /* focus:ring-4 ring-yellow-400 */
   --size-target-min: 1.5rem;       /* WCAG 2.2 : cible d'au moins 24 px */
   --size-visually-hidden: 1px;
   --size-card-media: 12rem;
@@ -326,6 +330,7 @@
   --sticker-hover-transform: rotate(0deg) scale(1.05);
   --card-hover-transform: translateY(-0.25rem);
   --select-bg: var(--color-white);
+  --error-color: var(--color-red-700);
 }
 
 [data-theme="terminal"] {
@@ -352,6 +357,7 @@
   --sticker-hover-transform: none;
   --card-hover-transform: translateY(-0.25rem);
   --select-bg: var(--color-white);
+  --error-color: var(--color-red-300);
 }
 
 [data-theme="wireframe"] {
@@ -378,4 +384,5 @@
   --sticker-hover-transform: none;
   --card-hover-transform: translate(0.25rem, -0.25rem);
   --select-bg: var(--color-white);
+  --error-color: var(--color-red-700);
 }

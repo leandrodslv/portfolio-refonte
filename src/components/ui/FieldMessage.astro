@@ -1,0 +1,60 @@
+---
+interface Props {
+  id: string
+  kind: 'help' | 'error'
+  prefix?: string
+  class?: string
+}
+
+const { id, kind, prefix, class: classe, ...attrs } = Astro.props
+const contenu = Astro.slots.has('default') ? (await Astro.slots.render('default')).trim() : ''
+const aDuContenu = contenu !== ''
+const classes = ['ui-field-message', `ui-field-message--${kind}`, classe].filter(Boolean).join(' ')
+---
+
+{kind === 'error' ? (
+  <div id={id} class={classes} aria-live="polite" {...attrs}>
+    {aDuContenu && (
+      <>
+        {prefix && <span class="ui-field-message__prefix">{prefix} </span>}
+        <Fragment set:html={contenu} />
+      </>
+    )}
+  </div>
+) : (
+  aDuContenu && (
+    <p id={id} class={classes} {...attrs}>
+      <Fragment set:html={contenu} />
+    </p>
+  )
+)}
+
+<style>
+  .ui-field-message {
+    margin: 0;
+    margin-left: var(--space-2);
+    font-size: var(--text-sm);
+    line-height: var(--leading-sm);
+    color: var(--text);
+    overflow-wrap: anywhere;
+  }
+  .ui-field-message--help {
+    opacity: var(--opacity-soft);
+  }
+  .ui-field-message--error {
+    color: var(--error-color);
+    font-weight: var(--font-weight-bold);
+  }
+  .ui-field-message--error:empty {
+    position: absolute;
+    width: var(--size-visually-hidden);
+    height: var(--size-visually-hidden);
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .ui-field-message__prefix {
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+  }
+</style>

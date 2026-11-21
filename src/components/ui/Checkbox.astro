@@ -1,0 +1,112 @@
+---
+import FieldMessage from './FieldMessage.astro'
+
+interface Props {
+  id: string
+  label: string
+  name?: string
+  checked?: boolean
+  required?: boolean
+  disabled?: boolean
+  help?: string
+  error?: string
+  errorPrefix: string
+  requiredMark?: string
+  class?: string
+}
+
+const {
+  id,
+  label,
+  name = id,
+  checked = false,
+  required = false,
+  disabled = false,
+  help,
+  error,
+  errorPrefix,
+  requiredMark,
+  class: classe,
+  ...attrs
+} = Astro.props
+
+const idAide = `${id}-help`
+const idErreur = `${id}-error`
+const decrit = [help ? idAide : undefined, error ? idErreur : undefined].filter(Boolean).join(' ')
+const classes = ['ui-checkbox', classe].filter(Boolean).join(' ')
+---
+
+<div class={classes}>
+  <div class="ui-checkbox__row">
+    <input
+      type="checkbox"
+      id={id}
+      name={name}
+      checked={checked}
+      required={required}
+      disabled={disabled}
+      {...attrs}
+      aria-describedby={decrit || undefined}
+      aria-invalid={error ? 'true' : undefined}
+      class="ui-checkbox__control"
+    />
+    <label class="ui-checkbox__label" for={id}>
+      {label}
+      {required && requiredMark && <span> {requiredMark}</span>}
+    </label>
+  </div>
+  {help && (
+    <FieldMessage id={idAide} kind="help">
+      {help}
+    </FieldMessage>
+  )}
+  <FieldMessage id={idErreur} kind="error" prefix={error ? errorPrefix : undefined}>
+    {error}
+  </FieldMessage>
+</div>
+
+<style>
+  .ui-checkbox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    min-width: 0;
+  }
+  .ui-checkbox__row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  .ui-checkbox__control {
+    flex-shrink: 0;
+    width: var(--size-target-min);
+    height: var(--size-target-min);
+    margin: 0;
+    accent-color: var(--text);
+    cursor: pointer;
+  }
+  .ui-checkbox__control:focus-visible {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+    box-shadow: var(--field-ring-shadow);
+  }
+  .ui-checkbox__control[aria-invalid='true'] {
+    outline: var(--border-medium) dashed var(--error-color);
+    outline-offset: var(--focus-offset);
+  }
+  .ui-checkbox__control[aria-invalid='true']:focus-visible {
+    outline: var(--focus-width) solid var(--focus-color);
+  }
+  .ui-checkbox__control:disabled,
+  .ui-checkbox__control:disabled + .ui-checkbox__label {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+  }
+  .ui-checkbox__label {
+    color: var(--text);
+    font-weight: var(--font-weight-bold);
+    overflow-wrap: anywhere;
+    cursor: pointer;
+  }
+</style>
