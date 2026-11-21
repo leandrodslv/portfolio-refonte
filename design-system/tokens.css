@@ -100,8 +100,14 @@
   --duration-slow: 500ms;          /* changement de thème */
   --ease-default: ease-in-out;
   --rotate-sticker: -3deg;
-  --rotate-tilt-sm: -1deg;
-  --rotate-tilt-md: -2deg;
+  --rotate-hover: 2deg;             /* whileHover du Hero (Framer Motion, reproduit en CSS) */
+  --scale-hover: 1.05;
+  --scale-press: 0.95;
+  --scale-card-hover: 1.02;
+  --service-1: var(--color-lilac);   /* cartes de service : couleurs fixes, hors Thème */
+  --service-2: var(--color-sky);
+  --service-3: var(--color-green);
+  --service-4: var(--color-yellow);
 
   /* ---- Breakpoints (documentaire : non utilisables dans @media) --------- */
   --bp-sm: 640px;
@@ -315,6 +321,7 @@
   --tag-border-width: var(--border-thin);
   --tag-border-color: var(--color-black);
   --tag-border-style: solid;
+  --tag-font-weight: var(--font-weight-bold);
   --tag-opacity: 1;
   --sticker-text: var(--color-black);
   --sticker-border-width: var(--border-medium);
@@ -328,7 +335,7 @@
   --sticker-padding-x: var(--space-3);
   --sticker-padding-x-md: var(--space-4);
   --sticker-hover-transform: rotate(0deg) scale(1.05);
-  --card-hover-transform: translateY(-0.25rem);
+  --card-hover-transform: none;
   --select-bg: var(--color-white);
   --error-color: var(--color-red-700);
 }
@@ -342,6 +349,7 @@
   --tag-border-width: var(--border-hairline);
   --tag-border-color: currentColor;
   --tag-border-style: solid;
+  --tag-font-weight: var(--font-weight-black);
   --tag-opacity: var(--opacity-soft);
   --sticker-text: var(--color-term-text);
   --sticker-border-width: var(--border-thin);
@@ -355,7 +363,7 @@
   --sticker-padding-x: var(--space-2);
   --sticker-padding-x-md: var(--space-2);
   --sticker-hover-transform: none;
-  --card-hover-transform: translateY(-0.25rem);
+  --card-hover-transform: none;
   --select-bg: var(--color-white);
   --error-color: var(--color-red-300);
 }
@@ -369,6 +377,7 @@
   --tag-border-width: var(--border-hairline);
   --tag-border-color: var(--color-wire-line);
   --tag-border-style: dashed;
+  --tag-font-weight: var(--font-weight-black);
   --tag-opacity: 1;
   --sticker-text: var(--color-wire-text);
   --sticker-border-width: var(--border-thin);
@@ -382,7 +391,7 @@
   --sticker-padding-x: var(--space-2);
   --sticker-padding-x-md: var(--space-2);
   --sticker-hover-transform: none;
-  --card-hover-transform: translate(0.25rem, -0.25rem);
+  --card-hover-transform: none;
   --select-bg: var(--color-white);
   --error-color: var(--color-red-700);
 }

@@ -16,3 +16,5 @@ L'inventaire des composants (variantes, états, échelles, points de rupture, é
 ## À faire ensuite
 1. Export `tokens.json` + variables Figma.
 2. Composants Astro correspondants (`src/components/ui/`, voir `components.md`).
+
+Règles pour les agents qui lisent le fichier Figma (MCP) : [`figma-rules.md`](figma-rules.md).
