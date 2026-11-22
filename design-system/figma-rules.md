@@ -64,6 +64,10 @@ La Spec « Règles du son pour les agents IA » (page « Spécifications », `no
 - Mémorisation uniquement via `src/islands/prefs.ts` (clé `portfolio:sound`), aucun cookie ; fréquences, durées et gain dans un fichier de configuration unique, jamais en dur.
 - Un son absent de la Spec n'existe pas : le proposer avant de l'ajouter.
 
+## Assets
+
+La page « Assets » (`node-id=141-2`, après « ——— Sources du design ——— ») range les images, illustrations, logos et curseurs par famille ; les originaux restent dans `ancien-portfolio/public` (lecture seule), et aucun asset n'est copié en dur dans le code : les visuels viennent de Sanity. La section « Maquettes de projets » (`node-id=147-2`) réunit les écrans maquettés et wireframes de Studapp, Yummy Nouilles et Capitaine Scout. Chaque image porte une annotation Figma de catégorie « Tech » (source, format, dimensions, poids, consigne d'usage) : la lire dans le mode Dev avant d'intégrer l'image. Les WebP y sont des copies JPEG (Figma n'affiche pas le WebP) ; le fichier source de `ancien-portfolio/public` fait foi.
+
 ## Nommage
 
 - Propriétés de variantes en français : Variante, État (Repos, Survol, Focus, Désactivé), Taille (Bureau, Mobile), Accent, Teinte.
