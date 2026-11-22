@@ -1,0 +1,42 @@
+---
+interface Props {
+  class?: string
+}
+
+const { class: classe, ...attrs } = Astro.props
+const classes = ['ui-sticker', classe].filter(Boolean).join(' ')
+---
+
+<span class={classes} {...attrs}>
+  <slot />
+</span>
+
+<style>
+  .ui-sticker {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    margin-inline: var(--sticker-margin-x);
+    padding: 0 var(--sticker-padding-x);
+    border: var(--sticker-border-width) var(--sticker-border-style) var(--sticker-border-color);
+    border-radius: var(--sticker-radius);
+    background: var(--sticker-bg);
+    color: var(--sticker-text);
+    box-shadow: var(--sticker-shadow);
+    vertical-align: middle;
+    transform: rotate(var(--sticker-rotate));
+    transition: all var(--duration-base) var(--ease-standard);
+  }
+  .ui-sticker:hover {
+    transform: var(--sticker-hover-transform);
+  }
+
+  @media (min-width: 48rem) {
+    .ui-sticker {
+      margin-inline: var(--space-2);
+      padding-inline: var(--sticker-padding-x-md);
+      border-width: var(--sticker-border-width-md);
+      border-radius: var(--sticker-radius-md);
+    }
+  }
+</style>

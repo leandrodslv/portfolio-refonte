@@ -1,0 +1,131 @@
+---
+type Annonce =
+  | { external?: false; download?: false; announce?: string }
+  | { external: true; download?: boolean; announce: string }
+  | { external?: boolean; download: true; announce: string }
+
+type Props = {
+  href: string
+  variant?: 'navigation' | 'footer' | 'text'
+  class?: string
+} & Annonce
+
+const {
+  href,
+  variant = 'text',
+  external = false,
+  download = false,
+  announce,
+  class: classe,
+  ...attrs
+} = Astro.props
+
+if ((external || download) && !announce) {
+  throw new Error('Link : « announce » est requis pour un lien externe ou de téléchargement.')
+}
+
+const classes = ['ui-link', `ui-link--${variant}`, classe].filter(Boolean).join(' ')
+---
+
+<a
+  href={href}
+  class={classes}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+  download={download ? '' : undefined}
+  {...attrs}
+>
+  <slot />
+  {announce && <span class="ui-link__announce">{announce}</span>}
+  <slot name="icon" />
+  {variant === 'navigation' && <span class="ui-link__bar" aria-hidden="true" />}
+</a>
+
+<style>
+  .ui-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--size-target-min);
+    color: var(--text);
+    text-decoration: none;
+    transition: all var(--duration-fast) var(--ease-standard);
+  }
+  .ui-link:focus-visible {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+  }
+  .ui-link__announce {
+    position: absolute;
+    width: var(--size-visually-hidden);
+    height: var(--size-visually-hidden);
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .ui-link--text {
+    gap: var(--space-2);
+    font-size: var(--text-xl);
+    line-height: var(--leading-xl);
+    font-weight: var(--font-weight-black);
+    text-decoration: underline;
+    text-decoration-thickness: var(--border-thick);
+    text-underline-offset: var(--border-thick);
+    transition: transform var(--duration-fast) var(--ease-standard);
+  }
+  @media (min-width: 48rem) {
+    .ui-link--text {
+      font-size: var(--text-2xl);
+      line-height: var(--leading-2xl);
+    }
+  }
+  .ui-link--text:hover {
+    transform: scale(var(--scale-hover));
+  }
+  .ui-link--navigation {
+    position: relative;
+    flex: 1;
+    justify-content: center;
+    border-right: var(--border-thick) var(--border-style) var(--border-color);
+    font-size: var(--text-lg);
+    line-height: var(--leading-lg);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--tracking-tight);
+    text-transform: uppercase;
+  }
+  .ui-link--navigation:last-child {
+    border-right: 0;
+  }
+  .ui-link--navigation:hover {
+    background: var(--color-veil);
+  }
+  .ui-link__bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: var(--bg);
+    transition: all var(--duration-fast) var(--ease-standard);
+  }
+  .ui-link--navigation:hover .ui-link__bar {
+    height: var(--space-1);
+  }
+  .ui-link--footer {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-3) 0;
+    border-bottom: var(--border-hairline) solid var(--color-veil-strong);
+  }
+  .ui-link--footer:hover {
+    padding-left: var(--space-2);
+  }
+  .ui-link--footer :global([slot='icon']) {
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-standard);
+  }
+  .ui-link--footer:hover :global([slot='icon']),
+  .ui-link--footer:focus-visible :global([slot='icon']) {
+    opacity: 1;
+  }
+</style>

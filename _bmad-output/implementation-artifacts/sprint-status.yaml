@@ -29,7 +29,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 # - Retrospective appends its action items to action_items; the status view surfaces open ones
 generated: 11-19-2026 23:32
-last_updated: 2026-11-20
+last_updated: 11-21-2026 09:00
 project: refonte portfolio
 project_key: NOKEY
 tracking_system: file-system
@@ -44,14 +44,14 @@ development_status:
   1-6-variables-validées-et-alerte-de-build: done
   epic-1-retrospective: done
 
-  epic-2: in-progress
+  epic-2: done
   2-1-studio-et-schémas-transverses: done
   2-2-modèle-des-projets: done
   2-3-modèle-des-autres-sections: done
   2-4-couche-de-contenu-en-lecture-seule: done
   2-5-migration-du-contenu-à-l-identique: done
-  2-6-publication-dev-puis-production: review
-  epic-2-retrospective: optional
+  2-6-publication-dev-puis-production: done
+  epic-2-retrospective: done
 
   epic-3: backlog
   3-1-gabarit-de-page-navigation-et-menu-mobile: backlog
@@ -108,21 +108,21 @@ development_status:
   9-6-bascule-réversible-et-période-de-repli: backlog
   epic-9-retrospective: optional
 
-  epic-10: backlog
-  10-1-storybook-aligné-sur-la-production-preact: backlog
-  10-2-thèmes-langues-et-accessibilité-dans-la-barre-d-outils: backlog
-  10-3-rendu-des-composants-astro-dans-storybook-décision: backlog
+  epic-10: in-progress
+  10-1-storybook-aligné-sur-la-production-preact: done
+  10-2-thèmes-langues-et-accessibilité-dans-la-barre-d-outils: done
+  10-3-rendu-des-composants-astro-dans-storybook-décision: done
   10-4-page-fondations-générée-depuis-les-tokens: backlog
   10-5-une-story-par-état-pour-chaque-composant-et-îlot: backlog
   10-6-storybook-dans-la-ci-et-consultable-en-ligne: backlog
   10-7-documentation-et-règle-de-livraison: backlog
   epic-10-retrospective: optional
 
-  epic-11: backlog
-  11-1-inventaire-des-composants-de-l-ancien-site: backlog
-  11-2-primitives-d-interface-astro: backlog
-  11-3-primitives-de-formulaire: backlog
-  11-4-états-variantes-et-contrôle-des-thèmes-du-kit: backlog
+  epic-11: in-progress
+  11-1-inventaire-des-composants-de-l-ancien-site: review
+  11-2-primitives-d-interface-astro: review
+  11-3-primitives-de-formulaire: review
+  11-4-états-variantes-et-contrôle-des-thèmes-du-kit: review
   11-5-règle-de-réutilisation-du-kit: backlog
   epic-11-retrospective: optional
 action_items:
@@ -151,7 +151,7 @@ action_items:
     action: "Passer le statut de la story dans sprint-status.yaml dans la PR de la
       story elle-même"
     owner: "Léandro"
-    status: open
+    status: in-progress
     ref: "_bmad-output/implementation-artifacts/epic-1-retro-2026-11-20.md"
   - id: "epic-1-retro-item-5-évaluer-semgrep-au-pre-push-pour-éviter"
     epic: 1
@@ -172,3 +172,74 @@ action_items:
     owner: "Léandro"
     status: open
     ref: "_bmad-output/implementation-artifacts/epic-1-retro-2026-11-20.md"
+  - id: "epic-2-retro-item-8-extraire-ancien-json-sans-footer-legal-t"
+    epic: 2
+    action: "Extraire ancien.json sans footer.legal (téléphone et e-mail) et régénérer
+      ; pas de purge de l historique (décision)"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-2026-11-20.md"
+  - id: "epic-2-retro-item-9-ajouter-timeout-minutes-aux-jobs-playwri"
+    epic: 2
+    action: "Ajouter timeout-minutes aux jobs Playwright et un cache des navigateurs
+      (PR chore:)"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-2026-11-20.md"
+  - id: "epic-2-retro-item-10-règle-eslint-interdisant-new-regexp-à-ar"
+    epic: 2
+    action: "Règle ESLint interdisant new RegExp( à argument non littéral, ou Semgrep
+      au pre-push"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-2026-11-20.md"
+  - id: "epic-2-retro-item-11-créer-deploy-hooks-webhooks-jeton-site-l"
+    epic: 2
+    action: "Créer deploy hooks, webhooks, jeton site-lecture-production et variables
+      Vercel de production ; lancer la sauvegarde ; première promotion ; chronométrer
+      SM-5"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-2026-11-20.md"
+  - id: "epic-2-retro-item-12-rédiger-la-version-en-de-sitesettings-le"
+    epic: 2
+    action: "Rédiger la version EN de siteSettings, les clés uiStrings sans équivalent
+      et l adresse LinkedIn réelle"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-2026-11-20.md"
+  - id: "epic-2-retro-item-13-amender-ad-10-isolation-des-jetons-inapp"
+    epic: 2
+    action: "Amender AD-10 (isolation des jetons inapplicable en gratuit) et AD-7
+      (alias Preact) dans le spine"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-2026-11-20.md"
+  - id: "epic-2-retro-item-14-corriger-les-critères-de-la-story-2-5-da"
+    epic: 2
+    action: "Corriger les critères de la story 2.5 dans epics.md (quatre Projets,
+      galerie Graphisme à 17 images, périmètre élargi de la 2.3)"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-2026-11-20.md"
+  - id: "epic-2-retro-item-15-décider-en-épopée-3-comment-la-fenêtre-d"
+    epic: 2
+    action: "Décider en épopée 3 comment la fenêtre de Projet traite les libellés
+      Le défi et Le concept déjà dans le texte"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-2026-11-20.md"
+  - id: "epic-2-retro-item-16-seconde-lentille-de-relecture-verificati"
+    epic: 2
+    action: "Seconde lentille de relecture (verification-gap, avec sous-agent) à partir
+      de l épopée 3"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-2026-11-20.md"
+  - id: "epic-2-retro-item-17-un-seul-type-locale-pour-fr-et-en-côté-r"
+    epic: 2
+    action: "Un seul type Locale pour FR et EN côté racine ; déclarer vite dans package.json
+      ou passer par Astro"
+    owner: "Léandro"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-2026-11-20.md"

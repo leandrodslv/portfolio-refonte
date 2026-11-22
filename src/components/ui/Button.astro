@@ -1,0 +1,152 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'toggle'
+  size?: 'default' | 'compact'
+  href?: string
+  type?: 'button' | 'submit' | 'reset'
+  disabled?: boolean
+  fullWidth?: boolean
+  class?: string
+}
+
+const {
+  variant = 'primary',
+  size = 'default',
+  href,
+  type = 'button',
+  disabled = false,
+  fullWidth = false,
+  class: classe,
+  ...attrs
+} = Astro.props
+
+const classes = [
+  'ui-button',
+  `ui-button--${variant}`,
+  variant === 'toggle' ? undefined : `ui-button--${size}`,
+  classe,
+]
+  .filter(Boolean)
+  .join(' ')
+---
+
+{href ? (
+  <a href={href} class={classes} data-full={fullWidth ? '' : undefined} {...attrs}>
+    <slot />
+  </a>
+) : (
+  <button
+    type={type}
+    class={classes}
+    disabled={disabled}
+    data-full={fullWidth ? '' : undefined}
+    {...attrs}
+  >
+    <slot />
+  </button>
+)}
+
+<style>
+  .ui-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: var(--size-target-min);
+    border: var(--border-thick) solid var(--button-border);
+    font-family: inherit;
+    font-weight: var(--font-weight-black);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      all var(--duration-fast) var(--ease-standard),
+      background-color var(--duration-fast) var(--ease-standard);
+  }
+  .ui-button[data-full] {
+    width: 100%;
+  }
+  .ui-button--default {
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-xl);
+    font-size: var(--text-lg);
+    line-height: var(--leading-lg);
+    box-shadow: var(--shadow);
+  }
+  .ui-button--default:hover:not(:disabled) {
+    box-shadow: none;
+  }
+  .ui-button--primary.ui-button--default:hover:not(:disabled) {
+    transform: rotate(calc(var(--rotate-hover) * -1)) scale(var(--scale-hover));
+  }
+  .ui-button--secondary.ui-button--default:hover:not(:disabled) {
+    transform: rotate(var(--rotate-hover)) scale(var(--scale-hover));
+  }
+  .ui-button--default:active,
+  .ui-button--primary.ui-button--default:active:not(:disabled),
+  .ui-button--secondary.ui-button--default:active:not(:disabled) {
+    box-shadow: none;
+    transform: scale(var(--scale-press));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ui-button--primary.ui-button--default:hover:not(:disabled),
+    .ui-button--secondary.ui-button--default:hover:not(:disabled) {
+      transform: none;
+    }
+  }
+  .ui-button--compact {
+    width: 100%;
+    padding: var(--space-2-5) 0;
+    border-radius: var(--radius-lg);
+    font-size: var(--text-xs);
+    line-height: var(--leading-xs);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    box-shadow: var(--shadow-soft-sm);
+    transition-duration: var(--duration-base);
+  }
+  .ui-button--compact:hover {
+    box-shadow: none;
+  }
+  .ui-button--primary {
+    background: var(--button-primary-bg);
+    color: var(--button-primary-text);
+  }
+  .ui-button--primary:hover {
+    background: var(--button-primary-hover-bg);
+  }
+  .ui-button--secondary {
+    background: var(--button-secondary-bg);
+    color: var(--button-secondary-text);
+  }
+  .ui-button--secondary:hover {
+    background: var(--button-secondary-hover-bg);
+  }
+  .ui-button--toggle {
+    padding: var(--space-2) var(--space-4);
+    border: var(--border-thin) var(--border-style) var(--border-color);
+    border-radius: var(--radius-lg);
+    background: transparent;
+    color: var(--text);
+    font-size: var(--text-sm);
+    line-height: var(--leading-sm);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    box-shadow: var(--shadow);
+    transition: background-color var(--duration-fast) var(--ease-standard);
+  }
+  .ui-button--toggle:hover {
+    background: var(--color-yellow-soft);
+  }
+  .ui-button--toggle:active {
+    box-shadow: none;
+    transform: translateY(var(--space-1));
+  }
+  .ui-button:focus-visible {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+  }
+  .ui-button:disabled {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+  }
+</style>

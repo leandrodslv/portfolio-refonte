@@ -1,0 +1,81 @@
+---
+interface Props {
+  id?: string
+  labelledby?: string
+  tone?: 'surface' | 'card'
+  width?: '7xl' | '6xl' | '5xl'
+  gutter?: 'wide' | 'narrow'
+  spacing?: 'default' | 'tight-top'
+  class?: string
+}
+
+const {
+  id,
+  labelledby,
+  tone = 'surface',
+  width = '7xl',
+  gutter = 'wide',
+  spacing = 'default',
+  class: classe,
+  ...attrs
+} = Astro.props
+
+const classes = [
+  'ui-section',
+  `ui-section--${tone}`,
+  `ui-section--gutter-${gutter}`,
+  `ui-section--${spacing}`,
+  classe,
+]
+  .filter(Boolean)
+  .join(' ')
+---
+
+<section id={id} aria-labelledby={labelledby} class={classes} {...attrs}>
+  <div class={`ui-section__inner ui-section__inner--${width}`}>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .ui-section {
+    padding: var(--space-12) var(--space-6);
+    border-top: var(--border-thick) var(--border-style) var(--border-color);
+    color: var(--text);
+    transition: background-color var(--duration-slow) var(--ease-standard);
+  }
+  .ui-section--surface {
+    background: var(--bg);
+  }
+  .ui-section--card {
+    background: var(--card-bg);
+  }
+  .ui-section--gutter-narrow {
+    padding-inline: var(--space-4);
+  }
+  .ui-section--tight-top {
+    padding-top: var(--space-4);
+  }
+  .ui-section__inner {
+    margin-inline: auto;
+    max-width: var(--width-section);
+  }
+  .ui-section__inner--6xl {
+    max-width: var(--width-section-6xl);
+  }
+  .ui-section__inner--5xl {
+    max-width: var(--width-section-5xl);
+  }
+
+  @media (min-width: 48rem) {
+    .ui-section {
+      padding-block: var(--space-24);
+    }
+    .ui-section--gutter-narrow {
+      padding-inline: var(--space-6);
+    }
+    .ui-section--tight-top {
+      padding-top: var(--space-12);
+    }
+  }
+</style>

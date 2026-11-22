@@ -1,0 +1,119 @@
+---
+interface Props {
+  variant?: 'project' | 'service'
+  accent?: 1 | 2 | 3 | 4 | 5
+  as?: 'article' | 'div' | 'li'
+  class?: string
+}
+
+const { variant = 'project', accent, as: Balise = 'article', class: classe, ...attrs } = Astro.props
+
+const classes = [
+  'ui-card',
+  `ui-card--${variant}`,
+  accent ? `ui-card--accent-${accent}` : undefined,
+  classe,
+]
+  .filter(Boolean)
+  .join(' ')
+---
+
+<Balise class={classes} {...attrs}>
+  {Astro.slots.has('media') && (
+    <div class="ui-card__media">
+      <slot name="media" />
+    </div>
+  )}
+  <div class="ui-card__body">
+    <slot />
+  </div>
+</Balise>
+
+<style>
+  .ui-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow: hidden;
+    border: var(--border-thick) var(--border-style) var(--border-color);
+    background: var(--card-bg);
+    color: var(--text);
+    box-shadow: var(--shadow);
+    transition: all var(--duration-base) var(--ease-standard);
+  }
+  .ui-card--project {
+    border-radius: var(--radius-2xl);
+  }
+  .ui-card--project:hover {
+    transform: var(--card-hover-transform);
+    box-shadow: var(--card-hover-shadow);
+  }
+  .ui-card--project .ui-card__media {
+    position: relative;
+    height: var(--size-card-media);
+    overflow: hidden;
+    border-bottom: var(--border-thick) var(--border-style) var(--border-color);
+    background: var(--bg);
+  }
+  .ui-card--project .ui-card__body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: var(--space-5);
+  }
+  .ui-card--service {
+    height: var(--size-card-service);
+    padding: var(--space-6);
+    border-radius: var(--radius-3xl);
+    cursor: default;
+    transition-property: transform;
+  }
+  .ui-card--service .ui-card__body {
+    display: contents;
+  }
+  .ui-card--accent-1 {
+    background: var(--accent-1);
+  }
+  .ui-card--accent-2 {
+    background: var(--accent-2);
+  }
+  .ui-card--accent-3 {
+    background: var(--accent-3);
+  }
+  .ui-card--accent-4 {
+    background: var(--accent-4);
+  }
+  .ui-card--accent-5 {
+    background: var(--accent-5);
+  }
+  .ui-card--service.ui-card--accent-1 {
+    background: var(--service-1);
+  }
+  .ui-card--service.ui-card--accent-2 {
+    background: var(--service-2);
+  }
+  .ui-card--service.ui-card--accent-3 {
+    background: var(--service-3);
+  }
+  .ui-card--service.ui-card--accent-4 {
+    background: var(--service-4);
+  }
+  .ui-card--service:hover {
+    transform: scale(var(--scale-card-hover));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ui-card--service:hover {
+      transform: none;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .ui-card--service {
+      height: var(--size-card-service-md);
+      padding: var(--space-8);
+    }
+  }
+</style>

@@ -1,0 +1,120 @@
+---
+import FieldMessage from './FieldMessage.astro'
+
+interface Props {
+  id: string
+  label: string
+  name?: string
+  type?: 'text' | 'email'
+  multiline?: boolean
+  rows?: number
+  required?: boolean
+  disabled?: boolean
+  placeholder?: string
+  help?: string
+  error?: string
+  errorPrefix: string
+  requiredMark?: string
+  autocomplete?: string
+  class?: string
+}
+
+const {
+  id,
+  label,
+  name = id,
+  type = 'text',
+  multiline = false,
+  rows = 4,
+  required = false,
+  disabled = false,
+  placeholder,
+  help,
+  error,
+  errorPrefix,
+  requiredMark,
+  autocomplete,
+  class: classe,
+  ...attrs
+} = Astro.props
+
+const idAide = `${id}-help`
+const idErreur = `${id}-error`
+const decrit = [help ? idAide : undefined, error ? idErreur : undefined].filter(Boolean).join(' ')
+const classes = ['ui-field', classe].filter(Boolean).join(' ')
+const commun = {
+  ...attrs,
+  autocomplete,
+  id,
+  name,
+  required,
+  disabled,
+  placeholder,
+  'aria-describedby': decrit || undefined,
+  'aria-invalid': error ? ('true' as const) : undefined,
+  class: 'ui-field__control',
+}
+---
+
+<div class={classes}>
+  <label class="ui-field__label" for={id}>
+    {label}
+    {required && requiredMark && <span class="ui-field__required"> {requiredMark}</span>}
+  </label>
+  {multiline ? <textarea rows={rows} {...commun} /> : <input type={type} {...commun} />}
+  {help && (
+    <FieldMessage id={idAide} kind="help">
+      {help}
+    </FieldMessage>
+  )}
+  <FieldMessage id={idErreur} kind="error" prefix={error ? errorPrefix : undefined}>
+    {error}
+  </FieldMessage>
+</div>
+
+<style>
+  .ui-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    min-width: 0;
+  }
+  .ui-field__label {
+    margin-left: var(--space-2);
+    color: var(--text);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+  .ui-field__control {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: var(--size-target-min);
+    padding: var(--space-4);
+    border: var(--border-thick) var(--border-style) var(--border-color);
+    border-radius: var(--radius-xl);
+    background: var(--nav-bg);
+    color: var(--text);
+    font-family: inherit;
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--shadow);
+    transition: all var(--duration-fast) var(--ease-standard);
+  }
+  textarea.ui-field__control {
+    resize: none;
+  }
+  .ui-field__control:focus-visible {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+    box-shadow: var(--field-ring-shadow);
+  }
+  .ui-field__control[aria-invalid='true'] {
+    border-style: dashed;
+    border-color: var(--error-color);
+  }
+  .ui-field__control:disabled {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+  }
+</style>
