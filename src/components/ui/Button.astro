@@ -72,13 +72,30 @@ const classes = [
     line-height: var(--leading-lg);
     box-shadow: var(--shadow);
   }
-  .ui-button--default:hover,
-  .ui-button--default:active {
+  .ui-button--default:hover:not(:disabled) {
     box-shadow: none;
-    transform: translate(var(--space-1), var(--space-1));
+  }
+  .ui-button--primary.ui-button--default:hover:not(:disabled) {
+    transform: rotate(calc(var(--rotate-hover) * -1)) scale(var(--scale-hover));
+  }
+  .ui-button--secondary.ui-button--default:hover:not(:disabled) {
+    transform: rotate(var(--rotate-hover)) scale(var(--scale-hover));
+  }
+  .ui-button--default:active,
+  .ui-button--primary.ui-button--default:active:not(:disabled),
+  .ui-button--secondary.ui-button--default:active:not(:disabled) {
+    box-shadow: none;
+    transform: scale(var(--scale-press));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ui-button--primary.ui-button--default:hover:not(:disabled),
+    .ui-button--secondary.ui-button--default:hover:not(:disabled) {
+      transform: none;
+    }
   }
   .ui-button--compact {
-    padding: var(--space-2-5) var(--space-4);
+    width: 100%;
+    padding: var(--space-2-5) 0;
     border-radius: var(--radius-lg);
     font-size: var(--text-xs);
     line-height: var(--leading-xs);

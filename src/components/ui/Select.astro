@@ -1,5 +1,6 @@
 ---
 interface Props {
+  variant?: 'language' | 'row'
   expanded?: boolean
   controls?: string
   fullWidth?: boolean
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const {
+  variant = 'language',
   expanded = false,
   controls,
   fullWidth = false,
@@ -16,7 +18,7 @@ const {
   ...attrs
 } = Astro.props
 
-const classes = ['ui-select', classe].filter(Boolean).join(' ')
+const classes = ['ui-select', `ui-select--${variant}`, classe].filter(Boolean).join(' ')
 ---
 
 <button
@@ -66,6 +68,18 @@ const classes = ['ui-select', classe].filter(Boolean).join(' ')
     display: flex;
     align-items: center;
     gap: var(--space-2);
+  }
+  .ui-select--row {
+    justify-content: space-between;
+    font-size: var(--text-base);
+    line-height: var(--leading-base);
+    font-weight: var(--font-weight-bold);
+    text-transform: none;
+    box-shadow: none;
+  }
+  .ui-select.ui-select--row:hover {
+    opacity: 1;
+    background: var(--color-gray-50);
   }
   .ui-select:hover {
     opacity: var(--opacity-hover);

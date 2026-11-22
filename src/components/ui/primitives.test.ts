@@ -201,9 +201,8 @@ describe('props et variantes', () => {
   })
 
   it('Card : variante, inclinaison, et zone média absente sans slot', async () => {
-    const service = await cls(Card, { variant: 'service', tilt: 'md' })
+    const service = await cls(Card, { variant: 'service' })
     expect(service?.className).toContain('ui-card--service')
-    expect(service?.className).toContain('ui-card--tilt-md')
     expect(service?.querySelector('.ui-card__media')).toBeNull()
     const avecMedia = analyser(
       await rendre(Card, { slots: { default: 'x', media: '<img alt="" src="a.png">' } }),
@@ -234,5 +233,19 @@ describe('props et variantes', () => {
     await expect(
       rendre(Link, { props: { href: 'https://a.fr', external: true }, slots: { default: 'x' } }),
     ).rejects.toThrow()
+  })
+
+  it('SectionTitle : le mot en relief est dans un Sticker, absent sans slot', async () => {
+    const avec = analyser(
+      await rendre(SectionTitle, { slots: { default: 'Mes ', highlight: 'projets' } }),
+    )
+    expect(avec.querySelector('h2 .ui-sticker')?.textContent?.trim()).toBe('projets')
+    const sans = analyser(await rendre(SectionTitle, { slots: { default: 'Mes projets' } }))
+    expect(sans.querySelector('.ui-sticker')).toBeNull()
+  })
+
+  it('Select : variante language par défaut, row sur demande', async () => {
+    expect((await cls(Select, {}))?.className).toContain('ui-select--language')
+    expect((await cls(Select, { variant: 'row' }))?.className).toContain('ui-select--row')
   })
 })

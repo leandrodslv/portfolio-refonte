@@ -122,7 +122,7 @@ development_status:
   11-1-inventaire-des-composants-de-l-ancien-site: review
   11-2-primitives-d-interface-astro: review
   11-3-primitives-de-formulaire: review
-  11-4-états-variantes-et-contrôle-des-thèmes-du-kit: backlog
+  11-4-états-variantes-et-contrôle-des-thèmes-du-kit: review
   11-5-règle-de-réutilisation-du-kit: backlog
   epic-11-retrospective: optional
 action_items:

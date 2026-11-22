@@ -2,25 +2,16 @@
 interface Props {
   variant?: 'project' | 'service'
   accent?: 1 | 2 | 3 | 4 | 5
-  tilt?: 'none' | 'sm' | 'md'
   as?: 'article' | 'div' | 'li'
   class?: string
 }
 
-const {
-  variant = 'project',
-  accent,
-  tilt = 'none',
-  as: Balise = 'article',
-  class: classe,
-  ...attrs
-} = Astro.props
+const { variant = 'project', accent, as: Balise = 'article', class: classe, ...attrs } = Astro.props
 
 const classes = [
   'ui-card',
   `ui-card--${variant}`,
   accent ? `ui-card--accent-${accent}` : undefined,
-  `ui-card--tilt-${tilt}`,
   classe,
 ]
   .filter(Boolean)
@@ -98,11 +89,25 @@ const classes = [
   .ui-card--accent-5 {
     background: var(--accent-5);
   }
-  .ui-card--tilt-sm {
-    transform: rotate(var(--rotate-tilt-sm));
+  .ui-card--service.ui-card--accent-1 {
+    background: var(--service-1);
   }
-  .ui-card--tilt-md {
-    transform: rotate(var(--rotate-tilt-md));
+  .ui-card--service.ui-card--accent-2 {
+    background: var(--service-2);
+  }
+  .ui-card--service.ui-card--accent-3 {
+    background: var(--service-3);
+  }
+  .ui-card--service.ui-card--accent-4 {
+    background: var(--service-4);
+  }
+  .ui-card--service:hover {
+    transform: scale(var(--scale-card-hover));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ui-card--service:hover {
+      transform: none;
+    }
   }
 
   @media (min-width: 48rem) {

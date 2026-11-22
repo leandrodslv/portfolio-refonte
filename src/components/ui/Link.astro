@@ -73,8 +73,14 @@ const classes = ['ui-link', `ui-link--${variant}`, classe].filter(Boolean).join(
     text-underline-offset: var(--border-thick);
     transition: transform var(--duration-fast) var(--ease-standard);
   }
+  @media (min-width: 48rem) {
+    .ui-link--text {
+      font-size: var(--text-2xl);
+      line-height: var(--leading-2xl);
+    }
+  }
   .ui-link--text:hover {
-    transform: scale(1.05);
+    transform: scale(var(--scale-hover));
   }
   .ui-link--navigation {
     position: relative;
@@ -110,10 +116,6 @@ const classes = ['ui-link', `ui-link--${variant}`, classe].filter(Boolean).join(
     justify-content: space-between;
     padding: var(--space-3) 0;
     border-bottom: var(--border-hairline) solid var(--color-veil-strong);
-    font-size: var(--text-sm);
-    line-height: var(--leading-sm);
-    font-weight: var(--font-weight-bold);
-    text-transform: uppercase;
   }
   .ui-link--footer:hover {
     padding-left: var(--space-2);

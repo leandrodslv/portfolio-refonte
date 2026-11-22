@@ -1,4 +1,6 @@
 ---
+import Sticker from './Sticker.astro'
+
 interface Props {
   id?: string
   level?: 1 | 2 | 3
@@ -17,7 +19,11 @@ const aSousTitre = Astro.slots.has('subtitle')
 <header class={classes} {...attrs}>
   <Titre id={id} class="ui-section-title__heading">
     <slot />
-    {Astro.slots.has('highlight') && <slot name="highlight" />}
+    {Astro.slots.has('highlight') && (
+      <Sticker>
+        <slot name="highlight" />
+      </Sticker>
+    )}
   </Titre>
   {aSousTitre && (
     <p class="ui-section-title__subtitle">

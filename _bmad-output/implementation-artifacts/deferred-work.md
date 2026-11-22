@@ -93,3 +93,10 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-11-2-primitives-d-interface-astro.md`
   summary: Button ignore `disabled` quand `href` est fourni (lien jamais désactivable).
   evidence: la branche `<a>` ne lit pas `disabled` ; aucun consommateur aujourd'hui, à traiter si un lien désactivé apparaît (aria-disabled et tabindex -1).
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-11-4-etats-variantes-et-controle-des-themes-du-kit.md`
+  summary: `npm run test:stories` n'est exécuté ni par `npm test` ni par la CI : contraste rendu, débordement à 320 px et émulations ne sont pas gardés automatiquement.
+  evidence: `.github/workflows/ci.yml` ne lance que `build-storybook` ; à câbler en story 10.6, dépendance dure de 11.4.
+- source_spec: `_bmad-output/implementation-artifacts/spec-11-4-etats-variantes-et-controle-des-themes-du-kit.md`
+  summary: texte vert illisible (environ 1,0:1) sur les cartes de service en Terminal, conservé par fidélité avec l'ancien site.
+  evidence: relevé sur le site en ligne le 2026-11-21, consigné dans `docs/ajustements-visuels.md` ; à trancher à l'audit (story 9.2).

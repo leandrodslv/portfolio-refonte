@@ -16,7 +16,20 @@ La barre d'outils propose le Thème (`data-theme`), la Langue FR/EN (`lang`) et 
 
 ## Composants `.astro`
 
-Un composant `.astro` s'affiche par HTML pré-rendu (AD-19). Dans une story, importer `import html from './Composant.astro?html'` et l'afficher (par exemple dans un `<pre>` pour un composant sans rendu visuel, ou en `dangerouslySetInnerHTML`). Le plugin vit dans `.storybook/astro-html.ts`. Limites : rendu statique, pas de props ; à étendre au premier composant qui en exige. Les neuf primitives de `src/components/ui/` (story 11.2) exigent des props (variante, taille) : leurs stories relèvent de la story 11.4, qui doit d'abord étendre le plugin ; d'ici là, leurs tests de rendu sont dans `src/components/ui/primitives.test.ts`.
+Un composant `.astro` sans props s'affiche par HTML pré-rendu (AD-19) : `import html from './Composant.astro?html'`. Le plugin vit dans `.storybook/astro-html.ts`.
+
+## Primitives du kit (`src/components/ui/`)
+
+Chaque primitive a deux fichiers frères :
+
+- `X.variants.ts` : une fonction par variante ou état, qui reçoit les textes (`src/fixtures/kit-strings.ts`, FR/EN, avec `t.long(cle)` pour le texte allongé de 30 %) et renvoie `{ props, slots }` ;
+- `X.stories.tsx` : une story par variante (`histoire`), les cas communs (`casCommuns` : bureau, tablette, texte long à 200 %, contraste renforcé, couleurs forcées) et, pour les éléments interactifs, survol et focus (`interaction`).
+
+`import rendus from './X.astro?variants'` rend chaque variante en FR et en EN, avec le CSS du composant. Chaque story affiche une matrice 3 Thèmes × 2 Langues ; les identifiants sont suffixés pour rester uniques. Le zoom de texte à 200 % se règle dans la barre d'outils (viewport de 640 px, soit un écran de 1280 px zoomé). `prefers-contrast: more` et `forced-colors: active` sont émulés par le navigateur de test (CDP Chromium) ; en Storybook interactif, l'émulation n'est pas disponible : utiliser l'émulation de rendu des outils du navigateur.
+
+`src/components/ui/stories.test.ts` (dans `npm test`) échoue si une primitive n'a pas son fichier de variantes ou de stories, ou si une variante déclarée n'a pas sa story. Le câblage de `test:stories` dans la CI relève de la story 10.6.
+
+Écarts de contraste Terminal conservés par fidélité : le contrôle `color-contrast` est désactivé dans les stories Button et Select (voir `docs/ajustements-visuels.md`).
 
 ## Compatibilité Preact des bibliothèques React-only
 

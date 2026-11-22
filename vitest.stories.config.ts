@@ -13,6 +13,14 @@ export default defineConfig({
       headless: true,
       provider: playwright(),
       instances: [{ browser: 'chromium' }],
+      commands: {
+        emulerMedia: async (
+          contexte,
+          options: { contrast?: 'more' | 'no-preference'; forcedColors?: 'active' | 'none' },
+        ) => {
+          await contexte.page.emulateMedia(options)
+        },
+      },
     },
   },
 })
