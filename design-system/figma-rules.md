@@ -46,6 +46,24 @@ Les autres composants du fichier (Barre de navigation, Pied de page, Modale des 
 
 Le fichier sépare les **composants** (briques réutilisables : Boutons, Liens et titres, Curseur et réglages, Cartes et étiquettes, Formulaires, Parcours et compétences, Identité et illustration, Éléments de galerie, Icônes) des **compositions** (écrans et sections assemblés avec des instances : Navigation et pied de page, Sections de page, Fenêtres de projet, Galerie de projets), séparés par des pages « ——— Composants ——— » et « ——— Compositions ——— ». Une composition est une référence de mise en page : lire d'abord `get_metadata`, puis les composants qu'elle contient ; ne jamais la dupliquer ni la détacher.
 
+## Animations
+
+La source pour les agents est la Spec « Règles des animations pour les agents IA » (page « Spécifications », `node-id=137-2`) : jetons, comportements par composant, mouvement réduit, écarts. La lire avant toute tâche touchant au mouvement. La section visuelle « Animations » (page « Fondations », `node-id=135-14`) et la collection de variables « Mouvement » (syntaxe de code `var(--…)` identique à `tokens.css`) en sont le pendant pour les humains.
+
+- Ne pas compter sur `get_variable_defs` ni sur `get_motion_context` : les variables « Mouvement » ne sont liées à aucun calque et Figma ne contient aucune animation construite. Une animation absente de la Spec n'existe pas : la proposer avant de l'ajouter.
+- Les animations sont des transitions CSS sur Survol et Pression, jamais une bibliothèque côté client (AD-1). Durées, échelles et angles viennent des jetons, jamais de valeurs littérales.
+- Mouvement réduit : les durées passent à 0,01 ms (`tokens.css`) et rotations, échelles, décalages et zoom sont supprimés ; l'information reste portée par la couleur, l'ombre ou le contour.
+- Écarts ouverts : durée `--duration-image` (zoom d'image) à décider, jeton d'échelle 1,1 du bouton lecture à ajouter.
+- Toute animation autonome doit offrir une pause (FR-13).
+
+## Son
+
+La Spec « Règles du son pour les agents IA » (page « Spécifications », `node-id=136-2`) décrit tout le son du site : les cinq sons synthétisés (survol, clic, pop, appel à l'action, victoire), leurs déclencheurs, le basculeur, la mémorisation et les tests. La lire avant toute tâche touchant au son.
+
+- Muet par défaut, jamais de lecture avant la première interaction, aucune information portée par le son seul.
+- Mémorisation uniquement via `src/islands/prefs.ts` (clé `portfolio:sound`), aucun cookie ; fréquences, durées et gain dans un fichier de configuration unique, jamais en dur.
+- Un son absent de la Spec n'existe pas : le proposer avant de l'ajouter.
+
 ## Nommage
 
 - Propriétés de variantes en français : Variante, État (Repos, Survol, Focus, Désactivé), Taille (Bureau, Mobile), Accent, Teinte.
