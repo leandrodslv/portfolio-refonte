@@ -32,7 +32,7 @@
   --color-term-text: #4ade80;      /* green-400 */
   --color-term-border: #22c55e;    /* green-500 */
   --color-term-button: #15803d;    /* green-700 */
-  --color-term-button-hover: #16a34a; /* green-600 */
+  --color-term-button-hover: #166534; /* green-800 : survol, 7,1:1 avec le texte blanc */
   --color-term-sticker-bg: #14532d; /* green-900 */
 
   /* Thème Wireframe */
@@ -108,6 +108,7 @@
   --service-2: var(--color-sky);
   --service-3: var(--color-green);
   --service-4: var(--color-yellow);
+  --service-text: var(--color-black); /* texte fixe : lisible sur les quatre fonds pastel dans les trois Thèmes */
 
   /* ---- Breakpoints (documentaire : non utilisables dans @media) --------- */
   --bp-sm: 640px;
@@ -159,7 +160,7 @@
   --accent-4: var(--color-term-surface);
   --accent-5: var(--color-term-surface);
   --button-primary-bg: var(--color-term-button);
-  --button-primary-text: var(--color-black);
+  --button-primary-text: var(--color-white);
   --button-secondary-bg: var(--color-black);
   --button-secondary-text: var(--color-term-border);
   --shadow: none;
@@ -364,7 +365,7 @@
   --sticker-padding-x-md: var(--space-2);
   --sticker-hover-transform: none;
   --card-hover-transform: none;
-  --select-bg: var(--color-white);
+  --select-bg: var(--color-term-surface);
   --error-color: var(--color-red-300);
 }
 
