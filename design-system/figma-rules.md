@@ -53,7 +53,7 @@ La source pour les agents est la Spec « Règles des animations pour les agents 
 - Ne pas compter sur `get_variable_defs` ni sur `get_motion_context` : les variables « Mouvement » ne sont liées à aucun calque et Figma ne contient aucune animation construite. Une animation absente de la Spec n'existe pas : la proposer avant de l'ajouter.
 - Les animations sont des transitions CSS sur Survol et Pression, jamais une bibliothèque côté client (AD-1). Durées, échelles et angles viennent des jetons, jamais de valeurs littérales.
 - Mouvement réduit : les durées passent à 0,01 ms (`tokens.css`) et rotations, échelles, décalages et zoom sont supprimés ; l'information reste portée par la couleur, l'ombre ou le contour.
-- Écarts ouverts : durée `--duration-image` (zoom d'image) à décider, jeton d'échelle 1,1 du bouton lecture à ajouter.
+- Décisions du 2026-11-22 : zoom d'image conservé (`--duration-image`, à poser avec la Fenêtre de projet) ; jeton `--scale-play-hover` (1,1) ajouté pour le bouton lecture ; au focus clavier, l'anneau de focus suffit, sans rotation ni échelle.
 - Toute animation autonome doit offrir une pause (FR-13).
 
 ## Son
