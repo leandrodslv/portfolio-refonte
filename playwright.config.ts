@@ -17,7 +17,16 @@ export default defineConfig({
     timeout: 120_000,
   },
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    {
+      name: 'chromium',
+      testIgnore: ['a11y/mobile.spec.ts'],
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'mobile',
+      testMatch: ['a11y/**/*.spec.ts'],
+      use: { ...devices['Pixel 7'] },
+    },
     { name: 'webkit', testMatch: fumee, use: { ...devices['Desktop Safari'] } },
     { name: 'firefox', testMatch: fumee, use: { ...devices['Desktop Firefox'] } },
     { name: 'edge', testMatch: fumee, use: { ...devices['Desktop Edge'], channel: 'msedge' } },

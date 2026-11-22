@@ -6,14 +6,8 @@ Chaque ligne cite `thème/paire` ; le test `src/components/ui/kit.test.ts` exige
 
 ## Contrastes
 
-| Thème / paire               | Constat                                                                                                                       | Décision                                                                                                                                                                                                          |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `terminal/bouton-principal` | texte noir sur `--color-term-button` : 4,19:1 (seuil 4,5:1, texte de 18 px gras non considéré « grand »)                      | Conservé tel quel, identique à l'ancien site. Correction possible sans changer l'allure : assombrir très légèrement le vert ou passer le texte en blanc. À trancher à l'audit.                                    |
-| `terminal/selecteur`        | texte vert `--color-term-text` sur fond blanc (le sélecteur de l'ancien site est blanc dans les trois Thèmes) : 1,74:1        | Conservé tel quel. **Écart important** : illisible pour une partie des Visiteurs. Correction proposée : fond `--card-bg` en Terminal. À trancher à l'audit.                                                       |
-| `terminal/carte-service-1`  | texte vert `--color-term-text` sur la carte de service mauve (couleur fixe, identique dans les trois Thèmes) : environ 1,01:1 | Conservé tel quel, identique à l'ancien site (relevé le 2026-11-21 sur le site en ligne). **Écart bloquant** : texte illisible. Correction proposée : texte `--color-black` sur ces cartes. À trancher à l'audit. |
-| `terminal/carte-service-2`  | texte vert `--color-term-text` sur la carte de service bleu (couleur fixe, identique dans les trois Thèmes) : environ 1,03:1  | Conservé tel quel, identique à l'ancien site (relevé le 2026-11-21 sur le site en ligne). **Écart bloquant** : texte illisible. Correction proposée : texte `--color-black` sur ces cartes. À trancher à l'audit. |
-| `terminal/carte-service-3`  | texte vert `--color-term-text` sur la carte de service vert (couleur fixe, identique dans les trois Thèmes) : environ 1,00:1  | Conservé tel quel, identique à l'ancien site (relevé le 2026-11-21 sur le site en ligne). **Écart bloquant** : texte illisible. Correction proposée : texte `--color-black` sur ces cartes. À trancher à l'audit. |
-| `terminal/carte-service-4`  | texte vert `--color-term-text` sur la carte de service jaune (couleur fixe, identique dans les trois Thèmes) : environ 1,3:1  | Conservé tel quel, identique à l'ancien site (relevé le 2026-11-21 sur le site en ligne). **Écart bloquant** : texte illisible. Correction proposée : texte `--color-black` sur ces cartes. À trancher à l'audit. |
+| Thème / paire | Constat | Décision |
+| ------------- | ------- | -------- |
 
 ## Autres écarts conservés par fidélité
 

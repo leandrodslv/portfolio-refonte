@@ -27,9 +27,9 @@ Fichier : `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio`
 
 | Composant Figma | Fichier | Props |
 | --- | --- | --- |
-| Bouton, Bouton avec flèche | `src/components/ui/Button.astro` | `variant` : primary, secondary, toggle ; compact |
+| Bouton, Bouton avec icône | `src/components/ui/Button.astro` | `variant` : primary, secondary, toggle ; compact ; icône avant ou après |
 | Lien | `src/components/ui/Link.astro` | `variant` : text, navigation, footer |
-| Carte | `src/components/ui/Card.astro` | accent, service |
+| Carte de projet | `src/components/ui/Card.astro` | variant : project (service : pas de composant Figma) ; accent |
 | Badge | `src/components/ui/Badge.astro` | |
 | Étiquette | `src/components/ui/Tag.astro` | |
 | Autocollant | `src/components/ui/Sticker.astro` | |
@@ -41,6 +41,10 @@ Fichier : `https://www.figma.com/design/y9s1jKHK1GxkLbjYf2WqU4/Portfolio`
 | Message de champ | `src/components/ui/FieldMessage.astro` | aide, erreur |
 
 Les autres composants du fichier (Barre de navigation, Pied de page, Modale des mentions légales, Frise de parcours, Cartes et Puces de compétence, Fenêtre de projet, Pastille du curseur) sont des compositions ou des motifs livrés par les stories 3.1, 3.3 et 3.4 et par les épopées 5 et 6.
+
+## Composants et compositions
+
+Le fichier sépare les **composants** (briques réutilisables : Boutons, Liens et titres, Curseur et réglages, Cartes et étiquettes, Formulaires, Parcours et compétences, Identité et illustration, Éléments de galerie, Icônes) des **compositions** (écrans et sections assemblés avec des instances : Navigation et pied de page, Sections de page, Fenêtres de projet, Galerie de projets), séparés par des pages « ——— Composants ——— » et « ——— Compositions ——— ». Une composition est une référence de mise en page : lire d'abord `get_metadata`, puis les composants qu'elle contient ; ne jamais la dupliquer ni la détacher.
 
 ## Nommage
 

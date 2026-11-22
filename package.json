@@ -17,6 +17,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test --project=chromium",
+    "test:mobile": "playwright test --project=mobile",
     "test:navigateurs": "playwright test --project=webkit --project=firefox --project=edge",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
