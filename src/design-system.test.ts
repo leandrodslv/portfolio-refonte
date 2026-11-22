@@ -61,10 +61,13 @@ describe('design-system/components.md', () => {
     expect(bloc).toMatch(/Chemin( prévu)? : `src\/components\/ui\//)
   })
 
-  it('ne cite que des fichiers de l’ancien site qui existent', () => {
-    const introuvables = sources(inventaire).filter((chemin) => !existe(chemin))
-    expect(introuvables).toEqual([])
-  })
+  it.skipIf(!existsSync(new URL('ancien-portfolio/', racine)))(
+    'ne cite que des fichiers de l’ancien site qui existent',
+    () => {
+      const introuvables = sources(inventaire).filter((chemin) => !existe(chemin))
+      expect(introuvables).toEqual([])
+    },
+  )
 
   it('ne cite que des tokens existants hors liste des écarts', () => {
     const cites = [...avantEcarts.matchAll(/`(--[a-z0-9-]+)`/g)]

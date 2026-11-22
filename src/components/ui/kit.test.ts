@@ -71,9 +71,10 @@ const PAIRES = [
 describe('kit UI : tokens', () => {
   it.each(composants)('%s ne cite que des tokens existants', (fichier) => {
     const source = readFileSync(new URL(fichier, dossier), 'utf8')
+    const declares = new Set([...tokensCss.matchAll(/(--[\w-]+)\s*:/g)].map((m) => m[1]))
     const absents = [...source.matchAll(/var\((--[\w-]+)\)/g)]
       .map((m) => m[1])
-      .filter((nom) => !new RegExp(`${nom}\\s*:`).test(tokensCss))
+      .filter((nom) => !declares.has(nom))
     expect(absents).toEqual([])
   })
 

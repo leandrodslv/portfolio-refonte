@@ -20,8 +20,9 @@ describe('kit UI : couverture Storybook', () => {
     const stories = readFileSync(new URL(`${nom}.stories.tsx`, dossier), 'utf8')
     const declarees = [...variantes.matchAll(/^\s{2}(\w+):\s*\(/gm)].map((m) => m[1])
     expect(declarees.length, `${nom} : aucune variante déclarée`).toBeGreaterThan(0)
+    const exportees = new Set([...stories.matchAll(/export const (\w+)\b/g)].map((m) => m[1]))
     const manquantes = [...declarees.map(majuscule), ...CAS_COMMUNS].filter(
-      (story) => !new RegExp(`export const ${story}\\b`).test(stories),
+      (story) => !exportees.has(story),
     )
     expect(manquantes, `${nom} : stories manquantes`).toEqual([])
   })
