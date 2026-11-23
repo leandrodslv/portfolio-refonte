@@ -1,0 +1,49 @@
+---
+import type { ContactVue } from '../content/contact'
+import Section from './ui/Section.astro'
+import SectionTitle from './ui/SectionTitle.astro'
+
+interface Props {
+  contact: ContactVue
+}
+
+const { contact } = Astro.props
+const { entete } = contact
+const ZONE = 'contact-formulaire'
+---
+
+<Section id="contact" labelledby="contact-titre" width="5xl">
+  <SectionTitle id="contact-titre">
+    {entete.titre}
+    {entete.titreMisEnAvant && <Fragment slot="highlight">{entete.titreMisEnAvant}</Fragment>}
+    {entete.sousTitre && <Fragment slot="subtitle">{entete.sousTitre}</Fragment>}
+  </SectionTitle>
+  <div id={ZONE} role="region" aria-labelledby={`${ZONE}-titre`} class="contact__zone">
+    <h3 id={`${ZONE}-titre`} class="contact__zone-titre">
+      {contact.libelleZoneFormulaire}
+    </h3>
+  </div>
+</Section>
+
+<style>
+  .contact__zone {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    align-items: center;
+    justify-content: center;
+    min-height: var(--size-footer-zone);
+    padding: var(--space-8);
+    border: var(--border-thick) var(--border-style) var(--border-color);
+    border-radius: var(--radius-3xl);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+  }
+  .contact__zone-titre {
+    margin: 0;
+    font-size: var(--text-2xl);
+    line-height: var(--leading-2xl);
+    font-weight: var(--font-weight-black);
+  }
+</style>

@@ -50,6 +50,8 @@ export type SectionContact = {
   _updatedAt: string
   _rev: string
   entete?: EnteteSection
+  libelleLienFormulaire?: LocalizedString
+  libelleZoneFormulaire?: LocalizedString
 }
 
 export type EnteteSection = {

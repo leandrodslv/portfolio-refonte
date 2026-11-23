@@ -55,6 +55,14 @@ describe('compétences', () => {
   })
 })
 
+describe('Section Contact', () => {
+  it('porte les deux libellés localisés du repli et de la zone du formulaire', () => {
+    const bloc = /export type SectionContact = \{[^}]*\}/.exec(types)?.[0] ?? ''
+    expect(bloc).toContain('libelleLienFormulaire?: LocalizedString')
+    expect(bloc).toContain('libelleZoneFormulaire?: LocalizedString')
+  })
+})
+
 describe('singletons de Sections', () => {
   it.each(SINGLETONS_SECTIONS)(
     '%s : dans le bureau du Studio et dans les types générés',

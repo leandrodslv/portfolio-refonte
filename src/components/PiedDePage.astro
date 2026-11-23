@@ -1,0 +1,185 @@
+---
+import type { PiedVue } from '../content/contact'
+import type { SiteVue } from '../content/site'
+import { localizedPath, type Locale } from '../lib/localizedPath'
+import Icone from './Icone.astro'
+import Link from './ui/Link.astro'
+
+interface Props {
+  locale: Locale
+  pied: PiedVue
+  site: SiteVue
+}
+
+const { locale, pied, site } = Astro.props
+const accueil = localizedPath(locale)
+const [prenom = '', ...suite] = site.nom.split(' ')
+const reste = suite.join(' ')
+const liens = [
+  { id: 'work', libelle: site.navigation.projets },
+  { id: 'journey', libelle: site.navigation.parcours },
+  { id: 'skills', libelle: site.navigation.competences },
+  { id: 'contact', libelle: site.navigation.contact },
+]
+---
+
+<footer class="pied">
+  <div class="pied__cadre">
+    <div class="pied__etage pied__etage--identite">
+      <div class="pied__bloc">
+        <p class="pied__nom">{pied.copyright}</p>
+        <p class="pied__bio">{pied.bio}</p>
+      </div>
+      <div class="pied__bloc pied__colonnes">
+        <div>
+          <h2 class="pied__titre">{pied.colonneSite}</h2>
+          <ul class="pied__liste">
+            {liens.map((lien) => (
+              <li>
+                <Link href={`${accueil}#${lien.id}`} variant="footer">
+                  <span class="pied__lien">{lien.libelle}</span>
+                  <Icone slot="icon" nom="arrow-up-right" taille="sm" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="pied__disponibilite">{pied.disponibilite}</p>
+    <p class="pied__lisible">{site.nom}</p>
+    <div class="pied__geant">
+      <span class="pied__bande" aria-hidden="true">
+        {prenom}
+      </span>
+      <span class="pied__bande pied__bande--inverse" aria-hidden="true">
+        {reste}
+      </span>
+    </div>
+    <p class="pied__signature">{pied.signature}</p>
+  </div>
+</footer>
+
+<style>
+  .pied {
+    border-top: var(--border-thick) var(--border-style) var(--border-color);
+    background: var(--nav-bg);
+    color: var(--text);
+    overflow: hidden;
+  }
+  .pied__cadre {
+    max-width: var(--width-section);
+    margin-inline: auto;
+    border-inline: var(--border-thick) var(--border-style) var(--border-color);
+  }
+  .pied__etage {
+    display: flex;
+    flex-direction: column;
+    border-bottom: var(--border-thick) var(--border-style) var(--border-color);
+  }
+  .pied__bloc {
+    padding: var(--space-8);
+  }
+  .pied__bloc + .pied__bloc {
+    border-top: var(--border-thick) var(--border-style) var(--border-color);
+  }
+  .pied__nom {
+    margin: 0 0 var(--space-2);
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-black);
+  }
+  .pied__bio {
+    max-width: var(--width-footer-bio);
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    font-weight: var(--font-weight-medium);
+    opacity: var(--opacity-muted);
+  }
+  .pied__colonnes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+  .pied__titre {
+    margin: 0 0 var(--space-4);
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    opacity: var(--opacity-muted);
+  }
+  .pied__liste {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .pied__lien {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+  }
+  .pied__disponibilite {
+    margin: 0;
+    padding: var(--space-6);
+    border-bottom: var(--border-thick) var(--border-style) var(--border-color);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+  }
+  .pied__lisible {
+    position: absolute;
+    width: var(--size-visually-hidden);
+    height: var(--size-visually-hidden);
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .pied__geant {
+    display: flex;
+    flex-direction: column;
+  }
+  .pied__bande {
+    display: block;
+    padding-block: var(--space-4);
+    font-size: var(--text-giant);
+    line-height: var(--leading-none);
+    font-weight: var(--font-weight-black);
+    letter-spacing: var(--tracking-tighter);
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .pied__bande:first-child {
+    border-bottom: var(--border-thick) var(--border-style) var(--border-color);
+  }
+  .pied__bande--inverse {
+    background: var(--footer-band-bg);
+    color: var(--footer-band-text);
+  }
+  .pied__signature {
+    margin: 0;
+    padding: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--tracking-widest);
+    text-align: center;
+    text-transform: uppercase;
+  }
+  @media (min-width: 48rem) {
+    .pied__etage {
+      flex-direction: row;
+    }
+    .pied__bloc {
+      flex: 1;
+    }
+    .pied__bloc + .pied__bloc {
+      border-top: 0;
+      border-left: var(--border-thick) var(--border-style) var(--border-color);
+    }
+    .pied__bande {
+      font-size: var(--text-giant-md);
+    }
+  }
+</style>

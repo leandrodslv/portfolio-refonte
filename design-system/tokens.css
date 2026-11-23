@@ -314,6 +314,12 @@
   --size-hero-screen: 100vh;       /* min-h-screen, Hero à partir de md */
   --z-nav: 40;                     /* z-40, barre de navigation */
   --size-visually-hidden: 1px;
+  --size-footer-zone: 12rem;       /* hauteur minimale de la zone réservée au formulaire */
+  --width-footer-bio: 20rem;       /* max-w-xs, bio du pied de page */
+  --text-giant: 14vw;              /* nom géant du pied de page, mobile */
+  --text-giant-md: 13.5vw;         /* nom géant du pied de page, à partir de md */
+  --footer-band-bg: var(--color-black);
+  --footer-band-text: var(--color-white);
   --size-card-media: 12rem;
   --size-card-service: 12rem;
   --size-card-service-md: 18rem;
