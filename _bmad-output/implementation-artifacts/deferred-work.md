@@ -108,3 +108,10 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-3-2-hero-et-section-projets-cartes.md`
   summary: Ajouter les stories Storybook du Hero et de la Section Projets (Thèmes, Langues, texte long).
   evidence: la règle de composition de la story 11.5 les demande ; non faites dans cette session, comme pour la barre de navigation.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-3-sections-parcours-competences-services-et-a-propos.md`
+  summary: stories Storybook des Sections Parcours, Compétences, Services et À propos.
+  evidence: hors périmètre de la 3.3, comme pour la 3.1 et la 3.2 ; les Sections sont testées en HTML (jsdom + axe).
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-3-sections-parcours-competences-services-et-a-propos.md`
+  summary: réafficher le sous-titre « Glissez-déposez pour jouer ! » des Compétences quand les puces seront déplaçables (épopée 6).
+  evidence: la consigne est masquée en 3.3 car aucune interaction n'existe encore.

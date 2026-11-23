@@ -72,6 +72,7 @@ export type SectionAPropos = {
       _key: string
     } & LocalizedText
   >
+  altPortrait?: LocalizedString
   libelleCv?: LocalizedString
   libelleLocalisation?: LocalizedString
   valeurLocalisation?: LocalizedString

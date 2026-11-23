@@ -3,6 +3,7 @@ interface Props {
   variant?: 'primary' | 'secondary' | 'toggle'
   size?: 'default' | 'compact'
   href?: string
+  download?: boolean
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
   fullWidth?: boolean
@@ -13,6 +14,7 @@ const {
   variant = 'primary',
   size = 'default',
   href,
+  download = false,
   type = 'button',
   disabled = false,
   fullWidth = false,
@@ -31,7 +33,13 @@ const classes = [
 ---
 
 {href ? (
-  <a href={href} class={classes} data-full={fullWidth ? '' : undefined} {...attrs}>
+  <a
+    href={href}
+    class={classes}
+    download={download ? '' : undefined}
+    data-full={fullWidth ? '' : undefined}
+    {...attrs}
+  >
     <slot />
   </a>
 ) : (

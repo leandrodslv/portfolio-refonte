@@ -3,6 +3,7 @@ import axe from 'axe-core'
 import { describe, expect, it, vi } from 'vitest'
 import type { EnteteVue, HeroVue } from '../content/accueil'
 import type { ProjetVue } from '../content/projets'
+import type { SectionsVue } from '../content/sections'
 import type { SiteVue } from '../content/site'
 import { rendre } from './ui/rendu'
 import Accueil from './Accueil.astro'
@@ -47,6 +48,42 @@ const projets: ProjetVue[] = [1, 2].map((n) => ({
   accent: 'accent-2',
 }))
 
+const enteteSection = (titre: string, mis: string) => ({ titre, titreMisEnAvant: mis })
+
+const sections: SectionsVue = {
+  parcours: {
+    entete: enteteSection('Mon', 'parcours'),
+    etapes: [
+      { periode: '2024', titre: 'BUT MMI', lieu: 'IUT', description: 'Formation.' },
+      { periode: '2023', titre: 'Bac', lieu: 'Lycée', description: 'Diplôme.' },
+    ],
+  },
+  competences: {
+    entete: {
+      ...enteteSection('Hard & soft', 'skills'),
+      sousTitre: 'Glissez-déposez pour jouer !',
+    },
+    competences: [
+      { nom: 'Figma', famille: 'hard', teinte: 'pink' },
+      { nom: 'Écoute', famille: 'soft', teinte: 'teal' },
+    ],
+  },
+  services: {
+    entete: enteteSection('Mes', 'services'),
+    services: [1, 2, 3, 4].map((n) => ({ titre: `Service ${n}`, description: `Détail ${n}` })),
+  },
+  aPropos: {
+    entete: enteteSection('À', 'propos'),
+    badge: 'Étudiant',
+    paragraphes: ['Premier.', 'Second.'],
+    altPortrait: 'Portrait de Léandro',
+    libelleCv: 'Télécharger mon CV',
+    libelleLocalisation: 'Basé à',
+    valeurLocalisation: 'Île-de-France',
+  },
+}
+
+vi.mock('../content/sections', () => ({ lireSections: () => Promise.resolve(sections) }))
 vi.mock('../content/site', () => ({ lireSite: () => Promise.resolve(site) }))
 vi.mock('../content/accueil', () => ({
   lireAccueil: () => Promise.resolve({ hero, projets: entete }),
@@ -105,6 +142,57 @@ describe('Page d’accueil (gabarit)', () => {
     expect(section?.querySelector('h2')?.textContent?.replace(/\s+/g, ' ').trim()).toBe(
       'Mes projets',
     )
+  })
+
+  it('rend Parcours, Compétences, Services et À propos dans le HTML, chacun sous un h2', async () => {
+    const { window } = await page('fr')
+    const document = window.document
+    const ordre = [...document.querySelectorAll('main > section[id]')].map((s) => s.id)
+    expect(ordre).toEqual(['work', 'journey', 'skills', 'services', 'about', 'contact'])
+    for (const id of ['journey', 'skills', 'services', 'about']) {
+      const section = document.getElementById(id)
+      const titre = document.getElementById(section?.getAttribute('aria-labelledby') ?? '')
+      expect(titre?.tagName).toBe('H2')
+    }
+    expect(document.querySelectorAll('#journey ol > li')).toHaveLength(2)
+    expect(document.querySelectorAll('#services .ui-card')).toHaveLength(4)
+    expect(document.querySelectorAll('h1')).toHaveLength(1)
+  })
+
+  it('rend les puces de compétence selon leur famille et leur teinte', async () => {
+    const { window } = await page('fr')
+    const puces = [...window.document.querySelectorAll('#skills li')]
+    expect(puces.map((p) => p.className)).toEqual([
+      'competences__puce competences__puce--hard competences__puce--pink',
+      'competences__puce competences__puce--soft competences__puce--teal',
+    ])
+  })
+
+  it('n’affiche pas la consigne de glisser-déposer tant que les puces ne sont pas déplaçables', async () => {
+    const { window } = await page('fr')
+    expect(window.document.getElementById('skills')?.textContent).not.toContain('Glissez')
+    expect(window.document.querySelectorAll('#skills button')).toHaveLength(0)
+  })
+
+  it('rend À propos avec portrait, localisation en texte et lien CV sans iframe', async () => {
+    const { window } = await page('en')
+    const section = window.document.getElementById('about')
+    expect(section?.querySelector('img')?.getAttribute('alt')).toBe('Portrait de Léandro')
+    expect(section?.querySelector('iframe')).toBeNull()
+    const cv = section?.querySelector('a[download]')
+    expect(cv?.getAttribute('href')).toBe('/CV_Leandro_Da_Silva.pdf')
+    expect(cv?.textContent?.trim()).toBe('Télécharger mon CV')
+    expect(section?.textContent).toContain('Île-de-France')
+    expect(section?.querySelectorAll('svg[aria-hidden], [aria-hidden] svg').length).toBeGreaterThan(
+      0,
+    )
+  })
+
+  it('titre les quatre Sections en taille mobile compacte pour que le relief ne déborde pas à 320 px', async () => {
+    const { window } = await page('fr')
+    for (const id of ['journey', 'skills', 'services', 'about']) {
+      expect(window.document.querySelector(`#${id} .ui-section-title--compact`)).not.toBeNull()
+    }
   })
 
   it('rend une Section par lien du menu, titrée', async () => {
