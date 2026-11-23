@@ -19,6 +19,16 @@ test('le JavaScript transféré (brotli) de la Page d’accueil reste sous 70 Ko
   })
   await page.goto('/', { waitUntil: 'networkidle' })
   await expect(page.getByRole('navigation')).toBeVisible()
+  const enLigne = await page.evaluate(() =>
+    [...document.scripts].filter((script) => !script.src).map((script) => script.textContent ?? ''),
+  )
+  for (const code of enLigne) {
+    tailles.push(
+      brotliCompressSync(Buffer.from(code), {
+        params: { [constants.BROTLI_PARAM_QUALITY]: QUALITE_BROTLI },
+      }).length,
+    )
+  }
   const total = tailles.reduce((somme, taille) => somme + taille, 0)
   expect(tailles.length).toBeGreaterThan(0)
   const poids = `JS initial : ${(total / 1024).toFixed(1)} Ko, budget ${BUDGET_KO} Ko`
