@@ -153,6 +153,9 @@ export type Hero = {
   sousTitre?: LocalizedText
   boutonPrincipal?: LocalizedString
   boutonSecondaire?: LocalizedString
+  altVisuelPop?: LocalizedString
+  altVisuelTerminal?: LocalizedString
+  altVisuelWireframe?: LocalizedString
 }
 
 export type UiStrings = {

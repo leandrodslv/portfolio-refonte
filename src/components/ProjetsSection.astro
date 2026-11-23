@@ -1,0 +1,115 @@
+---
+import { Image } from 'astro:assets'
+import type { EnteteVue } from '../content/accueil'
+import type { ProjetVue } from '../content/projets'
+import Badge from './ui/Badge.astro'
+import Card from './ui/Card.astro'
+import Section from './ui/Section.astro'
+import SectionTitle from './ui/SectionTitle.astro'
+import Tag from './ui/Tag.astro'
+
+interface Props {
+  entete: EnteteVue
+  projets: ProjetVue[]
+}
+
+const { entete, projets } = Astro.props
+const LARGEUR_IMAGE = 640
+
+function numeroAccent(accent: ProjetVue['accent']): 1 | 2 | 3 | 4 | 5 | undefined {
+  const numero = Number(accent?.replace('accent-', ''))
+  return numero >= 1 && numero <= 5 ? (numero as 1 | 2 | 3 | 4 | 5) : undefined
+}
+---
+
+<Section id="work" labelledby="work-titre" tone="card">
+  <SectionTitle id="work-titre">
+    {entete.titre}
+    {entete.titreMisEnAvant && <Fragment slot="highlight">{entete.titreMisEnAvant}</Fragment>}
+    {entete.sousTitre && <Fragment slot="subtitle">{entete.sousTitre}</Fragment>}
+  </SectionTitle>
+  <ul class="projets__liste">
+    {projets.map((projet) => (
+      <Card as="li" accent={numeroAccent(projet.accent)}>
+        {projet.couverture && (
+          <div slot="media" class="projets__media">
+            <Image
+              src={projet.couverture.source}
+              alt={projet.couverture.alt}
+              width={LARGEUR_IMAGE}
+              height={Math.round(
+                (LARGEUR_IMAGE * projet.couverture.hauteur) / projet.couverture.largeur,
+              )}
+              loading="lazy"
+              class="projets__image"
+            />
+            <Badge class="projets__categorie">{projet.categorie}</Badge>
+          </div>
+        )}
+        <h3 class="projets__titre">{projet.titreCarte ?? projet.titre}</h3>
+        <p class="projets__description">{projet.description}</p>
+        <ul class="projets__etiquettes">
+          {projet.etiquettes.slice(0, 3).map((etiquette) => (
+            <li>
+              <Tag>{etiquette}</Tag>
+            </li>
+          ))}
+        </ul>
+      </Card>
+    ))}
+  </ul>
+</Section>
+
+<style>
+  .projets__liste {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .projets__media {
+    position: relative;
+    height: 100%;
+  }
+  .projets__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .projets__media :global(.projets__categorie) {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+  }
+  .projets__titre {
+    margin: 0 0 var(--space-2);
+    font-size: var(--text-xl);
+    line-height: var(--leading-none);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+  }
+  .projets__description {
+    flex-grow: 1;
+    margin: 0 0 var(--space-4);
+    font-size: var(--text-xs);
+    line-height: var(--leading-snug);
+    font-weight: var(--font-weight-bold);
+    opacity: var(--opacity-soft);
+  }
+  .projets__etiquettes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  @media (min-width: 48rem) {
+    .projets__liste {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+    }
+  }
+</style>

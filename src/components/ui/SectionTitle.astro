@@ -19,6 +19,7 @@ const aSousTitre = Astro.slots.has('subtitle')
 <header class={classes} {...attrs}>
   <Titre id={id} class="ui-section-title__heading">
     <slot />
+    {Astro.slots.has('highlight') && ' '}
     {Astro.slots.has('highlight') && (
       <Sticker>
         <slot name="highlight" />

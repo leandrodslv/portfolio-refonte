@@ -104,3 +104,7 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-3-1-gabarit-de-page-navigation-et-menu-mobile.md`
   summary: Ajouter les stories Storybook de la barre de navigation (états ouvert et fermé, FR et EN, trois Thèmes).
   evidence: la story 3.1 les prévoit (règle de composition 11.5) mais le rendu `?variants` et l'import d'images `astro:assets` n'ont pas été vérifiés dans Storybook ; non fait dans cette session.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-2-hero-et-section-projets-cartes.md`
+  summary: Ajouter les stories Storybook du Hero et de la Section Projets (Thèmes, Langues, texte long).
+  evidence: la règle de composition de la story 11.5 les demande ; non faites dans cette session, comme pour la barre de navigation.

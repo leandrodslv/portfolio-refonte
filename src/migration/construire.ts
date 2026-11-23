@@ -399,6 +399,15 @@ export function construireDocuments(
       sousTitre: localiseTexte(texte(heroFr, 'subtitle'), texte(heroEn, 'subtitle')),
       boutonPrincipal: parLangue('ctaPrimary'),
       boutonSecondaire: parLangue('ctaSecondary'),
+      altVisuelPop: localise('Collage artistique style Pop Art', 'Pop Art style artistic collage'),
+      altVisuelTerminal: localise(
+        'Lignes de code vertes style Matrix',
+        'Green Matrix-style code lines',
+      ),
+      altVisuelWireframe: localise(
+        'Maillage 3D filaire bleu sur fond blanc',
+        'Blue 3D wireframe mesh on a white background',
+      ),
     },
     {
       _id: 'sectionProjets',

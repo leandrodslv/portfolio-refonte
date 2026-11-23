@@ -1,0 +1,128 @@
+---
+import { Image } from 'astro:assets'
+import visuelPop from '../assets/hero/pop.png'
+import visuelTerminal from '../assets/hero/terminal.png'
+import visuelWireframe from '../assets/hero/wireframe.png'
+import type { HeroVue } from '../content/accueil'
+import { localizedPath, type Locale } from '../lib/localizedPath'
+import Badge from './ui/Badge.astro'
+import Button from './ui/Button.astro'
+import Sticker from './ui/Sticker.astro'
+
+interface Props {
+  locale: Locale
+  hero: HeroVue
+}
+
+const { locale, hero } = Astro.props
+const accueil = localizedPath(locale)
+const [ligne1, ligne2, ligne3] = hero.titre
+const visuels = [
+  { theme: 'pop', source: visuelPop, alt: hero.visuels.pop },
+  { theme: 'terminal', source: visuelTerminal, alt: hero.visuels.terminal },
+  { theme: 'wireframe', source: visuelWireframe, alt: hero.visuels.wireframe },
+] as const
+---
+
+<section class="hero" aria-labelledby="hero-titre">
+  <div class="hero__texte">
+    <Badge variant="hook">{hero.badge}</Badge>
+    <h1 id="hero-titre" class="hero__titre">
+      {`${ligne1} `}
+      <br />
+      <Sticker>{ligne2}</Sticker> <br />
+      {ligne3}
+    </h1>
+    <p class="hero__sous-titre">{hero.sousTitre}</p>
+    <div class="hero__actions">
+      <Button href={`${accueil}#work`}>{hero.boutonPrincipal}</Button>
+      <Button variant="secondary" href={`${accueil}#contact`}>
+        {hero.boutonSecondaire}
+      </Button>
+    </div>
+  </div>
+  <div class="hero__visuel">
+    {visuels.map((visuel) => (
+      <Image
+        src={visuel.source}
+        alt={visuel.alt}
+        width={684}
+        height={730}
+        loading={visuel.theme === 'pop' ? 'eager' : 'lazy'}
+        class={`hero__image hero__image--${visuel.theme}`}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: var(--bg);
+  }
+  .hero__texte {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-6);
+    order: 2;
+  }
+  .hero__titre {
+    font-size: var(--text-5xl);
+    line-height: var(--leading-display);
+    font-weight: var(--font-weight-black);
+    letter-spacing: var(--tracking-tight);
+    color: var(--text);
+  }
+  .hero__sous-titre {
+    max-width: var(--width-subtitle);
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    font-weight: var(--font-weight-medium);
+    color: var(--text);
+    opacity: var(--opacity-soft);
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  .hero__visuel {
+    order: 1;
+    min-height: var(--size-hero-visual);
+    overflow: hidden;
+  }
+  .hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero__image--pop {
+    display: var(--hero-pop-display);
+  }
+  .hero__image--terminal {
+    display: var(--hero-terminal-display);
+  }
+  .hero__image--wireframe {
+    display: var(--hero-wireframe-display);
+  }
+  @media (min-width: 48rem) {
+    .hero {
+      grid-template-columns: repeat(2, 1fr);
+      min-height: var(--size-hero-screen);
+    }
+    .hero__texte {
+      order: 1;
+      padding: var(--space-12) var(--space-16);
+    }
+    .hero__visuel {
+      order: 2;
+    }
+    .hero__titre {
+      font-size: var(--text-7xl);
+    }
+  }
+</style>

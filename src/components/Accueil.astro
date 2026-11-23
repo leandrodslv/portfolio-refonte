@@ -1,9 +1,13 @@
 ---
+import { lireAccueil } from '../content/accueil'
+import { lireProjets } from '../content/projets'
+import { lireSite } from '../content/site'
 import type { Locale } from '../lib/localizedPath'
 import Gabarit from './Gabarit.astro'
+import Hero from './Hero.astro'
+import ProjetsSection from './ProjetsSection.astro'
 import Section from './ui/Section.astro'
 import SectionTitle from './ui/SectionTitle.astro'
-import { lireSite } from '../content/site'
 
 interface Props {
   locale: Locale
@@ -11,8 +15,9 @@ interface Props {
 
 const { locale } = Astro.props
 const { navigation } = await lireSite(locale)
-const sections = [
-  { id: 'work', titre: navigation.projets },
+const { hero, projets: entete } = await lireAccueil(locale)
+const projets = await lireProjets(locale)
+const squelettes = [
   { id: 'journey', titre: navigation.parcours },
   { id: 'skills', titre: navigation.competences },
   { id: 'contact', titre: navigation.contact },
@@ -20,7 +25,9 @@ const sections = [
 ---
 
 <Gabarit locale={locale}>
-  {sections.map((section) => (
+  <Hero locale={locale} hero={hero} />
+  <ProjetsSection entete={entete} projets={projets} />
+  {squelettes.map((section) => (
     <Section id={section.id} labelledby={`${section.id}-titre`}>
       <SectionTitle id={`${section.id}-titre`}>{section.titre}</SectionTitle>
     </Section>
