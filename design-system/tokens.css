@@ -104,6 +104,7 @@
   --scale-hover: 1.05;
   --scale-press: 0.95;
   --scale-card-hover: 1.02;
+  --scale-play-hover: 1.1;          /* bouton lecture, FlipCard.jsx de l'ancien site */
   --service-1: var(--color-lilac);   /* cartes de service : couleurs fixes, hors Thème */
   --service-2: var(--color-sky);
   --service-3: var(--color-green);

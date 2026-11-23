@@ -53,7 +53,7 @@ La source pour les agents est la Spec « Règles des animations pour les agents 
 - Ne pas compter sur `get_variable_defs` ni sur `get_motion_context` : les variables « Mouvement » ne sont liées à aucun calque et Figma ne contient aucune animation construite. Une animation absente de la Spec n'existe pas : la proposer avant de l'ajouter.
 - Les animations sont des transitions CSS sur Survol et Pression, jamais une bibliothèque côté client (AD-1). Durées, échelles et angles viennent des jetons, jamais de valeurs littérales.
 - Mouvement réduit : les durées passent à 0,01 ms (`tokens.css`) et rotations, échelles, décalages et zoom sont supprimés ; l'information reste portée par la couleur, l'ombre ou le contour.
-- Écarts ouverts : durée `--duration-image` (zoom d'image) à décider, jeton d'échelle 1,1 du bouton lecture à ajouter.
+- Décisions du 2026-11-22 : zoom d'image conservé (`--duration-image`, à poser avec la Fenêtre de projet) ; jeton `--scale-play-hover` (1,1) ajouté pour le bouton lecture ; au focus clavier, l'anneau de focus suffit, sans rotation ni échelle.
 - Toute animation autonome doit offrir une pause (FR-13).
 
 ## Son
@@ -63,6 +63,10 @@ La Spec « Règles du son pour les agents IA » (page « Spécifications », `no
 - Muet par défaut, jamais de lecture avant la première interaction, aucune information portée par le son seul.
 - Mémorisation uniquement via `src/islands/prefs.ts` (clé `portfolio:sound`), aucun cookie ; fréquences, durées et gain dans un fichier de configuration unique, jamais en dur.
 - Un son absent de la Spec n'existe pas : le proposer avant de l'ajouter.
+
+## Assets
+
+La page « Assets » (`node-id=141-2`, après « ——— Sources du design ——— ») range les images, illustrations, logos et curseurs par famille ; les originaux restent dans `ancien-portfolio/public` (lecture seule), et aucun asset n'est copié en dur dans le code : les visuels viennent de Sanity. La section « Maquettes de projets » (`node-id=147-2`) réunit les écrans maquettés et wireframes de Studapp, Yummy Nouilles et Capitaine Scout. Chaque image porte une annotation Figma de catégorie « Tech » (source, format, dimensions, poids, consigne d'usage) : la lire dans le mode Dev avant d'intégrer l'image. Les WebP y sont des copies JPEG (Figma n'affiche pas le WebP) ; le fichier source de `ancien-portfolio/public` fait foi.
 
 ## Nommage
 
