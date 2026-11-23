@@ -10,8 +10,16 @@ function brancher(racine: HTMLElement): void {
   const etiquetteOuvrir = bouton.dataset.etiquetteOuvrir ?? ''
   const etiquetteFermer = bouton.dataset.etiquetteFermer ?? ''
 
-  const mettreAJour = (ouvert: boolean): void => {
-    panneau.hidden = !ouvert
+  const bureau = window.matchMedia(POINT_DE_RUPTURE)
+  let ouvert = false
+
+  const appliquer = (): void => {
+    panneau.hidden = !bureau.matches && !ouvert
+  }
+
+  const mettreAJour = (valeur: boolean): void => {
+    ouvert = valeur
+    appliquer()
     bouton.setAttribute('aria-expanded', String(ouvert))
     bouton.setAttribute('aria-label', ouvert ? etiquetteFermer : etiquetteOuvrir)
   }
@@ -20,7 +28,7 @@ function brancher(racine: HTMLElement): void {
   mettreAJour(false)
 
   bouton.addEventListener('click', () => {
-    if (panneau.hidden) {
+    if (!ouvert) {
       mettreAJour(true)
       ouvrir({ panneau, declencheur: bouton, surFermeture: () => mettreAJour(false) })
     } else {
@@ -32,8 +40,9 @@ function brancher(racine: HTMLElement): void {
     lien.addEventListener('click', () => fermer(panneau, { rendreFocus: false }))
   }
 
-  window.matchMedia(POINT_DE_RUPTURE).addEventListener('change', (evenement) => {
+  bureau.addEventListener('change', (evenement) => {
     if (evenement.matches) fermer(panneau, { rendreFocus: false })
+    appliquer()
   })
 }
 

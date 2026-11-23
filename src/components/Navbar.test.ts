@@ -69,19 +69,25 @@ describe('Navbar', () => {
 
 describe('menu mobile', () => {
   let dom: JSDOM
+  let ecranLarge = false
+  let initialiser: () => void = () => undefined
 
   beforeEach(async () => {
     const html = await rendre(Navbar, { props: { locale: 'fr', site: site.fr } })
     dom = new JSDOM(`<!doctype html><html lang="fr"><body>${html}</body></html>`)
-    dom.window.matchMedia = vi.fn().mockReturnValue({
-      matches: false,
+    ecranLarge = false
+    dom.window.matchMedia = vi.fn(() => ({
+      get matches() {
+        return ecranLarge
+      },
       addEventListener: vi.fn(),
-    }) as unknown as typeof dom.window.matchMedia
+    })) as unknown as typeof dom.window.matchMedia
     vi.resetModules()
     vi.stubGlobal('window', dom.window)
     vi.stubGlobal('document', dom.window.document)
     const { initialiserMenus } = await import('../islands/menu')
-    initialiserMenus()
+    initialiser = initialiserMenus
+    initialiser()
   })
   afterEach(() => {
     vi.unstubAllGlobals()
@@ -96,6 +102,12 @@ describe('menu mobile', () => {
     dom.window.document.dispatchEvent(
       new dom.window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }),
     )
+
+  it('ne masque jamais le panneau sur grand écran, où les liens sont toujours visibles', () => {
+    ecranLarge = true
+    initialiser()
+    expect(panneau().hidden).toBe(false)
+  })
 
   it('est fermé au départ, une fois le script chargé', () => {
     expect(panneau().hidden).toBe(true)
