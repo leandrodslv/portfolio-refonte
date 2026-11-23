@@ -1,11 +1,16 @@
 ---
 import { lireAccueil } from '../content/accueil'
 import { lireProjets } from '../content/projets'
+import { lireSections } from '../content/sections'
 import { lireSite } from '../content/site'
 import type { Locale } from '../lib/localizedPath'
 import Gabarit from './Gabarit.astro'
+import AProposSection from './AProposSection.astro'
+import CompetencesSection from './CompetencesSection.astro'
 import Hero from './Hero.astro'
+import ParcoursSection from './ParcoursSection.astro'
 import ProjetsSection from './ProjetsSection.astro'
+import ServicesSection from './ServicesSection.astro'
 import Section from './ui/Section.astro'
 import SectionTitle from './ui/SectionTitle.astro'
 
@@ -17,16 +22,17 @@ const { locale } = Astro.props
 const { navigation } = await lireSite(locale)
 const { hero, projets: entete } = await lireAccueil(locale)
 const projets = await lireProjets(locale)
-const squelettes = [
-  { id: 'journey', titre: navigation.parcours },
-  { id: 'skills', titre: navigation.competences },
-  { id: 'contact', titre: navigation.contact },
-]
+const { parcours, competences, services, aPropos } = await lireSections(locale)
+const squelettes = [{ id: 'contact', titre: navigation.contact }]
 ---
 
 <Gabarit locale={locale}>
   <Hero locale={locale} hero={hero} />
   <ProjetsSection entete={entete} projets={projets} />
+  <ParcoursSection entete={parcours.entete} etapes={parcours.etapes} />
+  <CompetencesSection entete={competences.entete} competences={competences.competences} />
+  <ServicesSection entete={services.entete} services={services.services} />
+  <AProposSection contenu={aPropos} />
   {squelettes.map((section) => (
     <Section id={section.id} labelledby={`${section.id}-titre`}>
       <SectionTitle id={`${section.id}-titre`}>{section.titre}</SectionTitle>

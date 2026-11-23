@@ -1,0 +1,110 @@
+---
+import type { EnteteVue } from '../content/accueil'
+import type { CompetenceVue } from '../content/sections'
+import Icone from './Icone.astro'
+import Section from './ui/Section.astro'
+import SectionTitle from './ui/SectionTitle.astro'
+
+interface Props {
+  entete: EnteteVue
+  competences: CompetenceVue[]
+}
+
+const { entete, competences } = Astro.props
+---
+
+<Section id="skills" labelledby="skills-titre" gutter="narrow">
+  <SectionTitle id="skills-titre">
+    {entete.titre}
+    {entete.titreMisEnAvant && <Fragment slot="highlight">{entete.titreMisEnAvant}</Fragment>}
+  </SectionTitle>
+  <ul class="competences__zone">
+    {competences.map((competence) => (
+      <li
+        class={`competences__puce competences__puce--${competence.famille} competences__puce--${competence.teinte}`}
+      >
+        <Icone
+          nom={competence.famille === 'hard' ? 'grip-horizontal' : 'sparkles'}
+          taille="sm"
+          class="competences__icone"
+        />
+        {competence.nom}
+      </li>
+    ))}
+  </ul>
+</Section>
+
+<style>
+  .competences__zone {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-content: center;
+    justify-content: center;
+    min-height: var(--size-skills-zone);
+    margin: 0;
+    padding: var(--space-4);
+    border: var(--border-thick) dashed var(--border-color);
+    border-radius: var(--radius-3xl);
+    list-style: none;
+  }
+  .competences__puce {
+    display: flex;
+    gap: var(--space-1);
+    align-items: center;
+    padding: var(--space-1-5) var(--space-3);
+    border-color: var(--border-color);
+    border-style: var(--border-style);
+    box-shadow: var(--shadow);
+    color: var(--skill-text);
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-black);
+    white-space: nowrap;
+  }
+  .competences__puce--hard {
+    border-width: var(--border-thick);
+    border-radius: var(--radius-sm);
+  }
+  .competences__puce--soft {
+    border-width: var(--border-hairline);
+    border-radius: var(--radius-full);
+  }
+  .competences__icone {
+    opacity: var(--opacity-muted);
+  }
+  .competences__puce--pink {
+    background: var(--skill-pink);
+  }
+  .competences__puce--yellow {
+    background: var(--skill-yellow);
+  }
+  .competences__puce--sky {
+    background: var(--skill-sky);
+  }
+  .competences__puce--green {
+    background: var(--skill-green);
+  }
+  .competences__puce--lilac {
+    background: var(--skill-lilac);
+  }
+  .competences__puce--orange {
+    background: var(--skill-orange);
+  }
+  .competences__puce--red {
+    background: var(--skill-red);
+  }
+  .competences__puce--teal {
+    background: var(--skill-teal);
+  }
+  @media (min-width: 48rem) {
+    .competences__zone {
+      gap: var(--space-4);
+      min-height: var(--size-skills-zone-md);
+      padding: var(--space-8);
+    }
+    .competences__puce {
+      padding: var(--space-4) var(--space-6);
+      font-size: var(--text-2xl);
+    }
+  }
+</style>

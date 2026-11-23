@@ -482,6 +482,10 @@ export function construireDocuments(
           _key: `paragraphe-${index + 1}`,
         }),
       ),
+      altPortrait: localise(
+        'Portrait de Léandro, étudiant UX/UI',
+        'Portrait of Leandro, UX/UI student',
+      ),
       libelleCv: localise(fr.aPropos.telechargerCv, en.aPropos.telechargerCv),
       libelleLocalisation: localise(fr.aPropos.localisation, en.aPropos.localisation),
       valeurLocalisation: localise(fr.aPropos.valeurLocalisation, en.aPropos.valeurLocalisation),
