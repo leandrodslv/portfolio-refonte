@@ -34,7 +34,8 @@ test.describe('sans JavaScript', () => {
 
   test('le texte est présent dans le HTML (FR-4)', async ({ page }) => {
     await page.goto('/')
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Léandro Da Silva')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Léandro Da Silva/i)
+    await expect(page.locator('#work').getByRole('listitem').first()).toBeVisible()
   })
 })
 
