@@ -1,20 +1,5 @@
 ---
-import RobotsMeta from '../components/RobotsMeta.astro'
-import { Compteur } from '../islands/Compteur'
-import '../styles/global.css'
+import Accueil from '../components/Accueil.astro'
 ---
 
-<html lang="fr" data-theme="pop">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <RobotsMeta />
-    <title>Léandro Da Silva</title>
-  </head>
-  <body>
-    <main>
-      <h1>Léandro Da Silva</h1>
-      <Compteur client:visible label="Compteur" />
-    </main>
-  </body>
-</html>
+<Accueil locale="fr" />

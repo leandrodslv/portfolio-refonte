@@ -29,7 +29,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 # - Retrospective appends its action items to action_items; the status view surfaces open ones
 generated: 11-19-2026 23:32
-last_updated: 11-21-2026 09:00
+last_updated: 11-23-2026 11:10
 project: refonte portfolio
 project_key: NOKEY
 tracking_system: file-system
@@ -53,8 +53,8 @@ development_status:
   2-6-publication-dev-puis-production: done
   epic-2-retrospective: done
 
-  epic-3: backlog
-  3-1-gabarit-de-page-navigation-et-menu-mobile: backlog
+  epic-3: in-progress
+  3-1-gabarit-de-page-navigation-et-menu-mobile: review
   3-2-hero-et-section-projets-cartes: backlog
   3-3-sections-parcours-compétences-services-et-à-propos: backlog
   3-4-section-contact-structure-et-pied-de-page: backlog

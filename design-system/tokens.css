@@ -101,6 +101,7 @@
   --ease-default: ease-in-out;
   --rotate-sticker: -3deg;
   --rotate-hover: 2deg;             /* whileHover du Hero (Framer Motion, reproduit en CSS) */
+  --rotate-menu-close: 45deg;       /* barres du bouton de menu ouvert (croix) */
   --scale-hover: 1.05;
   --scale-press: 0.95;
   --scale-card-hover: 1.02;
@@ -130,6 +131,8 @@
   --border-color: var(--color-black);
   --border-style: solid;
   --nav-bg: var(--color-white);
+  --logo-light-display: block;
+  --logo-dark-display: none;
   --card-bg: var(--color-white);
   --accent-1: var(--color-pink);
   --accent-2: var(--color-yellow);
@@ -154,6 +157,8 @@
   --border-color: var(--color-term-border);
   --border-style: solid;
   --nav-bg: var(--color-term-surface);
+  --logo-light-display: none;
+  --logo-dark-display: block;
   --card-bg: var(--color-term-surface);
   --accent-1: var(--color-term-surface);
   --accent-2: var(--color-term-surface);
@@ -178,6 +183,8 @@
   --border-color: var(--color-wire-line);
   --border-style: dashed;
   --nav-bg: var(--color-wire-nav);
+  --logo-light-display: block;
+  --logo-dark-display: none;
   --card-bg: var(--color-white);
   --accent-1: transparent;
   --accent-2: transparent;
@@ -270,6 +277,8 @@
   /* ---- Dimensions -------------------------------------------------------- */
   --field-ring-shadow: 0 0 0 4px var(--color-yellow-ring); /* focus:ring-4 ring-yellow-400 */
   --size-target-min: 1.5rem;       /* WCAG 2.2 : cible d'au moins 24 px */
+  --size-logo: 2.5rem;            /* h-10, logo de la barre de navigation */
+  --z-nav: 40;                     /* z-40, barre de navigation */
   --size-visually-hidden: 1px;
   --size-card-media: 12rem;
   --size-card-service: 12rem;

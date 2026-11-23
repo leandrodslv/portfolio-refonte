@@ -22,6 +22,8 @@ export const CATALOGUE_UI_STRINGS: readonly GroupeInterface[] = [
       { cle: 'navRecruter', titre: 'Bouton « Me recruter »' },
       { cle: 'ouvrirMenu', titre: 'Ouvrir le menu' },
       { cle: 'fermerMenu', titre: 'Fermer le menu' },
+      { cle: 'allerAuContenu', titre: 'Lien d’évitement (aller au contenu)' },
+      { cle: 'navigationPrincipale', titre: 'Nom de la navigation principale' },
       { cle: 'parametres', titre: 'Paramètres' },
       { cle: 'selecteurLangue', titre: 'Sélecteur de Langue' },
       { cle: 'selecteurTheme', titre: 'Sélecteur de Thème' },

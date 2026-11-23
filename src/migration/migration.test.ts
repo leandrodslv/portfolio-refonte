@@ -14,7 +14,7 @@ import {
   type DocumentImport,
 } from './construire'
 import { fichiersReferences, versNdjson } from './sortie'
-import { TABLE_UI_STRINGS } from './tableUiStrings'
+import { TABLE_UI_STRINGS, TEXTES_AJOUTES } from './tableUiStrings'
 
 const racinePublic = resolve(import.meta.dirname, '../../ancien-portfolio/public')
 const documents = construireDocuments(racinePublic)
@@ -246,13 +246,15 @@ describe('structure migrée', () => {
     )
   })
 
-  it('siteSettings : FR seul, EN à rédiger ; uiStrings : seules les clés de l’ancien site', () => {
+  it('siteSettings : FR seul, EN à rédiger ; uiStrings : les clés de l’ancien site et les textes ajoutés', () => {
     expect(document('siteSettings').nomDuSite).toEqual({
       _type: 'localizedString',
       fr: 'Léandro Da Silva',
     })
     const cles = Object.keys(document('uiStrings')).filter((cle) => !cle.startsWith('_'))
-    expect(cles.sort()).toEqual(TABLE_UI_STRINGS.map(({ cle }) => cle).sort())
+    expect(cles.sort()).toEqual(
+      [...TABLE_UI_STRINGS, ...TEXTES_AJOUTES].map(({ cle }) => cle).sort(),
+    )
   })
 
   it('sortie déterministe', () => {

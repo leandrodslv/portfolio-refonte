@@ -100,3 +100,7 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-11-4-etats-variantes-et-controle-des-themes-du-kit.md`
   summary: texte vert illisible (environ 1,0:1) sur les cartes de service en Terminal, conservé par fidélité avec l'ancien site.
   evidence: relevé sur le site en ligne le 2026-11-21, consigné dans `docs/ajustements-visuels.md` ; à trancher à l'audit (story 9.2).
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-1-gabarit-de-page-navigation-et-menu-mobile.md`
+  summary: Ajouter les stories Storybook de la barre de navigation (états ouvert et fermé, FR et EN, trois Thèmes).
+  evidence: la story 3.1 les prévoit (règle de composition 11.5) mais le rendu `?variants` et l'import d'images `astro:assets` n'ont pas été vérifiés dans Storybook ; non fait dans cette session.
