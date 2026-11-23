@@ -131,8 +131,12 @@
   --border-color: var(--color-black);
   --border-style: solid;
   --nav-bg: var(--color-white);
+  --nav-handle-bg: var(--color-white);
   --logo-light-display: block;
   --logo-dark-display: none;
+  --hero-pop-display: block;
+  --hero-terminal-display: none;
+  --hero-wireframe-display: none;
   --card-bg: var(--color-white);
   --accent-1: var(--color-pink);
   --accent-2: var(--color-yellow);
@@ -157,8 +161,12 @@
   --border-color: var(--color-term-border);
   --border-style: solid;
   --nav-bg: var(--color-term-surface);
+  --nav-handle-bg: var(--color-term-bg);
   --logo-light-display: none;
   --logo-dark-display: block;
+  --hero-pop-display: none;
+  --hero-terminal-display: block;
+  --hero-wireframe-display: none;
   --card-bg: var(--color-term-surface);
   --accent-1: var(--color-term-surface);
   --accent-2: var(--color-term-surface);
@@ -183,8 +191,12 @@
   --border-color: var(--color-wire-line);
   --border-style: dashed;
   --nav-bg: var(--color-wire-nav);
+  --nav-handle-bg: var(--color-white);
   --logo-light-display: block;
   --logo-dark-display: none;
+  --hero-pop-display: none;
+  --hero-terminal-display: none;
+  --hero-wireframe-display: block;
   --card-bg: var(--color-white);
   --accent-1: transparent;
   --accent-2: transparent;
@@ -278,6 +290,10 @@
   --field-ring-shadow: 0 0 0 4px var(--color-yellow-ring); /* focus:ring-4 ring-yellow-400 */
   --size-target-min: 1.5rem;       /* WCAG 2.2 : cible d'au moins 24 px */
   --size-logo: 2.5rem;            /* h-10, logo de la barre de navigation */
+  --size-nav-handle: 0.75rem;      /* w-3 h-3, poignées d'angle de la barre */
+  --filter-nav-shadow: drop-shadow(0.25rem 0.25rem 0 rgba(0, 0, 0, 0.1)); /* drop-shadow-[4px_4px_0_rgba(0,0,0,0.1)] */
+  --size-hero-visual: 12rem;       /* h-48, visuel du Hero sur mobile */
+  --size-hero-screen: 100vh;       /* min-h-screen, Hero à partir de md */
   --z-nav: 40;                     /* z-40, barre de navigation */
   --size-visually-hidden: 1px;
   --size-card-media: 12rem;

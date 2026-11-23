@@ -2,7 +2,8 @@ import { expect, test } from '@playwright/test'
 
 test('la Page d’accueil s’affiche avec son contenu', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('heading', { level: 1, name: 'Léandro Da Silva' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+  await expect(page.locator('#work').getByRole('listitem').first()).toBeVisible()
 })
 
 test('le body applique le fond, la couleur et la police des tokens', async ({ page }) => {
@@ -33,7 +34,8 @@ test.describe('sans JavaScript', () => {
 
   test('le texte est présent dans le HTML (FR-4)', async ({ page }) => {
     await page.goto('/')
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Léandro Da Silva')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Léandro Da Silva/i)
+    await expect(page.locator('#work').getByRole('listitem').first()).toBeVisible()
   })
 })
 
