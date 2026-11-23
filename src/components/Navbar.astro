@@ -1,0 +1,219 @@
+---
+import { Image } from 'astro:assets'
+import logoSombre from '../assets/logo.png'
+import logoClair from '../assets/logo-blanc.png'
+import { localizedPath, type Locale } from '../lib/localizedPath'
+import type { SiteVue } from '../content/site'
+import Link from './ui/Link.astro'
+
+interface Props {
+  locale: Locale
+  site: SiteVue
+}
+
+const { locale, site } = Astro.props
+const accueil = localizedPath(locale)
+const liens = [
+  { id: 'work', libelle: site.navigation.projets },
+  { id: 'journey', libelle: site.navigation.parcours },
+  { id: 'skills', libelle: site.navigation.competences },
+  { id: 'contact', libelle: site.navigation.contact },
+]
+---
+
+<header class="navbar">
+  <div class="navbar__cadre" data-menu>
+    <div class="navbar__ligne">
+      <a href={accueil} class="navbar__logo">
+        <Image
+          src={logoSombre}
+          alt={site.nom}
+          height={80}
+          class="navbar__image navbar__image--clair"
+          loading="eager"
+        />
+        <Image
+          src={logoClair}
+          alt={site.nom}
+          height={80}
+          class="navbar__image navbar__image--sombre"
+          loading="eager"
+        />
+      </a>
+      <nav class="navbar__navigation" aria-label={site.navigationPrincipale}>
+        <div class="navbar__panneau" data-menu-panneau id="menu-principal">
+          {liens.map((lien) => (
+            <Link href={`${accueil}#${lien.id}`} variant="navigation">
+              {lien.libelle}
+            </Link>
+          ))}
+        </div>
+      </nav>
+      <button
+        type="button"
+        class="navbar__bouton"
+        data-menu-bouton
+        data-etiquette-ouvrir={site.menu.ouvrir}
+        data-etiquette-fermer={site.menu.fermer}
+        aria-controls="menu-principal"
+        aria-expanded="false"
+        aria-label={site.menu.ouvrir}
+      >
+        <span class="navbar__barres" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  import { initialiserMenus } from '../islands/menu'
+  initialiserMenus()
+</script>
+
+<style>
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-nav);
+    padding: var(--space-4);
+    background: var(--bg);
+    border-bottom: var(--border-thick) var(--border-style) var(--border-color);
+  }
+  .navbar__cadre {
+    position: relative;
+    max-width: var(--width-section);
+    margin-inline: auto;
+    background: var(--nav-bg);
+    border: var(--border-thick) var(--border-style) var(--border-color);
+  }
+  .navbar__ligne {
+    display: flex;
+    align-items: stretch;
+    min-height: var(--space-16);
+  }
+  .navbar__logo {
+    display: flex;
+    align-items: center;
+    padding-inline: var(--space-4);
+    border-right: var(--border-thick) var(--border-style) var(--border-color);
+  }
+  .navbar__logo:focus-visible,
+  .navbar__bouton:focus-visible {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+  }
+  .navbar__image {
+    width: auto;
+    height: var(--size-logo);
+    object-fit: contain;
+  }
+  .navbar__image--clair {
+    display: var(--logo-light-display);
+  }
+  .navbar__image--sombre {
+    display: var(--logo-dark-display);
+  }
+  .navbar__navigation {
+    display: flex;
+    flex: 1;
+  }
+  .navbar__panneau {
+    display: flex;
+    flex: 1;
+  }
+  .navbar__bouton {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--space-16);
+    margin-left: auto;
+    padding: var(--space-2);
+    background: transparent;
+    border: 0;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .navbar__barres,
+  .navbar__barres::before,
+  .navbar__barres::after {
+    display: block;
+    width: var(--space-6);
+    height: var(--border-thick);
+    background: currentColor;
+  }
+  .navbar__barres {
+    position: relative;
+  }
+  .navbar__barres::before,
+  .navbar__barres::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+  .navbar__barres::before {
+    top: calc(-1 * var(--space-2));
+  }
+  .navbar__barres::after {
+    top: var(--space-2);
+  }
+  .navbar__bouton[aria-expanded='true'] .navbar__barres {
+    background: transparent;
+  }
+  .navbar__bouton[aria-expanded='true'] .navbar__barres::before {
+    top: 0;
+    transform: rotate(var(--rotate-menu-close));
+  }
+  .navbar__bouton[aria-expanded='true'] .navbar__barres::after {
+    top: 0;
+    transform: rotate(calc(-1 * var(--rotate-menu-close)));
+  }
+
+  @media (max-width: 47.99rem) {
+    .navbar__ligne {
+      flex-wrap: wrap;
+    }
+    .navbar__navigation {
+      flex: 1 0 100%;
+      order: 3;
+    }
+    .navbar__panneau {
+      flex-direction: column;
+      border-top: var(--border-thick) var(--border-style) var(--border-color);
+    }
+    .navbar__panneau :global(.ui-link--navigation) {
+      justify-content: center;
+      min-height: var(--space-16);
+      border-right: 0;
+      border-bottom: var(--border-thick) var(--border-style) var(--border-color);
+    }
+    .navbar__panneau :global(.ui-link--navigation:last-child) {
+      border-bottom: 0;
+    }
+    .navbar__logo {
+      border-right: 0;
+    }
+    [data-menu][data-js] .navbar__navigation {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      flex: 0;
+      margin-top: var(--space-4);
+      background: var(--nav-bg);
+      border: var(--border-thick) var(--border-style) var(--border-color);
+    }
+    [data-menu][data-js] .navbar__panneau {
+      width: 100%;
+      border-top: 0;
+    }
+    [data-menu][data-js] .navbar__panneau[hidden] {
+      display: none;
+    }
+    [data-menu][data-js] .navbar__navigation:has(.navbar__panneau[hidden]) {
+      display: none;
+    }
+    [data-menu][data-js] .navbar__bouton {
+      display: flex;
+    }
+  }
+</style>

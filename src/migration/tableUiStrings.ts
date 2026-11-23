@@ -48,3 +48,14 @@ export const TABLE_UI_STRINGS: readonly CorrespondanceUi[] = [
   { cle: 'formErreurEnvoi', chemin: 'contact.errorSubmit' },
   { cle: 'formErreurConnexion', chemin: 'contact.errorConnection' },
 ]
+
+export interface TexteAjoute {
+  cle: string
+  fr: string
+  en: string
+}
+
+export const TEXTES_AJOUTES: readonly TexteAjoute[] = [
+  { cle: 'allerAuContenu', fr: 'Aller au contenu', en: 'Skip to content' },
+  { cle: 'navigationPrincipale', fr: 'Navigation principale', en: 'Main navigation' },
+]

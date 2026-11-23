@@ -12,7 +12,7 @@ import {
   type ProjetAncien,
   type SousProjetAncien,
 } from './ancien'
-import { TABLE_UI_STRINGS } from './tableUiStrings'
+import { TABLE_UI_STRINGS, TEXTES_AJOUTES } from './tableUiStrings'
 
 export interface DocumentImport {
   _id: string
@@ -350,6 +350,9 @@ function uiStrings(fr: AncienneLangue, en: AncienneLangue): DocumentImport {
       throw new Error(`Migration : ${chemin} absent de l'ancien site.`)
     }
     document[cle] = longue ? localiseTexte(valeurFr, valeurEn) : localise(valeurFr, valeurEn)
+  }
+  for (const { cle, fr: valeurFr, en: valeurEn } of TEXTES_AJOUTES) {
+    document[cle] = localise(valeurFr, valeurEn)
   }
   return document
 }

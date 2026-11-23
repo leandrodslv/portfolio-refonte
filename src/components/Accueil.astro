@@ -1,0 +1,28 @@
+---
+import type { Locale } from '../lib/localizedPath'
+import Gabarit from './Gabarit.astro'
+import Section from './ui/Section.astro'
+import SectionTitle from './ui/SectionTitle.astro'
+import { lireSite } from '../content/site'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const { navigation } = await lireSite(locale)
+const sections = [
+  { id: 'work', titre: navigation.projets },
+  { id: 'journey', titre: navigation.parcours },
+  { id: 'skills', titre: navigation.competences },
+  { id: 'contact', titre: navigation.contact },
+]
+---
+
+<Gabarit locale={locale}>
+  {sections.map((section) => (
+    <Section id={section.id} labelledby={`${section.id}-titre`}>
+      <SectionTitle id={`${section.id}-titre`}>{section.titre}</SectionTitle>
+    </Section>
+  ))}
+</Gabarit>

@@ -168,6 +168,8 @@ export type UiStrings = {
   navRecruter?: LocalizedString
   ouvrirMenu?: LocalizedString
   fermerMenu?: LocalizedString
+  allerAuContenu?: LocalizedString
+  navigationPrincipale?: LocalizedString
   parametres?: LocalizedString
   selecteurLangue?: LocalizedString
   selecteurTheme?: LocalizedString
