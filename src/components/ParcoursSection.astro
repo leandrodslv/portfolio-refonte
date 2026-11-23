@@ -14,7 +14,7 @@ const { entete, etapes } = Astro.props
 ---
 
 <Section id="journey" labelledby="journey-titre" tone="card">
-  <SectionTitle id="journey-titre">
+  <SectionTitle id="journey-titre" mobileSize="compact">
     {entete.titre}
     {entete.titreMisEnAvant && <Fragment slot="highlight">{entete.titreMisEnAvant}</Fragment>}
     {entete.sousTitre && <Fragment slot="subtitle">{entete.sousTitre}</Fragment>}

@@ -16,7 +16,7 @@ const ICONES = ['pen-tool', 'layout-template', 'clapperboard', 'code-xml'] as co
 ---
 
 <Section id="services" labelledby="services-titre" width="5xl">
-  <SectionTitle id="services-titre">
+  <SectionTitle id="services-titre" mobileSize="compact">
     {entete.titre}
     {entete.titreMisEnAvant && <Fragment slot="highlight">{entete.titreMisEnAvant}</Fragment>}
   </SectionTitle>
@@ -81,7 +81,7 @@ const ICONES = ['pen-tool', 'layout-template', 'clapperboard', 'code-xml'] as co
     font-weight: var(--font-weight-bold);
     opacity: var(--opacity-soft);
   }
-  :global(.ui-card--service) .services__filigrane {
+  .services__liste :global(.services__filigrane) {
     position: absolute;
     right: calc(var(--space-4) * -1);
     bottom: calc(var(--space-4) * -1);

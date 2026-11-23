@@ -188,6 +188,13 @@ describe('Page d’accueil (gabarit)', () => {
     )
   })
 
+  it('titre les quatre Sections en taille mobile compacte pour que le relief ne déborde pas à 320 px', async () => {
+    const { window } = await page('fr')
+    for (const id of ['journey', 'skills', 'services', 'about']) {
+      expect(window.document.querySelector(`#${id} .ui-section-title--compact`)).not.toBeNull()
+    }
+  })
+
   it('rend une Section par lien du menu, titrée', async () => {
     const { window } = await page('en')
     const document = window.document

@@ -14,7 +14,7 @@ const { entete, competences } = Astro.props
 ---
 
 <Section id="skills" labelledby="skills-titre" gutter="narrow">
-  <SectionTitle id="skills-titre">
+  <SectionTitle id="skills-titre" mobileSize="compact">
     {entete.titre}
     {entete.titreMisEnAvant && <Fragment slot="highlight">{entete.titreMisEnAvant}</Fragment>}
   </SectionTitle>
