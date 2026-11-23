@@ -429,6 +429,8 @@ afin de parcourir le Site à ma façon (FR-5).
 
 **Acceptance Criteria:**
 
+_Utilise les primitives du kit (épopée 11)._
+
 **Given** la Page d'accueil
 **When** je navigue au clavier
 **Then** un lien d'évitement mène au contenu, les landmarks sont présents et le focus est visible
@@ -447,6 +449,8 @@ afin de juger en quelques secondes si ce profil mérite un échange (UJ-1).
 
 **Acceptance Criteria:**
 
+_Utilise les primitives du kit (épopée 11)._
+
 **Given** le contenu migré
 **When** je charge la Page d'accueil
 **Then** le Hero et les Cartes des cinq Projets sont dans le HTML livré
@@ -464,6 +468,8 @@ afin d'évaluer le profil sans ouvrir de Fenêtre de projet (UJ-2).
 
 **Acceptance Criteria:**
 
+_Utilise les primitives du kit (épopée 11)._
+
 **Given** la Page d'accueil
 **When** je la consulte sans JavaScript
 **Then** Parcours, Compétences, Services et À propos sont lisibles dans le HTML
@@ -476,6 +482,8 @@ je veux voir la Section Contact et le pied de page,
 afin de savoir comment joindre Léandro.
 
 **Acceptance Criteria:**
+
+_Utilise les primitives du kit (épopée 11)._
 
 **Given** la Page d'accueil
 **When** j'atteins la Section Contact
@@ -578,6 +586,10 @@ afin de ne pas le re-choisir (FR-9).
 **Then** le Thème choisi est posé avant le premier rendu, sans flash
 **And** il est lu et écrit uniquement via `src/islands/prefs.ts` (clé `portfolio:theme`), sans cookie.
 
+**Given** un Visiteur sans choix mémorisé
+**When** il ouvre le Site
+**Then** le Thème et les modes de contraste suivent les préférences système (`prefers-color-scheme`, `prefers-contrast`, `forced-colors`).
+
 **Given** le sélecteur de Thème
 **When** je l'utilise au clavier
 **Then** il s'actionne et le Thème actif est annoncé aux lecteurs d'écran.
@@ -615,6 +627,7 @@ afin que design et code restent alignés (FR-20).
 **Given** les composants du Site
 **When** je consulte Storybook
 **Then** leurs états et variantes sont documentés.
+**And** la parité couvre aussi les composants du kit listés dans `design-system/components.md` (variantes et états).
 
 ## Epic 5 : Le Visiteur ouvre et partage un Projet
 
@@ -627,6 +640,8 @@ je veux ouvrir directement l'adresse d'un Projet,
 afin de voir sa Fenêtre de projet sans geste supplémentaire (FR-6, UJ-1).
 
 **Acceptance Criteria:**
+
+_Utilise les primitives du kit (épopée 11)._
 
 **Given** `/projets/belote-kart` et `/en/projects/belote-kart`
 **When** je les ouvre
@@ -814,6 +829,8 @@ je veux envoyer un message à Léandro,
 afin de le contacter après avoir vu ses projets (FR-15, UJ-1).
 
 **Acceptance Criteria:**
+
+_Utilise les primitives du kit (épopée 11)._
 
 **Given** nom, e-mail et message valides
 **When** j'envoie

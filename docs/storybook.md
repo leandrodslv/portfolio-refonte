@@ -31,6 +31,10 @@ Chaque primitive a deux fichiers frères :
 
 Écarts de contraste Terminal conservés par fidélité : le contrôle `color-contrast` est désactivé dans les stories Button et Select (voir `docs/ajustements-visuels.md`).
 
+## Règle de composition
+
+Une story des épopées 3, 5 et 7 réutilise une primitive du kit ou, à défaut, l'ajoute au kit : entrée dans `design-system/components.md`, fichier `X.variants.ts` et `X.stories.tsx`. Elle ne crée jamais de composant d'interface en double : une correction se fait à un seul endroit. `design-system/README.md` renvoie vers `components.md`, source de vérité du kit.
+
 ## Compatibilité Preact des bibliothèques React-only
 
 À compléter avant le premier usage d'une bibliothèque dans un îlot.
