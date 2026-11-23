@@ -58,7 +58,7 @@ const visuels = [
 <style>
   .hero {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     background: var(--bg);
   }
   .hero__texte {
@@ -71,7 +71,8 @@ const visuels = [
     order: 2;
   }
   .hero__titre {
-    font-size: var(--text-5xl);
+    overflow-wrap: anywhere;
+    font-size: var(--text-2xl);
     line-height: var(--leading-display);
     font-weight: var(--font-weight-black);
     letter-spacing: var(--tracking-tight);
@@ -109,9 +110,14 @@ const visuels = [
   .hero__image--wireframe {
     display: var(--hero-wireframe-display);
   }
+  @media (min-width: 40rem) {
+    .hero__titre {
+      font-size: var(--text-5xl);
+    }
+  }
   @media (min-width: 48rem) {
     .hero {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       min-height: var(--size-hero-screen);
     }
     .hero__texte {
@@ -122,7 +128,17 @@ const visuels = [
       order: 2;
     }
     .hero__titre {
+      font-size: var(--text-6xl);
+    }
+  }
+  @media (min-width: 64rem) {
+    .hero__titre {
       font-size: var(--text-7xl);
+    }
+  }
+  @media (min-width: 80rem) {
+    .hero__titre {
+      font-size: var(--text-8xl);
     }
   }
 </style>
