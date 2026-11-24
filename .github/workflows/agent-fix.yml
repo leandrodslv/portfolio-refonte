@@ -1,0 +1,77 @@
+name: Agent fix (ai-fix)
+
+# Désactivé tant que la variable AI_AUTOMATION_ENABLED n'est pas "true".
+# Un agent Claude Code prend une issue étiquetée `ai-fix` et ouvre une PR DRAFT vers `dev`.
+# Jamais de fusion automatique : la PR est relue par Léandro.
+#
+# Utilise l'abonnement Claude Max de Léandro (jeton OAuth), sans clé API ni facturation
+# à l'usage. C'est un service payant au sens d'AD-16 : décision actée par Léandro.
+#
+# Pour l'activer :
+#   1. En local : `claude setup-token` génère un jeton OAuth longue durée.
+#   2. Dépôt → Settings → Secrets and variables → Actions :
+#        - secret   CLAUDE_CODE_OAUTH_TOKEN = <le jeton>
+#        - variable AI_AUTOMATION_ENABLED   = true
+#
+# Seules les personnes qui peuvent étiqueter une issue déclenchent ce workflow.
+
+on:
+  issues:
+    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: 'Numéro de l’issue ai-fix'
+        required: true
+
+concurrency:
+  group: agent-fix-${{ github.event.issue.number || github.event.inputs.issue }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  fix:
+    if: >
+      vars.AI_AUTOMATION_ENABLED == 'true' &&
+      (github.event_name == 'workflow_dispatch' || github.event.label.name == 'ai-fix')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: dev
+          fetch-depth: 0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with: { node-version-file: '.nvmrc', cache: 'npm' }
+      - run: npm ci --prefer-offline --no-audit
+
+      - name: Contexte de l'issue
+        id: ctx
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number || github.event.inputs.issue }}
+        run: |
+          echo "issue=$ISSUE" >> "$GITHUB_OUTPUT"
+          gh issue view "$ISSUE" --json title,body \
+            --jq '"# Issue #'"$ISSUE"'\n\n## \(.title)\n\n\(.body)"' > AI_FIX_CONTEXT.md
+
+      - name: Claude Code — proposer un correctif
+        uses: anthropics/claude-code-action@eb56b6666facdbd501035f4a0269d8caee2e7a8b # v1.0.289
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          base_branch: dev
+          branch_prefix: ai-fix/
+          prompt: |
+            Lis AI_FIX_CONTEXT.md, puis CLAUDE.md et docs/TESTING-RULES.md.
+            Reproduis le problème, corrige la cause racine, et ajoute un test qui échoue
+            avant le correctif et passe après. Vérifie que `npm test`, `npm run lint` et
+            `npm run typecheck` passent.
+            Ne modifie jamais ancien-portfolio/, les fichiers .env*, .github/ ni les schémas
+            de studio/ sans le signaler dans la PR. Aucune dépendance ni service payant.
+            Commits en Conventional Commits. Ouvre une PR DRAFT vers dev liée à l'issue
+            #${{ steps.ctx.outputs.issue }} (jamais de fusion automatique).
