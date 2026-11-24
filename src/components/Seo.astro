@@ -1,0 +1,16 @@
+---
+import { localizedPath, type Locale } from '../lib/localizedPath'
+
+interface Props {
+  locale: Locale
+  slug?: string
+}
+
+const { locale, slug } = Astro.props
+const absolue = (cible: Locale) => new URL(localizedPath(cible, slug), Astro.site).href
+---
+
+<link rel="canonical" href={absolue(locale)} />
+<link rel="alternate" hreflang="fr" href={absolue('fr')} />
+<link rel="alternate" hreflang="en" href={absolue('en')} />
+<link rel="alternate" hreflang="x-default" href={absolue('fr')} />

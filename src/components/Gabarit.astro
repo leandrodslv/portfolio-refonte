@@ -2,14 +2,16 @@
 import { lireSite } from '../content/site'
 import type { Locale } from '../lib/localizedPath'
 import Navbar from './Navbar.astro'
+import Seo from './Seo.astro'
 import RobotsMeta from './RobotsMeta.astro'
 import '../styles/global.css'
 
 interface Props {
   locale: Locale
+  slug?: string
 }
 
-const { locale } = Astro.props
+const { locale, slug } = Astro.props
 const site = await lireSite(locale)
 ---
 
@@ -18,13 +20,14 @@ const site = await lireSite(locale)
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <RobotsMeta />
+    <Seo locale={locale} slug={slug} />
     <title>{site.nom}</title>
   </head>
   <body>
     <a class="gabarit__evitement" href="#contenu">
       {site.evitement}
     </a>
-    <Navbar locale={locale} site={site} />
+    <Navbar locale={locale} site={site} slug={slug} />
     <main id="contenu" tabindex="-1">
       <slot />
     </main>

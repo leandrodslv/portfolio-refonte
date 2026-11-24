@@ -16,6 +16,7 @@ const site: Record<'fr' | 'en', SiteVue> = {
       contact: 'Contact',
     },
     menu: { ouvrir: 'Ouvrir le menu', fermer: 'Fermer le menu' },
+    selecteurLangue: 'Langue',
   },
   en: {
     nom: 'Léandro Da Silva',
@@ -23,13 +24,14 @@ const site: Record<'fr' | 'en', SiteVue> = {
     navigationPrincipale: 'Main navigation',
     navigation: { projets: 'Work', parcours: 'Journey', competences: 'Skills', contact: 'Contact' },
     menu: { ouvrir: 'Open menu', fermer: 'Close menu' },
+    selecteurLangue: 'Language',
   },
 }
 
 describe('Navbar', () => {
   it('contient les quatre liens dans le HTML, sans JavaScript, vers les bonnes Sections', async () => {
     const html = await rendre(Navbar, { props: { locale: 'fr', site: site.fr } })
-    const liens = [...analyser(html).querySelectorAll('nav a')].map((a) => [
+    const liens = [...analyser(html).querySelectorAll('nav a:not([hreflang])')].map((a) => [
       a.textContent?.trim(),
       a.getAttribute('href'),
     ])
@@ -59,6 +61,15 @@ describe('Navbar', () => {
     expect(
       [...document.querySelectorAll('header img')].map((img) => img.getAttribute('alt')),
     ).toEqual(['Léandro Da Silva', 'Léandro Da Silva'])
+  })
+
+  it.each([
+    ['fr', 'Langue'],
+    ['en', 'Language'],
+  ] as const)('rend le sélecteur de Langue nommé avec deux liens (%s)', async (locale, nom) => {
+    const document = analyser(await rendre(Navbar, { props: { locale, site: site[locale] } }))
+    const groupe = document.querySelector(`header [role="group"][aria-label="${nom}"]`)
+    expect(groupe?.querySelectorAll('a')).toHaveLength(2)
   })
 
   it.each(['fr', 'en'] as const)('n’a aucune violation axe (%s)', async (locale) => {

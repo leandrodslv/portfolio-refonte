@@ -12,7 +12,10 @@ export default defineConfig({
   adapter: vercel(),
   integrations: [
     react(),
-    sitemap({ filter: (page) => !page.includes('essai-contenu') }),
+    sitemap({
+      filter: (page) => !page.includes('essai-contenu'),
+      i18n: { defaultLocale: 'fr', locales: { fr: 'fr', en: 'en' } },
+    }),
     verifierVariablesIntegration(),
   ],
   image: { remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io' }] },

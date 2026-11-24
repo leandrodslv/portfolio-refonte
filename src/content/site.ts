@@ -18,6 +18,7 @@ export interface SiteVue {
     ouvrir: string
     fermer: string
   }
+  selecteurLangue: string
 }
 
 type DocumentSite = SiteSettings | UiStrings
@@ -66,6 +67,7 @@ export function versSiteVue(documents: DocumentSite[], locale: Locale): SiteVue 
       ouvrir: texte(chaines.ouvrirMenu, locale, dans('uiStrings'), 'ouvrirMenu'),
       fermer: texte(chaines.fermerMenu, locale, dans('uiStrings'), 'fermerMenu'),
     },
+    selecteurLangue: texte(chaines.selecteurLangue, locale, dans('uiStrings'), 'selecteurLangue'),
   }
 }
 

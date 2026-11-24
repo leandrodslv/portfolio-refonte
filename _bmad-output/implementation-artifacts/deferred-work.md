@@ -115,3 +115,13 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-3-3-sections-parcours-competences-services-et-a-propos.md`
   summary: réafficher le sous-titre « Glissez-déposez pour jouer ! » des Compétences quand les puces seront déplaçables (épopée 6).
   evidence: la consigne est masquée en 3.3 car aucune interaction n'existe encore.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-5-francais-et-anglais.md`
+  summary: Publier `selecteurLangue` (FR « Langue », EN « Language ») dans le dataset Sanity dev puis prod.
+  evidence: `versSiteVue` échoue au build si la chaîne EN manque ; le contenu migré l'ajoute mais rien n'est publié.
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-5-francais-et-anglais.md`
+  summary: Donner un nom accessible complet (Français / English) aux liens du sélecteur de Langue.
+  evidence: Les liens affichent « FR » et « EN » ; le catalogue uiStrings n'a pas les noms de langue.
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-5-francais-et-anglais.md`
+  summary: Titre par Langue, meta description et balises og:locale/og:url dans le `<head>`.
+  evidence: `<title>` vaut `site.nom` dans les deux Langues, sans description ni Open Graph (antérieur à la 3.5).

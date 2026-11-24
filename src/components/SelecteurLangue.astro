@@ -1,0 +1,68 @@
+---
+import { localizedPath, type Locale } from '../lib/localizedPath'
+
+interface Props {
+  locale: Locale
+  libelle: string
+  slug?: string
+}
+
+const { locale, libelle, slug } = Astro.props
+const langues: Locale[] = ['fr', 'en']
+---
+
+<div class="selecteur-langue" role="group" aria-label={libelle}>
+  {langues.map((langue) => (
+    <a
+      href={localizedPath(langue, slug)}
+      lang={langue}
+      hreflang={langue}
+      class="selecteur-langue__lien"
+      aria-current={langue === locale ? 'true' : undefined}
+    >
+      {langue.toUpperCase()}
+    </a>
+  ))}
+</div>
+
+<style>
+  .selecteur-langue {
+    display: flex;
+    align-items: stretch;
+    border-left: var(--border-thick) var(--border-style) var(--border-color);
+  }
+  .selecteur-langue__lien {
+    display: inline-flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--space-16);
+    min-height: var(--size-target-min);
+    padding-inline: var(--space-3);
+    color: var(--text);
+    font-size: var(--text-lg);
+    line-height: var(--leading-lg);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--tracking-tight);
+    text-decoration: none;
+  }
+  .selecteur-langue__lien:hover {
+    background: var(--color-veil);
+  }
+  .selecteur-langue__lien[aria-current='true'] {
+    background: var(--color-veil-strong);
+    text-decoration: underline;
+    text-decoration-thickness: var(--border-thick);
+    text-underline-offset: var(--border-thick);
+  }
+  .selecteur-langue__lien:focus-visible {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+  }
+  @media (max-width: 47.99rem) {
+    .selecteur-langue {
+      border-top: var(--border-thick) var(--border-style) var(--border-color);
+      border-left: 0;
+    }
+  }
+</style>

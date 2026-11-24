@@ -14,7 +14,9 @@ interface FenetreAxe {
 }
 
 export async function rendre(composant: AstroComponentFactory, options: Options = {}) {
-  const conteneur = await AstroContainer.create()
+  const conteneur = await AstroContainer.create({
+    astroConfig: { site: 'https://leandro-dasilva.com' },
+  })
   return conteneur.renderToString(composant, options)
 }
 

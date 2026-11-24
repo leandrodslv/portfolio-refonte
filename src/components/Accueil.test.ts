@@ -20,6 +20,7 @@ const site: SiteVue = {
     contact: 'Contact',
   },
   menu: { ouvrir: 'Ouvrir le menu', fermer: 'Fermer le menu' },
+  selecteurLangue: 'Langue',
 }
 
 const hero: HeroVue = {
@@ -127,6 +128,21 @@ describe('Page d’accueil (gabarit)', () => {
     expect(document.querySelectorAll('footer, [role="contentinfo"]')).toHaveLength(1)
     expect(document.querySelectorAll('h1')).toHaveLength(1)
     expect(document.title).toBe('Léandro Da Silva')
+  })
+
+  it('déclare canonical et hreflang fr, en et x-default dans le head', async () => {
+    const { window } = await page('en')
+    const head = window.document.head
+    expect(head.querySelectorAll('link[rel="canonical"]')).toHaveLength(1)
+    for (const langue of ['fr', 'en', 'x-default']) {
+      expect(head.querySelectorAll(`link[rel="alternate"][hreflang="${langue}"]`)).toHaveLength(1)
+    }
+  })
+
+  it('rend le sélecteur de Langue dans la Navbar', async () => {
+    const { window } = await page('fr')
+    const groupe = window.document.querySelector('header [role="group"][aria-label="Langue"]')
+    expect(groupe?.querySelectorAll('a')).toHaveLength(2)
   })
 
   it('place le lien d’évitement en premier, vers le contenu', async () => {
@@ -268,7 +284,7 @@ describe('Page d’accueil (gabarit)', () => {
   it('rend une Section par lien du menu, titrée', async () => {
     const { window } = await page('en')
     const document = window.document
-    const cibles = [...document.querySelectorAll('nav a')].map(
+    const cibles = [...document.querySelectorAll('nav a:not([hreflang])')].map(
       (a) => (a.getAttribute('href') ?? '').split('#')[1],
     )
     expect(cibles).toEqual(['work', 'journey', 'skills', 'contact'])

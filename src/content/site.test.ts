@@ -22,6 +22,7 @@ const chaines = {
   navContact: localise('Contact', 'Contact'),
   ouvrirMenu: localise('Ouvrir le menu', 'Open menu'),
   fermerMenu: localise('Fermer le menu', 'Close menu'),
+  selecteurLangue: localise('Langue', 'Language'),
   allerAuContenu: localise('Aller au contenu', 'Skip to content'),
   navigationPrincipale: localise('Navigation principale', 'Main navigation'),
 } as UiStrings
@@ -39,12 +40,20 @@ describe('couche de contenu du site', () => {
         contact: 'Contact',
       },
       menu: { ouvrir: 'Open menu', fermer: 'Close menu' },
+      selecteurLangue: 'Language',
     })
   })
 
   it('échoue en nommant le champ quand une traduction manque', () => {
     const sansAnglais = { ...chaines, navProjets: localise('Projets', '') } as UiStrings
     expect(() => versSiteVue([reglages, sansAnglais], 'fr')).toThrow(/navProjets/)
+  })
+
+  it('échoue en nommant selecteurLangue et EN quand sa traduction anglaise manque', () => {
+    const sansAnglais = { ...chaines, selecteurLangue: localise('Langue', '') } as UiStrings
+    expect(() => versSiteVue([reglages, sansAnglais], 'en')).toThrow(
+      /selecteurLangue.*EN|EN.*selecteurLangue/,
+    )
   })
 
   it('échoue quand un document est absent', () => {
