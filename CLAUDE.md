@@ -31,7 +31,7 @@ tests/            # a11y, visuel, en-têtes, e2e
 
 - **TypeScript strict** : pas de `any`, pas d'assertion `as` non justifiée.
 - **Statique d'abord** : un composant est `.astro` sauf s'il a besoin d'état ou d'événements du navigateur ; seul ce cas devient un îlot (AD-1). Hydratation `client:visible` ou `client:idle`, jamais `client:load` sans justification écrite.
-- **Kit d'abord** : une story des épopées 3, 5 et 7 réutilise une primitive de `src/components/ui/` (liste dans `design-system/components.md`) ou, à défaut, l'ajoute au kit avec son inventaire et ses stories ; jamais de composant d'interface en double (`docs/storybook.md`).
+- **Kit d'abord** : toute story ou correction (`fix/*` compris) qui touche l'interface réutilise une primitive de `src/components/ui/` (liste dans `design-system/components.md`) ou, à défaut, l'ajoute au kit avec son inventaire et ses stories ; jamais de composant d'interface en double (`docs/storybook.md`).
 - **Aucun texte en dur** : tout texte visible vient de Sanity, en FR et EN (AD-3). Aucune requête Sanity hors de `src/content/`.
 - **Aucune valeur de design en dur** : ni couleur, ni ombre, ni bordure, ni durée littérale hors `src/styles/`. Si le token manque, l'ajouter à `design-system/tokens.css` (AD-6).
 - **`localStorage` seulement via `src/islands/prefs.ts`**, clés préfixées `portfolio:` ; aucun cookie.

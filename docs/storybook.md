@@ -33,7 +33,7 @@ Chaque primitive a deux fichiers frères :
 
 ## Règle de composition
 
-Une story des épopées 3, 5 et 7 réutilise une primitive du kit ou, à défaut, l'ajoute au kit : entrée dans `design-system/components.md`, fichier `X.variants.ts` et `X.stories.tsx`. Elle ne crée jamais de composant d'interface en double : une correction se fait à un seul endroit. `design-system/README.md` renvoie vers `components.md`, source de vérité du kit.
+Toute story ou correction qui touche l'interface (`fix/*` compris) réutilise une primitive du kit ou, à défaut, l'ajoute au kit : entrée dans `design-system/components.md`, fichier `X.variants.ts` et `X.stories.tsx`. Elle ne crée jamais de composant d'interface en double : une correction se fait à un seul endroit. `design-system/README.md` renvoie vers `components.md`, source de vérité du kit.
 
 ## Compatibilité Preact des bibliothèques React-only
 
