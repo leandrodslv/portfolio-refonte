@@ -56,6 +56,14 @@ tests/            # a11y, visuel, en-têtes, e2e
 
 Une story = une session Claude Code. Ne jamais anticiper sur la story suivante ; chaque story est validée avant de passer à la suivante. Les épopées et stories sont dans `_bmad-output/planning-artifacts/epics.md`.
 
+## Worktrees et sous-agents
+
+- Le travail parallèle se fait dans des **worktrees git séparés** (`git worktree add`), un par branche `feat/*` ou `fix/*`, jamais en changeant de branche dans le dossier principal.
+- **Un sous-agent par worktree** : chacun travaille isolé dans son propre dossier (`isolation: "worktree"`), sans toucher aux fichiers des autres. Une story = un worktree = une branche.
+- Avant de lancer un sous-agent, vérifier avec `git worktree list` qu'aucun autre worktree n'utilise déjà la branche visée.
+- Les worktrees ne partagent ni `node_modules` ni `.env*` : réinstaller les dépendances et fournir les variables de chaque worktree sans jamais committer de secret.
+- Les sous-agents ne committent ni ne poussent (règle Git ci-dessus). À la fin, supprimer le worktree (`git worktree remove`) une fois la branche relue.
+
 ## Limites assumées
 
 Le contrôle de pause du bandeau défilant n'existe pas : le bandeau n'est plus affiché sur le site, et `Marquee` n'est pas migré. Tout contenu autonome ajouté plus tard doit offrir une pause (FR-13).
