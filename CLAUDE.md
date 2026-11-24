@@ -50,6 +50,8 @@ tests/            # a11y, visuel, en-têtes, e2e
 
 - Branches : `main` (prod), `dev` (Environnement dev), `feat/*`, `fix/*`. Une PR par branche vers `dev`.
 - **Conventional Commits** (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `refactor:`). Une PR `fix:` sans test est rouge.
+- **Scope facultatif mais conseillé** pour situer le changement : `feat(i18n):`, `fix(a11y):`, `docs(decisions):`, `test(e2e):`, `chore(sprint):`. Description à l'impératif ou au nom, en minuscule, sans point final. Le titre de la PR suit la même règle (il devient le message de commit).
+- **Décisions d'architecture** : tout choix qui n'est pas dans le spine (alternative écartée, compromis, comportement non évident) s'écrit dans `docs/decisions/NNNN-titre.md`, une décision par fichier, avec Contexte, Décision, Conséquences.
 - Ne jamais committer ni pousser sans demande explicite de Léandro.
 
 ## Méthode de travail (BMAD)

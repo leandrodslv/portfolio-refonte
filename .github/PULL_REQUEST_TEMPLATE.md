@@ -9,3 +9,7 @@
 ## Test plan
 
 - [ ]
+
+<!-- Optionnel, à retirer si non pertinent : -->
+<!-- ## Reste hors périmètre -->
+<!-- Ce qui n'est délibérément pas traité par cette PR, et pourquoi (renvoyer vers deferred-work.md). -->
