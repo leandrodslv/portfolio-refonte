@@ -494,6 +494,8 @@ export function construireDocuments(
       _id: 'sectionContact',
       _type: 'sectionContact',
       entete: enteteSection(fr.contact, en.contact),
+      libelleLienFormulaire: localise('Aller au formulaire de contact', 'Go to the contact form'),
+      libelleZoneFormulaire: localise('Formulaire de contact', 'Contact form'),
     },
     {
       _id: 'footer',

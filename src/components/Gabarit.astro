@@ -28,7 +28,7 @@ const site = await lireSite(locale)
     <main id="contenu" tabindex="-1">
       <slot />
     </main>
-    <footer></footer>
+    <slot name="pied" />
   </body>
 </html>
 

@@ -3,6 +3,7 @@ import axe from 'axe-core'
 import { describe, expect, it, vi } from 'vitest'
 import type { EnteteVue, HeroVue } from '../content/accueil'
 import type { ProjetVue } from '../content/projets'
+import type { ContactVue, PiedVue } from '../content/contact'
 import type { SectionsVue } from '../content/sections'
 import type { SiteVue } from '../content/site'
 import { rendre } from './ui/rendu'
@@ -83,6 +84,26 @@ const sections: SectionsVue = {
   },
 }
 
+const contact: ContactVue = {
+  entete: { titre: 'Un', titreMisEnAvant: 'projet ?', sousTitre: 'Parlons-en.' },
+  libelleLienFormulaire: 'Ouvrir le formulaire de contact',
+  libelleZoneFormulaire: 'Formulaire de contact',
+}
+
+const pied: PiedVue = {
+  copyright: '© 2026 Léandro Da Silva',
+  bio: 'Étudiant en MMI.',
+  colonneSite: 'Site',
+  colonneReseaux: 'Réseaux',
+  colonneContact: 'Contact',
+  disponibilite: 'Disponible pour un stage',
+  signature: 'Conçu et développé par Léandro',
+  indiceKonami: 'Un secret se cache ici',
+}
+
+vi.mock('../content/contact', () => ({
+  lireContact: () => Promise.resolve({ contact, pied }),
+}))
 vi.mock('../content/sections', () => ({ lireSections: () => Promise.resolve(sections) }))
 vi.mock('../content/site', () => ({ lireSite: () => Promise.resolve(site) }))
 vi.mock('../content/accueil', () => ({
@@ -103,6 +124,7 @@ describe('Page d’accueil (gabarit)', () => {
     expect(
       document.querySelectorAll('body > header, body > main, body > footer, nav'),
     ).toHaveLength(4)
+    expect(document.querySelectorAll('footer, [role="contentinfo"]')).toHaveLength(1)
     expect(document.querySelectorAll('h1')).toHaveLength(1)
     expect(document.title).toBe('Léandro Da Silva')
   })
@@ -193,6 +215,54 @@ describe('Page d’accueil (gabarit)', () => {
     for (const id of ['journey', 'skills', 'services', 'about']) {
       expect(window.document.querySelector(`#${id} .ui-section-title--compact`)).not.toBeNull()
     }
+  })
+
+  it('rend la Section Contact sous un h2, avec sa zone de formulaire nommée et sans champ', async () => {
+    const { window } = await page('fr')
+    const section = window.document.getElementById('contact')
+    const titre = window.document.getElementById(section?.getAttribute('aria-labelledby') ?? '')
+    expect(titre?.tagName).toBe('H2')
+    expect(titre?.textContent?.replace(/\s+/g, ' ').trim()).toBe('Un projet ?')
+    expect(section?.textContent).toContain('Parlons-en.')
+    const zone = section?.querySelector('[role="region"]')
+    const nom = window.document.getElementById(zone?.getAttribute('aria-labelledby') ?? '')
+    expect(nom?.textContent?.trim()).toBe('Formulaire de contact')
+    expect(section?.querySelectorAll('input, textarea, select, form, script')).toHaveLength(0)
+  })
+
+  it('n’offre aucun lien vers le formulaire tant que la story 7.2 ne l’a pas livré', async () => {
+    const { window } = await page('fr')
+    expect(window.document.querySelector('a[href$="#contact-formulaire"]')).toBeNull()
+  })
+
+  it('rend un pied de page unique avec bio, colonnes, disponibilité, nom lisible et signature', async () => {
+    const { window } = await page('en')
+    const pieds = window.document.querySelectorAll('footer')
+    expect(pieds).toHaveLength(1)
+    const pied = pieds[0]
+    expect(pied?.parentElement).toBe(window.document.body)
+    expect(pied?.textContent).toContain('Étudiant en MMI.')
+    expect(pied?.textContent).toContain('Disponible pour un stage')
+    expect(pied?.textContent).toContain('© 2026 Léandro Da Silva')
+    expect(pied?.textContent).toContain('Conçu et développé par Léandro')
+    const liens = [...(pied?.querySelectorAll('a') ?? [])].map((a) => a.getAttribute('href'))
+    expect(liens).toEqual(
+      expect.arrayContaining(['/en/#work', '/en/#journey', '/en/#skills', '/en/#contact']),
+    )
+    const geant = [...(pied?.querySelectorAll('[aria-hidden="true"]') ?? [])].map((e) =>
+      e.textContent?.replace(/\s+/g, ' ').trim(),
+    )
+    expect(geant).toEqual(expect.arrayContaining(['Léandro', 'Da Silva']))
+    expect(pied?.textContent).toContain('Léandro Da Silva')
+    expect(pied?.querySelectorAll('button, dialog, script')).toHaveLength(0)
+  })
+
+  it.each(['fr', 'en'] as const)('n’écrit aucune coordonnée en clair (%s)', async (locale) => {
+    const { window } = await page(locale)
+    const html = window.document.documentElement.outerHTML
+    expect(html).not.toMatch(/mailto:|tel:/i)
+    expect(html).not.toMatch(/[\w.+-]+@[\w-]+\.[\w.-]+/)
+    expect(html).not.toMatch(/(?:\+33|\b0)[1-9](?:[\s.-]?\d{2}){4}/)
   })
 
   it('rend une Section par lien du menu, titrée', async () => {

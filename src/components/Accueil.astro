@@ -1,4 +1,5 @@
 ---
+import { lireContact } from '../content/contact'
 import { lireAccueil } from '../content/accueil'
 import { lireProjets } from '../content/projets'
 import { lireSections } from '../content/sections'
@@ -11,19 +12,19 @@ import Hero from './Hero.astro'
 import ParcoursSection from './ParcoursSection.astro'
 import ProjetsSection from './ProjetsSection.astro'
 import ServicesSection from './ServicesSection.astro'
-import Section from './ui/Section.astro'
-import SectionTitle from './ui/SectionTitle.astro'
+import ContactSection from './ContactSection.astro'
+import PiedDePage from './PiedDePage.astro'
 
 interface Props {
   locale: Locale
 }
 
 const { locale } = Astro.props
-const { navigation } = await lireSite(locale)
+const site = await lireSite(locale)
 const { hero, projets: entete } = await lireAccueil(locale)
 const projets = await lireProjets(locale)
 const { parcours, competences, services, aPropos } = await lireSections(locale)
-const squelettes = [{ id: 'contact', titre: navigation.contact }]
+const { contact, pied } = await lireContact(locale)
 ---
 
 <Gabarit locale={locale}>
@@ -33,9 +34,6 @@ const squelettes = [{ id: 'contact', titre: navigation.contact }]
   <CompetencesSection entete={competences.entete} competences={competences.competences} />
   <ServicesSection entete={services.entete} services={services.services} />
   <AProposSection contenu={aPropos} />
-  {squelettes.map((section) => (
-    <Section id={section.id} labelledby={`${section.id}-titre`}>
-      <SectionTitle id={`${section.id}-titre`}>{section.titre}</SectionTitle>
-    </Section>
-  ))}
+  <ContactSection contact={contact} />
+  <PiedDePage slot="pied" locale={locale} pied={pied} site={site} />
 </Gabarit>
