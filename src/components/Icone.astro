@@ -1,0 +1,63 @@
+---
+import fleche from 'lucide-static/icons/arrow-up-right.svg?raw'
+import code from 'lucide-static/icons/code-xml.svg?raw'
+import frise from 'lucide-static/icons/graduation-cap.svg?raw'
+import grip from 'lucide-static/icons/grip-horizontal.svg?raw'
+import maquette from 'lucide-static/icons/layout-template.svg?raw'
+import pin from 'lucide-static/icons/map-pin.svg?raw'
+import stylo from 'lucide-static/icons/pen-tool.svg?raw'
+import envoi from 'lucide-static/icons/send.svg?raw'
+import etincelles from 'lucide-static/icons/sparkles.svg?raw'
+import clap from 'lucide-static/icons/clapperboard.svg?raw'
+
+const SVG = {
+  'arrow-up-right': fleche,
+  'code-xml': code,
+  'graduation-cap': frise,
+  'grip-horizontal': grip,
+  'layout-template': maquette,
+  'map-pin': pin,
+  'pen-tool': stylo,
+  send: envoi,
+  sparkles: etincelles,
+  clapperboard: clap,
+} as const
+
+interface Props {
+  nom: keyof typeof SVG
+  taille?: 'sm' | 'md' | 'lg' | 'watermark'
+  class?: string
+}
+
+const { nom, taille = 'md', class: classe } = Astro.props
+const classes = ['ui-icone', `ui-icone--${taille}`, classe].filter(Boolean).join(' ')
+---
+
+<span class={classes} aria-hidden="true" set:html={SVG[nom]} />
+
+<style>
+  .ui-icone {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+  .ui-icone :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+  .ui-icone--sm {
+    width: var(--size-icon-sm);
+    height: var(--size-icon-sm);
+  }
+  .ui-icone--md {
+    width: var(--size-icon-md);
+    height: var(--size-icon-md);
+  }
+  .ui-icone--lg {
+    width: var(--size-icon-lg);
+    height: var(--size-icon-lg);
+  }
+  .ui-icone--watermark {
+    width: var(--size-icon-watermark);
+    height: var(--size-icon-watermark);
+  }
+</style>

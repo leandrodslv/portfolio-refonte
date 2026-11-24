@@ -12,7 +12,7 @@ import {
   type ProjetAncien,
   type SousProjetAncien,
 } from './ancien'
-import { TABLE_UI_STRINGS } from './tableUiStrings'
+import { TABLE_UI_STRINGS, TEXTES_AJOUTES } from './tableUiStrings'
 
 export interface DocumentImport {
   _id: string
@@ -351,6 +351,9 @@ function uiStrings(fr: AncienneLangue, en: AncienneLangue): DocumentImport {
     }
     document[cle] = longue ? localiseTexte(valeurFr, valeurEn) : localise(valeurFr, valeurEn)
   }
+  for (const { cle, fr: valeurFr, en: valeurEn } of TEXTES_AJOUTES) {
+    document[cle] = localise(valeurFr, valeurEn)
+  }
   return document
 }
 
@@ -396,6 +399,15 @@ export function construireDocuments(
       sousTitre: localiseTexte(texte(heroFr, 'subtitle'), texte(heroEn, 'subtitle')),
       boutonPrincipal: parLangue('ctaPrimary'),
       boutonSecondaire: parLangue('ctaSecondary'),
+      altVisuelPop: localise('Collage artistique style Pop Art', 'Pop Art style artistic collage'),
+      altVisuelTerminal: localise(
+        'Lignes de code vertes style Matrix',
+        'Green Matrix-style code lines',
+      ),
+      altVisuelWireframe: localise(
+        'Maillage 3D filaire bleu sur fond blanc',
+        'Blue 3D wireframe mesh on a white background',
+      ),
     },
     {
       _id: 'sectionProjets',
@@ -470,6 +482,10 @@ export function construireDocuments(
           _key: `paragraphe-${index + 1}`,
         }),
       ),
+      altPortrait: localise(
+        'Portrait de Léandro, étudiant UX/UI',
+        'Portrait of Leandro, UX/UI student',
+      ),
       libelleCv: localise(fr.aPropos.telechargerCv, en.aPropos.telechargerCv),
       libelleLocalisation: localise(fr.aPropos.localisation, en.aPropos.localisation),
       valeurLocalisation: localise(fr.aPropos.valeurLocalisation, en.aPropos.valeurLocalisation),
@@ -478,6 +494,8 @@ export function construireDocuments(
       _id: 'sectionContact',
       _type: 'sectionContact',
       entete: enteteSection(fr.contact, en.contact),
+      libelleLienFormulaire: localise('Aller au formulaire de contact', 'Go to the contact form'),
+      libelleZoneFormulaire: localise('Formulaire de contact', 'Contact form'),
     },
     {
       _id: 'footer',

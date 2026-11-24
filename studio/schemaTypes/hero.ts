@@ -12,5 +12,20 @@ export const hero = creerSingleton({
     defineField({ name: 'sousTitre', title: 'Sous-titre', type: 'localizedText' }),
     defineField({ name: 'boutonPrincipal', title: 'Bouton principal', type: 'localizedString' }),
     defineField({ name: 'boutonSecondaire', title: 'Bouton secondaire', type: 'localizedString' }),
+    defineField({
+      name: 'altVisuelPop',
+      title: 'Texte alternatif du visuel, Thème Pop',
+      type: 'localizedString',
+    }),
+    defineField({
+      name: 'altVisuelTerminal',
+      title: 'Texte alternatif du visuel, Thème Terminal',
+      type: 'localizedString',
+    }),
+    defineField({
+      name: 'altVisuelWireframe',
+      title: 'Texte alternatif du visuel, Thème Wireframe',
+      type: 'localizedString',
+    }),
   ],
 })

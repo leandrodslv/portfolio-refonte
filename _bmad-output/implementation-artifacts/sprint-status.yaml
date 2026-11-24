@@ -29,7 +29,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 # - Retrospective appends its action items to action_items; the status view surfaces open ones
 generated: 11-19-2026 23:32
-last_updated: 11-23-2026 10:00
+last_updated: 11-24-2026 10:00
 project: refonte portfolio
 project_key: NOKEY
 tracking_system: file-system
@@ -53,11 +53,11 @@ development_status:
   2-6-publication-dev-puis-production: done
   epic-2-retrospective: done
 
-  epic-3: backlog
-  3-1-gabarit-de-page-navigation-et-menu-mobile: backlog
-  3-2-hero-et-section-projets-cartes: backlog
-  3-3-sections-parcours-compétences-services-et-à-propos: backlog
-  3-4-section-contact-structure-et-pied-de-page: backlog
+  epic-3: in-progress
+  3-1-gabarit-de-page-navigation-et-menu-mobile: done
+  3-2-hero-et-section-projets-cartes: done
+  3-3-sections-parcours-compétences-services-et-à-propos: done
+  3-4-section-contact-structure-et-pied-de-page: done
   3-5-français-et-anglais: backlog
   3-6-page-404-et-anciennes-ancres: backlog
   3-7-fidélité-visuelle-du-thème-pop: backlog
@@ -119,10 +119,10 @@ development_status:
   epic-10-retrospective: optional
 
   epic-11: in-progress
-  11-1-inventaire-des-composants-de-l-ancien-site: review
-  11-2-primitives-d-interface-astro: review
-  11-3-primitives-de-formulaire: review
-  11-4-états-variantes-et-contrôle-des-thèmes-du-kit: review
+  11-1-inventaire-des-composants-de-l-ancien-site: done
+  11-2-primitives-d-interface-astro: done
+  11-3-primitives-de-formulaire: done
+  11-4-états-variantes-et-contrôle-des-thèmes-du-kit: done
   11-5-règle-de-réutilisation-du-kit: review
   epic-11-retrospective: optional
 action_items:

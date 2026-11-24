@@ -1,0 +1,102 @@
+---
+import type { EnteteVue } from '../content/accueil'
+import type { ServiceVue } from '../content/sections'
+import Card from './ui/Card.astro'
+import Icone from './Icone.astro'
+import Section from './ui/Section.astro'
+import SectionTitle from './ui/SectionTitle.astro'
+
+interface Props {
+  entete: EnteteVue
+  services: ServiceVue[]
+}
+
+const { entete, services } = Astro.props
+const ICONES = ['pen-tool', 'layout-template', 'clapperboard', 'code-xml'] as const
+---
+
+<Section id="services" labelledby="services-titre" width="5xl">
+  <SectionTitle id="services-titre" mobileSize="compact">
+    {entete.titre}
+    {entete.titreMisEnAvant && <Fragment slot="highlight">{entete.titreMisEnAvant}</Fragment>}
+  </SectionTitle>
+  <ul class="services__liste">
+    {services.map((service, index) => {
+      const icone = ICONES[index % ICONES.length] ?? 'code-xml'
+      const accent = ((index % 4) + 1) as 1 | 2 | 3 | 4
+      return (
+        <Card as="li" variant="service" accent={accent}>
+          <span class="services__pastille">
+            <Icone nom={icone} taille="lg" />
+          </span>
+          <div class="services__texte">
+            <h3 class="services__titre">{service.titre}</h3>
+            <p class="services__description">{service.description}</p>
+          </div>
+          <Icone nom={icone} taille="watermark" class="services__filigrane" />
+        </Card>
+      )
+    })}
+  </ul>
+</Section>
+
+<style>
+  .services__liste {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .services__pastille {
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    width: var(--size-service-badge);
+    height: var(--size-service-badge);
+    border: var(--border-thick) var(--border-style) var(--border-color);
+    border-radius: var(--radius-xl);
+    background: var(--color-white);
+    box-shadow: var(--shadow);
+    color: var(--service-text);
+  }
+  .services__texte {
+    z-index: 10;
+    margin-top: auto;
+  }
+  .services__titre {
+    margin: 0 0 var(--space-2);
+    font-size: var(--text-2xl);
+    line-height: var(--leading-none);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+  }
+  .services__description {
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-tight);
+    font-weight: var(--font-weight-bold);
+    opacity: var(--opacity-soft);
+  }
+  .services__liste :global(.services__filigrane) {
+    position: absolute;
+    right: calc(var(--space-4) * -1);
+    bottom: calc(var(--space-4) * -1);
+    opacity: var(--opacity-watermark);
+    pointer-events: none;
+  }
+  @media (min-width: 48rem) {
+    .services__liste {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .services__titre {
+      font-size: var(--text-3xl);
+    }
+    .services__description {
+      font-size: var(--text-base);
+    }
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+import { lireSite } from '../content/site'
+import type { Locale } from '../lib/localizedPath'
+import Navbar from './Navbar.astro'
+import RobotsMeta from './RobotsMeta.astro'
+import '../styles/global.css'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const site = await lireSite(locale)
+---
+
+<html lang={locale} data-theme="pop">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <RobotsMeta />
+    <title>{site.nom}</title>
+  </head>
+  <body>
+    <a class="gabarit__evitement" href="#contenu">
+      {site.evitement}
+    </a>
+    <Navbar locale={locale} site={site} />
+    <main id="contenu" tabindex="-1">
+      <slot />
+    </main>
+    <slot name="pied" />
+  </body>
+</html>
+
+<style is:global>
+  .gabarit__evitement {
+    position: absolute;
+    width: var(--size-visually-hidden);
+    height: var(--size-visually-hidden);
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .gabarit__evitement:focus-visible {
+    z-index: calc(var(--z-nav) + 1);
+    width: auto;
+    height: auto;
+    padding: var(--space-3) var(--space-4);
+    overflow: visible;
+    clip-path: none;
+    background: var(--nav-bg);
+    color: var(--text);
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+  }
+  main:focus {
+    outline: none;
+  }
+</style>

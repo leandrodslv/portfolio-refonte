@@ -50,6 +50,8 @@ export type SectionContact = {
   _updatedAt: string
   _rev: string
   entete?: EnteteSection
+  libelleLienFormulaire?: LocalizedString
+  libelleZoneFormulaire?: LocalizedString
 }
 
 export type EnteteSection = {
@@ -72,6 +74,7 @@ export type SectionAPropos = {
       _key: string
     } & LocalizedText
   >
+  altPortrait?: LocalizedString
   libelleCv?: LocalizedString
   libelleLocalisation?: LocalizedString
   valeurLocalisation?: LocalizedString
@@ -153,6 +156,9 @@ export type Hero = {
   sousTitre?: LocalizedText
   boutonPrincipal?: LocalizedString
   boutonSecondaire?: LocalizedString
+  altVisuelPop?: LocalizedString
+  altVisuelTerminal?: LocalizedString
+  altVisuelWireframe?: LocalizedString
 }
 
 export type UiStrings = {
@@ -168,6 +174,8 @@ export type UiStrings = {
   navRecruter?: LocalizedString
   ouvrirMenu?: LocalizedString
   fermerMenu?: LocalizedString
+  allerAuContenu?: LocalizedString
+  navigationPrincipale?: LocalizedString
   parametres?: LocalizedString
   selecteurLangue?: LocalizedString
   selecteurTheme?: LocalizedString

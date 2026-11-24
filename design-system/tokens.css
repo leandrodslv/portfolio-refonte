@@ -101,6 +101,7 @@
   --ease-default: ease-in-out;
   --rotate-sticker: -3deg;
   --rotate-hover: 2deg;             /* whileHover du Hero (Framer Motion, reproduit en CSS) */
+  --rotate-menu-close: 45deg;       /* barres du bouton de menu ouvert (croix) */
   --scale-hover: 1.05;
   --scale-press: 0.95;
   --scale-card-hover: 1.02;
@@ -110,6 +111,23 @@
   --service-3: var(--color-green);
   --service-4: var(--color-yellow);
   --service-text: var(--color-black); /* texte fixe : lisible sur les quatre fonds pastel dans les trois Thèmes */
+  --skill-pink: #f9a8d4;             /* pink-300 : puces de compétence, couleurs fixes comme sur l'ancien site */
+  --skill-yellow: var(--color-yellow);
+  --skill-sky: var(--color-sky);
+  --skill-green: #86efac;            /* green-300 */
+  --skill-lilac: var(--color-lilac);
+  --skill-orange: #fdba74;           /* orange-300 */
+  --skill-red: var(--color-red-300);
+  --skill-teal: #5eead4;             /* teal-300 */
+  --skill-text: var(--color-black);
+  --size-icon-sm: 1rem;
+  --size-icon-md: 1.5rem;
+  --size-icon-lg: 2rem;
+  --size-icon-watermark: 11.25rem;   /* 180 px, grande icône en filigrane des Services */
+  --size-service-badge: 3.5rem;      /* w-14, pastille d'icône des Services */
+  --size-skills-zone: 28rem;         /* min-h-[450px] */
+  --size-skills-zone-md: 31.25rem;   /* min-h-[500px] */
+  --size-timeline-date: 14rem;       /* colonne de date de la frise, à partir de md */
 
   /* ---- Breakpoints (documentaire : non utilisables dans @media) --------- */
   --bp-sm: 640px;
@@ -130,6 +148,12 @@
   --border-color: var(--color-black);
   --border-style: solid;
   --nav-bg: var(--color-white);
+  --nav-handle-bg: var(--color-white);
+  --logo-light-display: block;
+  --logo-dark-display: none;
+  --hero-pop-display: block;
+  --hero-terminal-display: none;
+  --hero-wireframe-display: none;
   --card-bg: var(--color-white);
   --accent-1: var(--color-pink);
   --accent-2: var(--color-yellow);
@@ -154,6 +178,12 @@
   --border-color: var(--color-term-border);
   --border-style: solid;
   --nav-bg: var(--color-term-surface);
+  --nav-handle-bg: var(--color-term-bg);
+  --logo-light-display: none;
+  --logo-dark-display: block;
+  --hero-pop-display: none;
+  --hero-terminal-display: block;
+  --hero-wireframe-display: none;
   --card-bg: var(--color-term-surface);
   --accent-1: var(--color-term-surface);
   --accent-2: var(--color-term-surface);
@@ -178,6 +208,12 @@
   --border-color: var(--color-wire-line);
   --border-style: dashed;
   --nav-bg: var(--color-wire-nav);
+  --nav-handle-bg: var(--color-white);
+  --logo-light-display: block;
+  --logo-dark-display: none;
+  --hero-pop-display: none;
+  --hero-terminal-display: none;
+  --hero-wireframe-display: block;
   --card-bg: var(--color-white);
   --accent-1: transparent;
   --accent-2: transparent;
@@ -264,13 +300,26 @@
   /* ---- Opacités ---------------------------------------------------------- */
   --opacity-muted: 0.6;
   --opacity-soft: 0.8;
+  --opacity-watermark: 0.1;         /* grande icône en filigrane des Services */
   --opacity-disabled: 0.7;
   --opacity-hover: 0.8;
 
   /* ---- Dimensions -------------------------------------------------------- */
   --field-ring-shadow: 0 0 0 4px var(--color-yellow-ring); /* focus:ring-4 ring-yellow-400 */
   --size-target-min: 1.5rem;       /* WCAG 2.2 : cible d'au moins 24 px */
+  --size-logo: 2.5rem;            /* h-10, logo de la barre de navigation */
+  --size-nav-handle: 0.75rem;      /* w-3 h-3, poignées d'angle de la barre */
+  --filter-nav-shadow: drop-shadow(0.25rem 0.25rem 0 rgba(0, 0, 0, 0.1)); /* drop-shadow-[4px_4px_0_rgba(0,0,0,0.1)] */
+  --size-hero-visual: 12rem;       /* h-48, visuel du Hero sur mobile */
+  --size-hero-screen: 100vh;       /* min-h-screen, Hero à partir de md */
+  --z-nav: 40;                     /* z-40, barre de navigation */
   --size-visually-hidden: 1px;
+  --size-footer-zone: 12rem;       /* hauteur minimale de la zone réservée au formulaire */
+  --width-footer-bio: 20rem;       /* max-w-xs, bio du pied de page */
+  --text-giant: 14vw;              /* nom géant du pied de page, mobile */
+  --text-giant-md: 13.5vw;         /* nom géant du pied de page, à partir de md */
+  --footer-band-bg: var(--color-black);
+  --footer-band-text: var(--color-white);
   --size-card-media: 12rem;
   --size-card-service: 12rem;
   --size-card-service-md: 18rem;

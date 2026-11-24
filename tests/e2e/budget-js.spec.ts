@@ -9,10 +9,8 @@ test('le JavaScript transféré (brotli) de la Page d’accueil reste sous 70 Ko
   page,
 }) => {
   const tailles: number[] = []
-  const adresses: string[] = []
   page.on('response', async (reponse) => {
     if (reponse.request().resourceType() !== 'script') return
-    adresses.push(reponse.url())
     tailles.push(
       brotliCompressSync(await reponse.body(), {
         params: { [constants.BROTLI_PARAM_QUALITY]: QUALITE_BROTLI },
@@ -20,11 +18,20 @@ test('le JavaScript transféré (brotli) de la Page d’accueil reste sous 70 Ko
     )
   })
   await page.goto('/', { waitUntil: 'networkidle' })
-  await expect(page.getByRole('button', { name: /compteur/i })).toBeVisible()
+  await expect(page.getByRole('navigation')).toBeVisible()
+  const enLigne = await page.evaluate(() =>
+    [...document.scripts].filter((script) => !script.src).map((script) => script.textContent ?? ''),
+  )
+  for (const code of enLigne) {
+    tailles.push(
+      brotliCompressSync(Buffer.from(code), {
+        params: { [constants.BROTLI_PARAM_QUALITY]: QUALITE_BROTLI },
+      }).length,
+    )
+  }
   const total = tailles.reduce((somme, taille) => somme + taille, 0)
   expect(tailles.length).toBeGreaterThan(0)
   const poids = `JS initial : ${(total / 1024).toFixed(1)} Ko, budget ${BUDGET_KO} Ko`
   console.log(`${poids} (${tailles.length} fichiers)`)
   expect(total, poids).toBeLessThan(BUDGET_OCTETS)
-  expect(adresses.some((adresse) => /\/compat\.[^/]+\.js$/.test(adresse))).toBe(true)
 })

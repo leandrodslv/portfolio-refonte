@@ -16,6 +16,11 @@ export const sectionAPropos = creerSingleton({
       validation: (regle) => regle.custom(validerAuMoinsUn),
     }),
     defineField({
+      name: 'altPortrait',
+      title: 'Texte alternatif du portrait',
+      type: 'localizedString',
+    }),
+    defineField({
       name: 'libelleCv',
       title: 'Bouton « Télécharger mon CV »',
       type: 'localizedString',

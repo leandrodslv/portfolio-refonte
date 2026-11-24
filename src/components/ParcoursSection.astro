@@ -1,0 +1,116 @@
+---
+import type { EnteteVue } from '../content/accueil'
+import type { EtapeVue } from '../content/sections'
+import Icone from './Icone.astro'
+import Section from './ui/Section.astro'
+import SectionTitle from './ui/SectionTitle.astro'
+
+interface Props {
+  entete: EnteteVue
+  etapes: EtapeVue[]
+}
+
+const { entete, etapes } = Astro.props
+---
+
+<Section id="journey" labelledby="journey-titre" tone="card">
+  <SectionTitle id="journey-titre" mobileSize="compact">
+    {entete.titre}
+    {entete.titreMisEnAvant && <Fragment slot="highlight">{entete.titreMisEnAvant}</Fragment>}
+    {entete.sousTitre && <Fragment slot="subtitle">{entete.sousTitre}</Fragment>}
+  </SectionTitle>
+  <ol class="parcours__liste">
+    {etapes.map((etape, index) => (
+      <li class="parcours__etape">
+        <p
+          class:list={[
+            'parcours__periode',
+            index % 2 === 0 ? 'parcours__periode--a' : 'parcours__periode--b',
+          ]}
+        >
+          {etape.periode}
+        </p>
+        <div class="parcours__carte">
+          <h3 class="parcours__titre">{etape.titre}</h3>
+          <p class="parcours__lieu">
+            <Icone nom="graduation-cap" taille="sm" />
+            {etape.lieu}
+          </p>
+          <p class="parcours__description">{etape.description}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</Section>
+
+<style>
+  .parcours__liste {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .parcours__etape {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+  .parcours__periode {
+    display: inline-block;
+    margin: 0;
+    padding: var(--space-2) var(--space-4);
+    border: var(--border-thick) var(--border-style) var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    color: var(--skill-text);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+  }
+  .parcours__periode--a {
+    background: var(--accent-2);
+  }
+  .parcours__periode--b {
+    background: var(--accent-1);
+  }
+  .parcours__carte {
+    padding: var(--space-6);
+    border: var(--border-thick) var(--border-style) var(--border-color);
+    border-radius: var(--radius-2xl);
+    background: var(--bg);
+    box-shadow: var(--shadow);
+    color: var(--text);
+  }
+  .parcours__titre {
+    margin: 0 0 var(--space-1);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-black);
+  }
+  .parcours__lieu {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    margin: 0 0 var(--space-2);
+    font-weight: var(--font-weight-bold);
+    opacity: var(--opacity-soft);
+  }
+  .parcours__description {
+    margin: 0;
+    font-weight: var(--font-weight-medium);
+  }
+  @media (min-width: 48rem) {
+    .parcours__etape {
+      display: grid;
+      grid-template-columns: var(--size-timeline-date) 1fr;
+      gap: var(--space-6);
+      padding-inline: var(--space-12);
+    }
+    .parcours__periode {
+      justify-self: end;
+      font-size: var(--text-base);
+    }
+  }
+</style>

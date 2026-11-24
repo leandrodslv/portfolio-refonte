@@ -10,7 +10,8 @@ test('la CSP déclare script-src self sans unsafe-inline (AD-11)', async ({ page
   expect(csp).not.toContain("'unsafe-eval'")
 })
 
-test('la Page d’accueil s’hydrate sans violation CSP', async ({ page }) => {
+test('le menu mobile s’ouvre sans violation CSP', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 667 })
   const violations: string[] = []
   await page.exposeFunction('signalerViolation', (directive: string) => violations.push(directive))
   await page.addInitScript(() => {
@@ -25,9 +26,9 @@ test('la Page d’accueil s’hydrate sans violation CSP', async ({ page }) => {
   })
   const reponse = await page.goto('/', { waitUntil: 'networkidle' })
   expect(reponse?.headers()['content-security-policy']).toContain("frame-ancestors 'none'")
-  const bouton = page.getByRole('button', { name: /compteur/i })
-  await expect(bouton).toHaveAttribute('data-hydrate', 'true')
+  const bouton = page.getByRole('button', { name: /menu/i })
+  await expect(bouton).toHaveAttribute('aria-expanded', 'false')
   await bouton.click()
-  await expect(bouton).toContainText('1')
+  await expect(bouton).toHaveAttribute('aria-expanded', 'true')
   expect(violations).toEqual([])
 })
