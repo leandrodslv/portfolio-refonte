@@ -123,7 +123,7 @@ development_status:
   11-2-primitives-d-interface-astro: done
   11-3-primitives-de-formulaire: done
   11-4-états-variantes-et-contrôle-des-thèmes-du-kit: done
-  11-5-règle-de-réutilisation-du-kit: backlog
+  11-5-règle-de-réutilisation-du-kit: review
   epic-11-retrospective: optional
 action_items:
   - id: "epic-1-retro-item-1-amender-ad-7-alias-preact-compat-adopté"

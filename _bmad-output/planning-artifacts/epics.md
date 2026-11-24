@@ -429,6 +429,10 @@ afin de parcourir le Site à ma façon (FR-5).
 
 **Acceptance Criteria:**
 
+**Given** les composants d'interface de la story
+**When** je lis son code
+**Then** elle utilise les primitives de `src/components/ui/` et n'en crée aucune en double (épopée 11).
+
 **Given** la Page d'accueil
 **When** je navigue au clavier
 **Then** un lien d'évitement mène au contenu, les landmarks sont présents et le focus est visible
@@ -447,6 +451,10 @@ afin de juger en quelques secondes si ce profil mérite un échange (UJ-1).
 
 **Acceptance Criteria:**
 
+**Given** les composants d'interface de la story
+**When** je lis son code
+**Then** elle utilise les primitives de `src/components/ui/` et n'en crée aucune en double (épopée 11).
+
 **Given** le contenu migré
 **When** je charge la Page d'accueil
 **Then** le Hero et les Cartes des cinq Projets sont dans le HTML livré
@@ -464,6 +472,10 @@ afin d'évaluer le profil sans ouvrir de Fenêtre de projet (UJ-2).
 
 **Acceptance Criteria:**
 
+**Given** les composants d'interface de la story
+**When** je lis son code
+**Then** elle utilise les primitives de `src/components/ui/` et n'en crée aucune en double (épopée 11).
+
 **Given** la Page d'accueil
 **When** je la consulte sans JavaScript
 **Then** Parcours, Compétences, Services et À propos sont lisibles dans le HTML
@@ -476,6 +488,10 @@ je veux voir la Section Contact et le pied de page,
 afin de savoir comment joindre Léandro.
 
 **Acceptance Criteria:**
+
+**Given** les composants d'interface de la story
+**When** je lis son code
+**Then** elle utilise les primitives de `src/components/ui/` et n'en crée aucune en double (épopée 11).
 
 **Given** la Page d'accueil
 **When** j'atteins la Section Contact
@@ -578,6 +594,10 @@ afin de ne pas le re-choisir (FR-9).
 **Then** le Thème choisi est posé avant le premier rendu, sans flash
 **And** il est lu et écrit uniquement via `src/islands/prefs.ts` (clé `portfolio:theme`), sans cookie.
 
+**Given** un Visiteur sans choix mémorisé
+**When** il ouvre le Site
+**Then** le Thème et les modes de contraste suivent les préférences système (`prefers-color-scheme`, `prefers-contrast`, `forced-colors`).
+
 **Given** le sélecteur de Thème
 **When** je l'utilise au clavier
 **Then** il s'actionne et le Thème actif est annoncé aux lecteurs d'écran.
@@ -615,6 +635,7 @@ afin que design et code restent alignés (FR-20).
 **Given** les composants du Site
 **When** je consulte Storybook
 **Then** leurs états et variantes sont documentés.
+**And** la parité couvre aussi les composants du kit listés dans `design-system/components.md` (variantes et états).
 
 ## Epic 5 : Le Visiteur ouvre et partage un Projet
 
@@ -627,6 +648,10 @@ je veux ouvrir directement l'adresse d'un Projet,
 afin de voir sa Fenêtre de projet sans geste supplémentaire (FR-6, UJ-1).
 
 **Acceptance Criteria:**
+
+**Given** les composants d'interface de la story
+**When** je lis son code
+**Then** elle utilise les primitives de `src/components/ui/` et n'en crée aucune en double (épopée 11).
 
 **Given** `/projets/belote-kart` et `/en/projects/belote-kart`
 **When** je les ouvre
@@ -814,6 +839,10 @@ je veux envoyer un message à Léandro,
 afin de le contacter après avoir vu ses projets (FR-15, UJ-1).
 
 **Acceptance Criteria:**
+
+**Given** les composants d'interface de la story
+**When** je lis son code
+**Then** elle utilise les primitives de `src/components/ui/` et n'en crée aucune en double (épopée 11).
 
 **Given** nom, e-mail et message valides
 **When** j'envoie
@@ -1322,7 +1351,7 @@ afin que le Site ne diverge pas et que les corrections se fassent à un seul end
 
 **Given** `docs/storybook.md` et `CLAUDE.md`
 **When** je lis la règle de composition
-**Then** elle indique qu'une story des épopées 3, 5 et 7 réutilise une primitive du kit ou, à défaut, l'ajoute au kit avec son inventaire et ses stories, et ne crée jamais de composant d'interface en double
+**Then** elle indique qu'toute story ou correction qui touche l'interface réutilise une primitive du kit ou, à défaut, l'ajoute au kit avec son inventaire et ses stories, et ne crée jamais de composant d'interface en double
 **And** `design-system/README.md` renvoie vers `design-system/components.md`.
 
 **Given** la story 4.4 (parité des tokens avec Figma)
@@ -1335,4 +1364,4 @@ afin que le Site ne diverge pas et que les corrections se fassent à un seul end
 
 **Given** les stories 3.1 à 3.4, 5.1 et 7.2
 **When** leurs critères d'acceptation sont relus
-**Then** une mention « utilise les primitives du kit (épopée 11) » y est ajoutée, sans changer leurs autres critères.
+**Then** un critère Given/When/Then « utilise les primitives du kit (épopée 11) » y est ajouté, sans changer leurs autres critères.
