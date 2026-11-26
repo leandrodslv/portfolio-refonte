@@ -35,15 +35,18 @@ Chaque primitive a deux fichiers frères :
 
 `Fondations/Tokens` affiche chaque token de `design-system/tokens.css` avec sa valeur résolue dans les trois Thèmes, côte à côte : chaque Thème a son propre bloc `data-theme`, quel que soit le Thème choisi dans la barre d'outils. La liste n'est jamais recopiée : la story importe `tokens.css?raw` et la page le lit avec `src/styles/tokens-lecture.ts`.
 
-Ce module est la seule lecture de `tokens.css` : `lireTokens` (`:root` et blocs `[data-theme]`, hors `@media`), `classer`, `valeurToken`, `contrastePaire` et `PAIRES`. `kit.test.ts` l'utilise pour les contrastes.
+Ce module est la lecture structurée de `tokens.css`, partagée par la page et par `kit.test.ts` (contrastes) : `lireTokens` (`:root`, blocs `[data-theme="…"]` exacts et surcharges `@media`), `classer`, `resoudre` (y compris les `var()` à l'intérieur d'une valeur), `valeurToken`, `contrastePaire` et `PAIRES`. D'autres tests (`design-system.test.ts`, la vérification des tokens cités dans `kit.test.ts`) lisent encore le fichier par expression régulière. Le module importe `postcss` : il est réservé à Storybook et aux tests, jamais au Site.
 
 `classer` range chaque token dans une des 8 catégories (couleur, ombre, bordure, durée, espacement, typographie, dimension, effet) selon son nom ; la première règle qui correspond l'emporte. `src/fondations/fondations.test.tsx` échoue si :
 
 - un token n'a pas de catégorie : ajouter une règle dans `classer` ou renommer le token selon les préfixes existants ;
 - un token sémantique manque dans un Thème : le message nomme le Thème et le token ;
-- un token n'est pas affiché une fois par Thème sur la page.
+- un token n'est pas affiché exactement une fois par Thème, ou un bloc n'affiche pas la valeur résolue de son propre Thème ;
+- une surcharge `@media` n'est pas affichée, ou sa condition n'a pas de libellé FR et EN dans `textesFondations.preferences.conditions`.
 
-Les textes de la page sont dans `textesFondations` (`src/fixtures/ui-strings.ts`, FR et EN). Les durées, dimensions et effets n'ont pas d'échantillon animé ou visuel : seule leur valeur est affichée.
+Les tokens de `:root` qui citent un autre token (`--focus-color: var(--text)`) sont redéclarés dans chaque bloc : sans cela, le navigateur les calcule sur `<html>`, avec le Thème de la barre d'outils. La section « Préférences d'accessibilité » liste les valeurs des blocs `forced-colors`, `prefers-contrast: more` et `prefers-reduced-motion`. La langue suit la barre d'outils.
+
+Les textes de la page sont dans `textesFondations` (`src/fixtures/ui-strings.ts`, FR et EN). Les tokens gardent l'ordre du fichier, pour que les échelles se lisent dans l'ordre. Les durées, dimensions et effets n'ont pas d'échantillon animé ou visuel : seule leur valeur est affichée.
 
 ## Compatibilité Preact des bibliothèques React-only
 

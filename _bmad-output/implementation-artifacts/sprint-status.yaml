@@ -29,7 +29,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 # - Retrospective appends its action items to action_items; the status view surfaces open ones
 generated: 11-19-2026 23:32
-last_updated: 11-24-2026 10:00
+last_updated: 11-26-2026 22:30
 project: refonte portfolio
 project_key: NOKEY
 tracking_system: file-system
@@ -112,7 +112,7 @@ development_status:
   10-1-storybook-aligné-sur-la-production-preact: done
   10-2-thèmes-langues-et-accessibilité-dans-la-barre-d-outils: done
   10-3-rendu-des-composants-astro-dans-storybook-décision: done
-  10-4-page-fondations-générée-depuis-les-tokens: review
+  10-4-page-fondations-générée-depuis-les-tokens: done
   10-5-une-story-par-état-pour-chaque-composant-et-îlot: backlog
   10-6-storybook-dans-la-ci-et-consultable-en-ligne: backlog
   10-7-documentation-et-règle-de-livraison: backlog

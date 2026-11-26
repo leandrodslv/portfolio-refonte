@@ -36,6 +36,16 @@ export const textesFondations: Record<Locale, TextesFondations> = {
       effet: 'Effets et visibilité',
     },
     themes: { pop: 'Pop', terminal: 'Terminal', wireframe: 'Wireframe' },
+    preferences: {
+      titre: 'Préférences d’accessibilité',
+      intro:
+        'Valeurs qui remplacent les tokens ci-dessus quand le visiteur active une préférence du système, dans les trois Thèmes.',
+      conditions: {
+        '(forced-colors: active)': 'Couleurs forcées',
+        '(prefers-contrast: more)': 'Contraste renforcé',
+        '(prefers-reduced-motion: reduce)': 'Mouvement réduit',
+      },
+    },
   },
   en: {
     titre: 'Foundations',
@@ -52,5 +62,15 @@ export const textesFondations: Record<Locale, TextesFondations> = {
       effet: 'Effects and visibility',
     },
     themes: { pop: 'Pop', terminal: 'Terminal', wireframe: 'Wireframe' },
+    preferences: {
+      titre: 'Accessibility preferences',
+      intro:
+        'Values that replace the tokens above when the visitor turns on a system preference, in all three Themes.',
+      conditions: {
+        '(forced-colors: active)': 'Forced colours',
+        '(prefers-contrast: more)': 'Increased contrast',
+        '(prefers-reduced-motion: reduce)': 'Reduced motion',
+      },
+    },
   },
 }

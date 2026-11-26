@@ -2,9 +2,9 @@
 title: 'Story 10.4 : Page Fondations générée depuis les tokens'
 type: 'feature'
 created: '2026-11-24'
-status: 'review'
+status: 'done'
 route: 'dispatch'
-review_loop_iteration: 0
+review_loop_iteration: 1
 context:
   - '{project-root}/docs/storybook.md'
   - '{project-root}/docs/TESTING-RULES.md'
@@ -61,6 +61,35 @@ context:
 - Given un token ajouté ou renommé, when `npm test` s'exécute, then un test signale le token absent de la page ou d'un Thème
 - Given la page, when `npm run test:stories` s'exécute, then axe passe ou l'écart est consigné
 - Given le dépôt, when `npm test`, `npm run lint`, `npm run typecheck` s'exécutent, then tout est vert
+
+### Review Findings
+
+- [x] [Review][Decision] Surcharges `@media` absentes de la page — résolu (Léandro, 2026-11-26) : section « Préférences d'accessibilité » ajoutée, devenue un patch. — `lireTokens` ignore les blocs `forced-colors`, `prefers-contrast: more` et `prefers-reduced-motion` : les valeurs de `--focus-color`, `--border-hairline`, `--opacity-*`, `--focus-width`, `--duration-*` sous ces préférences n'apparaissent nulle part, alors que l'intro annonce « chaque token avec sa valeur résolue ».
+- [x] [Review][Patch] Le test « une fois par Thème » ne compte que `--bg` : boucler sur tous les tokens [src/fondations/fondations.test.tsx:62]
+- [x] [Review][Patch] Aucun test ne vérifie la valeur résolue affichée par Thème (un bloc pourrait recevoir les valeurs de pop) [src/fondations/fondations.test.tsx]
+- [x] [Review][Patch] `--focus-color: var(--text)` est calculé sur `:root` : sa pastille suit le Thème de la barre d'outils, pas celui du bloc [src/fondations/Fondations.tsx]
+- [x] [Review][Patch] Nombre de blocs codé en dur (8) au lieu de `CATEGORIES.length` [src/fondations/fondations.test.tsx:72]
+- [x] [Review][Patch] Tri alphabétique qui casse les échelles (`--space-12` avant `--space-2`) : garder l'ordre du fichier [src/fondations/Fondations.tsx]
+- [x] [Review][Patch] `docs/storybook.md` dit « seule lecture de `tokens.css` » alors que `design-system.test.ts` et `kit.test.ts` la lisent encore par regex ; la PR dit tous les garde-fous prouvés sur CSS d'essai [docs/storybook.md]
+- [x] [Review][Patch] La story ignore la langue de la barre d'outils (`lang="en"` avec texte FR) [src/fondations/Fondations.stories.tsx]
+- [x] [Review][Patch] Valeur composée non résolue (`--field-ring-shadow`) [src/styles/tokens-lecture.ts]
+- [x] [Review][Patch] Échantillon `filter` reconnu par le nom `--filter-nav-shadow` au lieu de la valeur [src/fondations/Fondations.tsx]
+- [x] [Review][Patch] Sélecteur `data-theme` non ancré : `[data-theme="pop"] .x` serait fusionné au Thème [src/styles/tokens-lecture.ts]
+- [x] [Review][Defer] axe sur `Fondations/Tokens` hors CI [.github/workflows/ci.yml] — deferred: `test:stories` n'est pas dans la CI, câblage prévu en story 10.6 (déjà consigné depuis la 11.4)
+
+Rejetés :
+- false — marge `0` rend une barre invisible : `0` est la vraie valeur ; aucun token d'espacement à deux valeurs.
+- false — `resoudre` qui lève une erreur fait planter la story : échec bruyant voulu sur un token cassé.
+- false — couleurs non hex ou `transparent` donnent NaN : le test de contraste échoue alors avec le ratio dans son message.
+- false — `--filter-nav-shadow` n'existe pas : déclaré `tokens.css:312`.
+- false — test de contraste supprimé : `kit.test.ts` le fait sur les mêmes `PAIRES`.
+- false — `solid` littéral : mot-clé, même usage dans toutes les primitives du kit, accepté par stylelint.
+- false — axe jamais exécuté : `test:stories` lancé en local sur `src/fondations`, 3 stories vertes (le manque en CI est reporté).
+- rejeté — 8 catégories au lieu de 5 : validé par Léandro le 2026-11-26 ; le corriger reviendrait à modifier la spec.
+- low — `--width-footer-bio` réutilisé pour la grille : n'affecte qu'une page Storybook ; la correction exige un nouveau token.
+- low — fixture qui importe un type depuis `Fondations`, `postcss` dans `src/styles/` : import de type sans effet à l'exécution, aucun import par le Site.
+- low — noms de Thème avec tiret ou guillemets simples : aucun dans `tokens.css` (couvert au passage par l'ancrage du sélecteur).
+- low — cas limites du composant non testés (Thème absent, token dans la mauvaise section) : échec bruyant pour le premier, hypothétique pour le second.
 
 ## Implementation Notes
 

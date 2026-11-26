@@ -1,10 +1,11 @@
-import postcss from 'postcss'
+import postcss, { type Rule } from 'postcss'
 
 export type Variables = Map<string, string>
 
 export interface Tokens {
   racine: Variables
   themes: Map<string, Variables>
+  preferences: Map<string, Variables>
 }
 
 export const CATEGORIES = [
@@ -38,19 +39,29 @@ export function classer(nom: string): Categorie | undefined {
 export function lireTokens(css: string): Tokens {
   const racine: Variables = new Map()
   const themes = new Map<string, Variables>()
-  for (const noeud of postcss.parse(css).nodes) {
-    if (noeud.type !== 'rule') continue
-    const nom = /data-theme="(\w+)"/.exec(noeud.selector)?.[1]
-    let cible = racine
-    if (nom) {
-      cible = themes.get(nom) ?? new Map<string, string>()
-      themes.set(nom, cible)
-    } else if (noeud.selector !== ':root') continue
-    noeud.walkDecls(/^--/, (decl) => {
+  const preferences = new Map<string, Variables>()
+  const lire = (regle: Rule, cible: Variables) => {
+    regle.walkDecls(/^--/, (decl) => {
       cible.set(decl.prop, decl.value)
     })
   }
-  return { racine, themes }
+  for (const noeud of postcss.parse(css).nodes) {
+    if (noeud.type === 'atrule' && noeud.name === 'media') {
+      const cible = preferences.get(noeud.params) ?? new Map<string, string>()
+      preferences.set(noeud.params, cible)
+      noeud.walkRules(':root', (regle) => lire(regle, cible))
+      continue
+    }
+    if (noeud.type !== 'rule') continue
+    const selecteur = noeud.selector.trim()
+    const nom = /^\[data-theme="([\w-]+)"\]$/.exec(selecteur)?.[1]
+    if (nom) {
+      const cible = themes.get(nom) ?? new Map<string, string>()
+      themes.set(nom, cible)
+      lire(noeud, cible)
+    } else if (selecteur === ':root') lire(noeud, racine)
+  }
+  return { racine, themes, preferences }
 }
 
 export function resoudre(
@@ -60,11 +71,11 @@ export function resoudre(
   profondeur = 0,
 ): string {
   if (profondeur > 10) throw new Error(`Référence circulaire : ${valeur}`)
-  const ref = /^var\((--[\w-]+)\)$/.exec(valeur.trim())
-  if (!ref) return valeur.trim()
-  const suivante = theme.get(ref[1]) ?? racine.get(ref[1])
-  if (suivante === undefined) throw new Error(`Token absent : ${ref[1]}`)
-  return resoudre(suivante, theme, racine, profondeur + 1)
+  return valeur.trim().replace(/var\((--[\w-]+)\)/g, (_tout, nom: string) => {
+    const suivante = theme.get(nom) ?? racine.get(nom)
+    if (suivante === undefined) throw new Error(`Token absent : ${nom}`)
+    return resoudre(suivante, theme, racine, profondeur + 1)
+  })
 }
 
 export function valeurToken(nom: string, theme: Variables, racine: Variables): string {

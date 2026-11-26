@@ -115,3 +115,7 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-3-3-sections-parcours-competences-services-et-a-propos.md`
   summary: réafficher le sous-titre « Glissez-déposez pour jouer ! » des Compétences quand les puces seront déplaçables (épopée 6).
   evidence: la consigne est masquée en 3.3 car aucune interaction n'existe encore.
+
+## Deferred from: code review of spec-10-4-page-fondations-generee-depuis-les-tokens.md (2026-11-26)
+
+- axe sur la page `Fondations/Tokens` n'est vérifié qu'en local : `npm run test:stories` n'est pas dans la CI ; à câbler en story 10.6.

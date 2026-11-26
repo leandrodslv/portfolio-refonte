@@ -8,6 +8,9 @@ const meta = {
   component: Fondations,
   args: { css: tokensCss, textes: textesFondations.fr },
   parameters: { layout: 'padded' },
+  render: (args, { globals }) => (
+    <Fondations {...args} textes={textesFondations[globals.locale === 'en' ? 'en' : 'fr']} />
+  ),
 } satisfies Meta<typeof Fondations>
 
 export default meta
@@ -16,7 +19,6 @@ type Story = StoryObj<typeof meta>
 export const Francais: Story = {}
 
 export const Anglais: Story = {
-  args: { textes: textesFondations.en },
   globals: { locale: 'en' },
 }
 

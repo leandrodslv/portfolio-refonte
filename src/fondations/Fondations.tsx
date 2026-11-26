@@ -17,6 +17,7 @@ export type TextesFondations = {
   apercuTypo: string
   categories: Record<Categorie, string>
   themes: Record<Theme, string>
+  preferences: { titre: string; intro: string; conditions: Record<string, string> }
 }
 
 type Props = { css: string; textes: TextesFondations }
@@ -28,7 +29,7 @@ const echantillonBase: CSSProperties = {
   border: 'var(--border-thin) solid var(--text)',
 }
 
-function echantillon(categorie: Categorie, nom: string): CSSProperties | undefined {
+function echantillon(categorie: Categorie, nom: string, valeur: string): CSSProperties | undefined {
   const v = `var(${nom})`
   switch (categorie) {
     case 'couleur':
@@ -37,7 +38,7 @@ function echantillon(categorie: Categorie, nom: string): CSSProperties | undefin
       return {
         ...echantillonBase,
         background: 'var(--card-bg)',
-        ...(nom === '--filter-nav-shadow' ? { filter: v } : { boxShadow: v }),
+        ...(valeur.startsWith('drop-shadow(') ? { filter: v } : { boxShadow: v }),
       }
     case 'bordure':
       if (/radius/.test(nom)) return { ...echantillonBase, borderRadius: v }
@@ -73,7 +74,8 @@ function Ligne({
   racine: Variables
   apercu: string
 }) {
-  const style = echantillon(categorie, nom)
+  const valeur = valeurToken(nom, theme, racine)
+  const style = echantillon(categorie, nom, valeur)
   const typo = categorie === 'typographie' ? apercuTypo(nom) : undefined
   return (
     <li
@@ -96,20 +98,23 @@ function Ligne({
           {nom}
         </code>
         <br />
-        <span style={{ fontSize: 'var(--text-sm)' }}>{valeurToken(nom, theme, racine)}</span>
+        <span style={{ fontSize: 'var(--text-sm)' }}>{valeur}</span>
       </span>
     </li>
   )
 }
 
 export function Fondations({ css, textes }: Props) {
-  const { racine, themes } = lireTokens(css)
+  const { racine, themes, preferences } = lireTokens(css)
   const noms = [
     ...new Set([...racine.keys(), ...[...themes.values()].flatMap((t) => [...t.keys()])]),
   ]
   const parCategorie = new Map<Categorie, string[]>(
-    CATEGORIES.map((c) => [c, noms.filter((n) => classer(n) === c).sort()]),
+    CATEGORIES.map((c) => [c, noms.filter((n) => classer(n) === c)]),
   )
+  // Un token de :root qui cite un token de Thème est calculé sur <html> : on le redéclare
+  // dans chaque bloc pour qu'il suive le Thème local et non celui de la barre d'outils.
+  const recalcules = Object.fromEntries([...racine].filter(([, valeur]) => valeur.includes('var(')))
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
@@ -150,6 +155,7 @@ export function Fondations({ css, textes }: Props) {
                     fontFamily: 'var(--font)',
                     border: 'var(--border-thin) var(--border-style) var(--border-color)',
                     borderRadius: 'var(--radius-base)',
+                    ...recalcules,
                   }}
                 >
                   <h3 style={{ fontSize: 'var(--text-lg)', fontWeight: 'var(--font-weight-bold)' }}>
@@ -173,6 +179,46 @@ export function Fondations({ css, textes }: Props) {
           </div>
         </section>
       ))}
+      <section aria-labelledby="fondations-preferences" data-section="preferences">
+        <h2
+          id="fondations-preferences"
+          style={{ fontSize: 'var(--text-2xl)', fontWeight: 'var(--font-weight-bold)' }}
+        >
+          {textes.preferences.titre}
+        </h2>
+        <p>{textes.preferences.intro}</p>
+        {[...preferences].map(([condition, vars]) => (
+          <div key={condition} style={{ marginTop: 'var(--space-4)' }}>
+            <h3 style={{ fontSize: 'var(--text-lg)', fontWeight: 'var(--font-weight-bold)' }}>
+              {textes.preferences.conditions[condition] ?? condition}{' '}
+              <code style={{ fontFamily: 'var(--font-mono)' }}>{condition}</code>
+            </h3>
+            <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+              {[...vars].map(([nom, valeur]) => (
+                <li
+                  key={nom}
+                  style={{
+                    paddingBlock: 'var(--space-2)',
+                    borderBottom: 'var(--border-hairline) solid var(--border-color)',
+                    overflowWrap: 'anywhere',
+                  }}
+                >
+                  <code
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 'var(--font-weight-bold)',
+                    }}
+                  >
+                    {nom}
+                  </code>
+                  <br />
+                  <span style={{ fontSize: 'var(--text-sm)' }}>{valeur}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
     </div>
   )
 }
