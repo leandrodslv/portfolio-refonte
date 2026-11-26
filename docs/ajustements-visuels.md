@@ -23,3 +23,7 @@ Ils ne sont pas mesurés par le test de contraste ; ils sont consignés pour l'a
 ## Formulaires (story 11.3)
 
 Aucun écart de contraste : repos, erreur et page sont à 4,5:1 ou plus sous les trois Thèmes (test `kit.test.ts`). L'état désactivé (`--opacity-disabled`) est exempté du critère de contraste (WCAG 1.4.3). Le rouge d'erreur (`--color-red-700`, `--color-red-300` sous Terminal), la case à cocher et la bordure en pointillés sont de nouveaux éléments : l'ancien site n'avait ni erreur ni case à cocher.
+
+## Page Fondations (story 10.4)
+
+Aucun écart : la page Storybook `Fondations/Tokens` passe axe sans exception, sous les trois Thèmes. Les échantillons sont décoratifs (`aria-hidden`) ; le texte de chaque bloc suit la paire `texte` (`--text` sur `--bg`) de son Thème.
