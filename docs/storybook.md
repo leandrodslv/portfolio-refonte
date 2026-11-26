@@ -31,6 +31,20 @@ Chaque primitive a deux fichiers frères :
 
 Écarts de contraste Terminal conservés par fidélité : le contrôle `color-contrast` est désactivé dans les stories Button et Select (voir `docs/ajustements-visuels.md`).
 
+## Page Fondations (`src/fondations/`)
+
+`Fondations/Tokens` affiche chaque token de `design-system/tokens.css` avec sa valeur résolue dans les trois Thèmes, côte à côte : chaque Thème a son propre bloc `data-theme`, quel que soit le Thème choisi dans la barre d'outils. La liste n'est jamais recopiée : la story importe `tokens.css?raw` et la page le lit avec `src/styles/tokens-lecture.ts`.
+
+Ce module est la seule lecture de `tokens.css` : `lireTokens` (`:root` et blocs `[data-theme]`, hors `@media`), `classer`, `valeurToken`, `contrastePaire` et `PAIRES`. `kit.test.ts` l'utilise pour les contrastes.
+
+`classer` range chaque token dans une des 8 catégories (couleur, ombre, bordure, durée, espacement, typographie, dimension, effet) selon son nom ; la première règle qui correspond l'emporte. `src/fondations/fondations.test.tsx` échoue si :
+
+- un token n'a pas de catégorie : ajouter une règle dans `classer` ou renommer le token selon les préfixes existants ;
+- un token sémantique manque dans un Thème : le message nomme le Thème et le token ;
+- un token n'est pas affiché une fois par Thème sur la page.
+
+Les textes de la page sont dans `textesFondations` (`src/fixtures/ui-strings.ts`, FR et EN). Les durées, dimensions et effets n'ont pas d'échantillon animé ou visuel : seule leur valeur est affichée.
+
 ## Compatibilité Preact des bibliothèques React-only
 
 À compléter avant le premier usage d'une bibliothèque dans un îlot.

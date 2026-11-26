@@ -1,8 +1,8 @@
 import { readFileSync, readdirSync } from 'node:fs'
-import postcss from 'postcss'
 import stylelint from 'stylelint'
 import { describe, expect, it } from 'vitest'
 import configStylelint from '../../../stylelint.config.mjs'
+import { PAIRES, contrastePaire, lireTokens } from '../../styles/tokens-lecture'
 
 const racine = new URL('../../../', import.meta.url)
 const lire = (chemin: string) => readFileSync(new URL(chemin, racine), 'utf8')
@@ -13,61 +13,7 @@ const tokensCss = lire('design-system/tokens.css')
 const inventaire = lire('design-system/components.md')
 const ajustements = lire('docs/ajustements-visuels.md')
 
-type Variables = Map<string, string>
-const racineVars: Variables = new Map()
-const themes = new Map<string, Variables>()
-
-for (const noeud of postcss.parse(tokensCss).nodes) {
-  if (noeud.type !== 'rule') continue
-  const nom = /data-theme="(\w+)"/.exec(noeud.selector)?.[1]
-  let cible = racineVars
-  if (nom) {
-    cible = themes.get(nom) ?? new Map<string, string>()
-    themes.set(nom, cible)
-  } else if (noeud.selector !== ':root') continue
-  noeud.walkDecls(/^--/, (decl) => {
-    cible.set(decl.prop, decl.value)
-  })
-}
-
-function resoudre(valeur: string, theme: Variables, profondeur = 0): string {
-  if (profondeur > 10) throw new Error(`Référence circulaire : ${valeur}`)
-  const ref = /^var\((--[\w-]+)\)$/.exec(valeur.trim())
-  if (!ref) return valeur.trim()
-  const suivante = theme.get(ref[1]) ?? racineVars.get(ref[1])
-  if (suivante === undefined) throw new Error(`Token absent : ${ref[1]}`)
-  return resoudre(suivante, theme, profondeur + 1)
-}
-
-function luminance(hex: string): number {
-  const canaux = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255)
-  const [r, g, b] = canaux.map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4))
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b
-}
-
-function contraste(a: string, b: string): number {
-  const [clair, sombre] = [luminance(a), luminance(b)].sort((x, y) => y - x)
-  return (clair + 0.05) / (sombre + 0.05)
-}
-
-const PAIRES = [
-  ['texte', '--text', '--bg'],
-  ['carte', '--text', '--card-bg'],
-  ['bouton-principal', '--button-primary-text', '--button-primary-bg'],
-  ['bouton-principal-survol', '--button-primary-text', '--button-primary-hover-bg'],
-  ['bouton-secondaire', '--button-secondary-text', '--button-secondary-bg'],
-  ['autocollant', '--sticker-text', '--sticker-bg'],
-  ['etiquette', '--tag-text', '--tag-bg'],
-  ['badge-accroche', '--text', '--accent-1'],
-  ['selecteur', '--text', '--select-bg'],
-  ['carte-service-1', '--service-text', '--service-1'],
-  ['carte-service-2', '--service-text', '--service-2'],
-  ['carte-service-3', '--service-text', '--service-3'],
-  ['carte-service-4', '--service-text', '--service-4'],
-  ['champ', '--text', '--nav-bg'],
-  ['erreur-champ', '--error-color', '--nav-bg'],
-  ['erreur-page', '--error-color', '--bg'],
-] as const
+const { racine: racineVars, themes } = lireTokens(tokensCss)
 
 describe('kit UI : tokens', () => {
   it.each(composants)('%s ne cite que des tokens existants', (fichier) => {
@@ -92,10 +38,7 @@ describe('kit UI : contrastes par Thème', () => {
     (theme, nom, texte, fond) => {
       const vars = themes.get(theme)
       if (!vars) throw new Error(`Thème absent : ${theme}`)
-      const fondRes = resoudre(vars.get(fond) ?? racineVars.get(fond) ?? '', vars)
-      const fondFinal = fondRes === 'transparent' ? resoudre(vars.get('--bg') ?? '', vars) : fondRes
-      const texteRes = resoudre(vars.get(texte) ?? racineVars.get(texte) ?? '', vars)
-      const ratio = contraste(texteRes, fondFinal)
+      const ratio = contrastePaire(texte, fond, vars, racineVars)
       if (ratio >= 4.5) return
       expect(ajustements, `${theme}/${nom} : ${ratio.toFixed(2)}:1`).toContain(`${theme}/${nom}`)
     },
